@@ -51,7 +51,29 @@ export async function makePartsRenderer(){const atlas=await fetch(new URL('./ass
  g.addColorStop(0,`rgb(${color.map(v=>Math.min(255,v+5)).join(',')})`);g.addColorStop(1,`rgb(${color.map(v=>Math.max(0,v-5)).join(',')})`);
  wx.fillStyle=g;wx.beginPath();wx.ellipse(cx,cy,radius,radius,0,0,Math.PI*2);wx.fill();
  }
- function drawEye(e,style,color,l,p,side){const tilt=l.tilt||0,x=e.x+l.width*p.eyeX*(side===0?-1:1),y=e.y+l.height*p.eyeY,w=l.width*(style==='dot'?.058:.115)*p.eyeSize,h=w*(style==='ring'?1.15:1);wx.save();wx.translate(x,y);wx.rotate(tilt);const gradient=wx.createLinearGradient(0,-h/2,0,h/2);gradient.addColorStop(0,color);gradient.addColorStop(1,color);wx.strokeStyle=gradient;wx.fillStyle=gradient;wx.lineWidth=Math.max(2,l.width*.012*p.eyeSize);wx.lineCap='round';wx.lineJoin='round';wx.beginPath();if(style==='ring'){wx.ellipse(0,0,w*.5,h*.5,0,0,Math.PI*2);wx.stroke();wx.beginPath();wx.moveTo(-w*.45,-h*.04);wx.quadraticCurveTo(0,h*.20,w*.45,-h*.04);wx.stroke()}else if(style==='dot'){wx.ellipse(0,0,w*.46,h*.6,0,0,Math.PI*2);wx.fill();wx.fillStyle='#fff';wx.globalAlpha=.8;wx.beginPath();wx.ellipse(-w*.13,-h*.2,w*.12,h*.12,0,0,Math.PI*2);wx.fill()}else if(style==='wink'){wx.moveTo(-w*.40,-h*.30);wx.lineTo(w*.32,0);wx.lineTo(-w*.40,h*.30);wx.stroke()}else if(style==='sparkle'){wx.moveTo(0,-h*.62);wx.quadraticCurveTo(w*.10,-h*.10,w*.46,0);wx.quadraticCurveTo(w*.10,h*.10,0,h*.62);wx.quadraticCurveTo(-w*.10,h*.10,-w*.46,0);wx.quadraticCurveTo(-w*.10,-h*.10,0,-h*.62);wx.fill()}else if(style==='heart'){wx.moveTo(0,h*.43);wx.bezierCurveTo(-w,-h*.1,-w*.35,-h*.8,0,-h*.25);wx.bezierCurveTo(w*.35,-h*.8,w,-h*.1,0,h*.43);wx.fill()}else {const s=style==='happy'?-1:1;wx.moveTo(-w*.48,0);wx.quadraticCurveTo(0,s*h*.58,w*.48,0);wx.stroke()}wx.restore()}
+ function drawEye(e,style,color,l,p,side){const tilt=l.tilt||0,x=e.x+l.width*p.eyeX*(side===0?-1:1),y=e.y+l.height*p.eyeY,w=l.width*(style==='dot'?.058:.115)*p.eyeSize,h=w*(style==='ring'?1.15:1);wx.save();wx.translate(x,y);wx.rotate(tilt);const gradient=wx.createLinearGradient(0,-h/2,0,h/2);gradient.addColorStop(0,color);gradient.addColorStop(1,color);wx.strokeStyle=gradient;wx.fillStyle=gradient;wx.lineWidth=Math.max(2,l.width*.012*p.eyeSize);wx.lineCap='round';wx.lineJoin='round';wx.beginPath();if(style==='ring'){wx.ellipse(0,0,w*.5,h*.5,0,0,Math.PI*2);wx.stroke();wx.beginPath();wx.moveTo(-w*.45,-h*.04);wx.quadraticCurveTo(0,h*.20,w*.45,-h*.04);wx.stroke()}else if(style==='dot'){wx.ellipse(0,0,w*.46,h*.6,0,0,Math.PI*2);wx.fill();wx.fillStyle='#fff';wx.globalAlpha=.8;wx.beginPath();wx.ellipse(-w*.13,-h*.2,w*.12,h*.12,0,0,Math.PI*2);wx.fill()}else if(style==='wink'){
+ // One closed eyelid with an outer lash, rather than a floating > symbol.
+ wx.lineWidth=Math.max(2,l.width*.010*p.eyeSize);
+ wx.moveTo(-w*.43,h*.04);wx.bezierCurveTo(-w*.22,-h*.17,w*.15,-h*.17,w*.43,h*.04);wx.stroke();
+ const outer=side===0?-1:1;
+ wx.beginPath();wx.moveTo(outer*w*.37,h*.005);wx.quadraticCurveTo(outer*w*.49,-h*.02,outer*w*.52,-h*.13);wx.stroke();
+ }else if(style==='sparkle'){
+ // The sparkle lives inside an iris: a continuous oval silhouette reads as
+ // an eye even at the small workshop preview size.
+ const rgb=color.slice(1).match(/../g).map(v=>parseInt(v,16));
+ const shade=f=>'rgb('+rgb.map(v=>Math.round(clamp(v*f,0,255))).join(',')+')';
+ const iris=wx.createLinearGradient(0,-h*.53,0,h*.53);
+ iris.addColorStop(0,shade(.70));iris.addColorStop(.6,color);iris.addColorStop(1,shade(1.30));
+ wx.beginPath();wx.ellipse(0,0,w*.40,h*.53,0,0,Math.PI*2);wx.fillStyle=iris;wx.fill();
+ wx.strokeStyle=shade(.68);wx.lineWidth=Math.max(1.4,w*.045);wx.stroke();
+ wx.save();wx.clip();
+ wx.fillStyle=shade(.52);wx.beginPath();wx.ellipse(w*.02,h*.07,w*.17,h*.28,0,0,Math.PI*2);wx.fill();
+ wx.fillStyle='#fffaf3';wx.beginPath();wx.ellipse(-w*.13,-h*.22,w*.135,h*.145,-.35,0,Math.PI*2);wx.fill();
+ wx.fillStyle='#fff1cf';wx.beginPath();
+ const sx=w*.17,sy=h*.23,r=w*.115;
+ wx.moveTo(sx,sy-r);wx.quadraticCurveTo(sx+r*.25,sy-r*.25,sx+r,sy);wx.quadraticCurveTo(sx+r*.25,sy+r*.25,sx,sy+r);wx.quadraticCurveTo(sx-r*.25,sy+r*.25,sx-r,sy);wx.quadraticCurveTo(sx-r*.25,sy-r*.25,sx,sy-r);wx.fill();
+ wx.restore();
+ }else if(style==='heart'){wx.moveTo(0,h*.43);wx.bezierCurveTo(-w,-h*.1,-w*.35,-h*.8,0,-h*.25);wx.bezierCurveTo(w*.35,-h*.8,w,-h*.1,0,h*.43);wx.fill()}else {const s=style==='happy'?-1:1;wx.moveTo(-w*.48,0);wx.quadraticCurveTo(0,s*h*.58,w*.48,0);wx.stroke()}wx.restore()}
  return {atlas,thumbnail(name){if(name==='roundEar')name='roundNear';const a=partAsset(name,'starlight',{});return a.canvas.toDataURL()},render(source,l,raw,palette={},character='starlight',rawSource=null){
  const p=normalizeParts(raw);if(originalParts(p)||!l)return source;wx.clearRect(0,0,640,640);wx.drawImage(source,0,0);const image=wx.getImageData(0,0,640,640);let hash=2166136261;const words=new Uint32Array(image.data.buffer);for(let i=0;i<words.length;i++)hash=Math.imul(hash^words[i],16777619);const frameKey=character+'/'+l.motion+'/'+(hash>>>0)+'/'+JSON.stringify(p)+'/'+JSON.stringify(palette);if(frameCache.has(frameKey))return frameCache.get(frameKey);const a=image.data,originalPixels=image.data.slice(),rawPixels=rawSource?rawSource.getContext('2d').getImageData(0,0,640,640).data:originalPixels,w=l.width,h=l.height,bodyH=Math.max(28,l.bottom-l.neck),tilt=clamp(l.tilt||0,-.18,.18),bodyX=l.cx;
  // Use a stable crown instead of fitting to the old ears (which left pose-specific stumps).
