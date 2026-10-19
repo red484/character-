@@ -1,0 +1,26 @@
+2026-10-19: Picrew-style independent customization expansion
+
+New options: 3 nose shapes (+ original/none), 4 mouths (+ original/none),
+3 cheek marks (+ none); independent colors and sizes. Left/right eye size.
+Second head ornament now has independent size, x/y, rotation and color.
+Selection buttons render previews using the same drawing code as the character.
+Each adjustment has a numeric readout and its own reset.
+
+Browser checks:
+- 36 source poses: 6 characters x idle/walk/sit/lie/greet/special.
+- Original defaults match source pixels in all 36 cases.
+- heartNose/catMouth/freckles visibly change all 36 samples.
+- All 36 preserve source alpha exactly; see report.json/contact.png.
+- Contact sheet visually checked, including Bear lie and Starlight profile.
+- Walking layered example exported through PNG/config UI; new fields present.
+- These are representative pose checks, not exhaustive validation of all
+  possible combinations, colors, sizes, animation instants, or unseen poses.
+- Profile-added mouths are hidden when occluded; facial features are only
+  replaced when a source feature can be identified. Eye/ear replacement seam
+  limitations described by the existing workshop remain.
+
+Unit checks: parts-schema.test, face-custom.test, parts-renderer.test,
+accessory-layout.test, custom-schema.test passed. Static build passed.
+Three.js renderer SHA-256 unchanged:
+a64dddb3c670da4a7d3fc611ef882a6062e2250b05ec3e9153300f2fa8b88d4a
+Internal workshop only; no public service deployment.

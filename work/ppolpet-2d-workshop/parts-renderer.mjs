@@ -1,13 +1,14 @@
+import {faceAnchors,repairFeature,drawFace} from './face-custom.mjs?v=1';
 import {accessoryLayout} from './accessory-layout.mjs?v=5';
 import {makeWalkTailMask} from './walk-tail-mask.mjs?v=4';
 import {fitScalpShade,repairEarRoot,earAttachment,fitCloudSkin,cloudEarMask} from './ear-surface.mjs?v=12';
-import {normalizeParts,originalParts} from './parts-schema.mjs?v=custom-v26';
+import {normalizeParts,originalParts} from './parts-schema.mjs?v=custom-v28';
 import {recolorPixels,furColors,rgbToHsl} from './palette.mjs?v=custom-colors-5';
 const canvas=(w=640,h=w)=>Object.assign(document.createElement('canvas'),{width:w,height:h});
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 export function isCheekPixel(r,g,b,character){return character==='angel'?(r>210&&g>140&&r-g>18&&r-b>18&&b>g*.96):(character!=='bear'&&r-g>35&&r-b>24&&b>g*1.03);}
 function smooth(a,b,v){const t=clamp((v-a)/(b-a),0,1);return t*t*(3-2*t)}
-export async function makePartsRenderer(){const atlas=await fetch(new URL('./assets/parts-atlas.json',import.meta.url)).then(r=>r.json()),im=new Image();im.src=new URL(atlas.src,import.meta.url);await im.decode();const joined=new Image();joined.src=new URL('./assets/joined-parts-v2.png',import.meta.url);await joined.decode();const joinedRects={roundNear:[113,97,487,484],roundFar:[859,113,439,469],tailJoined:[1463,104,644,504]};const removeWalkTail=makeWalkTailMask();const out=canvas(),work=canvas(),wx=work.getContext('2d',{willReadFrequently:true}),ctx=out.getContext('2d'),cache=new Map(),frameCache=new Map();
+export async function makePartsRenderer(){const atlas=await fetch(new URL('./assets/parts-atlas.json',import.meta.url)).then(r=>r.json()),im=new Image();im.src=new URL(atlas.src,import.meta.url);await im.decode();const joined=new Image();joined.src=new URL('./assets/joined-parts-v2.png',import.meta.url);await joined.decode();const joinedRects={roundNear:[113,97,487,484],roundFar:[859,113,439,469],tailJoined:[1463,104,644,504]};const removeWalkTail=makeWalkTailMask();const faceLayer=canvas(),faceCtx=faceLayer.getContext('2d'),out=canvas(),work=canvas(),wx=work.getContext('2d',{willReadFrequently:true}),ctx=out.getContext('2d'),cache=new Map(),frameCache=new Map();
  function partAsset(name,character,palette){const isFur=['cat','roundEar','roundNear','roundFar','tailJoined','bunny','floppy','roundTail','curved','cloudTail'].includes(name),color=isFur?(palette.fur||furColors[character]):(palette.gold||'#b5a2d8');const key=name+'/'+color+'/'+(palette.pink||'');if(cache.has(key))return cache.get(key);const c=canvas(),x=c.getContext('2d',{willReadFrequently:true}),r=joinedRects[name]||atlas.rects[name],scale=Math.min(600/r[2],600/r[3]);const dw=r[2]*scale,dh=r[3]*scale;x.drawImage(joinedRects[name]?joined:im,...r,(640-dw)/2,(640-dh)/2,dw,dh);const image=x.getImageData(0,0,640,640);recolorPixels(image.data,{fur:color,pink:palette.pink,gold:palette.gold});if(name==='roundNear'||name==='roundFar'){const start=(640-dh)/2;for(let yy=0;yy<640;yy++)for(let xx=0;xx<640;xx++){const k=(yy*640+xx)*4+3;image.data[k]*=1-smooth(.66,.98,(yy-start)/dh);}}x.putImageData(image,0,0);const result={canvas:c,rect:[(640-dw)/2,(640-dh)/2,dw,dh]};cache.set(key,result);if(cache.size>24)cache.delete(cache.keys().next().value);return result}
  function stamp(name,x,y,w,h,angle,character,palette,flip=false,ay=.5){const a=partAsset(name,character,palette);ctx.save();ctx.translate(x,y);ctx.rotate(angle||0);if(flip)ctx.scale(-1,1);ctx.drawImage(a.canvas,...a.rect,-w/2,-h*ay,w,h);ctx.restore()}
  function fillEye(image,e,l,character,rawSource){
@@ -51,7 +52,7 @@ export async function makePartsRenderer(){const atlas=await fetch(new URL('./ass
  g.addColorStop(0,`rgb(${color.map(v=>Math.min(255,v+5)).join(',')})`);g.addColorStop(1,`rgb(${color.map(v=>Math.max(0,v-5)).join(',')})`);
  wx.fillStyle=g;wx.beginPath();wx.ellipse(cx,cy,radius,radius,0,0,Math.PI*2);wx.fill();
  }
- function drawEye(e,style,color,l,p,side){const tilt=l.tilt||0,x=e.x+l.width*p.eyeX*(side===0?-1:1),y=e.y+l.height*p.eyeY,w=l.width*(style==='dot'?.058:.115)*p.eyeSize,h=w*(style==='ring'?1.15:1);wx.save();wx.translate(x,y);wx.rotate(tilt);const gradient=wx.createLinearGradient(0,-h/2,0,h/2);gradient.addColorStop(0,color);gradient.addColorStop(1,color);wx.strokeStyle=gradient;wx.fillStyle=gradient;wx.lineWidth=Math.max(2,l.width*.012*p.eyeSize);wx.lineCap='round';wx.lineJoin='round';wx.beginPath();if(style==='ring'){wx.ellipse(0,0,w*.5,h*.5,0,0,Math.PI*2);wx.stroke();wx.beginPath();wx.moveTo(-w*.45,-h*.04);wx.quadraticCurveTo(0,h*.20,w*.45,-h*.04);wx.stroke()}else if(style==='dot'){wx.ellipse(0,0,w*.46,h*.6,0,0,Math.PI*2);wx.fill();wx.fillStyle='#fff';wx.globalAlpha=.8;wx.beginPath();wx.ellipse(-w*.13,-h*.2,w*.12,h*.12,0,0,Math.PI*2);wx.fill()}else if(style==='wink'){
+ function drawEye(e,style,color,l,p,side){p={...p,eyeSize:p.eyeSize*p[side?'eyeRightScale':'eyeLeftScale']};const tilt=l.tilt||0,x=e.x+l.width*p.eyeX*(side===0?-1:1),y=e.y+l.height*p.eyeY,w=l.width*(style==='dot'?.058:.115)*p.eyeSize,h=w*(style==='ring'?1.15:1);wx.save();wx.translate(x,y);wx.rotate(tilt);const gradient=wx.createLinearGradient(0,-h/2,0,h/2);gradient.addColorStop(0,color);gradient.addColorStop(1,color);wx.strokeStyle=gradient;wx.fillStyle=gradient;wx.lineWidth=Math.max(2,l.width*.012*p.eyeSize);wx.lineCap='round';wx.lineJoin='round';wx.beginPath();if(style==='ring'){wx.ellipse(0,0,w*.5,h*.5,0,0,Math.PI*2);wx.stroke();wx.beginPath();wx.moveTo(-w*.45,-h*.04);wx.quadraticCurveTo(0,h*.20,w*.45,-h*.04);wx.stroke()}else if(style==='dot'){wx.ellipse(0,0,w*.46,h*.6,0,0,Math.PI*2);wx.fill();wx.fillStyle='#fff';wx.globalAlpha=.8;wx.beginPath();wx.ellipse(-w*.13,-h*.2,w*.12,h*.12,0,0,Math.PI*2);wx.fill()}else if(style==='wink'){
  // One closed eyelid with an outer lash, rather than a floating > symbol.
  wx.lineWidth=Math.max(2,l.width*.010*p.eyeSize);
  wx.moveTo(-w*.43,h*.04);wx.bezierCurveTo(-w*.22,-h*.17,w*.15,-h*.17,w*.43,h*.04);wx.stroke();
@@ -74,7 +75,14 @@ export async function makePartsRenderer(){const atlas=await fetch(new URL('./ass
  wx.moveTo(sx,sy-r);wx.quadraticCurveTo(sx+r*.25,sy-r*.25,sx+r,sy);wx.quadraticCurveTo(sx+r*.25,sy+r*.25,sx,sy+r);wx.quadraticCurveTo(sx-r*.25,sy+r*.25,sx-r,sy);wx.quadraticCurveTo(sx-r*.25,sy-r*.25,sx,sy-r);wx.fill();
  wx.restore();
  }else if(style==='heart'){wx.moveTo(0,h*.43);wx.bezierCurveTo(-w,-h*.1,-w*.35,-h*.8,0,-h*.25);wx.bezierCurveTo(w*.35,-h*.8,w,-h*.1,0,h*.43);wx.fill()}else {const s=style==='happy'?-1:1;wx.moveTo(-w*.48,0);wx.quadraticCurveTo(0,s*h*.58,w*.48,0);wx.stroke()}wx.restore()}
- return {atlas,thumbnail(name){if(name==='roundEar')name='roundNear';const a=partAsset(name,'starlight',{});return a.canvas.toDataURL()},render(source,l,raw,palette={},character='starlight',rawSource=null){
+ return {atlas,optionThumbnail(key,value){
+ if(['original','none'].includes(value))return null;
+ if(!['eyeLeft','eyeRight','nose','mouth','cheekMark'].includes(key))return null;
+ wx.clearRect(0,0,640,640);const p=normalizeParts({[key]:value}),l={width:620,height:400,tilt:0},e={x:320,y:320};
+ if(key.startsWith('eye'))drawEye(e,value,value==='heart'?'#d89bab':value==='ring'?'#d9bd7e':'#685878',l,p,key==='eyeRight'?1:0);
+ else drawFace(wx,l,p,{nose:e,mouth:e,tilt:0,eyes:[{x:320-620*.06,y:320-400*.12}],side:1});
+ const thumb=canvas(96);thumb.getContext('2d').drawImage(work,260,260,120,120,0,0,96,96);return thumb.toDataURL();
+ },thumbnail(name){if(name==='roundEar')name='roundNear';const a=partAsset(name,'starlight',{});return a.canvas.toDataURL()},render(source,l,raw,palette={},character='starlight',rawSource=null){
  const p=normalizeParts(raw);if(originalParts(p)||!l)return source;wx.clearRect(0,0,640,640);wx.drawImage(source,0,0);const image=wx.getImageData(0,0,640,640);let hash=2166136261;const words=new Uint32Array(image.data.buffer);for(let i=0;i<words.length;i++)hash=Math.imul(hash^words[i],16777619);const frameKey=character+'/'+l.motion+'/'+(hash>>>0)+'/'+JSON.stringify(p)+'/'+JSON.stringify(palette);if(frameCache.has(frameKey))return frameCache.get(frameKey);const a=image.data,originalPixels=image.data.slice(),rawPixels=rawSource?rawSource.getContext('2d').getImageData(0,0,640,640).data:originalPixels,w=l.width,h=l.height,bodyH=Math.max(28,l.bottom-l.neck),tilt=clamp(l.tilt||0,-.18,.18),bodyX=l.cx;
  // Use a stable crown instead of fitting to the old ears (which left pose-specific stumps).
  const headCurve=new Float32Array(640);
@@ -105,8 +113,11 @@ export async function makePartsRenderer(){const atlas=await fetch(new URL('./ass
 
  }
  if(p.tail!=='original'&&character==='starlight'&&l.motion==='walk')removeWalkTail(image,l);
+ const faceNeeded=p.nose!=='original'||p.mouth!=='original'||p.cheekMark!=='none';
+ const face=faceNeeded?faceAnchors(rawPixels,l,character):null;
+ if(face)for(const key of ['nose','mouth'])if(p[key]!=='original')repairFeature(image,face[key]);
  const edits=[];for(let j=0;j<l.eyes.length;j++){const e=l.eyes[j],side=l.eyes.length===1?(e.x<l.cx?0:1):j,style=p[side?'eyeRight':'eyeLeft'],color=p[side?'eyeRightColor':'eyeLeftColor'];if(style!=='original'){fillEye(image,e,l,character,rawPixels);edits.push({e,side,style,color:color||(style==='ring'?'#f4dda0':style==='heart'?'#d89bab':character==='starlight'?'#685878':'#625364')})}else if(color){const rgb=color.slice(1).match(/../g).map(n=>parseInt(n,16));for(let y=Math.max(0,Math.floor(e.y-e.h*.6));y<Math.min(640,e.y+e.h*.6+1);y++)for(let x=Math.max(0,Math.floor(e.x-e.w*.6));x<Math.min(640,e.x+e.w*.6+1);x++){const i=(y*640+x)*4,[hu,s,li]=rgbToHsl(rawPixels[i],rawPixels[i+1],rawPixels[i+2]);if(character==='starlight'?(hu>23&&hu<75&&s>.15):li<.5){const light=character==='starlight'?li/.78:li/.25;for(let k=0;k<3;k++)a[i+k]=clamp(rgb[k]*light,0,255)}}}}
- wx.putImageData(image,0,0);if(character==='starlight'&&l.motion==='walk')for(const edit of edits)restoreExposedCheek(rawPixels,originalPixels,edit.e,l);for(const e of edits)drawEye(e.e,e.style,e.color,l,p,e.side);ctx.clearRect(0,0,640,640);
+ wx.putImageData(image,0,0);if(character==='starlight'&&l.motion==='walk')for(const edit of edits)restoreExposedCheek(rawPixels,originalPixels,edit.e,l);for(const e of edits)drawEye(e.e,e.style,e.color,l,p,e.side);if(face){const beforeFace=wx.getImageData(0,0,640,640);faceCtx.clearRect(0,0,640,640);drawFace(faceCtx,l,p,face);faceCtx.globalCompositeOperation='destination-in';faceCtx.drawImage(work,0,0);faceCtx.globalCompositeOperation='source-over';wx.drawImage(faceLayer,0,0);const paintedFace=wx.getImageData(0,0,640,640);for(let i=3;i<paintedFace.data.length;i+=4)paintedFace.data[i]=beforeFace.data[i];wx.putImageData(paintedFace,0,0);}ctx.clearRect(0,0,640,640);
  const layout=accessoryLayout(l,p,character);
  const earPalette=p.earColor?{...palette,fur:p.earColor}:palette,tailPalette=p.tailColor?{...palette,fur:p.tailColor}:palette,accessoryPalette=p.accessoryColor?{...palette,gold:p.accessoryColor,pink:p.accessoryColor}:palette;
  if(p.back==='wings'){const b=layout.back;stamp('wings',b.x,b.y,b.width,b.height,b.angle,character,accessoryPalette);}
@@ -138,7 +149,7 @@ export async function makePartsRenderer(){const atlas=await fetch(new URL('./ass
  }
  // Each side uses its own attachment. The native Bunny ribbon is reused only
  // on its actual side, and a second ornament never changes the first one.
- const ornaments=[{...p},{...p,ornament:p.ornamentOther,ornamentSide:p.ornamentSide==='left'?'right':'left',ornamentX:-p.ornamentX}];
+ const ornaments=[{...p},{...p,ornament:p.ornamentOther,ornamentSide:p.ornamentSide==='left'?'right':'left',ornamentSize:p.otherSize,ornamentX:p.otherX,ornamentY:p.otherY,ornamentAngle:p.otherAngle,headColor:p.otherHeadColor||p.headColor}];
  for(const ornament of ornaments){const head=accessoryLayout(l,ornament,character).head;
  if(ornament.ornament!=='none'&&!head.reuseNative){const o={...head};
  if(p.ears!=='original'){
@@ -147,9 +158,9 @@ export async function makePartsRenderer(){const atlas=await fetch(new URL('./ass
  o.x=clamp(o.x+(character==='cloud'?0:side*w*p.earSpread),l.left+w*.08,l.right-w*.08);
  const scalp=character==='cloud'?l.top+h*.18:headCurve[clamp(Math.round(o.x),0,639)];
  const eyeTop=l.eyes.length?Math.min(...l.eyes.map(e=>e.y-e.h*.5)):l.top+h*.58;
- o.y=clamp(scalp+w*.055+p.ornamentY*h,scalp+w*.025,Math.max(scalp+w*.025,eyeTop-o.height*.56-w*.025));
+ o.y=clamp(scalp+w*.055+ornament.ornamentY*h,scalp+w*.025,Math.max(scalp+w*.025,eyeTop-o.height*.56-w*.025));
  }else{const ix=clamp(Math.round(o.x),0,639);if(originalPixels[(Math.round(clamp(o.y,0,639))*640+ix)*4+3]<200){for(let yy=Math.max(0,Math.floor(o.y));yy<l.neck;yy++){if(originalPixels[(yy*640+ix)*4+3]>230){o.y=yy+o.height*.17;break;}}}}
- stamp(ornament.ornament,o.x,o.y,o.width,o.height,o.angle,character,headPalette)}}
+ stamp(ornament.ornament,o.x,o.y,o.width,o.height,o.angle+ornament.ornamentAngle,character,ornament.headColor?{...headPalette,gold:ornament.headColor,pink:ornament.headColor}:headPalette)}}
  const cachedFrame=canvas();cachedFrame.getContext('2d').drawImage(out,0,0);frameCache.set(frameKey,cachedFrame);if(frameCache.size>8)frameCache.delete(frameCache.keys().next().value);return cachedFrame;
  }}
 }
