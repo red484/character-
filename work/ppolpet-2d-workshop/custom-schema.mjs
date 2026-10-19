@@ -1,4 +1,4 @@
-import {normalizeParts} from './parts-schema.mjs';
+import {normalizeParts} from './parts-schema.mjs?v=custom-v26';
 import {normalizePalette} from './palette.mjs';
 export const VERSION=4;
 export const limits={earLength:[.85,1.2],earWidth:[.9,1.1],tailLength:[.8,1.2],tailLift:[-8,8],bodyHeight:[.9,1.1],bodyWidth:[.9,1.1]};

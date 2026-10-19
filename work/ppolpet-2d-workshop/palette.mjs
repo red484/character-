@@ -3,9 +3,9 @@
 export const paletteDefaults=Object.freeze({fur:null,gold:null,pink:null});
 export const groups={fur:'몸 · 귀 · 꼬리',gold:'링 눈 · 코 · 금색 장식',pink:'볼 · 젤리 · 속귀'};
 export const swatches={
- fur:[['민트','#a5c9bb'],['하늘','#a3bfdf'],['복숭아','#e6b4a7'],['크림','#e3d1ad'],['로즈','#ce9fbb'],['라일락','#b3a1d2']],
- gold:[['버터','#f4dda0'],['아이보리','#f4e8d5'],['살구','#edbd93'],['로즈','#e8b0c9'],['민트','#b8d9c5'],['하늘','#b9d6eb']],
- pink:[['딸기','#e8aac2'],['복숭아','#edb8a5'],['장미','#d89bab'],['연보라','#c3aed9'],['살구','#e7c09e'],['크림','#efdbc3']]
+ fur:[['민트','#a5c9bb'],['하늘','#a3bfdf'],['복숭아','#e6b4a7'],['크림','#e3d1ad'],['로즈','#ce9fbb'],['라일락','#b3a1d2'],['모카','#b9a28f'],['솜사탕','#edcbdc'],['세이지','#b8c7a6'],['아쿠아','#a6cfce']],
+ gold:[['버터','#f4dda0'],['아이보리','#f4e8d5'],['살구','#edbd93'],['로즈','#e8b0c9'],['민트','#b8d9c5'],['하늘','#b9d6eb'],['코코아','#9e8275'],['라벤더','#c3b3df']],
+ pink:[['딸기','#e8aac2'],['복숭아','#edb8a5'],['장미','#d89bab'],['연보라','#c3aed9'],['살구','#e7c09e'],['크림','#efdbc3'],['라즈베리','#d18fa8'],['연분홍','#f0c6d6']]
 };
 export function normalizePalette(raw={}){return Object.fromEntries(Object.keys(paletteDefaults).map(k=>[k,typeof raw?.[k]==='string'&&/^#[0-9a-f]{6}$/i.test(raw[k])?raw[k].toLowerCase():null]))}
 export function rgbToHsl(r,g,b){r/=255;g/=255;b/=255;const max=Math.max(r,g,b),min=Math.min(r,g,b),d=max-min,l=(max+min)/2;let h=0,s=0;if(d){s=d/(1-Math.abs(2*l-1));h=max===r?((g-b)/d+6)%6:max===g?(b-r)/d+2:(r-g)/d+4;h*=60}return [h,s,l]}

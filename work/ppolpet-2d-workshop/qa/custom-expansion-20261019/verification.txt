@@ -1,0 +1,24 @@
+Added customization options (internal review only):
+- Independent opposite-side head ornament: ribbon, flower, star, or none.
+- Flower-center and star-center neck ribbons using existing shaded artwork.
+- Separate added-head-ornament and added-neck-ribbon colors.
+- Sparkle and wink eye shapes, selectable separately for either eye.
+- Four palette themes: peach, mocha, lilac, sea; eight additional swatches.
+
+Old v2/v3/v4 configuration tests passed; old v4 defaults acquire no extra
+ornament or color overrides. New fields and eye styles survive export/round-trip.
+Native Bunny/Angel ribbons remain original art; their base colors still follow
+the palette, while added decorations use the new part colors.
+
+Browser audit: 53/53 motions, 217 gallery poses x 7 combinations = 1,519 renders.
+Baseline pixels match and layout values are finite. Six contact sheets saved.
+Inspected Starlight, Angel, Bunny and Cloud sheets; checked Starlight walk in
+continuous playback, with distinct head/neck colors and both new eye shapes.
+Fixed low-rest collar visibility and checked final Starlight/Angel lying poses.
+No console warnings/errors during the final browser check.
+
+Unit checks passed: part serialization/migration, palette, accessory placement,
+collar arm/foot invariance and rest occlusion, existing eye repair, and 53 x 64
+deformation cases. Web build passed; protected Three.js renderer hash unchanged.
+This does not certify all arbitrary combinations or resolve the previously
+noted generic tail/ear seam limitations. No production deployment performed.

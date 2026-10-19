@@ -28,3 +28,6 @@ assert(Math.abs(moved.y-base.y-12)<1e-9);
 const top=base.y-(Math.cos(base.angle)*base.height+Math.abs(Math.sin(base.angle))*base.width)/2;
 assert(top>walk.neck,'the whole collar fits below the head, without a horizontal clipping edge');
 console.log('PASS walking collar ignores arm/foot silhouette, follows neck translation, and fits without clipping');
+assert.equal(accessoryLayout({...walk,motion:'lie',lying:true,bottom:walk.neck+4},bow,'bunny').neck.opacity,0);
+assert.equal(accessoryLayout({...walk,motion:'standLie',lying:true,bottom:walk.neck+walk.width*.35},bow,'bunny').neck.opacity,1);
+console.log('PASS rest-pose collar occlusion and upright visibility');

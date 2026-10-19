@@ -9,3 +9,13 @@ assert.equal(normalizeParts({eyeLeftColor:'red'}).eyeLeftColor,null);
 assert.equal(normalizeParts({eyeRightColor:'#AbCdEf'}).eyeRightColor,'#abcdef');
 for(const version of [2,3]){const c=pack('bear','sit',defaults,0,100);c.version=version;delete c.parts;assert.deepEqual(unpack(c).parts,partDefaults)}
 console.log('PASS all part choices, v4 round trips, invalid-value handling, range clamps, v2/v3 migration');
+const expanded=normalizeParts({ornament:'flower',ornamentOther:'star',headColor:'#DDAACC',neck:'starTie',neckColor:'#9988BB',eyeLeft:'sparkle',eyeRight:'wink'});
+assert.deepEqual(unpack(JSON.parse(JSON.stringify(pack('starlight','walk',defaults,0,100,true,{},expanded)))).parts,expanded);
+assert.equal(expanded.headColor,'#ddaacc');
+assert.equal(expanded.neckColor,'#9988bb');
+const legacy=pack('bunny','walk',defaults,0,100,true,{}, {ornament:'flower',neck:'bowtie'});
+for(const key of ['ornamentOther','headColor','neckColor'])delete legacy.parts[key];
+const restored=unpack(legacy).parts;
+assert.equal(restored.ornament,'flower');assert.equal(restored.neck,'bowtie');
+assert.equal(restored.ornamentOther,'none');assert.equal(restored.headColor,null);assert.equal(restored.neckColor,null);
+console.log('PASS independent ornaments/colors and new eyes round-trip; old v4 configurations retain their appearance');

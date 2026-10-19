@@ -27,6 +27,8 @@ export function accessoryLayout(l,p,character){
  const neckAngle=tilt*.35;
  const neck={x:bodyX,y:l.neck+Math.max(bh*(lying?.23:.15),neckHeight*.5+Math.abs(Math.sin(neckAngle))*neckWidth*.5+3),width:neckWidth,height:neckHeight,angle:neckAngle,clipHead:false,reuseNative:character==='angel'};
  if(walking)neck.y=l.neck+neckHeight*.56+Math.abs(Math.sin(neckAngle))*neckWidth*.5+3;
+ // In a low rest pose the head covers the collar. Do not leave it on the floor.
+ neck.opacity=lying?clamp(((l.bottom-l.neck)/w-.16)/.08,0,1):1;
  // Side/lying wings sit on the visible rear flank, not on the front paws.
  const back={x:bodyX+(profile?-faceDirection*w*.10:0),y:l.neck+bh*(lying?.33:.32),width:w*(profile?.38:.60),height:w*(profile?.38:.60)*166/316,angle:lying?-.12:tilt*.15};
  if(lying){back.x=bodyX+w*.23;back.y=l.neck-w*.13;back.width=w*.48;back.height=back.width*166/316;back.angle=-.22;}

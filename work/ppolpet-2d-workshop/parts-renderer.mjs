@@ -1,8 +1,8 @@
-import {accessoryLayout} from './accessory-layout.mjs?v=4';
+import {accessoryLayout} from './accessory-layout.mjs?v=5';
 import {makeWalkTailMask} from './walk-tail-mask.mjs?v=4';
 import {fitScalpShade,repairEarRoot,earAttachment,fitCloudSkin,cloudEarMask} from './ear-surface.mjs?v=12';
-import {normalizeParts,originalParts} from './parts-schema.mjs';
-import {recolorPixels,furColors,rgbToHsl} from './palette.mjs?v=white-fur-4';
+import {normalizeParts,originalParts} from './parts-schema.mjs?v=custom-v26';
+import {recolorPixels,furColors,rgbToHsl} from './palette.mjs?v=custom-colors-5';
 const canvas=(w=640,h=w)=>Object.assign(document.createElement('canvas'),{width:w,height:h});
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 export function isCheekPixel(r,g,b,character){return character==='angel'?(r>210&&g>140&&r-g>18&&r-b>18&&b>g*.96):(character!=='bear'&&r-g>35&&r-b>24&&b>g*1.03);}
@@ -51,7 +51,7 @@ export async function makePartsRenderer(){const atlas=await fetch(new URL('./ass
  g.addColorStop(0,`rgb(${color.map(v=>Math.min(255,v+5)).join(',')})`);g.addColorStop(1,`rgb(${color.map(v=>Math.max(0,v-5)).join(',')})`);
  wx.fillStyle=g;wx.beginPath();wx.ellipse(cx,cy,radius,radius,0,0,Math.PI*2);wx.fill();
  }
- function drawEye(e,style,color,l,p,side){const tilt=l.tilt||0,x=e.x+l.width*p.eyeX*(side===0?-1:1),y=e.y+l.height*p.eyeY,w=l.width*(style==='dot'?.058:.115)*p.eyeSize,h=w*(style==='ring'?1.15:1);wx.save();wx.translate(x,y);wx.rotate(tilt);const gradient=wx.createLinearGradient(0,-h/2,0,h/2);gradient.addColorStop(0,color);gradient.addColorStop(1,color);wx.strokeStyle=gradient;wx.fillStyle=gradient;wx.lineWidth=Math.max(2,l.width*.012*p.eyeSize);wx.lineCap='round';wx.lineJoin='round';wx.beginPath();if(style==='ring'){wx.ellipse(0,0,w*.5,h*.5,0,0,Math.PI*2);wx.stroke();wx.beginPath();wx.moveTo(-w*.45,-h*.04);wx.quadraticCurveTo(0,h*.20,w*.45,-h*.04);wx.stroke()}else if(style==='dot'){wx.ellipse(0,0,w*.46,h*.6,0,0,Math.PI*2);wx.fill();wx.fillStyle='#fff';wx.globalAlpha=.8;wx.beginPath();wx.ellipse(-w*.13,-h*.2,w*.12,h*.12,0,0,Math.PI*2);wx.fill()}else if(style==='heart'){wx.moveTo(0,h*.43);wx.bezierCurveTo(-w,-h*.1,-w*.35,-h*.8,0,-h*.25);wx.bezierCurveTo(w*.35,-h*.8,w,-h*.1,0,h*.43);wx.fill()}else {const s=style==='happy'?-1:1;wx.moveTo(-w*.48,0);wx.quadraticCurveTo(0,s*h*.58,w*.48,0);wx.stroke()}wx.restore()}
+ function drawEye(e,style,color,l,p,side){const tilt=l.tilt||0,x=e.x+l.width*p.eyeX*(side===0?-1:1),y=e.y+l.height*p.eyeY,w=l.width*(style==='dot'?.058:.115)*p.eyeSize,h=w*(style==='ring'?1.15:1);wx.save();wx.translate(x,y);wx.rotate(tilt);const gradient=wx.createLinearGradient(0,-h/2,0,h/2);gradient.addColorStop(0,color);gradient.addColorStop(1,color);wx.strokeStyle=gradient;wx.fillStyle=gradient;wx.lineWidth=Math.max(2,l.width*.012*p.eyeSize);wx.lineCap='round';wx.lineJoin='round';wx.beginPath();if(style==='ring'){wx.ellipse(0,0,w*.5,h*.5,0,0,Math.PI*2);wx.stroke();wx.beginPath();wx.moveTo(-w*.45,-h*.04);wx.quadraticCurveTo(0,h*.20,w*.45,-h*.04);wx.stroke()}else if(style==='dot'){wx.ellipse(0,0,w*.46,h*.6,0,0,Math.PI*2);wx.fill();wx.fillStyle='#fff';wx.globalAlpha=.8;wx.beginPath();wx.ellipse(-w*.13,-h*.2,w*.12,h*.12,0,0,Math.PI*2);wx.fill()}else if(style==='wink'){wx.moveTo(-w*.40,-h*.30);wx.lineTo(w*.32,0);wx.lineTo(-w*.40,h*.30);wx.stroke()}else if(style==='sparkle'){wx.moveTo(0,-h*.62);wx.quadraticCurveTo(w*.10,-h*.10,w*.46,0);wx.quadraticCurveTo(w*.10,h*.10,0,h*.62);wx.quadraticCurveTo(-w*.10,h*.10,-w*.46,0);wx.quadraticCurveTo(-w*.10,-h*.10,0,-h*.62);wx.fill()}else if(style==='heart'){wx.moveTo(0,h*.43);wx.bezierCurveTo(-w,-h*.1,-w*.35,-h*.8,0,-h*.25);wx.bezierCurveTo(w*.35,-h*.8,w,-h*.1,0,h*.43);wx.fill()}else {const s=style==='happy'?-1:1;wx.moveTo(-w*.48,0);wx.quadraticCurveTo(0,s*h*.58,w*.48,0);wx.stroke()}wx.restore()}
  return {atlas,thumbnail(name){if(name==='roundEar')name='roundNear';const a=partAsset(name,'starlight',{});return a.canvas.toDataURL()},render(source,l,raw,palette={},character='starlight',rawSource=null){
  const p=normalizeParts(raw);if(originalParts(p)||!l)return source;wx.clearRect(0,0,640,640);wx.drawImage(source,0,0);const image=wx.getImageData(0,0,640,640);let hash=2166136261;const words=new Uint32Array(image.data.buffer);for(let i=0;i<words.length;i++)hash=Math.imul(hash^words[i],16777619);const frameKey=character+'/'+l.motion+'/'+(hash>>>0)+'/'+JSON.stringify(p)+'/'+JSON.stringify(palette);if(frameCache.has(frameKey))return frameCache.get(frameKey);const a=image.data,originalPixels=image.data.slice(),rawPixels=rawSource?rawSource.getContext('2d').getImageData(0,0,640,640).data:originalPixels,w=l.width,h=l.height,bodyH=Math.max(28,l.bottom-l.neck),tilt=clamp(l.tilt||0,-.18,.18),bodyX=l.cx;
  // Use a stable crown instead of fitting to the old ears (which left pose-specific stumps).
@@ -99,17 +99,35 @@ export async function makePartsRenderer(){const atlas=await fetch(new URL('./ass
  ctx.drawImage(work,0,0);
  if(p.ears==='round'){if(character==='cloud'){for(const side of [-1,1])stamp(side<0?'roundNear':'roundFar',l.cx+side*w*.32,l.top+h*.18,w*.23,w*.24,tilt,character,earPalette,false,.82);}else joinedEar(-1);}
 
- if(p.neck==='bowtie'&&!layout.neck.reuseNative){const n=layout.neck;stamp('bowtie',n.x,n.y,n.width,n.height,n.angle,character,accessoryPalette);}
- if(p.ornament!=='none'&&!layout.head.reuseNative){const o={...layout.head};
+ const headPalette=p.headColor?{...accessoryPalette,gold:p.headColor,pink:p.headColor}:accessoryPalette;
+ const neckPalette=p.neckColor?{...accessoryPalette,gold:p.neckColor,pink:p.neckColor}:accessoryPalette;
+ if(p.neck!=='none'&&layout.neck.opacity>0){const n=layout.neck;
+ // Angel's walk sheet does not always include the native ribbon. Locate it
+ // in the neck region before reusing it, rather than assuming every pose has it.
+ let native=null;
+ if(n.reuseNative){let count=0,sx=0,sy=0;for(let yy=Math.max(0,Math.floor(l.neck-6));yy<Math.min(640,l.neck+bodyH*.32);yy++)for(let xx=Math.max(0,Math.floor(n.x-w*.14));xx<Math.min(640,n.x+w*.14);xx++){const i=(yy*640+xx)*4,r=rawPixels[i],g=rawPixels[i+1],b=rawPixels[i+2];if(rawPixels[i+3]>180&&b>r*1.03&&b>g*1.07&&Math.max(r,g,b)-Math.min(r,g,b)>18){count++;sx+=xx;sy+=yy;}}if(count>24)native={x:sx/count,y:sy/count};}
+ ctx.save();ctx.globalAlpha=n.opacity;
+ if(!native)stamp('bowtie',n.x,n.y,n.width,n.height,n.angle,character,neckPalette);
+ if(p.neck==='flowerTie'||p.neck==='starTie'){
+ const charm=p.neck==='flowerTie'?'flower':'star',size=n.width*.38;
+ stamp(charm,native?.x??n.x,native?.y??n.y,size,size,n.angle,character,{...neckPalette,gold:palette.pink||'#e8aac2',pink:palette.pink||'#e8aac2'});
+ }
+ ctx.restore();
+ }
+ // Each side uses its own attachment. The native Bunny ribbon is reused only
+ // on its actual side, and a second ornament never changes the first one.
+ const ornaments=[{...p},{...p,ornament:p.ornamentOther,ornamentSide:p.ornamentSide==='left'?'right':'left',ornamentX:-p.ornamentX}];
+ for(const ornament of ornaments){const head=accessoryLayout(l,ornament,character).head;
+ if(ornament.ornament!=='none'&&!head.reuseNative){const o={...head};
  if(p.ears!=='original'){
  // Share the replacement ear's scalp, not the removed ear's opaque pixels.
- const side=p.ornamentSide==='right'?1:-1;
+ const side=ornament.ornamentSide==='right'?1:-1;
  o.x=clamp(o.x+(character==='cloud'?0:side*w*p.earSpread),l.left+w*.08,l.right-w*.08);
  const scalp=character==='cloud'?l.top+h*.18:headCurve[clamp(Math.round(o.x),0,639)];
  const eyeTop=l.eyes.length?Math.min(...l.eyes.map(e=>e.y-e.h*.5)):l.top+h*.58;
  o.y=clamp(scalp+w*.055+p.ornamentY*h,scalp+w*.025,Math.max(scalp+w*.025,eyeTop-o.height*.56-w*.025));
  }else{const ix=clamp(Math.round(o.x),0,639);if(originalPixels[(Math.round(clamp(o.y,0,639))*640+ix)*4+3]<200){for(let yy=Math.max(0,Math.floor(o.y));yy<l.neck;yy++){if(originalPixels[(yy*640+ix)*4+3]>230){o.y=yy+o.height*.17;break;}}}}
- stamp(p.ornament,o.x,o.y,o.width,o.height,o.angle,character,accessoryPalette)}
+ stamp(ornament.ornament,o.x,o.y,o.width,o.height,o.angle,character,headPalette)}}
  const cachedFrame=canvas();cachedFrame.getContext('2d').drawImage(out,0,0);frameCache.set(frameKey,cachedFrame);if(frameCache.size>8)frameCache.delete(frameCache.keys().next().value);return cachedFrame;
  }}
 }
