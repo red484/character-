@@ -17,9 +17,16 @@ export function accessoryLayout(l,p,character){
  // Bunny already has a bow at the left root. Place added ornament above it.
  if(character==='bunny'&&side<0&&p.ears==='original')oy-=w*.035;
  const head={x:l.cx+ox,y:oy+Math.sin(tilt)*ox,width:size,height:size*(p.ornament==='bow'?195/254:p.ornament==='flower'?236/249:230/246),angle:tilt+side*.08,reuseNative:nativeBunnyBow&&p.ornament==='bow'};
- const bodyX=Number.isFinite(l.bodyX)?l.bodyX:l.cx;
+ // Walking arms change the silhouette centroid. A collar belongs to the neck,
+ // so use the head/neck attachment rather than the swinging arm or planted foot.
+ const walking=l.motion==='walk';
+ const facing=l.eyes.length?clamp((l.eyes.reduce((s,e)=>s+e.x,0)/l.eyes.length-l.cx)/w,-.25,.25):0;
+ const bodyX=walking?l.cx+w*facing*.24:(Number.isFinite(l.bodyX)?l.bodyX:l.cx);
  const neckWidth=w*(profile?.16:.21);
- const neck={x:bodyX,y:l.neck+bh*(lying?.23:.15),width:neckWidth,height:neckWidth*157/298,angle:tilt*.35,clipHead:true,reuseNative:character==='angel'};
+ const neckHeight=neckWidth*157/298;
+ const neckAngle=tilt*.35;
+ const neck={x:bodyX,y:l.neck+Math.max(bh*(lying?.23:.15),neckHeight*.5+Math.abs(Math.sin(neckAngle))*neckWidth*.5+3),width:neckWidth,height:neckHeight,angle:neckAngle,clipHead:false,reuseNative:character==='angel'};
+ if(walking)neck.y=l.neck+neckHeight*.56+Math.abs(Math.sin(neckAngle))*neckWidth*.5+3;
  // Side/lying wings sit on the visible rear flank, not on the front paws.
  const back={x:bodyX+(profile?-faceDirection*w*.10:0),y:l.neck+bh*(lying?.33:.32),width:w*(profile?.38:.60),height:w*(profile?.38:.60)*166/316,angle:lying?-.12:tilt*.15};
  if(lying){back.x=bodyX+w*.23;back.y=l.neck-w*.13;back.width=w*.48;back.height=back.width*166/316;back.angle=-.22;}

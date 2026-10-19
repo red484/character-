@@ -1,4 +1,4 @@
-import {accessoryLayout} from './accessory-layout.mjs?v=3';
+import {accessoryLayout} from './accessory-layout.mjs?v=4';
 import {makeWalkTailMask} from './walk-tail-mask.mjs?v=4';
 import {fitScalpShade,repairEarRoot,earAttachment,fitCloudSkin,cloudEarMask} from './ear-surface.mjs?v=12';
 import {normalizeParts,originalParts} from './parts-schema.mjs';
@@ -99,8 +99,17 @@ export async function makePartsRenderer(){const atlas=await fetch(new URL('./ass
  ctx.drawImage(work,0,0);
  if(p.ears==='round'){if(character==='cloud'){for(const side of [-1,1])stamp(side<0?'roundNear':'roundFar',l.cx+side*w*.32,l.top+h*.18,w*.23,w*.24,tilt,character,earPalette,false,.82);}else joinedEar(-1);}
 
- if(p.neck==='bowtie'&&!layout.neck.reuseNative){const n=layout.neck;ctx.save();ctx.beginPath();ctx.rect(0,l.neck+Math.min(6,bodyH*.06),640,640);ctx.clip();stamp('bowtie',n.x,n.y,n.width,n.height,n.angle,character,accessoryPalette);ctx.restore();}
- if(p.ornament!=='none'&&!layout.head.reuseNative){const o={...layout.head};const ix=clamp(Math.round(o.x),0,639);if(originalPixels[(Math.round(clamp(o.y,0,639))*640+ix)*4+3]<200){for(let yy=Math.max(0,Math.floor(o.y));yy<l.neck;yy++){if(originalPixels[(yy*640+ix)*4+3]>230){o.y=yy+o.height*.17;break;}}}stamp(p.ornament,o.x,o.y,o.width,o.height,o.angle,character,accessoryPalette)}
+ if(p.neck==='bowtie'&&!layout.neck.reuseNative){const n=layout.neck;stamp('bowtie',n.x,n.y,n.width,n.height,n.angle,character,accessoryPalette);}
+ if(p.ornament!=='none'&&!layout.head.reuseNative){const o={...layout.head};
+ if(p.ears!=='original'){
+ // Share the replacement ear's scalp, not the removed ear's opaque pixels.
+ const side=p.ornamentSide==='right'?1:-1;
+ o.x=clamp(o.x+(character==='cloud'?0:side*w*p.earSpread),l.left+w*.08,l.right-w*.08);
+ const scalp=character==='cloud'?l.top+h*.18:headCurve[clamp(Math.round(o.x),0,639)];
+ const eyeTop=l.eyes.length?Math.min(...l.eyes.map(e=>e.y-e.h*.5)):l.top+h*.58;
+ o.y=clamp(scalp+w*.055+p.ornamentY*h,scalp+w*.025,Math.max(scalp+w*.025,eyeTop-o.height*.56-w*.025));
+ }else{const ix=clamp(Math.round(o.x),0,639);if(originalPixels[(Math.round(clamp(o.y,0,639))*640+ix)*4+3]<200){for(let yy=Math.max(0,Math.floor(o.y));yy<l.neck;yy++){if(originalPixels[(yy*640+ix)*4+3]>230){o.y=yy+o.height*.17;break;}}}}
+ stamp(p.ornament,o.x,o.y,o.width,o.height,o.angle,character,accessoryPalette)}
  const cachedFrame=canvas();cachedFrame.getContext('2d').drawImage(out,0,0);frameCache.set(frameKey,cachedFrame);if(frameCache.size>8)frameCache.delete(frameCache.keys().next().value);return cachedFrame;
  }}
 }

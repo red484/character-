@@ -13,3 +13,18 @@ for(const row of report.partsReport)for(const sample of row.samples){const l=sam
  }
 }
 console.log(`PASS ${checked} sampled-pose/accessory-range cases; finite placement, native ribbon reuse, torso anchoring, immutable source landmarks`);
+
+// Same neck and face, different arm/foot silhouettes: collar must not slide.
+const walk=report.partsReport.find(r=>r.character==='bunny'&&r.motion==='walk').samples[0].anchors;
+const bow=normalizeParts({neck:'bowtie'});
+const base=accessoryLayout(walk,bow,'bunny').neck;
+for(const bodyX of [walk.cx-70,walk.cx,walk.cx+70])for(const bottom of [560,576,590]){
+ const n=accessoryLayout({...walk,bodyX,bottom},bow,'bunny').neck;
+ assert.deepEqual(n,base,'arm swing and foot support must not move the collar');
+}
+const moved=accessoryLayout({...walk,cx:walk.cx+8,neck:walk.neck+12,eyes:walk.eyes.map(e=>({...e,x:e.x+8,y:e.y+12}))},bow,'bunny').neck;
+assert(Math.abs(moved.x-base.x-8)<1e-9);
+assert(Math.abs(moved.y-base.y-12)<1e-9);
+const top=base.y-(Math.cos(base.angle)*base.height+Math.abs(Math.sin(base.angle))*base.width)/2;
+assert(top>walk.neck,'the whole collar fits below the head, without a horizontal clipping edge');
+console.log('PASS walking collar ignores arm/foot silhouette, follows neck translation, and fits without clipping');

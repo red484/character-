@@ -1,0 +1,17 @@
+User recording: mint Bunny with round ears, flower and neck bow, walking.
+
+Fixed the neck bow's anchor following the torso silhouette (including swinging
+arms), and removed the horizontal clipping edge through the top of the bow.
+Walking collars now follow the head/neck attachment, independently of foot
+height and arm spread. The whole bow fits below the neck boundary.
+Replacement-ear ornaments now follow the replacement scalp/ear spread instead
+of snapping to the removed original ear's alpha. Eye clearance remains bounded.
+
+Captured before/after PNGs for all four walk poses with the same configuration.
+Played the actual workshop loop at 0.5x and 1x; checked pose changes and no console
+warnings/errors. Final live page is playing 1x. Saved settings were not overwritten.
+
+Tests: 8,586 layout range cases; collar invariance to arm and foot silhouette;
+neck translation tracking and clipping clearance; renderer cheek tests;
+53 x 64 deformation cases. All passed. Web build passed; protected Three.js
+renderer hash unchanged. This focused check is not approval of all combinations.
