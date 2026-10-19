@@ -1,0 +1,13 @@
+Face placement — 2026-10-19
+
+Added independent local X/Y offsets and rotation for custom nose, mouth, left/right cheeks and left/right eyes. Original baked-in features remain fixed; the UI disables controls and explains this when original is selected. Shape, size and material assets are unchanged. Local offsets follow the detected head tilt.
+
+UI: part selector, four 0.5% nudge buttons, X/Y sliders, angle slider, per-part placement reset, live preview inside the panel. Uses existing undo/redo and v4 settings persistence.
+
+Validation:
+- face-layout, face-custom and parts-schema unit tests pass: rotation, independent fields, default identity, clamps, migration and JSON round trip.
+- Browser: restored prior saved setup; independently changed nose Y, mouth Y/angle and left cheek X/Y; exported settings show distinct values; nudged mouth and undid to X=0.
+- 36 representative poses across six characters and six motions pass source/default identity, nonzero customized RGB, and unchanged alpha. Test includes asymmetric eye/cheek/nose/mouth placement and rotation. No claim of every frame/slider combination.
+- During the check, eye drawing was found to alter antialiased source alpha. Eye composition now retains the source alpha, and the repeated check passes.
+- Live walking remained active in the placement preview. Browser log included a MutationObserver observe error without a source URL; no such observer exists in these new modules; rendered output and tests completed.
+- No public deployment.

@@ -1,3 +1,4 @@
+import {placeFeature} from './face-layout.mjs';
 // Raster parts share the character sheet's lighting and matte material.
 export async function makeFaceTextures(){
  const atlas=await fetch(new URL('./assets/face-parts-soft-v1.json',import.meta.url)).then(r=>r.json());
@@ -10,7 +11,8 @@ export async function makeFaceTextures(){
  return {thumbnail(name){return part(name).toDataURL()},draw(ctx,l,p,f,palette){if(!f)return;
  for(const key of ['nose','mouth']){const style=p[key],anchor=f[key];if(['original','none'].includes(style)||anchor.hidden)continue;
  const width=l.width*(key==='nose'?.037:style==='openMouth'?.047:.072)*p[key+'Size'];
- stamp(ctx,style,anchor.x,anchor.y,width,f.tilt,p[key+'Color']||(key==='nose'?(style==='triangle'?palette.gold:palette.pink):null),1,f.side?.70:1);}
- if(p.cheekMark!=='none')for(const cheek of f.cheeks||[]){stamp(ctx,p.cheekMark,cheek.x,cheek.y,cheek.w*p.cheekSize,f.tilt,p.cheekColor||palette.pink,1,cheek.compression||1,cheek.h*p.cheekSize);}
+ const placed=placeFeature(anchor,l,p,key);
+ stamp(ctx,style,placed.x,placed.y,width,placed.angle,p[key+'Color']||(key==='nose'?(style==='triangle'?palette.gold:palette.pink):null),1,f.side?.70:1);}
+ if(p.cheekMark!=='none')for(const cheek of f.cheeks||[]){const key=cheek.x<l.cx?'cheekLeft':'cheekRight',placed=placeFeature(cheek,l,p,key);stamp(ctx,p.cheekMark,placed.x,placed.y,cheek.w*p.cheekSize,placed.angle,p.cheekColor||palette.pink,1,cheek.compression||1,cheek.h*p.cheekSize);}
  }};
 }

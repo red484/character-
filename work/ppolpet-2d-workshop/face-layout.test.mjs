@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {placeFeature,placementDefaults,placementEnabled} from './face-layout.mjs';
+import {normalizeParts} from './parts-schema.mjs';
+import {pack,unpack,defaults} from './custom-schema.mjs';
+const l={width:200,height:100,tilt:Math.PI/2},a={x:100,y:120};
+assert.deepEqual(placeFeature(a,l,placementDefaults,'nose'),{...a,angle:l.tilt});
+const p=normalizeParts({nose:'triangle',noseX:.05,noseY:.02,noseAngle:.1,cheekLeftX:-.02,eyeRightY:.03});
+const placed=placeFeature(a,l,p,'nose');assert.equal(placed.x,98);assert.equal(placed.y,130);assert.equal(placed.angle,l.tilt+.1);
+assert.deepEqual(unpack(JSON.parse(JSON.stringify(pack('starlight','walk',defaults,0,100,true,{},p)))).parts,p);
+assert.ok(placementEnabled(p,'nose'));assert.ok(!placementEnabled(p,'eyeLeft'));assert.equal(p.cheekRightX,0);
+console.log('PASS placement follows head rotation, retains independent offsets, round-trips and respects original-part controls');
