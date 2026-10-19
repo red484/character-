@@ -1,0 +1,14 @@
+Soft face parts — 2026-10-19
+
+Built-in image generation created the transparent atlas from the Starlight character-sheet style reference. Prompt and unmodified atlas are in work/ppolpet-2d-workshop/assets/face-parts-soft-v1*.
+
+Runtime now uses atlas pixels for three noses, four mouths and three cheeks. Color changes preserve per-pixel shading. The original face remains the default. Native cheeks determine placement; disconnected paw pigment and gold ring pixels are excluded. Ring eyes occlude cheeks. Custom eye artwork is composited last. Side views hide added mouths when not visible. Head/body source assets are unchanged.
+
+Validation:
+- Schema round-trip/migration and feature/cheek anchor unit checks pass.
+- 36 representative poses (six characters × idle, walk, sit, lie, greet, special): default pixels equal source; custom RGB changes; alpha/silhouette unchanged. checks.json and contact.png record the heart nose / cat mouth / freckles combination.
+- Manually inspected triangle + smile + blush lines and button + open mouth + heart cheeks on Starlight walk. The heart-cheek repair was additionally corrected after the contact sheet check; heart-cheek-open-mouth.png records that result.
+- Live walk preview verified; browser console has no errors.
+- Build protected renderer hash: a64dddb3c670da4a7d3fc611ef882a6062e2250b05ec3e9153300f2fa8b88d4a.
+
+This is representative pose and visual QA, not exhaustive coverage of every frame, color and slider combination. No public deployment performed.

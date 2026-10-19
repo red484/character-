@@ -4,5 +4,5 @@ export const partLimits={eyeLeftScale:[.8,1.25],eyeRightScale:[.8,1.25],noseSize
 export function normalizeParts(raw={}){const out={...partDefaults};for(const [k,values]of Object.entries(choices))if(values.includes(raw?.[k]))out[k]=raw[k];for(const [k,[a,b]]of Object.entries(partLimits))if(typeof raw?.[k]==='number'&&Number.isFinite(raw[k]))out[k]=Math.max(a,Math.min(b,raw[k]));for(const k of ['eyeLeftColor','eyeRightColor','earColor','tailColor','accessoryColor','headColor','neckColor','noseColor','mouthColor','cheekColor','otherHeadColor'])if(typeof raw?.[k]==='string'&&/^#[0-9a-f]{6}$/i.test(raw[k]))out[k]=raw[k].toLowerCase();if(raw?.ornamentOther){for(const [key,old]of [['otherSize','ornamentSize'],['otherX','ornamentX'],['otherY','ornamentY']])if(raw[key]===undefined)out[key]=key==='otherX'?(-out[old]||0):out[old];}return out}
 export const originalParts=p=>Object.keys(partDefaults).every(k=>p[k]===partDefaults[k]);
 
-// Preserve old settings for recovery, but retired face experiments never render.
-export function renderingParts(raw){const p=normalizeParts(raw);for(const key of ['nose','mouth','cheekMark','noseColor','mouthColor','cheekColor','noseSize','mouthSize','cheekSize'])p[key]=partDefaults[key];return p}
+// Active face options are rendered by the matching raster sprite atlas.
+export function renderingParts(raw){return normalizeParts(raw)}

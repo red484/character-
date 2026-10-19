@@ -37,21 +37,28 @@ export function repairFeature(image,f){
  const sum=samples.reduce((s,p)=>s+p.weight,0);if(sum)for(let k=0;k<3;k++)a[i+k]=samples.reduce((s,p)=>s+original[p.j+k]*p.weight,0)/sum;
  }
 }
-function heart(ctx,x,y,r){ctx.moveTo(x,y+r*.7);ctx.bezierCurveTo(x-r*1.3,y-r*.1,x-r*.6,y-r*1.2,x,y-r*.35);ctx.bezierCurveTo(x+r*.6,y-r*1.2,x+r*1.3,y-r*.1,x,y+r*.7)}
-export function drawFace(ctx,l,p,f){
- if(!f)return;
- for(const key of ['nose','mouth']){const style=p[key];if(['original','none'].includes(style)||f[key].hidden)continue;const a=f[key],r=l.width*(key==='nose'?.022:.038)*p[key+'Size'];ctx.save();ctx.translate(a.x,a.y);ctx.rotate(f.tilt);ctx.fillStyle=p[key+'Color']||(key==='nose'?'#d995b0':'#685878');ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=Math.max(1.5,l.width*.008);ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();
- if(style==='triangle'){ctx.moveTo(-r,-r*.5);ctx.lineTo(r,-r*.5);ctx.lineTo(0,r*.75);ctx.closePath();ctx.fill()}
- if(style==='button'){ctx.ellipse(0,0,r,r*.7,0,0,Math.PI*2);ctx.fill()}
- if(style==='heartNose'){heart(ctx,0,0,r);ctx.fill()}
- if(style==='smile'){ctx.moveTo(-r,-r*.2);ctx.quadraticCurveTo(0,r,r,-r*.2);ctx.stroke()}
- if(style==='catMouth'){ctx.moveTo(-r,-r*.18);ctx.bezierCurveTo(-r*.8,r*.7,0,r*.6,0,-r*.18);ctx.bezierCurveTo(0,r*.6,r*.8,r*.7,r,-r*.18);ctx.stroke()}
- if(style==='openMouth'){ctx.ellipse(0,0,r*.48,r*.65,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='#e8b9cd';ctx.beginPath();ctx.ellipse(0,r*.3,r*.24,r*.15,0,0,Math.PI*2);ctx.fill()}
- if(style==='pout'){ctx.moveTo(-r*.7,r*.3);ctx.lineTo(0,-r*.25);ctx.lineTo(r*.7,r*.3);ctx.stroke()}
- ctx.restore();}
- if(p.cheekMark!=='none')for(let j=0;j<f.eyes.length;j++){const e=f.eyes[j],side=f.eyes.length===1?f.side:j===0?-1:1,x=e.x+side*l.width*.06,y=e.y+l.height*.12,r=l.width*.022*p.cheekSize;ctx.save();ctx.translate(x,y);ctx.rotate(f.tilt);ctx.fillStyle=p.cheekColor||'#ba7b96';ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=Math.max(1.3,r*.22);ctx.lineCap='round';
- if(p.cheekMark==='freckles')for(const [dx,dy]of [[-.8,0],[0,-.35],[.8,.1]]){ctx.beginPath();ctx.arc(dx*r,dy*r,r*.17,0,Math.PI*2);ctx.fill()}
- if(p.cheekMark==='blushLines')for(const dx of [-.75,0,.75]){ctx.beginPath();ctx.moveTo((dx-.15)*r,-r*.35);ctx.lineTo((dx+.15)*r,r*.35);ctx.stroke()}
- if(p.cheekMark==='tinyHearts'){ctx.beginPath();heart(ctx,0,0,r*.65);ctx.fill()}
- ctx.restore();}
+// Find the source cheek pigment instead of layering a second cheek beside it.
+export function cheekAnchors(raw,l,character){
+ const out=[];for(let j=0;j<l.eyes.length;j++){
+ const e=l.eyes[j],side=l.eyes.length===1?(e.x<l.cx?-1:1):j===0?-1:1;
+ let points=[];if(character!=='bear')for(let y=Math.max(0,Math.floor(e.y-l.height*.02));y<Math.min(640,e.y+l.height*.26);y++)for(let x=Math.max(0,Math.floor(e.x-l.width*.18));x<Math.min(640,e.x+l.width*.18);x++){
+ const i=(y*640+x)*4,r=raw[i],g=raw[i+1],b=raw[i+2];if(raw[i+3]>220&&(character==='angel'?(r>210&&g>140&&r-g>18&&r-b>18&&b>g*.96):(r-g>40&&r-b>25&&b>g*1.06)))points.push([x,y]);}
+ // Separate paws and the opposite cheek from the cheek beside this eye.
+ const remaining=new Set(points.map(([x,y])=>y*640+x)),groups=[];
+ while(remaining.size){const first=remaining.values().next().value,q=[first];remaining.delete(first);for(let n=0;n<q.length;n++)for(const delta of [-641,-640,-639,-1,1,639,640,641])if(remaining.delete(q[n]+delta))q.push(q[n]+delta);if(q.length>20)groups.push(q.map(i=>[i%640,i/640|0]));}
+ const candidates=groups.filter(g=>{const xs=g.map(p=>p[0]),ys=g.map(p=>p[1]);return Math.max(...xs)-Math.min(...xs)<l.width*.17&&Math.max(...ys)-Math.min(...ys)<l.height*.22;});
+ candidates.sort((a,b)=>{const score=g=>{const x=g.reduce((s,p)=>s+p[0],0)/g.length,y=g.reduce((s,p)=>s+p[1],0)/g.length;return Math.hypot(x-e.x,(y-e.y-l.height*.10)*1.5);};return score(a)-score(b);});points=candidates[0]||[];
+ if(points.length>20){const xs=points.map(p=>p[0]),ys=points.map(p=>p[1]),left=Math.min(...xs),right=Math.max(...xs),top=Math.min(...ys),bottom=Math.max(...ys);out.push({x:(left+right)/2,y:(top+bottom)/2,w:right-left+3,h:bottom-top+3,points});}
+ else out.push({x:e.x+side*l.width*.075,y:e.y+l.height*.13,w:l.width*.11,h:l.width*.08,points:[]});
+ }return out;
+}
+export function repairCheek(image,cheek,raw){
+ if(!cheek.points.length)return;
+ const a=image.data,old=a.slice(),rx=cheek.w*.62,ry=cheek.h*.62;
+ const healthy=(x,y)=>{if(x<0||x>639||y<0||y>639)return false;const i=(y*640+x)*4,r=raw[i],g=raw[i+1],b=raw[i+2];return raw[i+3]>245&&!(r-g>10&&r-b>5)&&!(r>150&&g>120&&b<g*.98)&&Math.max(r,g,b)>155;};
+ for(let y=Math.max(0,Math.floor(cheek.y-ry));y<Math.min(640,cheek.y+ry);y++)for(let x=Math.max(0,Math.floor(cheek.x-rx));x<Math.min(640,cheek.x+rx);x++){
+ const radius=Math.hypot((x-cheek.x)/rx,(y-cheek.y)/ry),i=(y*640+x)*4;if(radius>=1||raw[i+3]<220)continue;
+ const r=raw[i],g=raw[i+1],b=raw[i+2];if(r>130&&g>110&&b<g*.98&&r>b*1.1)continue;
+ const samples=[];for(const [dx,dy]of [[-1,0],[1,0],[0,-1],[0,1]])for(let d=2;d<90;d++){const sx=x+dx*d,sy=y+dy*d;if(Math.hypot((sx-cheek.x)/rx,(sy-cheek.y)/ry)>1&&healthy(sx,sy)){samples.push({i:(sy*640+sx)*4,w:1/(d*d)});break;}}const sum=samples.reduce((s,p)=>s+p.w,0),weight=Math.min(1,(1-radius)/.14);if(sum)for(let k=0;k<3;k++)a[i+k]=old[i+k]*(1-weight)+samples.reduce((s,p)=>s+old[p.i+k]*p.w,0)/sum*weight;
+ }
 }

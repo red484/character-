@@ -25,10 +25,3 @@ const oldBoth=normalizeParts({ornament:'flower',ornamentOther:'star',ornamentX:.
 assert.equal(oldBoth.otherSize,1.2);assert.equal(oldBoth.otherX,-.03);assert.equal(oldBoth.otherY,.05);
 const independent=normalizeParts({...oldBoth,ornamentSize:.8,ornamentX:-.1});assert.equal(independent.otherSize,1.2);assert.equal(independent.otherX,-.03);
 console.log('PASS face controls persist, old paired ornaments migrate, second ornament stays independent');
-const {renderingParts}=await import('./parts-schema.mjs');
-const retired=normalizeParts({nose:'heartNose',mouth:'catMouth',cheekMark:'freckles',noseColor:'#f0a0b0',mouthSize:1.2});
-assert.ok(originalParts(renderingParts(retired)));
-assert.equal(retired.nose,'heartNose');
-assert.equal(renderingParts({...retired,ornament:'flower',otherSize:.8}).ornament,'flower');
-assert.equal(renderingParts({...retired,eyeLeft:'sparkle'}).eyeLeft,'sparkle');
-console.log('PASS retired face settings do not render; recoverable config and other customizations remain');
