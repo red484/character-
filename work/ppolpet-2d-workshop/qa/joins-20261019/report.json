@@ -1,0 +1,7756 @@
+{
+  "checkedAt": "2026-10-19T07:07:00.220Z",
+  "scope": "Every gallery pose, 5 combinations each. Visual contact sheet per character. Does not assert all arbitrary combinations or visual approval.",
+  "frameCount": 217,
+  "rows": [
+    {
+      "character": "starlight",
+      "motion": "idle",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24733
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6376
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21426
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 75168
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24578
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6374
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21302
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 74289
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24585
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6371
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21311
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 75423
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24578
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6374
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21302
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 74289
+            }
+          ]
+        },
+        {
+          "frame": 4,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24733
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6376
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21426
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 75168
+            }
+          ]
+        },
+        {
+          "frame": 5,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 25464
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6505
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 22128
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 75107
+            }
+          ]
+        },
+        {
+          "frame": 6,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 25028
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6389
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21717
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 75123
+            }
+          ]
+        },
+        {
+          "frame": 7,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 25464
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6505
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 22128
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 75107
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "starlight",
+      "motion": "walk",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 17608
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4609
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 15074
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 48987
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 17564
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4611
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 15044
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 49115
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 17919
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4681
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 15405
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 49673
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 18490
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4668
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 15981
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 49258
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "starlight",
+      "motion": "sit",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24789
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6343
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21522
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 65672
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24469
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6283
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21336
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 69256
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24974
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6281
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 22010
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 70948
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24199
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6028
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21493
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 68229
+            }
+          ]
+        },
+        {
+          "frame": 4,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24142
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6139
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21446
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 70793
+            }
+          ]
+        },
+        {
+          "frame": 5,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24065
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6101
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21385
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 71239
+            }
+          ]
+        },
+        {
+          "frame": 6,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 23628
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6084
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21033
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 74264
+            }
+          ]
+        },
+        {
+          "frame": 7,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 23840
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6135
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21149
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 69308
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "starlight",
+      "motion": "lie",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13676
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4512
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 10905
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 36319
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13694
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4503
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 10904
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 36772
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13588
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4441
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 10875
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 38252
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13427
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4221
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 10960
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 37258
+            }
+          ]
+        },
+        {
+          "frame": 4,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13628
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4301
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 11156
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 42423
+            }
+          ]
+        },
+        {
+          "frame": 5,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 14770
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4724
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12108
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 43776
+            }
+          ]
+        },
+        {
+          "frame": 6,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 17229
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5339
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 14257
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 49977
+            }
+          ]
+        },
+        {
+          "frame": 7,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 17207
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5523
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 14105
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 47710
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "starlight",
+      "motion": "greet",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 25314
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6503
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21945
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 65288
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24944
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6372
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21625
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 66740
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 25085
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6296
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 22101
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 73171
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 25144
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6341
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 22051
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 70505
+            }
+          ]
+        },
+        {
+          "frame": 4,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24713
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6237
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21674
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 69552
+            }
+          ]
+        },
+        {
+          "frame": 5,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24695
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6279
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21590
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 70214
+            }
+          ]
+        },
+        {
+          "frame": 6,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24719
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6300
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21528
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 68138
+            }
+          ]
+        },
+        {
+          "frame": 7,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 25314
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6503
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21945
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 65288
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "starlight",
+      "motion": "special",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 10173
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4338
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8445
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51824
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 10466
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4488
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8624
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 48994
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 10113
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4300
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8463
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 48793
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 10265
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4388
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8628
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 49213
+            }
+          ]
+        },
+        {
+          "frame": 4,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 10265
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4388
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8628
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 49238
+            }
+          ]
+        },
+        {
+          "frame": 5,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 10113
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4300
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8463
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 48825
+            }
+          ]
+        },
+        {
+          "frame": 6,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 10466
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4488
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8624
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 48651
+            }
+          ]
+        },
+        {
+          "frame": 7,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 10173
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4338
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8445
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 52593
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "starlight",
+      "motion": "sulk",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24679
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6448
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21145
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 59272
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 25185
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6459
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21580
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 57213
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 25058
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6456
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21525
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 62396
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 23088
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6023
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 19625
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 61834
+            }
+          ]
+        },
+        {
+          "frame": 4,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 22924
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5934
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 19456
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 60621
+            }
+          ]
+        },
+        {
+          "frame": 5,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 22416
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5896
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 19074
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 61255
+            }
+          ]
+        },
+        {
+          "frame": 6,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 25028
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6450
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21433
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 63813
+            }
+          ]
+        },
+        {
+          "frame": 7,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 24679
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6448
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 21145
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 59272
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "starlight",
+      "motion": "expressions",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 26003
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6604
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 22630
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 68418
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 25999
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6595
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 22635
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 60517
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 25904
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6600
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 22536
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 70033
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 25472
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6482
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 22154
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 56375
+            }
+          ]
+        },
+        {
+          "frame": 4,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 25983
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6620
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 22620
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 66485
+            }
+          ]
+        },
+        {
+          "frame": 5,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 26031
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6665
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 22592
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 57008
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "idle",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 14162
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2936
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 13133
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51093
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "walk",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 9620
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2333
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8810
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 37819
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 11260
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2477
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 10405
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 36784
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 10634
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2328
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 9838
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 42084
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 10604
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2343
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 9800
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 40591
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "sit",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 14162
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2936
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 13133
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51093
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 14374
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2950
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 13342
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51564
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13344
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2950
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12333
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 49750
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "lie",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8881
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2936
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7852
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51093
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 9260
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2950
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8228
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51564
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 10711
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3407
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 9543
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 57216
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 11161
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3447
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 9991
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 65553
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "greet",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 14162
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2936
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 13133
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51093
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13687
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2895
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12686
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 58342
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13570
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2889
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12564
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 56003
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13827
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2892
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12814
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 58786
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "special",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 6241
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2540
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 5387
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 75263
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 6444
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2525
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 5603
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 66090
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "expressions",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13480
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2951
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12452
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 44858
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13689
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2956
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12659
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 45033
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 14121
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2948
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 13090
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 45235
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13607
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2957
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12573
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 45302
+            }
+          ]
+        },
+        {
+          "frame": 4,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13578
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2940
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12559
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 47992
+            }
+          ]
+        },
+        {
+          "frame": 5,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13485
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2942
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12462
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 43145
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "standSit",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13344
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2950
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12333
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 49750
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 14374
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2950
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 13342
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51564
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 14162
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2936
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 13133
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51093
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "standLie",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 11161
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3447
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 9991
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 65553
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 10711
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3407
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 9543
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 57216
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 9260
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2950
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8228
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51564
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8881
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2936
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7852
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51093
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "idle",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 19920
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5984
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16810
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 81080
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "walk",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 15959
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4841
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 13079
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 37776
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 15079
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4820
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12249
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 37265
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 15830
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4820
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 13020
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 37462
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 15727
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4820
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12905
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 40879
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "sit",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 19920
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5984
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16810
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 81080
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20526
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6066
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17411
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 94151
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20260
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6092
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17091
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 86054
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "lie",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 16284
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6327
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12045
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 81423
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 16641
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6442
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12300
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 94527
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 16742
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5776
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 13057
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 55179
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20144
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 7270
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 15458
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 71719
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "greet",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 19920
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5950
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16785
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 81076
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 21219
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6074
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17967
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 89072
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20199
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6043
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16999
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 93356
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20796
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6031
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17645
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 81876
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "special",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 9337
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4385
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7662
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 99470
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8904
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4004
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7181
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 110318
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8919
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4111
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7215
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 102174
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "expressions",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 21333
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6199
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 18062
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 50515
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20792
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6017
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17670
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 61630
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20744
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6021
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17613
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 55693
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20724
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6017
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17602
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 47738
+            }
+          ]
+        },
+        {
+          "frame": 4,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20662
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6047
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17517
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 52381
+            }
+          ]
+        },
+        {
+          "frame": 5,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20649
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6048
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17511
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 48790
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "standSit",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20260
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6055
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17064
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 86050
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20526
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6036
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17389
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 94148
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 19920
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5950
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16785
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 81076
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "standLie",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20144
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 7270
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 15458
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 71719
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 16742
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5741
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 13023
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 55173
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 16641
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6412
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12278
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 94524
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 16284
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6293
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12020
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 81419
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "idle",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20280
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5847
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17180
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 96505
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "walk",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 21372
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5712
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17992
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 42672
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20262
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5570
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16989
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 43889
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 21441
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5667
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 18151
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 43053
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 21443
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5556
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 18207
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 44776
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "sit",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20280
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5847
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17180
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 96505
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 21042
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5682
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 18090
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 98700
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20978
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5925
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17944
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 91678
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "lie",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 16240
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6192
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12047
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 96850
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 15315
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6027
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 11270
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 99045
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 18560
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5838
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 15048
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 96239
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 21215
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 7406
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16474
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 73830
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "greet",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20280
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5847
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17180
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 96505
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20173
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5845
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16720
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 69473
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 19665
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5671
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16609
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 75731
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 19968
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5678
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16916
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 67526
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "special",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 9414
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4045
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7638
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 68452
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8802
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3769
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7030
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 78161
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 9387
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3987
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7580
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 85620
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "expressions",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20606
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5715
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17471
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 52061
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20897
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5714
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17770
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 63973
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20942
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5713
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17813
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 48984
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20844
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5728
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17643
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 47324
+            }
+          ]
+        },
+        {
+          "frame": 4,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20767
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5696
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17644
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 56293
+            }
+          ]
+        },
+        {
+          "frame": 5,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20896
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5713
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17767
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 48220
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "standSit",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20978
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5925
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17944
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 91678
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 21042
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5682
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 18090
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 98700
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20280
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5847
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17180
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 96505
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "standLie",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 21215
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 7406
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16474
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 73830
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 18560
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5838
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 15048
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 96239
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 15315
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6027
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 11270
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 99045
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 16240
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6192
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12047
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 96850
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "idle",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8618
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3604
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8916
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 74633
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "walk",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 7083
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3503
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7229
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 50708
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 7094
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3496
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7150
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51340
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 7430
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3441
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7556
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51029
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8244
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3438
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8360
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 53667
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "sit",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8618
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3604
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8916
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 74633
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8540
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3525
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8877
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 70166
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 7370
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3470
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7759
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 77413
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "lie",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 5283
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3828
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 5243
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 74857
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 4797
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3738
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 4747
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 70379
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8075
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4092
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8858
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 72647
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8255
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4758
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 9192
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 76205
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "greet",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8618
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3604
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8916
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 74633
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 7218
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3502
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7377
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 67114
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 7707
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3381
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7826
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 67448
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 7047
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3387
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7201
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 68022
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "special",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 3694
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2708
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 4471
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 63836
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 3268
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2604
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 4136
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 67797
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 3473
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 2544
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 4362
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 78449
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "expressions",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 9415
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4025
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 10024
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 78450
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 9551
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3826
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 10083
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 86299
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 9270
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4025
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 9802
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 79938
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 9235
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4006
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 9773
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 84697
+            }
+          ]
+        },
+        {
+          "frame": 4,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 9351
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3935
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 9866
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 87820
+            }
+          ]
+        },
+        {
+          "frame": 5,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8938
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4027
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 9521
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 80406
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "standSit",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 7370
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3470
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7759
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 77413
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8540
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3525
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8877
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 70166
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8618
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3604
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8916
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 74633
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "standLie",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8255
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4758
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 9192
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 76205
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 8075
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4092
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 8858
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 72647
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 4797
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3738
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 4747
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 70379
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 5283
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 3828
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 5243
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 74857
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "idle",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20841
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6739
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17107
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51641
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "walk",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 15566
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5726
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 11789
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 45544
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 15293
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5613
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 11592
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 43724
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 16108
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5596
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12431
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 43633
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 15729
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5477
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 12137
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 44394
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "sit",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20841
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6739
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17107
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51641
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 19932
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6467
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16645
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 52417
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 21080
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6836
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17299
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 55517
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "lie",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 14104
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 7052
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 9413
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51954
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13839
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 7021
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 9195
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 52971
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 14473
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5841
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 11085
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 50419
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20979
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 7130
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16837
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 56250
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "greet",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20841
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6739
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17107
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51641
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20189
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6616
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16288
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 48256
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 19276
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6619
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 15609
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 49803
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 18687
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6353
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 15120
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 49785
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "special",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 9458
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4816
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7246
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 43648
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 9616
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4816
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7399
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 44680
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 9173
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 4382
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 7021
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 43271
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "expressions",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20557
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6820
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16429
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 50365
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20094
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6806
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 15899
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 49670
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 19425
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6716
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 15264
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 49825
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 19327
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6724
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 15209
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51948
+            }
+          ]
+        },
+        {
+          "frame": 4,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 19535
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6812
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 15345
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51991
+            }
+          ]
+        },
+        {
+          "frame": 5,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 19526
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6693
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 15408
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 48784
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "standSit",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 21080
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6836
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17299
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 55517
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 19932
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6467
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16645
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 52417
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20841
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 6739
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 17107
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51641
+            }
+          ]
+        }
+      ],
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "standLie",
+      "frames": [
+        {
+          "frame": 0,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 20979
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 7130
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 16837
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 56250
+            }
+          ]
+        },
+        {
+          "frame": 1,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 14473
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 5841
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 11085
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 50419
+            }
+          ]
+        },
+        {
+          "frame": 2,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 13839
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 7021
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 9195
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 52971
+            }
+          ]
+        },
+        {
+          "frame": 3,
+          "baseline": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "cases": [
+            {
+              "title": "원본",
+              "finite": true,
+              "changed": 0
+            },
+            {
+              "title": "리본·목·날개",
+              "finite": true,
+              "changed": 14104
+            },
+            {
+              "title": "오른쪽 꽃·목",
+              "finite": true,
+              "changed": 7052
+            },
+            {
+              "title": "별·날개",
+              "finite": true,
+              "changed": 9413
+            },
+            {
+              "title": "귀·눈·꽃 함께",
+              "finite": true,
+              "changed": 51954
+            }
+          ]
+        }
+      ],
+      "pass": true
+    }
+  ]
+}

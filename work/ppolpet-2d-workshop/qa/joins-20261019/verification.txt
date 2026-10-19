@@ -1,0 +1,25 @@
+2026-10-19 customization repair checkpoint — joins-v23 / white-fur-4
+
+Changes
+- Bunny replacement ears: reject native lavender ribbon pixels when estimating scalp colour; extend the root repair; stop before the highest visible eye. Shade estimation uses source colours for classification and recoloured pixels for the result.
+- Cloud replacement ears: cover the neutral outline around cream ears, continue face shading, and trim residual ear contours below the old mask.
+- Angel eye replacement: exclude dark iris remnants from skin samples, enlarge eye cleanup, preserve the tilted mouth and red/pink cheeks. Small shaded marks at eyelash/cheek junctions can still remain.
+- Angel/Bunny/Cloud fur recolouring: use RGB channel contrast with a smooth material transition instead of a hard HSL saturation cutoff. Recolour neutral highlights and skin around eyes; preserve dark facial features. This fixes the large white/peach islands and rectangular eye/cheek boundaries seen in the mint preset.
+
+Evidence
+- report.json: six characters, 53 motions, 217 gallery poses x 5 combinations. All baseline pixel comparisons and accessory coordinate checks pass. The six contact sheets are representative poses, not proof that every arbitrary combination is aesthetically approved.
+- angel-eyes-before/after.png: same walking pose with custom smiling eyes.
+- bunny-crown-before/after.png: same walking pose with round replacement ears.
+- cloud-ear-before/after.png: same walking pose with round replacement ears.
+- bunny-mint-before/after.png: actual UI exports showing the recolour defect and correction.
+- angel-mint-after.png and cloud-mint-after.png: actual UI exports after the colour repair.
+- workshop.png: live workshop screenshot with mint fur, replacement ears and accessories.
+- motion-report.json: final 53/53 playback, default-pixel, hue/alpha and geometry checks passed. The source-frame colour/ear tests additionally cover the new palette logic; this playback audit does not itself judge aesthetic quality.
+- Browser console had no warnings or errors during the final check.
+
+Checks
+Node tests: palette, parts-schema, custom-schema, accessory-layout, ear-surface, parts-renderer, and existing behavior tests passed. Build passed; the protected Three.js renderer hash is unchanged:
+a64dddb3c670da4a7d3fc611ef882a6062e2250b05ec3e9153300f2fa8b88d4a
+
+Limits / next visual work
+Some profile/lying tail roots still overlap native tail pixels; accessory occlusion in very low poses and small eye/cheek shading marks remain review items. Added ears also require further pose-specific artistic fitting at extreme sizes. No arbitrary-combination visual approval is claimed. No source sprite or original motion was edited; original-parts/default mode remains available. No deployment or changes to saved user settings.

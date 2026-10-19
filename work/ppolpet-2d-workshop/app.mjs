@@ -1,8 +1,8 @@
 import {accessoryLayout} from './accessory-layout.mjs?v=3';
 import {partDefaults,normalizeParts,choices,partLimits} from './parts-schema.mjs';
-import {createAnalyzer} from './part-landmarks.mjs?v=accessories-v11';
-import {makePartsRenderer} from './parts-renderer.mjs?v=accessories-v11';
-import {furColors,paletteDefaults,groups,swatches,normalizePalette,makePaletteRenderer} from './palette.mjs';
+import {createAnalyzer} from './part-landmarks.mjs?v=joins-v23';
+import {makePartsRenderer} from './parts-renderer.mjs?v=joins-v23';
+import {furColors,paletteDefaults,groups,swatches,normalizePalette,makePaletteRenderer} from './palette.mjs?v=white-fur-4';
 import {defaults,normalize,pack,unpack,deformPoint} from './custom-schema.mjs?v=5';
 import {makeDeformer,landmarks} from './deform.mjs';
 const $=id=>document.getElementById(id), engine=$('engine');

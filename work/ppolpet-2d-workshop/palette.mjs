@@ -21,8 +21,31 @@ export function colorGroup(h,s){
 const reference={fur:rgbToHsl(166,151,208),gold:rgbToHsl(244,221,160),pink:rgbToHsl(232,170,194)};
 export function paletteTargets(palette){return Object.fromEntries(Object.entries(normalizePalette(palette)).filter(([,v])=>v).map(([k,v])=>[k,rgbToHsl(...v.slice(1).match(/../g).map(n=>parseInt(n,16)))]))}
 export const furColors={starlight:'#a697d0',apricot:'#e7d2ab',bear:'#e09eb6',angel:'#e8e2e2',bunny:'#e8e2e2',cloud:'#e8e2e2'};
+function shadeColor(hsl,target,ref,neutral=false){
+ const [,s,l]=hsl;
+ const nl=l<ref[2]?l*target[2]/ref[2]:target[2]+(l-ref[2])*(1-target[2])/(1-ref[2]);
+ return hslToRgb(target[0],neutral?target[1]:Math.min(1,s*target[1]/Math.max(.12,ref[1])),nl);
+}
+// HSL saturation is unstable near white: a tiny RGB difference can classify a
+// highlight as pink. Use channel contrast and a continuous material boundary.
+function whiteFurPixel(rgb,hsl,targets){
+ const chroma=Math.max(...rgb)-Math.min(...rgb),[h,s,l]=hsl;
+ const pinkHue=h>=310||h<=20;
+ const furWeight=l>.25?1-smooth(pinkHue?16:22,pinkHue?30:44,chroma):0;
+ const base=colorGroup(h,s),other=base==='fur'||base==='gold'?'gold':base;
+ let decoration=rgb;
+ if(targets[other]){
+  const mapped=shadeColor(hsl,targets[other],reference[other]);
+  const weight=smooth(.07,.16,s);
+  decoration=rgb.map((v,k)=>v+(mapped[k]-v)*weight);
+ }
+ const fur=targets.fur?shadeColor(hsl,targets.fur,rgbToHsl(232,226,226),true):rgb;
+ return decoration.map((v,k)=>Math.round(v*(1-furWeight)+fur[k]*furWeight));
+}
 export function recolorPixels(data,palette,cache,character='starlight',landmark=null){const targets=paletteTargets(palette);if(!Object.keys(targets).length)return data;
- for(let i=0;i<data.length;i+=4){if(!data[i+3])continue;const x=(i/4)%640,y=Math.floor(i/2560);if(character!=='starlight'&&landmark?.eyes?.some(e=>Math.abs(x-e.x)<Math.max(e.w*.7,8)&&Math.abs(y-e.y)<Math.max(e.h*.7,8)))continue;const key=(data[i]<<16)|(data[i+1]<<8)|data[i+2],cached=cache?.get(key);if(cached!==undefined){data[i]=cached>>>16;data[i+1]=(cached>>>8)&255;data[i+2]=cached&255;continue}const [h,s,l]=rgbToHsl(data[i],data[i+1],data[i+2]),baseGroup=colorGroup(h,s);let k=baseGroup;if(character==='apricot')k=baseGroup==='gold'?'fur':baseGroup==='fur'?'gold':baseGroup;else if(character==='bear')k=baseGroup==='pink'?'fur':s<.13&&l>.68?'pink':baseGroup==='fur'?'gold':null;else if(['angel','bunny','cloud'].includes(character))k=s<.18&&l>.25?'fur':baseGroup==='fur'||baseGroup==='gold'?'gold':baseGroup;const target=targets[k];if(!target){cache?.set(key,key);continue;}
+ for(let i=0;i<data.length;i+=4){if(!data[i+3])continue;const x=(i/4)%640,y=Math.floor(i/2560),white=['angel','bunny','cloud'].includes(character),max=Math.max(data[i],data[i+1],data[i+2]),min=Math.min(data[i],data[i+1],data[i+2]);if(white&&max<165)continue;if(character!=='starlight'&&(!white||(max<210&&max-min>18)||(max-min>65&&min<170))&&landmark?.eyes?.some(e=>Math.abs(x-e.x)<Math.max(e.w*.7,8)&&Math.abs(y-e.y)<Math.max(e.h*.7,8)))continue;const key=(data[i]<<16)|(data[i+1]<<8)|data[i+2],cached=cache?.get(key);if(cached!==undefined){data[i]=cached>>>16;data[i+1]=(cached>>>8)&255;data[i+2]=cached&255;continue}const [h,s,l]=rgbToHsl(data[i],data[i+1],data[i+2]),baseGroup=colorGroup(h,s);
+ if(white){const rgb=whiteFurPixel([data[i],data[i+1],data[i+2]],[h,s,l],targets);for(let k=0;k<3;k++)data[i+k]=rgb[k];cache?.set(key,(data[i]<<16)|(data[i+1]<<8)|data[i+2]);continue;}
+ let k=baseGroup;if(character==='apricot')k=baseGroup==='gold'?'fur':baseGroup==='fur'?'gold':baseGroup;else if(character==='bear')k=baseGroup==='pink'?'fur':s<.13&&l>.68?'pink':baseGroup==='fur'?'gold':null;const target=targets[k];if(!target){cache?.set(key,key);continue;}
   // Preserve shading and highlights. No positions, alpha, proportions or contours change.
   const ref=k==='fur'&&character!=='starlight'?rgbToHsl(...furColors[character].slice(1).match(/../g).map(v=>parseInt(v,16))):reference[k],nl=l<ref[2]?l*target[2]/ref[2]:target[2]+(l-ref[2])*(1-target[2])/(1-ref[2]);
   const ns=Math.min(1,s*target[1]/Math.max(.12,ref[1])),rgb=hslToRgb(target[0],ns,nl),weight=k==='fur'&&['angel','bunny','cloud'].includes(character)?1:smooth(.07,.16,s);

@@ -1,20 +1,29 @@
 import {accessoryLayout} from './accessory-layout.mjs?v=3';
 import {makeWalkTailMask} from './walk-tail-mask.mjs?v=4';
-import {fitScalpShade,repairEarRoot,earAttachment,fitCloudSkin,cloudEarMask} from './ear-surface.mjs?v=8';
+import {fitScalpShade,repairEarRoot,earAttachment,fitCloudSkin,cloudEarMask} from './ear-surface.mjs?v=12';
 import {normalizeParts,originalParts} from './parts-schema.mjs';
-import {recolorPixels,furColors,rgbToHsl} from './palette.mjs';
+import {recolorPixels,furColors,rgbToHsl} from './palette.mjs?v=white-fur-4';
 const canvas=(w=640,h=w)=>Object.assign(document.createElement('canvas'),{width:w,height:h});
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+export function isCheekPixel(r,g,b,character){return character==='angel'?(r>210&&g>140&&r-g>18&&r-b>18&&b>g*.96):(character!=='bear'&&r-g>35&&r-b>24&&b>g*1.03);}
 function smooth(a,b,v){const t=clamp((v-a)/(b-a),0,1);return t*t*(3-2*t)}
 export async function makePartsRenderer(){const atlas=await fetch(new URL('./assets/parts-atlas.json',import.meta.url)).then(r=>r.json()),im=new Image();im.src=new URL(atlas.src,import.meta.url);await im.decode();const joined=new Image();joined.src=new URL('./assets/joined-parts-v2.png',import.meta.url);await joined.decode();const joinedRects={roundNear:[113,97,487,484],roundFar:[859,113,439,469],tailJoined:[1463,104,644,504]};const removeWalkTail=makeWalkTailMask();const out=canvas(),work=canvas(),wx=work.getContext('2d',{willReadFrequently:true}),ctx=out.getContext('2d'),cache=new Map(),frameCache=new Map();
  function partAsset(name,character,palette){const isFur=['cat','roundEar','roundNear','roundFar','tailJoined','bunny','floppy','roundTail','curved','cloudTail'].includes(name),color=isFur?(palette.fur||furColors[character]):(palette.gold||'#b5a2d8');const key=name+'/'+color+'/'+(palette.pink||'');if(cache.has(key))return cache.get(key);const c=canvas(),x=c.getContext('2d',{willReadFrequently:true}),r=joinedRects[name]||atlas.rects[name],scale=Math.min(600/r[2],600/r[3]);const dw=r[2]*scale,dh=r[3]*scale;x.drawImage(joinedRects[name]?joined:im,...r,(640-dw)/2,(640-dh)/2,dw,dh);const image=x.getImageData(0,0,640,640);recolorPixels(image.data,{fur:color,pink:palette.pink,gold:palette.gold});if(name==='roundNear'||name==='roundFar'){const start=(640-dh)/2;for(let yy=0;yy<640;yy++)for(let xx=0;xx<640;xx++){const k=(yy*640+xx)*4+3;image.data[k]*=1-smooth(.66,.98,(yy-start)/dh);}}x.putImageData(image,0,0);const result={canvas:c,rect:[(640-dw)/2,(640-dh)/2,dw,dh]};cache.set(key,result);if(cache.size>24)cache.delete(cache.keys().next().value);return result}
  function stamp(name,x,y,w,h,angle,character,palette,flip=false,ay=.5){const a=partAsset(name,character,palette);ctx.save();ctx.translate(x,y);ctx.rotate(angle||0);if(flip)ctx.scale(-1,1);ctx.drawImage(a.canvas,...a.rect,-w/2,-h*ay,w,h);ctx.restore()}
  function fillEye(image,e,l,character,rawSource){
  const p=image.data,raw=rawSource||p,mask=new Uint8Array(640*640),original=p.slice();
- const rx=Math.max(e.w*.78,l.width*(character==='angel'?.13:.02)),ry=Math.max(e.h*.78,l.height*(character==='angel'?.18:.02));
+ const rx=Math.max(e.w*.78,l.width*(character==='angel'?.15:.02)),ry=Math.max(e.h*.78,l.height*(character==='angel'?.21:.02));
  const x0=Math.max(0,Math.floor(e.x-rx-2)),x1=Math.min(639,Math.ceil(e.x+rx+2)),y0=Math.max(0,Math.floor(e.y-ry-2)),y1=Math.min(639,Math.ceil(e.y+ry+2));
- for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++){const i=(y*640+x)*4;const r=raw[i],g=raw[i+1],b=raw[i+2];const cheek=character!=='bear'&&r-g>35&&r-b>24&&b>g*1.03; if(!cheek&&((x-e.x)/rx)**2+((y-e.y)/ry)**2<1)mask[y*640+x]=1;}
- const healthy=(x,y)=>{if(x<0||x>=640||y<0||y>=640||mask[y*640+x]||original[(y*640+x)*4+3]<=240)return false;const i=(y*640+x)*4,[hu,sa]=rgbToHsl(raw[i],raw[i+1],raw[i+2]);return !(character!=='bear'&&sa>.12&&(hu>295||hu<20)&&raw[i+2]>raw[i+1]*1.02)};
+ // A tilted face brings the mouth into the enlarged eye-repair ellipse.
+ // Protect its own centre, rather than repainting the mouth as skin.
+ let mouth=null;
+ if(character==='angel'&&l.eyes.length===2){const [a,b]=l.eyes,dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy);mouth={x:(a.x+b.x)/2-dy*.20,y:(a.y+b.y)/2+dx*.20,r:d*.19};}
+ for(let y=y0;y<=y1;y++)for(let x=x0;x<=x1;x++){const i=(y*640+x)*4;const r=raw[i],g=raw[i+1],b=raw[i+2];const cheek=isCheekPixel(r,g,b,character);
+ const protectedMouth=mouth&&Math.hypot(x-mouth.x,y-mouth.y)<mouth.r;
+ const eyeOutline=character==='angel'&&Math.max(r,g,b)<210&&Math.abs(x-e.x)<rx&&Math.abs(y-e.y)<ry;
+ if(!protectedMouth&&!cheek&&(((x-e.x)/rx)**2+((y-e.y)/ry)**2<1||eyeOutline))mask[y*640+x]=1;}
+
+ const healthy=(x,y)=>{if(x<0||x>=640||y<0||y>=640||mask[y*640+x]||original[(y*640+x)*4+3]<=240)return false;const i=(y*640+x)*4,[hu,sa]=rgbToHsl(raw[i],raw[i+1],raw[i+2]);if(character==='angel'&&(Math.min(raw[i],raw[i+1],raw[i+2])<205||Math.max(raw[i],raw[i+1],raw[i+2])-Math.min(raw[i],raw[i+1],raw[i+2])>22))return false;return !(character!=='bear'&&sa>.12&&(hu>295||hu<20)&&raw[i+2]>raw[i+1]*1.02)};
  for(let y=Math.max(0,y0-7);y<=Math.min(639,y1+7);y++)for(let x=Math.max(0,x0-7);x<=Math.min(639,x1+7);x++)if(mask[y*640+x]){const samples=[];for(const [dx,dy]of [[-1,0],[1,0],[0,-1],[0,1]])for(let d=1;d<100;d++){const sx=x+dx*d,sy=y+dy*d;if(healthy(sx,sy)){samples.push({i:(sy*640+sx)*4,weight:1/(d*d)});break}}let total=samples.reduce((v,s)=>v+s.weight,0);if(total)for(let k=0;k<3;k++)p[(y*640+x)*4+k]=samples.reduce((v,s)=>v+original[s.i+k]*s.weight,0)/total;}
  // Diffuse the repaired patch inside its mask so scan-line samples cannot leave seams.
  const bx=Math.max(0,x0-8),by=Math.max(0,y0-8),bw=Math.min(640,x1+9)-bx,bh=Math.min(640,y1+9)-by;let prev=new Float32Array(bw*bh*3),next=new Float32Array(prev.length);
@@ -50,14 +59,16 @@ export async function makePartsRenderer(){const atlas=await fetch(new URL('./ass
  if(p.ears!=='original'&&character!=='cloud')for(let x=0;x<640;x++){const u=clamp((x-l.cx)/(w*.5),-1,1);headCurve[x]=(l.profile?l.neck-w*.65:l.top)+h*.56*(1-Math.sqrt(1-u*u))+(l.motion==='walk'?0:Math.sin(tilt)*(x-l.cx));}
  const cloudSkin=character==='cloud'&&p.ears!=='original'?fitCloudSkin(rawPixels,originalPixels,l):null;
  const cloudMask=cloudSkin?cloudEarMask(rawPixels,l):null;
- const scalpShade=p.ears!=='original'&&character!=='cloud'?fitScalpShade(originalPixels,l,headCurve):null;
+ const scalpShade=p.ears!=='original'&&character!=='cloud'?fitScalpShade(originalPixels,l,headCurve,rawPixels):null;
  if(p.ears!=='original'||p.tail!=='original')for(let y=0;y<640;y++)for(let x=0;x<640;x++){const i=(y*640+x)*4;if(!a[i+3])continue;let erase=false;if(p.ears!=='original'){if(character==='cloud'){
  const [hu,sa,li]=rgbToHsl(rawPixels[i],rawPixels[i+1],rawPixels[i+2]);const hat=hu>225&&hu<300&&sa>.10;
- if(!hat&&y>l.top+h*.30&&y<l.neck+5){
+ if(!hat&&y>l.top+h*.30&&y<l.neck+Math.max(14,bodyH*.12)){
+  const faceX=l.cx+(l.motion==='walk'?w*.06:0),fy=(y-(l.neck-h*.40))/(h*.59),edge=w*.40*Math.sqrt(Math.max(0,1-fy*fy));
+  const silhouette=1-smooth(-1,1,Math.abs(x-faceX)-edge);
+  a[i+3]*=silhouette;
   const weight=cloudMask[y*640+x];
   if(weight){
-   const faceX=l.cx+(l.motion==='walk'?w*.06:0),fy=(y-(l.neck-h*.40))/(h*.59),edge=w*.40*Math.sqrt(Math.max(0,1-fy*fy));
-   const inside=1-smooth(-1,1,Math.abs(x-faceX)-edge),col=cloudSkin(x,y);
+   const inside=silhouette,col=cloudSkin(x,y);
    for(let k=0;k<3;k++)a[i+k]=a[i+k]*(1-weight)+col[k]*weight;
    a[i+3]=a[i+3]*(1-weight)+255*inside*weight;
   }
