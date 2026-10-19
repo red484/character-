@@ -1,0 +1,37 @@
+[
+  {
+    "id": "angel",
+    "name": "모찌 천사",
+    "identity": "ivory white CAT, two small triangular pink-inner ears, luminous round purple eyes with tiny gold star reflections, tiny dark w-shaped mouth, pink round cheeks, short dark whiskers, pale golden halo floating over head, small lavender bow at throat and lavender ribbon wings at back, small white round tail. Halo and ribbon accessories ALWAYS present. Pink paw pads.",
+    "special": "무언가 보기",
+    "detail": "sit and look up toward screen-left, bring both SHORT forepaws close at chest then reach one paw slightly up toward an imaginary star. Keep face in front of reaching arm. When palm faces viewer show pink paw pads."
+  },
+  {
+    "id": "apricot",
+    "name": "살구냥",
+    "identity": "pale warm apricot cream CAT, triangular pink-inner ears, small black dot eyes, one tiny muted pink triangular nose, pink round cheeks, two short whiskers each side, no mouth, plump cream round tail, pink paw pads. NO halo, bow or clothing.",
+    "special": "햇살 보기",
+    "detail": "sit calmly, close eyes contentedly then lift chin slightly toward screen-left sunlight, keep short forepaws together below chin. No sun baked into sprite."
+  },
+  {
+    "id": "bear",
+    "name": "졸린 곰",
+    "identity": "pastel PINK BEAR, two small ROUND ears with lighter pink centers, sleepy dark horizontal half-lidded eyes, tiny dark caret-shaped pout mouth, big softly round head, tiny rounded pink body and short limbs, round pink pomtail, light pink paw pads. No cat ears, no gold ring eyes, no clothes.",
+    "special": "심술내기",
+    "detail": "stand with sleepy grumpy eyes, lift two SHORT paws and fold them at chest, then turn head a little screen-right with a small dismissive chin tilt. Exactly two arms, backs of paws face viewer."
+  },
+  {
+    "id": "bunny",
+    "name": "졸린 토끼",
+    "identity": "ivory white BUNNY, two long upright rounded pink-inner ears, lavender small bow on character RIGHT / SCREEN-LEFT ear base (keep this same side in every frame), sleepy thin dark curved eyelids, tiny dark nose/mouth, pink round cheeks, small white round tail, pink paw pads. Ears never become short/cat ears. Bow never disappears or changes side.",
+    "special": "부끄러워하기",
+    "detail": "stand, lift two short paws to chest, touch paws together shyly then lower head slightly and tilt bashfully, keep lavender bow on SCREEN-LEFT and long ears intact. No hearts baked in."
+  },
+  {
+    "id": "cloud",
+    "name": "구름멍",
+    "identity": "ivory white PUPPY with pale cream DROOP ears, small black dot eyes, tiny dark w-smile mouth, pink round cheeks, pastel lavender knit beanie with brim and small round top pom, tiny white body, short limbs and fluffy cloud shaped tail, pink paw pads. Beanie must stay on in all frames. No cat ears or halo.",
+    "special": "윙크 인사",
+    "detail": "stand, lift one SHORT forepaw beside cheek, show pink palm pads, gently wave and wink with one eye; tilt head a little while greeting. Opposite paw stays at side, exactly TWO arms."
+  }
+]

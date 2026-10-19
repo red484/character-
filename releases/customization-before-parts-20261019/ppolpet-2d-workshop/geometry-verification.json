@@ -1,0 +1,8 @@
+{
+  "cases": 53,
+  "configurationsPerCase": 64,
+  "triangles": 13893632,
+  "minSignedArea": 6.676681138067773,
+  "protectedFaceError": 5.684341886080802e-14,
+  "groundError": 0
+}

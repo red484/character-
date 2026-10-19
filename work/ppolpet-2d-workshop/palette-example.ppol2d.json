@@ -1,0 +1,22 @@
+{
+  "format": "ppolpet-sprite-custom",
+  "version": 3,
+  "character": "starlight",
+  "motion": "sit",
+  "walkRepair": true,
+  "shape": {
+    "earLength": 1,
+    "earWidth": 1,
+    "tailLength": 1,
+    "tailLift": 0,
+    "bodyHeight": 1,
+    "bodyWidth": 1
+  },
+  "palette": {
+    "fur": "#a5c9bb",
+    "gold": "#f4e8d5",
+    "pink": "#edb8a5"
+  },
+  "tone": 0,
+  "size": 100
+}

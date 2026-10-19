@@ -1,0 +1,20 @@
+{
+  "method": "continuous 2D connected texture deformation, not a new 3D model",
+  "source": "assets/idle-sway-v1.png, neutral first cell",
+  "loopSeconds": 3.2,
+  "headTiltDegrees": [
+    -6,
+    6
+  ],
+  "headRigidThroughY": 196,
+  "neckWeightRangeY": [
+    196,
+    232
+  ],
+  "feetFixedFromY": 232,
+  "headDistancePreservation": "pass",
+  "footAnchorsStationary": "pass",
+  "sampleFrames": 8,
+  "backup": "before-tilt/",
+  "generatedAlternatives": "not used; did not give a consistent left-to-right phase sequence"
+}

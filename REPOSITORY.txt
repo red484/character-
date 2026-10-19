@@ -1,0 +1,24 @@
+뿔뿔펫 개발 작업 전체 스냅샷 — 2026-10-19
+
+work/: 현재 소스, 2D 모션 공방과 내부 검수 페이지
+outputs/: 이전 출력물
+backups/: 기존 3D 및 개발 단계별 백업
+releases/: 체크포인트 및 검수 결과
+
+로컬 실행:
+python3 -m http.server 8766 --directory work
+http://127.0.0.1:8766/ppolpet/docs/maker-2d.html
+
+공방 빌드:
+node work/ppolpet/build-web.js
+
+최신 검수 기록:
+work/ppolpet-2d-workshop/qa/accessories-20261019/verification.txt
+미완성 교체 경계가 포함된 내부 개발 버전이며 공개 배포 승인을 의미하지 않습니다.
+
+100MB를 넘는 백업 ZIP 복원:
+python3 releases/starlight-2d-checkpoint-20261014-124726.zip.parts/restore.py
+분할 파일 및 복원 ZIP은 SHA-256으로 검증됩니다.
+
+제외: OS 메타데이터, 캐시, 재설치 가능한 의존성.
+이전 Python 작업 의존성 목록: work/starlight-mesh/requirements-snapshot.txt

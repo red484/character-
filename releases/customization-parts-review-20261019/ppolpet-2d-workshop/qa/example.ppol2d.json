@@ -1,0 +1,46 @@
+{
+  "format": "ppolpet-sprite-custom",
+  "version": 4,
+  "character": "starlight",
+  "motion": "walk",
+  "walkRepair": true,
+  "shape": {
+    "earLength": 1,
+    "earWidth": 1,
+    "tailLength": 1,
+    "tailLift": 0,
+    "bodyHeight": 1,
+    "bodyWidth": 1
+  },
+  "palette": {
+    "fur": null,
+    "gold": null,
+    "pink": null
+  },
+  "parts": {
+    "ears": "round",
+    "tail": "curved",
+    "earColor": null,
+    "tailColor": null,
+    "accessoryColor": null,
+    "eyeLeft": "happy",
+    "eyeRight": "happy",
+    "eyeLeftColor": null,
+    "eyeRightColor": null,
+    "eyeSize": 1,
+    "eyeX": 0,
+    "eyeY": 0,
+    "earSize": 1,
+    "earSpread": 0,
+    "tailSize": 1,
+    "ornament": "flower",
+    "ornamentSide": "left",
+    "ornamentSize": 1,
+    "ornamentX": 0,
+    "ornamentY": 0,
+    "neck": "bowtie",
+    "back": "none"
+  },
+  "tone": 0,
+  "size": 100
+}

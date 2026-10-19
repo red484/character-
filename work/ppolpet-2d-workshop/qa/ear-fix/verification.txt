@@ -1,0 +1,23 @@
+2026-10-19 · customization attachment repair
+
+Changed: parts-renderer.mjs, new ear-surface.mjs, part-landmarks.mjs, app.mjs, index.html; rebuilt docs/maker-2d.html.
+- Ear atlas retains its aspect ratio. Roots are anchored below the scalp outline and occluded by the head.
+- Removed old-ear-driven RANSAC contour fitting. Walking uses a stable rounded crown; other poses follow head tilt.
+- Replaced blanket forehead recoloring with local quadratic shading repair around former ear roots.
+- Starlight lying head bounds exclude the torso/tail; verified the fifth transition frame at 640px.
+- Eye cleanup masks include the full old eye. Pink-protection thresholds no longer mistake shaded ring pixels for cheeks.
+- Curved tails extend the existing tail root; no limb-removal mask is used. Lower-leg deletion removed for other tails.
+
+Actual-browser validation:
+- Starlight walk: four poses × four ear options contact sheet inspected.
+- Idle, walk, lying inspected at exported 640px; same-config before/after PNGs saved.
+- 6 characters × 53 total motions × 3 sample frames: default RGB/alpha differences 0 in all 159 samples.
+- Full combination contact sheet inspected; this is not a claim that every combination is visually final.
+- Parts schema, palette, deformation invariants and existing behavior tests passed; build succeeded.
+- 3D renderer hash unchanged: a64dddb3c670da4a7d3fc611ef882a6062e2250b05ec3e9153300f2fa8b88d4a.
+
+Remaining visual limits:
+- Cloud's original floppy ears are baked into the face/hat artwork; replacement still leaves patches in some poses.
+- Some Angel eye outlines and Bunny ribbon/ear-root overlaps need character-specific clean plates.
+- Round/cloud tail replacement masks remain approximate; curved tail now preserves original limb silhouettes.
+No source sprite artwork or saved user configuration was overwritten. No public deployment.

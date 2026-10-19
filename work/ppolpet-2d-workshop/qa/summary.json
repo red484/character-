@@ -1,0 +1,9 @@
+{
+  "cases": 53,
+  "passed": 53,
+  "sampledFrames": 159,
+  "defaultPixelDifferences": 0,
+  "visualStatus": "Internal review candidate. Ear replacement boundaries remain imperfect in some profile and lying poses. Not production approved.",
+  "saveLoad": "v4 UI export -> reset parts -> import restored selected eyes, ears, tail and accessories; v2/v3 migration unit tests pass.",
+  "deployment": "local only; shared 3D renderer unchanged"
+}

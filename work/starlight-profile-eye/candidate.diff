@@ -1,0 +1,92 @@
+diff --git a/work/starlight-identity-fit/review-renderer.js b/work/starlight-profile-eye/review-renderer.js
+index 0ea098e..23f1547 100644
+--- a/work/starlight-identity-fit/review-renderer.js
++++ b/work/starlight-profile-eye/review-renderer.js
+@@ -1533,7 +1533,7 @@
+     for(let i=0;i<90;i++)pose(b,st,i*16,16);
+     b.parts.zs.forEach(o=>o.visible=false);b.parts.hearts.forEach(o=>o.visible=false);
+     const skull=b.parts.head.children[0];let audit={candidate,geometryChanged:false};
+-    const THREE=makeCtx(), anchors={};
++    const THREE=makeCtx(), anchors={};let profile=null,front45=null;
+     if(candidate){
+       const g=skull.geometry.clone(),p=g.attributes.position,uv=g.attributes.uv;
+       g.computeBoundingBox();const bb=g.boundingBox,lo=bb.min.clone(),hi=bb.max.clone(),h=hi.y-lo.y,d=hi.z-lo.z;
+@@ -1553,20 +1553,35 @@
+       skull.material.map.image=cv;skull.material.map.needsUpdate=true;
+       const specs={nose:[966,764,7,14]};
+       const actual={nose:[hi.z,noseY,7/854*d,14/854*d]};
+-      // A shallow rim follows the existing ring's UV curve. Dark edge is real thickness,
+-      // not another eye and not a camera-driven shader or replacement texture.
+-      const tt=b.cfg.tune,rx=.112*tt.eyeSize*2.1*.82,ry=.112*tt.eyeSize*2.1*.60;
+-      for(const side of [-1,1]){
+-        const vertices=[],indices=[];
+-        for(let j=0;j<=96;j++){
+-          const a=j/96*Math.PI*2,lon=side*.44*tt.eyeGap+Math.cos(a)*rx,lat=-.22+tt.eyeY+Math.sin(a)*ry;
+-          const q=uvSurface(THREE,g,.25+lon/(2*Math.PI),.5+lat/Math.PI).point;
+-          vertices.push(q.x,q.y,q.z+.0008,q.x,q.y,q.z+.012);
+-          if(j<96){const k=j*2;indices.push(k,k+1,k+2,k+1,k+3,k+2);}
+-        }
+-        const edgeGeo=new THREE.BufferGeometry();edgeGeo.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));edgeGeo.setIndex(indices);edgeGeo.computeVertexNormals();
+-        const edge=new THREE.Mesh(edgeGeo,new THREE.MeshStandardMaterial({color:'#625474',roughness:.85,side:THREE.DoubleSide}));skull.add(edge);
+-      }
++      // Continuous procedural material on the same head: no side-view bitmap.
++      profile={morph:{value:0},blend:{value:0},eye:{value:new THREE.Vector4(hi.z-.105,noseY+.17,.029,.085)},cheek:{value:new THREE.Vector4(hi.z-.285,noseY-.018,.095,.047)}};
++      let bestEye=Infinity,eyeU=.18,eyeV=.4;
++      for(let i=0;i<p.count;i++){if(p.getX(i)>0)continue;const err=(p.getZ(i)-(hi.z-.105))**2+(p.getY(i)-(noseY+.17))**2;if(err<bestEye){bestEye=err;eyeU=uv.getX(i);eyeV=uv.getY(i);}}
++      profile.end=new THREE.Vector4(Math.abs((eyeU-.25)*Math.PI*2),(eyeV-.5)*Math.PI,.048,.10);
++      profile.start=new THREE.Vector4(.53375,-.22+b.cfg.tune.eyeY,.112*b.cfg.tune.eyeSize*2.1,.112*b.cfg.tune.eyeSize*2.1*1.20);
++      const material=skull.material.clone();skull.material=material;
++      material.onBeforeCompile=shader=>{
++        shader.uniforms.profileBlend=profile.blend;shader.uniforms.profileMorph=profile.morph;shader.uniforms.profileGold={value:new THREE.Color(b.cfg.colors.eye)};shader.uniforms.profileEye=profile.eye;shader.uniforms.profileCheek=profile.cheek;
++        shader.uniforms.profileBody={value:new THREE.Color(b.cfg.colors.body)};shader.uniforms.profileInk={value:new THREE.Color('#44384e')};shader.uniforms.profilePink={value:new THREE.Color(b.cfg.colors.blush)};
++        shader.vertexShader='varying vec3 faceLocal; varying vec2 faceUV;\n'+shader.vertexShader;
++        shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nfaceLocal=position;faceUV=uv;');
++        shader.fragmentShader='varying vec3 faceLocal; varying vec2 faceUV; uniform float profileBlend; uniform float profileMorph; uniform vec3 profileGold; uniform vec4 profileEye; uniform vec4 profileCheek; uniform vec3 profileBody; uniform vec3 profileInk; uniform vec3 profilePink;\n'+shader.fragmentShader;
++        shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>',`#include <map_fragment>
++          float longitude=mod((faceUV.x-.25)*6.2831853+3.14159265,6.2831853)-3.14159265; vec2 ep=(vec2(abs(longitude),(faceUV.y-.5)*3.14159265)-profileEye.xy)/profileEye.zw;
++          float er=length(ep);
++          float outline=(1.0-smoothstep(.94,1.05,er))*smoothstep(.76,.85,er);
++          float inside=1.0-smoothstep(.85,1.0,er);
++          float crossline=(1.0-smoothstep(.05,.11,abs(ep.y+.14-.24*ep.x*ep.x)))*(1.0-smoothstep(.80,.92,er));
++          float eyeMask=max(outline,max(crossline*(1.0-profileMorph),inside*profileMorph));
++          vec2 cp=(faceLocal.zy-profileCheek.xy)/profileCheek.zw;
++          float cheekMask=1.0-smoothstep(.35,1.0,length(cp));
++          vec3 profileColor=mix(profileBody,profilePink,cheekMask*.80);
++          profileColor=mix(profileColor,mix(profileGold,profileInk,profileMorph),eyeMask);
++          diffuseColor.rgb=mix(diffuseColor.rgb,profileColor,profileBlend);
++        `);
++      };
++      material.customProgramCacheKey=()=> 'starlight-procedural-profile-v1';
++      b.cfg={...b.cfg,mouth:'none'};
+       const noseGeo=new THREE.SphereGeometry(1,32,24),noseColors=[];
+       const frontColor=new THREE.Color(b.cfg.colors.eye),sideColor=new THREE.Color('#625474');
+       for(let i=0;i<noseGeo.attributes.normal.count;i++){const z=noseGeo.attributes.normal.getZ(i),t=Math.min(1,Math.max(0,(z-.3)/.5)),c=sideColor.clone().lerp(frontColor,t);noseColors.push(c.r,c.g,c.b);}
+@@ -1579,13 +1594,24 @@
+         let best=Infinity,vv=new THREE.Vector3();for(let i=0;i<p.count;i++){if(p.getX(i)>0)continue;const dist=Math.pow((p.getZ(i)-t[0])/d,2)+Math.pow((p.getY(i)-t[1])/h,2)+(name==='nose'?Math.pow(p.getX(i),2):0);if(dist<best){best=dist;vv.set(p.getX(i),p.getY(i),p.getZ(i));}}
+         anchors[name]=vv;
+       }
+-      audit={candidate:true,geometryChanged:true,maxDeltaZ:delta,xyUnchanged:true,otherPartsChanged:false,fixedTexture:true,referenceLandmarks:specs,textureSize:[TW,TH],eyeTreatment:"original ring texture with shallow fixed dark sidewall; no extra eye"};
++      audit={candidate:true,geometryChanged:true,maxDeltaZ:delta,xyUnchanged:true,otherPartsChanged:false,fixedGeometry:true,viewDependentMaterial:true,referenceLandmarks:specs,textureSize:[TW,TH],eyeTreatment:"original eyes through 45deg; continuous material transition 45-75deg to surface-bound vertical oval"};
+     }
+     function face(camera,angle){
+-      if(candidate)return;
+-      const cv=drawHead(b.cfg,'normal','normal');skull.material.map.image=cv;skull.material.map.needsUpdate=true;
+-      const yaw=Math.atan2(Math.sin(angle),Math.cos(angle));frozenFace(b,camera,yaw,state);
++      const yaw=Math.atan2(Math.sin(angle),Math.cos(angle));
++      if(candidate){
++        const degrees=Math.abs(yaw)*180/Math.PI,t=Math.max(0,Math.min(1,(degrees-45)/30));const smooth=t*t*(3-2*t);profile.morph.value=smooth;profile.blend.value=Math.min(1,smooth*7);profile.eye.value.copy(profile.start).lerp(profile.end,smooth);
++        if(degrees<=45.0001){
++          skull.material.map.image=drawHead(b.cfg,'normal','normal');skull.material.map.needsUpdate=true;frozenFace(b,camera,yaw,state);
++        }else if(!front45){
++          const saved=b.char.rotation.y;b.char.rotation.y=Math.sign(yaw)*Math.PI/4;b.char.updateMatrixWorld(true);
++          skull.material.map.image=drawHead(b.cfg,'normal','normal');skull.material.map.needsUpdate=true;frozenFace(b,camera,Math.sign(yaw)*Math.PI/4,state);front45=skull.material.map.image;
++          b.char.rotation.y=saved;b.char.updateMatrixWorld(true);
++        }else{skull.material.map.image=front45;skull.material.map.needsUpdate=true;}
++        return;
++      }
++      const cv=drawHead(b.cfg,'normal','normal');skull.material.map.image=cv;skull.material.map.needsUpdate=true;frozenFace(b,camera,yaw,state);
+     }
++
+     function landmarks(camera,angle){
+       const THREE=makeCtx(),g=skull.geometry;
+       const lon=candidate&&b.noseAnchor?0:-Math.sign(angle)*.28*Math.min(1,Math.max(0,(Math.abs(angle)*180/Math.PI-45)/30));

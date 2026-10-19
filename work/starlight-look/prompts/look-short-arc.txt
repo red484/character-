@@ -1,0 +1,14 @@
+Use case: precise-object-edit. Input is edit target, a transparent 4 columns by 2 rows lavender kitten animation atlas.
+ANATOMY CORRECTION: previous far paw jumps from chest all the way to nose height, implying an impossibly long hidden arm. Replace with a SMALL LOW REACH BELOW THE CHIN. Never lift paw to nose or eye height. Same short arm length (roughly 60 pixels in a 444px cell) in all frames. Large round head foreground ALWAYS occludes the far shoulder/upper forearm; head is NOT squashed, reshaped or indented. Exactly two arms: one bean near paw stays at chest, the other is the same far paw that unfolds/retracts. No leftover far chest paw when it is raised.
+Keep character head center, size, ears, ring eyes, nose, blush, torso, seated feet, tail, body positioning perfectly steady across all cells. Only a tiny rigid head lift allowed, no face stretch. Soft purple and gold/pink unchanged.
+Eight cells left to right across top then bottom:
+1 clasped at chest, far paw center around (151,345) cell-local pixels.
+2 START lift, far paw center (140,334), just 12px moved, still mostly at chest, faint narrow edge of pink pads begins visible.
+3 HALF lift, far paw center (123,318), pink central pad and three toe pads partially visible as palm turns.
+4 MAX low reach, far paw center (109,301), rounded tip just beyond the lower-left chin outline, most upper forearm hidden BEHIND face. Palm pink central bean + three toe pads clearly visible. This is far BELOW the nose (nose is about y245). Keep short thick arm, no tube. Its shoulder is about (165,341), so don't move paw any farther.
+5 same as4, hold.
+6 same as3, retreat.
+7 same as2, retreat.
+8 same as1, clasp.
+Positions illustrative relative to original 444px cells; keep same source character registration. Lower seated body and feet absolutely fixed. Do not draw arms from feet. Far arm in2-7 replaces original clasped far arm; exactly ONE near chest paw remains. No third appendage.
+Crucial: preserve full large round lower face contour in foreground while far paw peeks UNDER/LEFT of chin, NOT at nose level. Keep the whole animation cute, modest gesture, real gradual pose differences, no reaching upwards across the whole head. No star, no text, no marks. Genuine transparent background.

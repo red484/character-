@@ -1,0 +1,97 @@
+{
+  "referenceCrop": {
+    "x": 34,
+    "y": 9,
+    "width": 90,
+    "height": 95
+  },
+  "alignment": {
+    "height": 380,
+    "baseline": 480,
+    "uniformScale": true
+  },
+  "silhouettes": [
+    {
+      "x": 6,
+      "y": 5,
+      "width": 76,
+      "height": 88,
+      "chin": 62,
+      "headPercent": 65.9
+    },
+    {
+      "x": 79,
+      "y": 40,
+      "width": 323,
+      "height": 384,
+      "chin": 278,
+      "headPercent": 62.2
+    },
+    {
+      "x": 132,
+      "y": 164,
+      "width": 536,
+      "height": 539,
+      "chin": 562,
+      "headPercent": 74
+    }
+  ],
+  "seatedChangedPixels": 0,
+  "standToSeatedChangedPixels": 0,
+  "standMetrics": {
+    "characterScale": [
+      1,
+      1,
+      1
+    ],
+    "headScale": [
+      1,
+      1,
+      1
+    ],
+    "bodyScale": [
+      0.26,
+      0.27,
+      0.235
+    ],
+    "neckToHip": 0.12,
+    "feet": [
+      {
+        "floorY": 0,
+        "z": 0,
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "floorY": 0,
+        "z": 0,
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    "arms": [
+      {
+        "rotationX": 0,
+        "position": [
+          -0.265,
+          0.5,
+          0.01
+        ]
+      },
+      {
+        "rotationX": 0,
+        "position": [
+          0.265,
+          0.5,
+          0.01
+        ]
+      }
+    ]
+  }
+}

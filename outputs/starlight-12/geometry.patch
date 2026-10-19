@@ -1,0 +1,13 @@
+--- dev11
++++ dev12
+@@ -433,7 +433,9 @@
+       const round=geo(skull.geometry.clone()),p=round.attributes.position;
+       for(let i=0;i<p.count;i++){
+         const y=p.getY(i);
+-        p.setXYZ(i,p.getX(i)*.985,y-.014*Math.pow(Math.max(0,-y)/.6,2),p.getZ(i));
++        // Round the lower cheek contour; keep the head group scale fixed.
++        const cheekRound=1-.025*Math.exp(-Math.pow((y+.40)/.23,2));
++        p.setXYZ(i,p.getX(i)*.985*cheekRound,y-.025*Math.pow(Math.max(0,-y)/.6,2),p.getZ(i));
+       }
+       round.computeVertexNormals();round.computeBoundingBox();
+       skull.userData.standGeometry=round;

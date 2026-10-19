@@ -1,0 +1,35 @@
+{
+  "expressionNames": [
+    "기본",
+    "행복",
+    "놀람",
+    "새침",
+    "윙크",
+    "졸림"
+  ],
+  "count": 6,
+  "commonScale": 0.4878048780487805,
+  "opaqueBoundsHeights": [
+    451,
+    451,
+    451,
+    450,
+    450,
+    450
+  ],
+  "previousFilesChecked": 218,
+  "previousFilesChanged": [],
+  "browserErrors": [],
+  "browserChecks": [
+    "Six thumbnails render",
+    "Happy and wink selection",
+    "Original expression reference changes with selection",
+    "Approved 2D sway renderer reused",
+    "Auto-cycle enabled"
+  ],
+  "limitations": [
+    "Expression switching uses six discrete states, no intermediate eyelid frames",
+    "Generated atlas is not pixel-identical to approved idle asset"
+  ],
+  "status": "awaiting user review"
+}

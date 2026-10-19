@@ -1,0 +1,15 @@
+{
+  "README.txt": "1589cf27bfbb1cef3d9e7cd1ff8237e9a6a20753533a55616a8ed3fbd21126d7",
+  "app.mjs": "01443375ebbb1293a80f6999c34daa224494f05afcb510fcb82319664c7a56dd",
+  "assets/approved-idle-v1.png": "992b34ebbd18d0581b2a33bfe0c61e7fe8ec2cdbb4a337e9ab3a2274adf9fcc0",
+  "assets/parts-v1.png": "3a5210c2a9f83dd58264fd7f0a3c5a4316cebb8800094650083563ea2e82c47a",
+  "image-prompt.txt": "1d07963a0cec9a7b22e7dba56fe388ef7002ccdd84d16ca03bf9b3c4b78d5d13",
+  "index.html": "b7d849edffd6ef1e041068e3fbb73c44a1cb3036f19b1cd54ecb6ca33dc2d2ee",
+  "offline-custom-example.html": "e022c6442a2f2576317118a269ce253245bbe59cd33230a24b87a9507ae82906",
+  "parts.json": "717eaf38bf7d9feb2c58f3e43cee5cb9ad08eaabd9f053b798f0e9faa686248c",
+  "preview.png": "79a7621af39e4c83e8d89146b4267fdcf0e616701c1842c8aef40ac3af513d4a",
+  "rig.mjs": "aad647f4cb4800102fd07b875f2b79289f93732b7ed38750510384c93c5cb5f1",
+  "rig.test.mjs": "0cf057f96e330d33b9064bfff98b679231218fd8a9d98e6fd588f5c9390b5c34",
+  "test-results.json": "6f8030f4d656ba6e51cba6156767549a94c49941bd7891f468cc5a429a03c8fc",
+  "verification.json": "a8dede39940947a130666f7dcd2dcc3c9f02906d7ea00b81ad97b5270b50743c"
+}

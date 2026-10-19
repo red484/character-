@@ -1,0 +1,1 @@
+{"pass":true,"configurations":162,"poseSamples":58806,"checks":["JSON roundtrip","two arms / two legs","rigid face ratio","at least one grounded foot","no foot penetration","constant arm length","neck overlap","left/right half-cycle symmetry","sitting holds","input limits"]}

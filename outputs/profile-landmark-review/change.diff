@@ -1,0 +1,28 @@
+--- before
++++ current
+@@ -680,9 +680,9 @@
+   // A smooth visibility mix (not a sprite swap) prevents a discontinuity as
+   // the *same 3D head* turns.  Parameters are exposed only to the local QA page.
+   const PROFILE_DEFAULTS=Object.freeze({
+-    ringLongitude:1.02, ringLatitude:-.25,
++    ringLongitude:.75, ringLatitude:-.03,
+     eyeLongitude:.50, eyeLatitude:-.085,
+-    noseLongitude:.24, noseLatitude:-.30,
++    noseLongitude:.24, noseLatitude:-.25,
+     blushLongitude:1.09, blushLatitude:-.38
+   });
+   const smoothStep=(a,b,t)=>{const u=Math.max(0,Math.min(1,(t-a)/(b-a)));return u*u*(3-2*u);};
+@@ -723,11 +723,10 @@
+     const cv=drawHead(b.cfg,'normal','normal',side),g=cv.getContext('2d');
+     const cx=mix(anchor.cx,UX(side*settings.ringLongitude)),cy=mix(anchor.cy,VY(settings.ringLatitude));
+     g.save();g.translate(cx,cy);g.scale(mix(1,PX(.155+.0215)/anchor.rx),mix(1,PX(.243+.0215)/anchor.ry));g.translate(-anchor.cx,-anchor.cy);g.drawImage(anchor.layer,0,0);g.restore();
+-    // Only pigment changes. Keep the patch's small profile eye and nose coordinates.
++    // Reference: one golden ring eye, no additional black eye; small yellow nose.
+     const detail=smoothStep(66,87,deg);g.globalAlpha=detail;
+     const mouthY=VY(-.30+b.cfg.tune.mouthY);g.fillStyle=C.body;g.fillRect(UX(0)-PX(.09),mouthY-PX(.105),PX(.18),PX(.21));
+-    g.fillStyle=C.line||'#292237';g.beginPath();g.ellipse(UX(side*settings.eyeLongitude),VY(settings.eyeLatitude),PX(.135),PX(.137),0,0,Math.PI*2);g.fill();
+-    g.fillStyle=C.eye;g.beginPath();g.ellipse(UX(side*settings.noseLongitude),VY(settings.noseLatitude),PX(.075),PX(.046),0,0,Math.PI*2);g.fill();g.globalAlpha=1;
++    g.fillStyle=C.eye;g.beginPath();g.ellipse(UX(side*settings.noseLongitude),VY(settings.noseLatitude),PX(.045),PX(.085),0,0,Math.PI*2);g.fill();g.globalAlpha=1;
+     return cv;
+   }
+   function frozenFace(b,camera,angle,state){

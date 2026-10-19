@@ -1,0 +1,18 @@
+{
+  "approvedSourceFiles": 239,
+  "changedApprovedFiles": [],
+  "sharedRendererUnchangedFromBackup": true,
+  "sharedRendererSHA256": "a64dddb3c670da4a7d3fc611ef882a6062e2250b05ec3e9153300f2fa8b88d4a",
+  "legacyWorkshopBuild": "rebuilt; preview restored and opt-in 2D link verified in browser",
+  "browserMotionChecks": 53,
+  "browserMotionPasses": 53,
+  "configSaveLoadAndFileRoundtrip": "passed",
+  "deployment": "local internal review only",
+  "limitations": [
+    "Bounded deformation of existing sprites, not replacement ear/tail assets.",
+    "2D runtime still references original review-page players.",
+    "Desktop Shimeji integration and standalone sprite export not included."
+  ],
+  "walkCorrection": "five character-specific four-pose atlases transferred from approved Starlight walking, exact 1040ms schedule; prior atlases unchanged",
+  "walkComparisonPage": "../ppolpet-walk-transfer/"
+}

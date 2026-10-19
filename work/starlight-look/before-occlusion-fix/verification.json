@@ -1,0 +1,17 @@
+{
+  "atlas": "assets/look-v4-reach.png",
+  "frames": 8,
+  "uniquePoses": 7,
+  "previousMotionFilesPreserved": 143,
+  "changedPreviousFiles": [],
+  "sameFirstLastPose": true,
+  "uniformScale": 0.5744125326370757,
+  "groundY": 260,
+  "browserChecks": [
+    "full reach pose visible",
+    "short arm and second paw at chest",
+    "frame seek and replay",
+    "0.5x loop playback"
+  ],
+  "status": "user review pending"
+}

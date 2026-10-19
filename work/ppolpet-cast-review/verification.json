@@ -1,0 +1,126 @@
+{
+  "status": "review-draft",
+  "assets": [
+    {
+      "id": "angel",
+      "kind": "poses",
+      "frames": 12,
+      "transparentPixels": 645127
+    },
+    {
+      "id": "angel",
+      "kind": "walk",
+      "frames": 8,
+      "transparentPixels": 793546
+    },
+    {
+      "id": "angel",
+      "kind": "expressions",
+      "frames": 6,
+      "transparentPixels": 713544
+    },
+    {
+      "id": "apricot",
+      "kind": "poses",
+      "frames": 12,
+      "transparentPixels": 411419
+    },
+    {
+      "id": "apricot",
+      "kind": "walk",
+      "frames": 8,
+      "transparentPixels": 675280
+    },
+    {
+      "id": "apricot",
+      "kind": "expressions",
+      "frames": 6,
+      "transparentPixels": 596853
+    },
+    {
+      "id": "bear",
+      "kind": "poses",
+      "frames": 12,
+      "transparentPixels": 351041
+    },
+    {
+      "id": "bear",
+      "kind": "walk",
+      "frames": 8,
+      "transparentPixels": 574121
+    },
+    {
+      "id": "bear",
+      "kind": "expressions",
+      "frames": 6,
+      "transparentPixels": 642697
+    },
+    {
+      "id": "bunny",
+      "kind": "poses",
+      "frames": 12,
+      "transparentPixels": 761320
+    },
+    {
+      "id": "bunny",
+      "kind": "walk",
+      "frames": 8,
+      "transparentPixels": 942884
+    },
+    {
+      "id": "bunny",
+      "kind": "expressions",
+      "frames": 6,
+      "transparentPixels": 536941
+    },
+    {
+      "id": "cloud",
+      "kind": "poses",
+      "frames": 12,
+      "transparentPixels": 764506
+    },
+    {
+      "id": "cloud",
+      "kind": "walk",
+      "frames": 8,
+      "transparentPixels": 580787
+    },
+    {
+      "id": "cloud",
+      "kind": "expressions",
+      "frames": 6,
+      "transparentPixels": 752297
+    }
+  ],
+  "borderWarnings": [],
+  "starlightBaselineFiles": 239,
+  "starlightChangedFiles": [],
+  "visualNotes": [
+    "Generated frame atlases have been displayed in the local browser.",
+    "Walk arm counter-swing is small in some frames; gait quality awaits character-by-character review.",
+    "Sit and lie use key poses, not a finished dense in-between sequence.",
+    "Expression cells have no intermediate blink frames.",
+    "Bunny expression set uses a seated pose."
+  ],
+  "uiChecks": "ui-checks.json",
+  "publicDeployment": false,
+  "outputBoundsWarnings": [],
+  "javascriptSyntax": "passed",
+  "browserConsoleErrors": [],
+  "uiActionChecks": 50,
+  "frameBoundaryCheck": "130 cells: no opaque border crossings above tolerance; no normalized output clipping",
+  "lastVerified": "2026-10-14",
+  "timingV2": {
+    "tests": "motion-timing.test.mjs passed",
+    "changes": [
+      "contact duration",
+      "settled sit/lie endpoints",
+      "separate stand-up",
+      "travel position independent of gait loop",
+      "angel special reversed direction frame omitted"
+    ],
+    "assetChanges": "none to active atlases; apricot walk-v2 candidate rejected for weak arm alternation",
+    "workshopIntegration": "not connected; audit saved",
+    "userRequestedCustomization": "ears, tail, body proportions"
+  }
+}

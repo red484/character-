@@ -1,0 +1,19 @@
+--- canonical
++++ review-only-access
+@@ -1525,7 +1525,15 @@
+     return kind === 'sweethearts' ? 'nuzzle' : kind === 'family' ? 'sit' : 'hop';
+   }
+ 
+-  const api = { auditMotion, renderSnapshot, walkFoot, renderPairImage, PERSONALITIES, chooseAction, socialAction, OPTIONS, TUNE, COLOR_LABELS, DEFAULT, FOOT, normalize, encode, decode, randomize, createPet, renderImage };
++
++  // Review-only access to unchanged canonical model construction and studio.
++  function reviewBuild(cfg,state){
++    const b=buildCharacter(cfg);const st={state,dir:1,enteredAt:0,nextBlink:Infinity};
++    for(let i=0;i<90;i++)pose(b,st,i*16,16);
++    b.parts.zs.forEach(o=>o.visible=false);b.parts.hearts.forEach(o=>o.visible=false);
++    return {char:b.char,dispose:()=>b.dispose(),face:(camera,angle)=>frozenFace(b,camera,angle,state)};
++  }
++  const api = { reviewBuild, reviewScene:makeScene, auditMotion, renderSnapshot, walkFoot, renderPairImage, PERSONALITIES, chooseAction, socialAction, OPTIONS, TUNE, COLOR_LABELS, DEFAULT, FOOT, normalize, encode, decode, randomize, createPet, renderImage };
+   if (typeof module !== 'undefined' && module.exports) module.exports = api;
+   root.PpolPet = api;
+ })(typeof window !== 'undefined' ? window : globalThis);

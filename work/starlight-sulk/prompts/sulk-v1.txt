@@ -1,0 +1,14 @@
+Use case: identity-preserve. Transparent 2D game animation sprite atlas, 4 columns x 2 rows, 8 full-body poses.
+Input1 identity master: purple STARLIGHT CAT expression atlas. Use its bottom-left SASSY character with pale gold half-circle half-lidded eyes, ONE tiny gold triangle nose, pink cheeks, triangular cat ears, big round head, tiny body, short soft arms/legs, round lavender tail. Exact same identity, color and proportions.
+Input2 is ONLY a gesture reference: pink bear sheet bottom-right sulking pose (short forepaws folded in front of chest). DO NOT create bear, black bear eyes or pink body.
+Create a restrained cute SULKING / 'hmph' motion, standing on two planted feet. Frame order row-major:
+1 neutral ready front-facing, sassy half-lidded GOLD eyes, arms resting down.
+2 both SHORT forearms bend inward halfway toward chest, hands below chin.
+3 both forepaws meet/cross gently against chest; exactly TWO short arms, backs of paws face viewer, pads naturally hidden. NO extra dangling arms.
+4 keep crossed paws; head turns slightly 8 degrees to screen-right, tiny chin lift, face not flattened.
+5 same crossed paws, head turned ~12 degrees screen-right, subtle dismissive tilt 3 degrees, 'hmph' hold.
+6 head starts returning halfway, forepaws remain crossed.
+7 head front-facing again, uncross arms halfway, restore short limbs.
+8 identical to frame1, arms down, seamless end.
+DO NOT stretch/squash head or body. Head width and height consistent through small head turn, not broad side view. Feet same positions and baseline in all 8. No steps, jumps, sitting, puffed cheeks, large body movements. Ears remain two and consistent. Gold eyes must remain gold semicircle bowls with flat upper bars, no black eyes, no eyebrows, no new mouth, only single nose.
+Render WHOLE coherent sprites, no cut-paste head seams. Exact same soft pastel shading as identity. Each sprite aligned same size within equal cells with ample transparent margins, no overlap/cutoff. Actual transparent alpha background, no shadows on background. 2048x1024 preferred. No text, no sheet labels, no cloud, smoke, sparkles or sound-effect symbols baked into sprite. Only the 8 cats.

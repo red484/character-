@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>별빛냥 · 엎드리기와 휴식</title>
+<style>
+*{box-sizing:border-box}body{margin:24px;background:#f7f5fa;color:#514563;font:15px system-ui}main{max-width:1050px;margin:auto}h1{font-size:25px}h2{font-size:18px}p{line-height:1.7}.layout{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}.card{background:white;border:1px solid #e9e1ef;border-radius:18px;padding:20px}canvas{display:block;width:100%;height:auto}button,select{background:white;color:inherit;border:1px solid #d6c8e2;border-radius:8px;padding:9px;font:inherit;cursor:pointer}.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:14px 0}input[type=range]{flex:1;min-width:120px}.frames{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.frames button{padding:6px}.frames span{display:block;padding:8px 0;font-size:13px}.ref{width:240px;height:180px;overflow:hidden;margin:auto}.ref img{width:1448px;max-width:none;transform:translate(-245px,-810px)}a{color:#7453a3}details img{width:100%}#status{min-height:24px;font-size:13px}#walk{max-width:210px;margin:auto}@media(max-width:650px){body{margin:12px}.layout{grid-template-columns:1fr}.frames{grid-template-columns:repeat(2,1fr)}}
+</style><main>
+<h1>별빛냥 · 시트 자세로 엎드려 쉬기</h1><p>기준: 원본 시트 하단 두 번째 「엎드리기」. 화면 왼쪽 볼을 낮게 기대고, 앞발은 턱 아래에 접으며, 작은 몸은 오른쪽 뒤로 이어집니다.</p>
+<div class="layout"><section class="card"><canvas id="stage" width="600" height="540" aria-label="엎드리기 실제 재생"></canvas><div class="controls"><button id="play">일시정지</button><button id="restart">처음부터</button><select id="speed" aria-label="재생 속도"><option value="0.5">0.5배</option><option value="1" selected>1배</option><option value="2">2배</option></select><label><input type="checkbox" id="loop"> 비교용 반복</label></div><div class="controls"><input type="range" id="seek" min="0" max="2" step="1" value="0" aria-label="프레임 선택"><output id="label"></output></div><div id="status" role="status">이미지 불러오는 중…</div></section>
+<aside class="card"><h2>원본 시트의 엎드리기</h2><div class="ref"><img src="assets/reference.png" alt="원본 시트의 엎드리기 자세"></div><h2>승인한 걷기 · 외형 기준</h2><canvas id="walk" width="360" height="360" aria-label="승인한 걷기 프레임"></canvas><p>걷기 원본은 그대로 보존했습니다.<br>휴식은 마지막 자세를 유지합니다. 반복을 켜면 비교를 위해 처음 자세로 돌아갑니다.</p><a href="../starlight-walk-timing/">걷기 비교로 돌아가기</a></aside></div>
+<h2>자세 정합 3장 · 클릭해서 확인</h2><div class="frames" id="frames"></div><p>시트에는 정지 자세 한 장이 있어, 눈을 감으며 쉬는 전환은 새로 그렸습니다. 이번 비교는 낮게 엎드린 자세부터 시작합니다. 서기에서 내려오는 전체 전환은 아직 포함하지 않았습니다.</p><p><a href="assets/rest.png" download>투명 스프라이트 PNG 저장</a> · <a href="motion.json" download>프레임 규격</a></p><details><summary>전체 원본 시트</summary><img src="assets/reference.png" alt="별빛냥 원본 캐릭터 시트"></details></main>
+<script>
+const $=s=>document.querySelector(s),im=new Image(),walk=new Image();
+const names=['낮게 기대기','앞발 접기','눈 감고 쉬기'];
+const durations=[.48,.4,3.0];let frame=0,time=0,last=null,paused=false,ready=false,anchors=[];
+function cell(image,i){const cw=image.width/2,cut=Math.round(image.height*(image===im?.56:.5));return {x:i%2*cw,y:i<2?0:cut,w:cw,h:i<2?cut:image.height-cut}}
+function groundAnchors(image){const c=document.createElement('canvas');c.width=image.width;c.height=image.height;const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(image,0,0);const d=x.getImageData(0,0,c.width,c.height).data;return names.map((_,i)=>{const r=cell(image,i);for(let y=r.h-1;y>r.h*.5;y--){let n=0;for(let a=0;a<r.w;a++)if(d[((r.y+y)*c.width+r.x+a)*4+3]>220)n++;if(n>r.w*.05)return y}return r.h*.9})}
+function draw(canvas,i,image=im,base=anchors){const ctx=canvas.getContext('2d'),w=canvas.width,h=canvas.height,r=cell(image,i),scale=w*.94/r.w;ctx.clearRect(0,0,w,h);ctx.drawImage(image,r.x,r.y,r.w,r.h,w*.03,h*.90-base[i]*scale,r.w*scale,r.h*scale);}
+function sync(){draw($('#stage'),frame);$('#seek').value=frame;$('#label').textContent=`${frame+1} / 3`;$('#status').textContent=`${names[frame]}${frame===2?' · 휴식 자세 유지':''}${paused?' · 일시정지':''}`;}
+function choose(i){frame=i;time=durations.slice(0,i).reduce((a,b)=>a+b,0);paused=true;$('#play').textContent='재생';sync()}
+function tick(ts){if(last===null)last=ts;const dt=Math.min((ts-last)/1000,.1);last=ts;if(!paused){time+=dt*Number($('#speed').value);const total=durations.reduce((a,b)=>a+b,0);if($('#loop').checked)time%=total;else time=Math.min(time,total);let t=time;frame=0;while(frame<2&&t>=durations[frame])t-=durations[frame++];}sync();requestAnimationFrame(tick)}
+im.onload=()=>{anchors=groundAnchors(im);ready=true;for(let i=0;i<3;i++){const b=document.createElement('button'),c=document.createElement('canvas'),s=document.createElement('span');c.width=300;c.height=270;draw(c,i);s.textContent=`${i+1}. ${names[i]}`;b.append(c,s);b.onclick=()=>choose(i);$('#frames').append(b)}requestAnimationFrame(tick)};
+im.onerror=()=>{$('#status').textContent='스프라이트를 불러오지 못했습니다.'};
+walk.onload=()=>draw($('#walk'),0,walk,groundAnchors(walk));
+$('#play').onclick=()=>{if(!ready)return;paused=!paused;$('#play').textContent=paused?'재생':'일시정지'};
+$('#restart').onclick=()=>{time=0;frame=0;paused=false;$('#play').textContent='일시정지'};
+$('#seek').oninput=e=>{if(ready)choose(Number(e.target.value))};im.src='assets/rest.png?v=2';walk.src='assets/approved-walk.png';
+</script></html>

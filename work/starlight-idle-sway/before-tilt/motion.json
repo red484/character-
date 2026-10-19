@@ -1,0 +1,340 @@
+{
+  "atlas": "assets/idle-sway-v1.png",
+  "atlasSize": [
+    1774,
+    887
+  ],
+  "size": [
+    256,
+    288
+  ],
+  "anchorX": 128,
+  "groundY": 260,
+  "scale": 0.6303724928366762,
+  "duration": 2.8,
+  "frames": [
+    {
+      "sourceRect": [
+        0,
+        0,
+        444,
+        444
+      ],
+      "origin": [
+        227.0,
+        421
+      ],
+      "bbox": [
+        66,
+        74,
+        382,
+        420
+      ],
+      "footSpan": 102,
+      "sourceCell": 0,
+      "label": "가운데"
+    },
+    {
+      "sourceRect": [
+        887,
+        0,
+        443,
+        444
+      ],
+      "origin": [
+        227.5,
+        421
+      ],
+      "bbox": [
+        67,
+        72,
+        373,
+        420
+      ],
+      "footSpan": 101,
+      "sourceCell": 2,
+      "label": "왼쪽으로"
+    },
+    {
+      "sourceRect": [
+        444,
+        0,
+        443,
+        444
+      ],
+      "origin": [
+        227.5,
+        421
+      ],
+      "bbox": [
+        66,
+        65,
+        376,
+        420
+      ],
+      "footSpan": 101,
+      "sourceCell": 1,
+      "label": "왼쪽 기대기"
+    },
+    {
+      "sourceRect": [
+        887,
+        0,
+        443,
+        444
+      ],
+      "origin": [
+        227.5,
+        421
+      ],
+      "bbox": [
+        67,
+        72,
+        373,
+        420
+      ],
+      "footSpan": 101,
+      "sourceCell": 2,
+      "label": "가운데로"
+    },
+    {
+      "sourceRect": [
+        0,
+        444,
+        444,
+        443
+      ],
+      "origin": [
+        227.0,
+        390
+      ],
+      "bbox": [
+        66,
+        43,
+        382,
+        389
+      ],
+      "footSpan": 102,
+      "sourceCell": 4,
+      "label": "가운데"
+    },
+    {
+      "sourceRect": [
+        1330,
+        444,
+        444,
+        443
+      ],
+      "origin": [
+        223.0,
+        390
+      ],
+      "bbox": [
+        62,
+        44,
+        377,
+        389
+      ],
+      "footSpan": 102,
+      "sourceCell": 7,
+      "label": "오른쪽으로"
+    },
+    {
+      "sourceRect": [
+        1330,
+        0,
+        444,
+        444
+      ],
+      "origin": [
+        222.5,
+        421
+      ],
+      "bbox": [
+        64,
+        69,
+        372,
+        420
+      ],
+      "footSpan": 101,
+      "sourceCell": 3,
+      "label": "오른쪽 기대기"
+    },
+    {
+      "sourceRect": [
+        1330,
+        444,
+        444,
+        443
+      ],
+      "origin": [
+        223.0,
+        390
+      ],
+      "bbox": [
+        62,
+        44,
+        377,
+        389
+      ],
+      "footSpan": 102,
+      "sourceCell": 7,
+      "label": "가운데로"
+    }
+  ],
+  "allSourceCells": [
+    {
+      "sourceRect": [
+        0,
+        0,
+        444,
+        444
+      ],
+      "origin": [
+        227.0,
+        421
+      ],
+      "bbox": [
+        66,
+        74,
+        382,
+        420
+      ],
+      "footSpan": 102
+    },
+    {
+      "sourceRect": [
+        444,
+        0,
+        443,
+        444
+      ],
+      "origin": [
+        227.5,
+        421
+      ],
+      "bbox": [
+        66,
+        65,
+        376,
+        420
+      ],
+      "footSpan": 101
+    },
+    {
+      "sourceRect": [
+        887,
+        0,
+        443,
+        444
+      ],
+      "origin": [
+        227.5,
+        421
+      ],
+      "bbox": [
+        67,
+        72,
+        373,
+        420
+      ],
+      "footSpan": 101
+    },
+    {
+      "sourceRect": [
+        1330,
+        0,
+        444,
+        444
+      ],
+      "origin": [
+        222.5,
+        421
+      ],
+      "bbox": [
+        64,
+        69,
+        372,
+        420
+      ],
+      "footSpan": 101
+    },
+    {
+      "sourceRect": [
+        0,
+        444,
+        444,
+        443
+      ],
+      "origin": [
+        227.0,
+        390
+      ],
+      "bbox": [
+        66,
+        43,
+        382,
+        389
+      ],
+      "footSpan": 102
+    },
+    {
+      "sourceRect": [
+        444,
+        444,
+        443,
+        443
+      ],
+      "origin": [
+        220.0,
+        390
+      ],
+      "bbox": [
+        67,
+        41,
+        380,
+        389
+      ],
+      "footSpan": 102
+    },
+    {
+      "sourceRect": [
+        887,
+        444,
+        443,
+        443
+      ],
+      "origin": [
+        213.5,
+        391
+      ],
+      "bbox": [
+        69,
+        39,
+        378,
+        390
+      ],
+      "footSpan": 103
+    },
+    {
+      "sourceRect": [
+        1330,
+        444,
+        444,
+        443
+      ],
+      "origin": [
+        223.0,
+        390
+      ],
+      "bbox": [
+        62,
+        44,
+        377,
+        389
+      ],
+      "footSpan": 102
+    }
+  ],
+  "notes": "whole frames, common uniform scale; translated to contact baseline; repeated return keys for gentle loop"
+}

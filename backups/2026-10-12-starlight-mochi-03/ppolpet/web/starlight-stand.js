@@ -1,0 +1,34 @@
+(async()=>{try{
+const P=PpolPet,cfg=PpolPresets.presetConfig(PpolPresets.PRESETS[2]),$=id=>document.getElementById(id);
+const image=src=>new Promise((resolve,reject)=>{let i=new Image;i.onload=()=>resolve(i);i.onerror=reject;i.src=src;});
+const approved=await image('review-assets/starlight-approved-seated.png');
+const seated=P.renderImage(cfg,'full',800,'perch'),current=await image(seated);
+const pixels=i=>{const c=document.createElement('canvas');c.width=c.height=800;const g=c.getContext('2d');g.drawImage(i,0,0);return g.getImageData(0,0,800,800).data;};
+const a=pixels(approved),b=pixels(current);let changed=0;for(let i=0;i<a.length;i+=4)if(a[i]!==b[i]||a[i+1]!==b[i+1]||a[i+2]!==b[i+2]||a[i+3]!==b[i+3])changed++;
+const frames=[];for(const angle of [0,45,90])frames.push({angle,...P.renderSnapshot(cfg,{state:'stand',angle:angle*Math.PI/180,size:800,camera:'web',diagnostics:true,debug:true})});
+const g=$('four').getContext('2d');g.fillStyle='#fcfafc';g.fillRect(0,0,1920,600);g.textAlign='center';g.font='600 24px system-ui';g.fillStyle='#755688';
+const labels=['승인된 정면 앉기 · 보존','수정한 정면 서기 · 0°','수정한 서기 · 45°','수정한 측면 서기 · 90°'];
+const images=[approved,...await Promise.all(frames.map(f=>image(f.url)))];
+images.forEach((im,i)=>{g.drawImage(im,i*480,60,480,480);g.fillText(labels[i],i*480+240,38);});
+$('four-save').href=$('four').toDataURL();
+const detail=$('body-detail').getContext('2d');detail.fillStyle='#fcfafc';detail.fillRect(0,0,1440,390);detail.textAlign='center';detail.fillStyle='#755688';detail.font='600 22px system-ui';
+images.slice(1).forEach((im,i)=>{detail.drawImage(im,260,430,280,285,i*480+65,30,350,356);detail.fillText(`${frames[i].angle}°`,i*480+240,26);});
+const d=$('debug').getContext('2d');d.fillStyle='#fcfafc';d.fillRect(0,0,1440,600);
+frames.forEach((f,i)=>{
+ d.drawImage(images[i+1],i*480,60,480,480);const pt=p=>[p[0]*.6+i*480,p[1]*.6+60],j=f.joints;
+ const dot=(p,color)=>{d.fillStyle=color;d.beginPath();d.arc(...pt(p),5,0,Math.PI*2);d.fill();};
+ const line=(a,b)=>{d.strokeStyle='#6f729dcc';d.lineWidth=2;d.setLineDash([5,4]);d.beginPath();d.moveTo(...pt(a));d.lineTo(...pt(b));d.stroke();d.setLineDash([]);};
+ for(let k=0;k<2;k++){line(j.torso,j.shoulders[k]);line(j.torso,j.hips[k]);line(j.hips[k],j.ankles[k]);dot(j.shoulders[k],'#e591b2');dot(j.hips[k],'#5d8de2');dot(j.ankles[k],'#219ca2');}dot(j.torso,'#9770b4');
+ d.fillStyle='#755688';d.textAlign='center';d.font='600 23px system-ui';d.fillText(`${f.angle}° · 그룹 기준점`,i*480+240,35);
+});$('debug-save').href=$('debug').toDataURL();
+const restored=await image(P.renderSnapshot(cfg,{state:'perch',fromStand:true,staticPose:true,size:800,camera:'web'}));
+const restoredPixels=pixels(restored);let restoredChanged=0;for(let i=0;i<a.length;i+=4)if(a[i]!==restoredPixels[i]||a[i+1]!==restoredPixels[i+1]||a[i+2]!==restoredPixels[i+2]||a[i+3]!==restoredPixels[i+3])restoredChanged++;
+const freezeA=P.renderSnapshot(cfg,{state:'stand',staticPose:true,size:400,camera:'web'}),freezeB=P.renderSnapshot(cfg,{state:'stand',size:400,camera:'web'});
+const report={seatedChangedPixels:changed,standToSeatedChangedPixels:restoredChanged,standIsTimeInvariant:freezeA===freezeB,frames:frames.map(({url,...f})=>f)};
+$('metrics').textContent=JSON.stringify(report,null,2);$('metrics-save').href='data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(report,null,2));$('seated-save').href=seated;
+const contact=frames.every(f=>f.metrics.feet.every(p=>Math.abs(p.floorY)<1e-6));
+$('status').textContent=`승인된 앉기: 변경 픽셀 ${changed} / 640,000 · 서기→앉기 복원 차이 ${restoredChanged}px · 서기 세 방향: 양발 접지 ${contact?'확인':'확인 필요'} · 정지 stand 상태`;
+$('version').textContent='Renderer SHA-256: '+document.querySelector('[data-renderer-version]').dataset.rendererVersion;
+const live=P.createPet($('live'),cfg);live.setState('stand');live.setAngle(0);
+document.querySelectorAll('[data-angle]').forEach(b=>b.onclick=()=>live.setAngle(Number(b.dataset.angle)*Math.PI/180));$('sit-check').onclick=()=>live.setState('perch');$('stand-check').onclick=()=>live.setState('stand');
+}catch(e){document.getElementById('error').textContent=e.stack||e.message;}})();

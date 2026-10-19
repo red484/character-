@@ -1,0 +1,10 @@
+{
+  "character": "starlight",
+  "date": "2026-10-14",
+  "visualBaseline": "starlight-source-rebuild/assets/walk.png",
+  "sha256": "d4a0ed2318e91f9a9b374b025ec324ced7e6b88ecafdbacf0020a14d83f4aa2e",
+  "status": "returned-to-user-selected-style",
+  "format": "2D raster sprites with soft shaded appearance",
+  "reviewPage": "starlight-source-rebuild/?motion=walk",
+  "notes": "첨부한 걷기 시트의 외형으로 복귀. 이후 평면화/엎드리기 후보는 보관. 동작 전체 승인 또는 서비스 배포를 의미하지 않음."
+}

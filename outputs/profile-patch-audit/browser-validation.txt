@@ -1,0 +1,18 @@
+0° actual baseline pixels identical: true
+45° actual baseline pixels identical: false
+75° actual baseline pixels identical: false
+90° actual baseline pixels identical: false
+135° actual baseline pixels identical: false
+180° actual baseline pixels identical: true
+270° actual baseline pixels identical: false
+360° actual baseline pixels identical: false
+Other preset 0 90° identical: true
+Other preset 1 90° identical: true
+Other preset 3 90° identical: true
+Other preset 4 90° identical: true
+Other preset 5 90° identical: true
+perch 0° identical: true
+sit 0° identical: true
+lie 0° identical: true
+wave 0° identical: true
+Yaw blend -90 / 90 / 270: 1 / 1 / 0

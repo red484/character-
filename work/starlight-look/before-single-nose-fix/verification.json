@@ -1,0 +1,22 @@
+{
+  "atlas": "assets/look-v8-short-arc.png",
+  "playbackSteps": 8,
+  "uniquePoses": 4,
+  "returnUsesSamePosesReversed": true,
+  "firstLastIdentical": true,
+  "uniformScale": 0.5527638190954773,
+  "boundsWithinCanvas": true,
+  "previousMotionFilesPreserved": 143,
+  "changedPreviousFiles": [],
+  "findings": [
+    "v6 hand jumps from chest to nose height between first two poses",
+    "return poses differed from outward poses",
+    "extra golden nose-like nub at outer silhouette"
+  ],
+  "changes": [
+    "low short reach below chin",
+    "two intermediate poses on outward and return",
+    "duplicate nose-like nub removed"
+  ],
+  "reviewStatus": "awaiting user review"
+}

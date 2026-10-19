@@ -1,0 +1,35 @@
+const THREE=window.THREE,P=PpolPet,$=id=>document.getElementById(id),angles=[0,45,75,90,135,180];
+try{
+const cap=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});cap.setSize(500,500);cap.setPixelRatio(1);const scene=P.reviewScene(THREE,cap);scene.background=new THREE.Color('#f8f6fb');
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(100,100),new THREE.MeshStandardMaterial({color:'#f8f6fb',roughness:1}));floor.rotation.x=-Math.PI/2;floor.position.y=-.009;floor.receiveShadow=true;scene.add(floor);
+const cfg=PpolPresets.presetConfig(PpolPresets.PRESETS[2]),models={stand:[P.reviewBuild(cfg,'stand'),P.reviewBuild(cfg,'stand',true)],perch:[P.reviewBuild(cfg,'perch'),P.reviewBuild(cfg,'perch',true)]};
+for(const pair of Object.values(models))for(const m of pair){scene.add(m.char);m.char.visible=false;}
+const cam=new THREE.OrthographicCamera(-1.48,1.48,1.48,-1.48,.1,50);cam.position.set(0,1.16,8);cam.lookAt(0,1.16,0);cam.updateMatrixWorld(true);
+const closeCam=new THREE.OrthographicCamera(-.37,.37,.37,-.37,.1,50);closeCam.position.set(.67,1.09,8);closeCam.lookAt(.67,1.09,0);closeCam.updateMatrixWorld(true);
+function render(state,side,deg,camera=cam){for(const pair of Object.values(models))for(const m of pair)m.char.visible=false;const m=models[state][side];m.char.visible=true;m.char.rotation.y=deg*Math.PI/180;m.char.updateMatrixWorld(true);m.face(cam,deg*Math.PI/180);cap.shadowMap.needsUpdate=true;cap.render(scene,camera);return m;}
+const load=async url=>{const im=new Image();im.src=url;await im.decode();return im;};
+const images=[{},{}];for(const a of angles)for(let side=0;side<2;side++){render('stand',side,a);images[side][a]=await load(cap.domElement.toDataURL());await new Promise(requestAnimationFrame);}
+const ctx=$('board').getContext('2d');ctx.fillStyle='#f8f6fb';ctx.fillRect(0,0,1800,840);for(let row=0;row<2;row++)angles.forEach((a,i)=>{ctx.drawImage(images[row][a],i*300,row*420,300,300);ctx.fillStyle='#635174';ctx.textAlign='center';ctx.font='20px system-ui';ctx.fillText(`${row?'수정':'기존'} · ${a}°`,i*300+150,row*420+346);});$('save-board').href=$('board').toDataURL();
+const reference=await load('reference.png');render('stand',1,90);
+const bounds=models.stand[1].bounds(cam),px=v=>(v+1)*250,py=v=>(1-v)*250;
+const head={x:px(bounds.minX),y:py(bounds.maxY),w:(bounds.maxX-bounds.minX)*250,h:(bounds.maxY-bounds.minY)*250};
+const scale=head.w/854,dx=head.x-115*scale,dy=head.y-300*scale;
+const normalized=document.createElement('canvas');normalized.width=normalized.height=500;const nc=normalized.getContext('2d');nc.fillStyle='#f8f6fb';nc.fillRect(0,0,500,500);nc.drawImage(reference,dx,dy,reference.width*scale,reference.height*scale);
+const sc=$('side').getContext('2d');sc.fillStyle='#f8f6fb';sc.fillRect(0,0,2000,570);
+const tiles=[normalized,images[0][90],images[1][90]];tiles.forEach((im,i)=>sc.drawImage(im,i*500,0,500,500));sc.drawImage(normalized,1500,0);sc.globalAlpha=.5;sc.drawImage(images[1][90],1500,0,500,500);sc.globalAlpha=1;
+['목표 레퍼런스','기존 Three.js','고정 표면 배치 후보','목표 + 후보 50%'].forEach((t,i)=>{sc.fillStyle='#51435e';sc.font='22px system-ui';sc.textAlign='center';sc.fillText(t,i*500+250,540);});
+const projected=models.stand[1].points(cam),errors=[];for(const [name,q]of Object.entries(models.stand[1].audit.referenceLandmarks)){const target=[q[0]*scale+dx,q[1]*scale+dy],got=[px(projected[name][0]),py(projected[name][1])];errors.push({part:name,targetPx:target.map(x=>+x.toFixed(2)),surfaceSamplePx:got.map(x=>+x.toFixed(2)),distancePx:+Math.hypot(target[0]-got[0],target[1]-got[1]).toFixed(2)});for(const [pt,color]of [[target,'#008a9b'],[got,'#e34488']]){sc.strokeStyle=color;sc.lineWidth=1;sc.beginPath();sc.arc(1500+pt[0],pt[1],4,0,Math.PI*2);sc.stroke();}}
+// Reference outline is a manual trace, excluding the ear. Keep it visibly labelled.
+const outline=[[420,307],[280,359],[176,468],[120,601],[116,712],[144,816],[220,906],[362,970],[530,995],[705,982],[840,938],[929,867],[964,800],[967,764],[946,699],[935,594],[900,490],[842,413],[735,354]];
+sc.strokeStyle='#008a9b';sc.lineWidth=1;sc.setLineDash([4,4]);sc.beginPath();outline.forEach(([x,y],i)=>i?sc.lineTo(1500+x*scale+dx,y*scale+dy):sc.moveTo(1500+x*scale+dx,y*scale+dy));sc.stroke();sc.setLineDash([]);
+$('save-side').href=$('side').toDataURL();
+const cc=$('close').getContext('2d');cc.fillStyle='#f8f6fb';cc.fillRect(0,0,1500,550);tiles.forEach((im,i)=>{cc.drawImage(im,head.x+head.w*.6,head.y+head.h*.38,head.w*.43,head.h*.57,i*500,0,500,500);cc.fillStyle='#51435e';cc.font='20px system-ui';cc.textAlign='center';cc.fillText(['목표','기존','후보'][i],i*500+250,535);});$('save-close').href=$('close').toDataURL();
+$('metrics').textContent=JSON.stringify({normalization:'uniform head-width scale, top aligned; aspect ratio NOT warped',referenceManualHeadBounds:[115,300,969,995],headHeightMismatchPx:+(head.h-695*scale).toFixed(2),landmarkMethod:'manual reference centres versus closest physical mesh surface sample; not automatic image detection',errors},null,2);
+// Live views render the same geometry, not the saved comparison images.
+let state='stand',yaw=90,queued=false;
+function show(){queued=false;const out=$('live').getContext('2d');for(let side=0;side<2;side++){render(state,side,yaw);out.drawImage(cap.domElement,side*500,0);} $('deg').textContent=Math.round(yaw)+'°';$('yaw').value=yaw;document.querySelectorAll('[data-state]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.state===state)));document.querySelectorAll('[data-angle]').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.angle===yaw)));}
+function schedule(){if(!queued){queued=true;requestAnimationFrame(show);}}
+for(const a of angles){const b=document.createElement('button');b.dataset.angle=a;b.textContent=a+'°';b.onclick=()=>{yaw=a;schedule();};$('angles').appendChild(b);}document.querySelectorAll('[data-state]').forEach(b=>b.onclick=()=>{state=b.dataset.state;schedule();});$('yaw').oninput=e=>{yaw=+e.target.value;schedule();};let drag=null;$('live').onpointerdown=e=>{drag={x:e.clientX,yaw};$('live').setPointerCapture(e.pointerId);};$('live').onpointermove=e=>{if(drag){yaw=((drag.yaw+(e.clientX-drag.x)*.6)%360+360)%360;schedule();}};$('live').onpointerup=()=>drag=null;$('live').onpointercancel=()=>drag=null;
+render('stand',1,0);const zero=cap.domElement.toDataURL();render('stand',1,360);const full=cap.domElement.toDataURL();render('perch',0,0);const sitBefore=cap.domElement.toDataURL();render('perch',1,0);const sitAfter=cap.domElement.toDataURL();
+$('audit').textContent=JSON.stringify({closed360PixelsIdentical:zero===full,seatedPixelsIdentical:sitBefore===sitAfter,frontFaceIntentionallyDifferent:true,candidate:models.stand[1].audit,seated:models.perch[1].audit,model:'one unchanged pose per side; constant geometry across angles; fixed UV eyes and cheeks, shallow 3D nose cap on candidate',scope:'internal review only'},null,2);$('status').textContent='실제 고정 UV 후보 · 6각도 및 정합 비교 · 검수 대기';show();
+}catch(e){$('error').textContent=e.stack;console.error(e);}

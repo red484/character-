@@ -1,0 +1,49 @@
+{
+  "closed360PixelsIdentical": true,
+  "seatedPixelsIdentical": false,
+  "frontFaceIntentionallyDifferent": true,
+  "candidate": {
+    "candidate": true,
+    "geometryChanged": true,
+    "maxDeltaZ": 0.15610261808882625,
+    "xyUnchanged": true,
+    "otherPartsChanged": false,
+    "fixedTexture": true,
+    "referenceLandmarks": {
+      "nose": [
+        966,
+        764,
+        7,
+        14
+      ]
+    },
+    "textureSize": [
+      1024,
+      512
+    ],
+    "eyeTreatment": "original ring texture with shallow fixed dark sidewall; no extra eye"
+  },
+  "seated": {
+    "candidate": true,
+    "geometryChanged": true,
+    "maxDeltaZ": 0.09779155336516387,
+    "xyUnchanged": true,
+    "otherPartsChanged": false,
+    "fixedTexture": true,
+    "referenceLandmarks": {
+      "nose": [
+        966,
+        764,
+        7,
+        14
+      ]
+    },
+    "textureSize": [
+      1024,
+      512
+    ],
+    "eyeTreatment": "original ring texture with shallow fixed dark sidewall; no extra eye"
+  },
+  "model": "one unchanged pose per side; constant geometry across angles; fixed UV eyes and cheeks, shallow 3D nose cap on candidate",
+  "scope": "internal review only"
+}

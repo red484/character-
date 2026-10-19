@@ -1,0 +1,16 @@
+별빛냥 확정판 — 2026-10-13
+
+승인 모델: sideDesign k / earJoin blend / facePlacement side75 (눈 높이 .020)
+공통 렌더러: shared/pet-render.js
+시트 소스: web/starlight-final.src.html + web/starlight-final.js
+빌드: node build-web.js
+미리보기: docs/starlight-final.html
+
+작업 전 전체 백업: backups/starlight-final-2026-10-13/ppolpet
+완성판 전체 백업: backups/starlight-final-2026-10-13/release
+복구는 해당 폴더를 별도 작업 폴더에 복사한 후 node build-web.js 실행.
+기존 파일을 덮어쓰기 전에 현재 작업을 별도 보존할 것.
+
+시트의 검증 펼침 영역은 승인 서기 4방향 및 기존 앉기/엎드리기/인사와
+동일 조건의 PNG를 비교함. false가 나오면 외형 변경을 승인한 것으로 보지 말 것.
+현재 시트는 렌더링된 3D 결과만 사용하며 references PNG를 캐릭터 컷으로 사용하지 않음.

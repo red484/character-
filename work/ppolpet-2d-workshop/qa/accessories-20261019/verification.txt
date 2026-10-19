@@ -1,0 +1,11 @@
+2026-10-19 local customization review — accessories-v11
+
+Changed: independent per-character in-session drafts; head/neck/back accessory anchors; native Angel neck ribbon and Bunny left ribbon reuse; lying wing placement; Bunny scalp repair; Cloud ear mask/skin continuation; generic tail root moved inward and grounded.
+
+Browser audit: six characters, 53 motions, 217 gallery poses x 5 combinations = 1085 renders. 53/53 passed default pixel identity and finite placement. This is not visual approval of all arbitrary combinations.
+Visual review: six character contact sheets reviewed. Latest Cloud and Bear sheets rechecked after local mask/tail edits. Native/accessory-only combinations preserve source faces. Apricot flower + neck bow played live; switching to Bunny gives original configuration; returning restores Apricot accessories. No browser errors captured.
+Tests passed: parts-schema, palette, custom-schema (53 x 64), behavior, accessory-layout (8586). Web build passed; 3D renderer hash unchanged.
+
+Still visible / not approved: Cloud replacement-ear cheek shading seam; Bunny replacement-ear crown/ribbon residue in some walking frames; Angel custom-eye removal can leave small marks; some curved-tail combinations overlap native tail bases. These require pose-specific masks/assets rather than further broad face erasure. Original-parts mode remains intact. No public deployment.
+
+Draft isolation currently lasts within the open page session. Explicit save/export retains the existing single-character configuration format.

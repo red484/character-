@@ -1,0 +1,161 @@
+{
+  "referenceCrop": {
+    "x": 34,
+    "y": 9,
+    "width": 90,
+    "height": 95
+  },
+  "alignment": {
+    "height": 380,
+    "baseline": 480,
+    "uniformScale": true
+  },
+  "silhouettes": [
+    {
+      "x": 6,
+      "y": 5,
+      "width": 76,
+      "height": 88,
+      "chin": 62,
+      "headPercent": 65.9
+    },
+    {
+      "x": 141,
+      "y": 103,
+      "width": 518,
+      "height": 600,
+      "chin": 495,
+      "headPercent": 65.5
+    },
+    {
+      "x": 141,
+      "y": 128,
+      "width": 518,
+      "height": 576,
+      "chin": 520,
+      "headPercent": 68.2
+    },
+    {
+      "x": 168,
+      "y": 117,
+      "width": 449,
+      "height": 592,
+      "chin": 522,
+      "headPercent": 68.6
+    }
+  ],
+  "seatedChangedPixels": 0,
+  "standToSeatedChangedPixels": 0,
+  "standMetrics": {
+    "characterScale": [
+      1,
+      1,
+      1
+    ],
+    "headScale": [
+      0.98,
+      0.98,
+      0.98
+    ],
+    "bodyScale": [
+      0.3852982521057129,
+      0.31439267098903656,
+      0.23010867834091187
+    ],
+    "neckToHip": 0.17246381223201734,
+    "feet": [
+      {
+        "floorY": 0,
+        "z": 0,
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "floorY": 0,
+        "z": 0,
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    "arms": [
+      {
+        "rotationX": 0,
+        "position": [
+          -0.315,
+          0.615,
+          0.005
+        ]
+      },
+      {
+        "rotationX": 0,
+        "position": [
+          0.315,
+          0.615,
+          0.005
+        ]
+      }
+    ]
+  },
+  "obliqueMetrics": {
+    "characterScale": [
+      1,
+      1,
+      1
+    ],
+    "headScale": [
+      0.98,
+      0.98,
+      0.98
+    ],
+    "bodyScale": [
+      0.3852982521057129,
+      0.31439267098903656,
+      0.23010867834091187
+    ],
+    "neckToHip": 0.17246381223201734,
+    "feet": [
+      {
+        "floorY": 0,
+        "z": 0,
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "floorY": 0,
+        "z": 0,
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    "arms": [
+      {
+        "rotationX": 0,
+        "position": [
+          -0.315,
+          0.615,
+          0.005
+        ]
+      },
+      {
+        "rotationX": 0,
+        "position": [
+          0.315,
+          0.615,
+          0.005
+        ]
+      }
+    ]
+  }
+}

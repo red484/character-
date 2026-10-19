@@ -1,0 +1,12 @@
+{
+  "frameCounts": {
+    "settle": 8,
+    "rest": 8
+  },
+  "headScaleFixed": true,
+  "faceUsesSameRigidSource": true,
+  "restHeadGroundFixed": true,
+  "footTransform": "fixed",
+  "referenceSha256": "b6297834f3c64c1e6057765ea628b0d303a9154a9f13c9019008172ea83fb045",
+  "scope": "low-pose settling and rest only"
+}

@@ -1,0 +1,110 @@
+--- before/shared/pet-render.js
++++ after/shared/pet-render.js
+@@ -337,6 +337,10 @@
+       const pad = mesh(star ? sphere(28,20) : sphere(20,14), pinkM, paw, [0, star ? -.154 : -.148, star ? .035 : .045], [star ? .076 : .081, star ? .025 : .014, .077]);
+       for (const [tx,tz] of (star ? [[-.065,.108],[0,.15],[.065,.108]] : [[-.075,.10],[0,.145],[.075,.10]])) mesh(star ? sphere(20,14) : sphere(14,10),pinkM,paw,[tx,star ? -.142 : -.136,tz],[.030,star ? .023 : .014,.033]);
+       pad.userData.pad = true;
++      // Measure the actual paw (including jelly), not an approximate ankle height.
++      // This is a local-space bound; the gait keeps paws level on the floor.
++      paw.updateWorldMatrix(true,true);
++      pv.userData.soleY = new THREE.Box3().setFromObject(paw).min.y - pv.position.y;
+       legs.push(pv);
+     }
+ 
+@@ -700,7 +704,8 @@
+     if (st.prev === 'fall' && s !== 'fall') st.squashAt = t;
+     st.prev = s;
+     const sq = st.squashAt ? Math.max(0, 1 - (t - st.squashAt) / 320) : 0;
+-    const squash = Math.sin(sq * Math.PI) * 0.18 - stretch;
++    const rigidStarlight = P.design === 'starlight-v1' && (s === 'idle' || s === 'walk');
++    const squash = rigidStarlight ? 0 : Math.sin(sq * Math.PI) * 0.18 - stretch;
+     if (s === 'idle' && temperament === 'shy') { headRoll -= 0.045; nod += 0.035; }
+     if (s === 'idle' && temperament === 'affectionate') tail *= 1.7;
+ 
+@@ -741,6 +746,31 @@
+       P.legs.forEach((L,i)=>{L.position.x=lerp(L.position.x,(i?1:-1)*.225*B,seat);});
+       P.arms.forEach((A,i)=>{A.position.x=lerp(A.position.x,(i?1:-1)*.225*B,seat);A.position.y=lerp(A.position.y,.40*B,seat);A.position.z=lerp(A.position.z,.03*B,seat);A.rotation.z=lerp(A.rotation.z,(i?-1:1)*.10,seat);A.rotation.x=lerp(A.rotation.x,0,seat);});
+     }
++    if (rigidStarlight) {
++      // One approved body and head: standing raises both by the same .07B.
++      // No neck extension, geometry morph, or gait-dependent body scaling.
++      P.hips.position.y = (.36-.07*seat)*B;
++      P.neck.position.y = (.485-.07*seat)*B;
++      const upright = 1-seat;
++      P.legs.forEach((L,i)=>{
++        const paw=L.userData.paw;
++        paw.scale.set(.80+.32*seat,.72+.28*seat,.75+.25*seat);
++        const ground=-L.userData.soleY*.72;
++        L.position.x=lerp((i?1:-1)*.205*B,L.position.x,seat);
++        L.position.y=lerp(ground+foot[i][0]*1.45,L.position.y,seat);
++        L.position.z=lerp(.025*B+foot[i][1]*.85*B,L.position.z,seat);
++        // Analytic level contact avoids lag from smoothing a planted foot.
++        paw.rotation.x=-1.45*seat;
++      });
++      P.arms.forEach((A,i)=>{
++        A.position.set((i?1:-1)*.225*B,(.47-.07*seat)*B,.03*B);
++        A.rotation.z=(i?-1:1)*.10;
++        // A forward foot has +Z; +X shoulder rotation moves its hand back.
++        A.rotation.x=(s==='walk' ? foot[i][1]*2.7 : 0)*upright;
++      });
++      headRoll = s==='walk' ? -Math.sin(st.phase-.45)*.018 : Math.sin(t*.0013)*.018;
++      nod = s==='walk' ? Math.sin(2*st.phase-.4)*.006 : 0;
++    }
+     P.neck.rotation.x = lerp(P.neck.rotation.x, nod, snap ? 0.3 : k);
+     P.neck.rotation.z = lerp(P.neck.rotation.z, headRoll, snap ? 0.3 : k);
+     P.ears.forEach((e, i) => { const side = e.position.x < 0 ? -1 : 1; e.rotation.z = lerp(e.rotation.z, e.userData.rz + side * earWig, 0.4); });
+@@ -861,6 +891,27 @@
+     return url;
+   }
+ 
++  function poseMetrics(b) {
++    const THREE=makeCtx(), P=b.parts;
++    b.char.updateMatrixWorld(true);
++    const bounds=o=>new THREE.Box3().setFromObject(o).min.y;
++    return {
++      characterScale:b.char.scale.toArray(), headScale:P.head.scale.toArray(), bodyScale:P.body.scale.toArray(),
++      neckToHip:P.neck.position.y-P.hips.position.y,
++      feet:P.legs.map(L=>({floorY:bounds(L.userData.paw),z:L.position.z,scale:L.userData.paw.scale.toArray()})),
++      arms:P.arms.map(A=>({rotationX:A.rotation.x,position:A.position.toArray()}))
++    };
++  }
++  function auditMotion(cfg, samples=240) {
++    const b=buildCharacter(cfg),st={state:'walk',dir:1,nextBlink:Infinity};
++    const tempo={gentle:.86,playful:1.16,shy:.9,affectionate:.98}[b.cfg.personality];
++    const dt=Math.PI*2/(samples*.0085*tempo);
++    // Warm the actual continuous pose loop, then inspect every step of one cycle.
++    for(let i=0;i<samples;i++) pose(b,st,i*dt,dt);
++    const frames=[];
++    for(let i=0;i<=samples;i++){pose(b,st,(samples+i)*dt,dt);frames.push(poseMetrics(b));}
++    b.dispose();return frames;
++  }
+   function renderSnapshot(cfg, options = {}) {
+     const THREE = makeCtx();
+     if (!shared) renderImage(cfg,'full',16);
+@@ -876,7 +927,7 @@
+     }
+     if(options.expression) b.parts.setFace(options.expression,options.expression==='wide'?'o':'normal');
+     b.char.rotation.y=options.angle || 0;
+-    b.char.scale.set(1,1,1);
++    if (b.parts.design !== 'starlight-v1') b.char.scale.set(1,1,1);
+     b.parts.zs.forEach(z=>z.visible=false); b.parts.hearts.forEach(h=>h.visible=false);
+     let half=1.48, centerY=1.28, centerX=0;
+     if(options.headOnly) {
+@@ -889,7 +940,7 @@
+     const camera=new THREE.OrthographicCamera(-half,half,half,-half,.1,50);
+     camera.position.set(centerX,centerY,8);camera.lookAt(centerX,centerY,0);
+     scene.add(b.char,b.shadow);r.render(scene,camera);
+-    const result=r.domElement.toDataURL('image/png');scene.remove(b.char,b.shadow);b.dispose();return result;
++    const url=r.domElement.toDataURL('image/png');const result=options.diagnostics?{url,metrics:poseMetrics(b)}:url;scene.remove(b.char,b.shadow);b.dispose();return result;
+   }
+ 
+   function renderPairImage(primary, partner, size = 1024) {
+@@ -927,7 +978,7 @@
+     return kind === 'sweethearts' ? 'nuzzle' : kind === 'family' ? 'sit' : 'hop';
+   }
+ 
+-  const api = { renderSnapshot, walkFoot, renderPairImage, PERSONALITIES, chooseAction, socialAction, OPTIONS, TUNE, COLOR_LABELS, DEFAULT, FOOT, normalize, encode, decode, randomize, createPet, renderImage };
++  const api = { auditMotion, renderSnapshot, walkFoot, renderPairImage, PERSONALITIES, chooseAction, socialAction, OPTIONS, TUNE, COLOR_LABELS, DEFAULT, FOOT, normalize, encode, decode, randomize, createPet, renderImage };
+   if (typeof module !== 'undefined' && module.exports) module.exports = api;
+   root.PpolPet = api;
+ })(typeof window !== 'undefined' ? window : globalThis);

@@ -1,0 +1,42 @@
+{
+  "v": 2,
+  "design": "starlight-v1",
+  "personality": "gentle",
+  "relationship": null,
+  "name": "별빛냥",
+  "ears": "cat",
+  "tail": "pom",
+  "eyes": "orbit",
+  "mouth": "open",
+  "pattern": "none",
+  "nose": false,
+  "whisk": false,
+  "belly": false,
+  "socks": false,
+  "blush": true,
+  "outline": false,
+  "acc": [],
+  "colors": {
+    "body": "#8c8ac6",
+    "inner": "#ffc0d2",
+    "belly": "#ffffff",
+    "pattern": "#d7a64a",
+    "eye": "#efd496",
+    "blush": "#ffa5c3",
+    "accent": "#7f87c9",
+    "accent2": "#ffd36e",
+    "line": "#2a2228"
+  },
+  "tune": {
+    "head": 1,
+    "wide": 1,
+    "ear": 1,
+    "earTilt": 0,
+    "eyeSize": 1,
+    "eyeGap": 1,
+    "eyeY": 0,
+    "mouthY": 0,
+    "blushSize": 1,
+    "body": 1
+  }
+}

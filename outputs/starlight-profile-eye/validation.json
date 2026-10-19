@@ -1,0 +1,27 @@
+{
+  "closed360Identical": true,
+  "candidate": {
+    "candidate": true,
+    "geometryChanged": true,
+    "maxDeltaZ": 0.15610261808882625,
+    "xyUnchanged": true,
+    "otherPartsChanged": false,
+    "fixedGeometry": true,
+    "viewDependentMaterial": true,
+    "referenceLandmarks": {
+      "nose": [
+        966,
+        764,
+        7,
+        14
+      ]
+    },
+    "textureSize": [
+      1024,
+      512
+    ],
+    "eyeTreatment": "original eyes through 45deg; continuous material transition 45-75deg to surface-bound vertical oval"
+  },
+  "viewMaterial": "smooth 45-75 degrees, original expression through 45, fixed head/nose geometry",
+  "scope": "internal candidate; canonical unchanged"
+}

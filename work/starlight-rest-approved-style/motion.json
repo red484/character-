@@ -1,0 +1,29 @@
+{
+  "character": "starlight",
+  "status": "review",
+  "identityReference": "assets/approved-walk.png",
+  "poseReference": "assets/reference.png",
+  "atlas": "assets/rest.png",
+  "columns": 2,
+  "rows": 2,
+  "frames": [
+    "lean-low",
+    "tuck-paws",
+    "close-eyes-rest"
+  ],
+  "durationsSeconds": [
+    0.48,
+    0.4,
+    3
+  ],
+  "endBehavior": "hold-last-frame",
+  "scale": "uniform across all frames",
+  "groundAnchor": "last row with opaque coverage >5% of cell width",
+  "note": "Reference-pose fitting: three selected drawn frames start already lying low and end with closed eyes. Full standing-to-lying transition not included. Fourth atlas cell is an unused variation.",
+  "rowSplitNormalized": 0.56,
+  "atlasFrameIndices": [
+    0,
+    1,
+    2
+  ]
+}

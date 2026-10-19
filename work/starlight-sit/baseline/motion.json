@@ -1,0 +1,37 @@
+{
+  "size": [
+    256,
+    288
+  ],
+  "groundY": 260,
+  "duration": 3.2,
+  "maxAngle": 6,
+  "renderMethod": "connected 2D texture mesh; rigid head, smoothly weighted neck, feet fixed",
+  "source": "before-tilt/motion.json / first neutral frame",
+  "frames": [
+    {
+      "label": "가운데"
+    },
+    {
+      "label": "왼쪽으로"
+    },
+    {
+      "label": "왼쪽 갸웃"
+    },
+    {
+      "label": "가운데로"
+    },
+    {
+      "label": "가운데"
+    },
+    {
+      "label": "오른쪽으로"
+    },
+    {
+      "label": "오른쪽 갸웃"
+    },
+    {
+      "label": "가운데로"
+    }
+  ]
+}

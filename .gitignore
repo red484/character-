@@ -1,0 +1,12 @@
+# Local metadata, caches, and reinstallable dependencies
+.DS_Store
+__pycache__/
+*.py[cod]
+node_modules/
+python-deps/
+.venv/
+.env
+.env.*
+!.env.example
+# Original backup retained locally; exact split representation is tracked.
+/releases/starlight-2d-checkpoint-20261014-124726.zip

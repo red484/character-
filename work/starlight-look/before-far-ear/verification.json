@@ -1,0 +1,53 @@
+{
+  "atlas": "assets/look-v9-single-nose.png",
+  "playbackSteps": 8,
+  "uniquePoses": 4,
+  "returnUsesSamePosesReversed": true,
+  "firstLastIdentical": true,
+  "uniformScale": 0.5527638190954773,
+  "boundsWithinCanvas": true,
+  "previousMotionFilesPreserved": 143,
+  "changedPreviousFiles": [],
+  "findings": [
+    "v8 retained both outer silhouette nose and inner golden dot; prior removal report was incorrect"
+  ],
+  "changes": [
+    "Removed inner golden dot, retained outer silhouette nose",
+    "Added synchronized before/after nose magnification"
+  ],
+  "reviewStatus": "awaiting user review",
+  "noseRegionGoldComponents": {
+    "look-v8-short-arc.png": [
+      [
+        13,
+        31
+      ],
+      [
+        24,
+        34
+      ],
+      [
+        12,
+        23
+      ],
+      [
+        24,
+        18
+      ]
+    ],
+    "look-v9-single-nose.png": [
+      [
+        40
+      ],
+      [
+        30
+      ],
+      [
+        32
+      ],
+      [
+        29
+      ]
+    ]
+  }
+}

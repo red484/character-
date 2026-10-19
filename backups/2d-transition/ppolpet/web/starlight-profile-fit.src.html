@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>별빛냥 · 3D 측면 얼굴 검수</title>
+<style>
+:root{font-family:system-ui,-apple-system,'Apple SD Gothic Neo',sans-serif;color:#5a496a;background:#f6f2f8}*{box-sizing:border-box}body{margin:0}header{padding:22px max(24px,calc((100vw - 1350px)/2));background:#fff;box-shadow:0 1px 0 #e5ddec}h1{font-size:23px;margin:0 0 7px}p{margin:6px 0;line-height:1.6}small,.hint{color:#80718e}main{max-width:1350px;margin:auto;padding:22px} .warning{font-size:14px;color:#6e5b82;background:#ebe3f1;border-radius:12px;padding:11px 14px;margin-top:10px}.controls{background:white;border:1px solid #e4d9eb;border-radius:20px;padding:20px;margin-bottom:22px}.controlgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:15px;margin-top:15px}.control label{display:flex;justify-content:space-between;font-size:13px;font-weight:650;margin-bottom:9px}.control input{width:100%;accent-color:#8b70ba}.actions{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-top:18px}button,a.button{font:inherit;cursor:pointer;border:1px solid #d8cbe6;background:#f5effb;color:#654981;padding:9px 14px;border-radius:10px}button:hover{background:#eaddf4}button:disabled{opacity:.4;cursor:wait}.status{margin-left:8px;color:#715d86;font-size:13px}.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.panel{background:#fff;border:1px solid #e4daec;border-radius:16px;overflow:hidden}.panel h2{font-size:13px;text-align:center;background:#faf7fc;padding:10px;margin:0;border-bottom:1px solid #eee7f3}.panel img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain}.panel .caption{text-align:center;padding:8px 10px 12px;font-size:12px;color:#887994}.large{grid-column:span 2}.ref{display:block;height:360px;width:100%;object-fit:contain;padding:10px;background:#faf9fd}.widehead{font-size:16px;margin:27px 0 14px}.views{display:grid;grid-template-columns:repeat(5, minmax(0,1fr));gap:12px}.beforeafter{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px} .beforeafter .panel img{max-height:460px}footer{margin:25px 0;color:#7e7190;font-size:13px}@media(max-width:900px){.gallery,.views{grid-template-columns:repeat(2,minmax(0,1fr))}.large{grid-column:span 2}.beforeafter{grid-template-columns:1fr}} 
+</style></head><body>
+<header><h1>별빛냥 · 실제 Three.js 측면 얼굴 검수</h1><p>확정된 머리·몸통·귀·서기·걷기를 유지하면서 링 눈 / 측면 검은 눈 / 코끝의 관계를 검수합니다.</p><div class="hint">PNG 방향 이미지 전환이 아닙니다. 동일한 3D 메시의 얼굴 텍스처만 부드럽게 보정하며, 정면 0°와 45°는 기준을 유지합니다.</div></header>
+<main>
+<section class="controls"><strong>측면 파츠 위치 조정</strong><p class="hint">값을 조정하면 실제 모델을 다시 렌더링합니다. “원래대로”로 초기화할 수 있으며, 정면 머리 형상은 바뀌지 않습니다.</p>
+<div id="inputs" class="controlgrid"></div>
+<div class="actions"><button id="reset">기본값 복원</button><button id="save">비교 이미지 저장</button><button id="settings">현재 설정 JSON 저장</button><span id="status" class="status">준비 중...</span></div>
+<div class="warning">설명: 정면의 금색 고리 = 별빛냥 고유 눈, 옆모습의 금색 고리 = 볼 장식, 검은 타원 = 앞쪽 측면 눈입니다. 정확한 3D 한 메시를 회전하되 카메라 방향에 맞춰 UV 표현을 부드럽게 보정합니다. 이는 정면/측면의 서로 다른 외형 요구를 만족하기 위한 선택적 만화식 보정입니다.</div>
+</section>
+<h2 class="widehead">기준 이미지와 정확한 90° 비교</h2>
+<div class="gallery">
+<div class="panel large"><h2>첨부된 목표 측면 이미지</h2><img class="ref" src="review-assets/side-face-target.png" alt="사용자가 제공한 옆모습 기준 이미지"><div class="caption">정면은 변경하지 않고, 검은 세로 눈·코·볼 장식의 간격 참고</div></div>
+<div class="panel"><h2>기존 Three.js · 90°</h2><img id="before90"><div class="caption">기존 측면 보정 없이 한 눈 / 코끝</div></div>
+<div class="panel"><h2>수정 Three.js · 90°</h2><img id="after90"><div class="caption">금색 볼 고리 + 검은 측면 눈</div></div>
+</div>
+<h2 class="widehead">동일한 3D 모델을 연속 회전해 확인</h2><div class="views" id="views"></div>
+<h2 class="widehead">0° 회귀 검증 — 정면 링 눈 보존</h2>
+<div class="beforeafter" id="front"></div><footer>내부 검수 전용 · 작업본 승인 전 공방 모델 및 나머지 5종 외형 수정 금지</footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+/*__SHARED_SCRIPTS__*/
+<script>
+(async()=>{
+ const $=id=>document.getElementById(id), P=window.PpolPet;
+ const config=window.PpolPresets?.presetConfig(window.PpolPresets.PRESETS[2]);
+ if(!window.THREE||!P||!config){$('status').textContent='렌더러 또는 Three.js를 불러오지 못했습니다. 온라인 상태에서 로컬 서버로 열어주세요.';return;}
+ const rows=[['ringLongitude','볼 링 위치 (옆면 쪽)',.65,1.38,.01],['ringLatitude','볼 링 높이',-.45,-.08,.005],['eyeLongitude','검은 눈 위치 (코 기준)',.30,.80,.01],['eyeLatitude','검은 눈 높이',-.28,.12,.005],['noseLongitude','코끝 앞쪽 위치',.00,.28,.005],['noseLatitude','코끝 높이',-.45,-.14,.005],['blushLongitude','볼터치 좌우 위치',.75,1.40,.01],['blushLatitude','볼터치 높이',-.57,-.15,.005]];
+ let values={...P.PROFILE_DEFAULTS},cache={};
+ const make=(id,name,value,min,max,step)=>{const el=document.createElement('div');el.className='control';el.innerHTML=`<label for="${id}"><span>${name}</span><output id="v-${id}">${value.toFixed(3)}</output></label><input id="${id}" type="range" min="${min}" max="${max}" step="${step}" value="${value}">`;$('inputs').appendChild(el);el.querySelector('input').addEventListener('input',e=>{values[id]=Number(e.target.value);$('v-'+id).textContent=values[id].toFixed(3);schedule();});};
+ rows.forEach(r=>make(r[0],r[1],values[r[0]],r[2],r[3],r[4]));
+ const angles=[0,45,75,90,135];angles.forEach(d=>{const panel=document.createElement('div');panel.className='panel';panel.innerHTML=`<h2>${d}° · 같은 3D 모델</h2><img id="view${d}" alt="${d}° 모델"><div class="caption">${d===0?'정면 링 눈 유지':d===45?'정면 인상 유지':d===90?'측면 눈·코끝 검수':d===135?'후면으로 자연스럽게 넘어가는지 확인':'코·눈·볼의 간격 검수'}</div>`;$('views').appendChild(panel);});
+ $('front').innerHTML='<div class="panel"><h2>원본 정면 · 0°</h2><img id="originalFront"></div><div class="panel"><h2>수정 정면 · 0°</h2><img id="newFront"></div><div class="panel"><h2>동일 여부</h2><p id="frontStatus" style="padding:40px;text-align:center"></p></div>';
+ function shot(deg,face=true){return P.renderSnapshot(config,{state:'stand',angle:deg*Math.PI/180,staticPose:true,size:530,camera:'web',profileFace:face,profileSettings:values});}
+ let t=null,busy=false,dirty=false;function schedule(){dirty=true;if(t)clearTimeout(t);t=setTimeout(render,260);}
+ async function render(){if(busy){dirty=true;return;}busy=true;dirty=false;$('status').textContent='실제 3D 렌더 중...';await new Promise(res=>requestAnimationFrame(res));try{
+  cache={};for(const deg of angles){cache[deg]=shot(deg);$('view'+deg).src=cache[deg];}
+  cache.before90=shot(90,false);$('before90').src=cache.before90;$('after90').src=cache[90];
+  cache.oldFront=shot(0,false);$('originalFront').src=cache.oldFront;$('newFront').src=cache[0];
+  $('frontStatus').textContent=cache.oldFront===cache[0]?'PASS · 정면 픽셀 동일':'정면 차이가 감지되었습니다. 추가 확인이 필요합니다.';
+  $('status').textContent='렌더 완료 · 각도별 검수 가능';
+ }catch(e){$('status').textContent='오류: '+e.message;console.error(e);}busy=false;if(dirty)render();}
+ $('reset').onclick=()=>{values={...P.PROFILE_DEFAULTS};for(const r of rows){$(r[0]).value=values[r[0]];$('v-'+r[0]).textContent=values[r[0]].toFixed(3);}schedule();};
+ $('settings').onclick=()=>{const blob=new Blob([JSON.stringify({profileSettings:values},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='starlight-profile-settings.json';a.click();URL.revokeObjectURL(a.href);};
+ $('save').onclick=async()=>{const c=document.createElement('canvas');c.width=1600;c.height=690;const g=c.getContext('2d');g.fillStyle='#f8f5fa';g.fillRect(0,0,c.width,c.height);g.fillStyle='#66527a';g.font='bold 29px system-ui';g.fillText('별빛냥 · 같은 3D 모델 얼굴 정합',25,42);let x=12;for(const d of angles){const im=new Image();im.src=cache[d];await im.decode();g.drawImage(im,x,72,305,305);g.fillStyle='#66527a';g.font='23px system-ui';g.fillText(d+'°',x+130,408);x+=318;}const a=document.createElement('a');a.download='starlight-profile-review.png';a.href=c.toDataURL('image/png');a.click();};
+ schedule();
+})();
+</script></body></html>

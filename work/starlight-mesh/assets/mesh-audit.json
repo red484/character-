@@ -1,0 +1,134 @@
+{
+  "method": "authored sectional loft + smooth implicit head/ear union; fixed UV face; no camera dependent assets",
+  "reference": "starlight-reference.png",
+  "head_profile": {
+    "latitude_center": 1.465,
+    "half_height": 0.765,
+    "half_width": 1.1,
+    "half_depth": 0.78,
+    "width_exponent": 0.46,
+    "depth_exponent": 0.5,
+    "lower_cheek_bias": 0.09
+  },
+  "ear_profile": {
+    "y": [
+      1.88,
+      2.0,
+      2.12,
+      2.25,
+      2.36,
+      2.42
+    ],
+    "x": [
+      0.28,
+      0.275,
+      0.235,
+      0.16,
+      0.1,
+      0.001
+    ],
+    "z": [
+      0.25,
+      0.25,
+      0.21,
+      0.15,
+      0.09,
+      0.001
+    ]
+  },
+  "parts": {
+    "Head_Ears_Continuous": {
+      "vertices": 283164,
+      "triangles": 94388,
+      "watertight": false
+    },
+    "InnerEar_-1": {
+      "vertices": 703,
+      "triangles": 1352,
+      "watertight": false
+    },
+    "InnerEar_1": {
+      "vertices": 703,
+      "triangles": 1352,
+      "watertight": false
+    },
+    "Torso": {
+      "vertices": 5186,
+      "triangles": 10368,
+      "watertight": true
+    },
+    "Arm_-1": {
+      "vertices": 1922,
+      "triangles": 3840,
+      "watertight": true
+    },
+    "Foot_-1": {
+      "vertices": 2562,
+      "triangles": 5120,
+      "watertight": true
+    },
+    "PawPad_-1_0": {
+      "vertices": 642,
+      "triangles": 1280,
+      "watertight": true
+    },
+    "PawPad_-1_1": {
+      "vertices": 642,
+      "triangles": 1280,
+      "watertight": true
+    },
+    "PawPad_-1_2": {
+      "vertices": 642,
+      "triangles": 1280,
+      "watertight": true
+    },
+    "PawPad_-1_3": {
+      "vertices": 642,
+      "triangles": 1280,
+      "watertight": true
+    },
+    "Arm_1": {
+      "vertices": 1922,
+      "triangles": 3840,
+      "watertight": true
+    },
+    "Foot_1": {
+      "vertices": 2562,
+      "triangles": 5120,
+      "watertight": true
+    },
+    "PawPad_1_0": {
+      "vertices": 642,
+      "triangles": 1280,
+      "watertight": true
+    },
+    "PawPad_1_1": {
+      "vertices": 642,
+      "triangles": 1280,
+      "watertight": true
+    },
+    "PawPad_1_2": {
+      "vertices": 642,
+      "triangles": 1280,
+      "watertight": true
+    },
+    "PawPad_1_3": {
+      "vertices": 642,
+      "triangles": 1280,
+      "watertight": true
+    },
+    "Tail": {
+      "vertices": 2562,
+      "triangles": 5120,
+      "watertight": true
+    }
+  },
+  "triangles": 140740,
+  "rigging": "named pivot-ready nodes only; no bones or animations yet",
+  "limitations": [
+    "triangle topology requires animation retopology",
+    "hidden head depths inferred from illustrated reference",
+    "inner-ear surfaces separate conformal patches",
+    "material appearance depends on viewer lighting"
+  ]
+}

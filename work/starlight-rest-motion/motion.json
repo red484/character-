@@ -1,0 +1,225 @@
+{
+  "size": [
+    256,
+    192
+  ],
+  "sourceSize": [
+    196,
+    129
+  ],
+  "sourceOffset": [
+    30,
+    37
+  ],
+  "groundY": 161,
+  "motion": "supported crouch → forelimb fold → source lying pose",
+  "states": {
+    "settle": [
+      {
+        "file": "assets/seam-repair-v1.png",
+        "duration": 0.28,
+        "label": "앞발로 지지",
+        "sourceRect": [
+          0,
+          0,
+          512,
+          384
+        ],
+        "legacyFile": "frames/settle-01.svg"
+      },
+      {
+        "file": "assets/seam-repair-v1.png",
+        "duration": 0.16,
+        "label": "앞발을 짚기",
+        "sourceRect": [
+          512,
+          0,
+          512,
+          384
+        ],
+        "legacyFile": "frames/settle-02.svg"
+      },
+      {
+        "file": "assets/seam-repair-v1.png",
+        "duration": 0.16,
+        "label": "팔꿈치 굽히기",
+        "sourceRect": [
+          1024,
+          0,
+          512,
+          384
+        ],
+        "legacyFile": "frames/settle-03.svg"
+      },
+      {
+        "file": "assets/seam-repair-v1.png",
+        "duration": 0.16,
+        "label": "가슴 낮추기",
+        "sourceRect": [
+          1536,
+          0,
+          512,
+          384
+        ],
+        "legacyFile": "frames/settle-04.svg"
+      },
+      {
+        "file": "assets/seam-repair-v1.png",
+        "duration": 0.18,
+        "label": "앞발 접기",
+        "sourceRect": [
+          0,
+          384,
+          512,
+          384
+        ],
+        "legacyFile": "frames/settle-05.svg"
+      },
+      {
+        "file": "assets/seam-repair-v1.png",
+        "duration": 0.2,
+        "label": "턱 가까이",
+        "sourceRect": [
+          512,
+          384,
+          512,
+          384
+        ],
+        "legacyFile": "frames/settle-06.svg"
+      },
+      {
+        "file": "assets/seam-repair-v1.png",
+        "duration": 0.24,
+        "label": "머리 기대기",
+        "sourceRect": [
+          1024,
+          384,
+          512,
+          384
+        ],
+        "legacyFile": "frames/settle-07.svg"
+      },
+      {
+        "file": "assets/seam-repair-v1.png",
+        "duration": 0.9,
+        "label": "엎드림 유지",
+        "sourceRect": [
+          1536,
+          384,
+          512,
+          384
+        ],
+        "legacyFile": "frames/settle-08.svg"
+      }
+    ],
+    "rest": [
+      {
+        "file": "assets/seam-repair-v1.png",
+        "duration": 0.4,
+        "label": "엎드림 유지",
+        "sourceRect": [
+          1536,
+          384,
+          512,
+          384
+        ],
+        "legacyFile": "frames/rest-01.svg"
+      },
+      {
+        "file": "assets/seam-repair-v1.png",
+        "duration": 0.4,
+        "label": "엎드림 유지",
+        "sourceRect": [
+          1536,
+          384,
+          512,
+          384
+        ],
+        "legacyFile": "frames/rest-02.svg"
+      },
+      {
+        "file": "assets/seam-repair-v1.png",
+        "duration": 0.4,
+        "label": "엎드림 유지",
+        "sourceRect": [
+          1536,
+          384,
+          512,
+          384
+        ],
+        "legacyFile": "frames/rest-03.svg"
+      },
+      {
+        "file": "assets/seam-repair-v1.png",
+        "duration": 0.4,
+        "label": "엎드림 유지",
+        "sourceRect": [
+          1536,
+          384,
+          512,
+          384
+        ],
+        "legacyFile": "frames/rest-04.svg"
+      },
+      {
+        "file": "assets/seam-repair-v1.png",
+        "duration": 0.4,
+        "label": "엎드림 유지",
+        "sourceRect": [
+          1536,
+          384,
+          512,
+          384
+        ],
+        "legacyFile": "frames/rest-05.svg"
+      },
+      {
+        "file": "assets/seam-repair-v1.png",
+        "duration": 0.4,
+        "label": "엎드림 유지",
+        "sourceRect": [
+          1536,
+          384,
+          512,
+          384
+        ],
+        "legacyFile": "frames/rest-06.svg"
+      },
+      {
+        "file": "assets/seam-repair-v1.png",
+        "duration": 0.4,
+        "label": "엎드림 유지",
+        "sourceRect": [
+          1536,
+          384,
+          512,
+          384
+        ],
+        "legacyFile": "frames/rest-07.svg"
+      },
+      {
+        "file": "assets/seam-repair-v1.png",
+        "duration": 0.4,
+        "label": "엎드림 유지",
+        "sourceRect": [
+          1536,
+          384,
+          512,
+          384
+        ],
+        "legacyFile": "frames/rest-08.svg"
+      }
+    ]
+  },
+  "atlas": "assets/seam-repair-v1.png",
+  "atlasSize": [
+    2048,
+    768
+  ],
+  "frameSize": [
+    512,
+    384
+  ],
+  "renderMethod": "whole repaired raster frame; no runtime face/body compositing",
+  "restSource": "repaired final frame; not pixel-identical to original sheet"
+}

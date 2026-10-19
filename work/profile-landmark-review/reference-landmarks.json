@@ -1,0 +1,48 @@
+{
+  "imageSize": [
+    1024,
+    1536
+  ],
+  "measurement": "manual approximate pixels; ears excluded from head bounds",
+  "headBounds": [
+    29,
+    420,
+    927,
+    1148
+  ],
+  "ringCenter": [
+    810,
+    856
+  ],
+  "ringBounds": [
+    740,
+    765,
+    880,
+    947
+  ],
+  "noseCenter": [
+    919,
+    915
+  ],
+  "noseBounds": [
+    913,
+    899,
+    925,
+    932
+  ],
+  "separateBlackEye": "removed as explicitly requested",
+  "constraints": [
+    "preserve front and 45 degrees",
+    "no geometry changes",
+    "retain yellow nose color"
+  ],
+  "alignment": {
+    "renderHeadBounds": [
+      51,
+      45,
+      188,
+      160
+    ],
+    "method": "uniform head-width scaling and chin baseline alignment; manual approximate landmarks"
+  }
+}

@@ -1,0 +1,11 @@
+Use case: identity-preserve. Asset: transparent 2D game sprite expression atlas.
+Input 1: approved Starlight kitten standing atlas. Use ONLY its TOP LEFT neutral standing character as the identity/pose master, without head tilt. Input 2: original character design sheet, use its MIDDLE expression row for exact gold-eye vocabulary.
+Create a 3-column x 2-row atlas of SIX front-facing FULL-BODY standing kitten sprites, each same pixel size, identical head silhouette, ear angle, body, hands relaxed at sides, two feet planted, round tail, lighting and camera. Every cell perfectly aligned, ample equal transparent margins, no overlap. 1536x1024 canvas, six 512x512 cells. Keep whole character within each cell, ears top y~50, feet bottom y~460. Character large head / tiny short body like approved first image. Head should remain round and tall, NEVER squash vertically. Same head neutral shape for all six, eyes at same centers. Pure transparent alpha background.
+Order row-major:
+1 DEFAULT: exactly original two pale-gold oval ring eyes, curved horizontal eyelid line within each ring, tiny single gold downward triangle nose, round pink cheek blush.
+2 HAPPY: replace rings entirely by two upward arched gold closed smiling eyes ∩ ∩, no extra rings.
+3 SURPRISED: two fully open round pale-gold rings with a SMALL WHITE round pupil/highlight at their centers, as reference expression row. No black pupils, no eyebrows.
+4 SASSY: two gold semicircle half-lidded eyes: straight horizontal top bar and curved bowl bottom, as reference.
+5 WINK: screen-left fully open round gold ring with small white center; screen-right gold closed curved wink line, as reference.
+6 SLEEPY: both eyes closed, simple relaxed downward-dipping gold U-curves, as original sleepy reference. No rings.
+All: single tiny gold triangular nose and same pink cheeks, NO mouth added. Same ears, head/face volume, same original purple pastel soft shading and original visual identity. No text, labels, panels, sparkles, hearts, zzz, scenery, extra accessories. Change ONLY eye expressions. Exactly 6 sprites. DO NOT copy sheet typography or decorations. DO NOT use different poses. Preserve design aggressively.

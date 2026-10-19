@@ -1,0 +1,9 @@
+{
+  "baseline": "existing canonical Three.js renderer, frozen default; experimental reference-profile options not promoted",
+  "renderer_sha256": "077bccec8b55685c3eee63d2ed4f066b4090766152a4969a109bf1fc05991f9b",
+  "backup_equal": true,
+  "glb_status": "rejected_experiment",
+  "glb_sha256": "e716c88d81cceb58f457231b2aea6b853e6546c3a74c7e1e2b65b69ffdd4312f",
+  "glb_stand": "not implemented; do not fabricate",
+  "scope": "comparison only; no geometry, material, rig or motion edits"
+}

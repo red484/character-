@@ -1,0 +1,28 @@
+{
+  "restored": {
+    "pixels": 0,
+    "meanChannel": 0
+  },
+  "candidates": {
+    "a": {
+      "pixels": 159146,
+      "meanChannel": 0.990066796875
+    },
+    "b": {
+      "pixels": 158391,
+      "meanChannel": 1.116318359375
+    },
+    "c": {
+      "pixels": 164316,
+      "meanChannel": 0.655604296875
+    }
+  },
+  "seated": {
+    "pixels": 0,
+    "meanChannel": 0
+  },
+  "walk": {
+    "pixels": 0,
+    "meanChannel": 0
+  }
+}

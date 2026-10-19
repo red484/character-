@@ -1,0 +1,51 @@
+--- before/shared/pet-render.js
++++ after/shared/pet-render.js
+@@ -419,6 +419,17 @@
+     headTex.image = drawHead(cfg, 'normal', 'normal'); headTex.needsUpdate = true;
+     const skull = mesh(geo(headGeo(THREE, cfg.design)), vinyl('#ffffff', { map: headTex }), head);
+     hullTargets.push(skull);
++    if(star){
++      head.userData.approvedScale=head.scale.clone();
++      skull.userData.seatedGeometry=skull.geometry;
++      const round=geo(skull.geometry.clone()),p=round.attributes.position;
++      for(let i=0;i<p.count;i++){
++        const y=p.getY(i);
++        p.setXYZ(i,p.getX(i)*.985,y-.014*Math.pow(Math.max(0,-y)/.6,2),p.getZ(i));
++      }
++      round.computeVertexNormals();round.computeBoundingBox();
++      skull.userData.standGeometry=round;
++    }
+     function setFace(eyeMode, mouthMode) {
+       const key = eyeMode + '|' + mouthMode;
+       if (setFace.key === key) return;
+@@ -666,6 +677,8 @@
+   // Standing uses anatomical hip -> ankle -> paw groups. The same approved
+   // character owns both torso profiles; seated geometry/transforms are restored on exit.
+   function restoreStand(P) {
++    P.head.children[0].geometry=P.head.children[0].userData.seatedGeometry;
++    P.head.scale.copy(P.head.userData.approvedScale);
+     P.legJoints.forEach(j=>j.position.set(0,0,0));
+     P.body.geometry=P.body.userData.seatedGeometry;P.body.receiveShadow=true;
+     P.body.scale.set(.30*P.B,.30*P.B,.27*P.B);
+@@ -688,13 +701,17 @@
+     // Measured front reference (small PNG, approx. +/-2 px):
+     // head width 76px, core torso width 27px, chin-to-floor 28px.
+     // Derive the torso from the APPROVED skull width, not a target head-height %.
+-    const skull=P.head.children[0].geometry;
++    const skull=P.head.children[0].userData.seatedGeometry;
+     if(!skull.boundingBox)skull.computeBoundingBox();
+-    const unit=(skull.boundingBox.max.x-skull.boundingBox.min.x)*P.head.scale.x/76;
++    const unit=(skull.boundingBox.max.x-skull.boundingBox.min.x)*P.head.userData.approvedScale.x/76;
+     const chinY=28*unit*B, torsoBottom=5*unit*B, torsoTop=chinY+3*unit*B;
+-    const headBottom=P.head.position.y+skull.boundingBox.min.y*P.head.scale.y;
++    // Keep the accepted body dimensions fixed. Refine only the standing head:
++    // 2% overall reduction, another 1.5% in width, and a gently rounded chin.
++    P.head.children[0].geometry=P.head.children[0].userData.standGeometry;
++    P.head.scale.copy(P.head.userData.approvedScale).multiplyScalar(.98);
++    const headBottom=P.head.position.y+P.head.children[0].geometry.boundingBox.min.y*P.head.scale.y;
+     // Bear-reference proportion: compact trunk + two tiny continuous leg/foot beans.
+-    // Approved head geometry/scale stays untouched; only its root follows the body.
++    // The seated head is preserved; the small standing refinement is reversible.
+     P.hips.position.set(0,(torsoTop+torsoBottom)/2,0);P.body.rotation.set(0,0,0);
+     P.body.geometry=P.body.userData.standGeometry;
+     // Keep the original material and lights; avoid a hard shadow-map band that

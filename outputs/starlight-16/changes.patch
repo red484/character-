@@ -1,0 +1,227 @@
+--- before/shared/pet-render.js
++++ after/shared/pet-render.js
+@@ -333,7 +333,7 @@
+     return t;
+   }
+ 
+-  function buildCharacter(cfgIn) {
++  function buildCharacter(cfgIn, sideReview = null) {
+     const THREE = makeCtx();
+     const cfg = normalize(cfgIn);
+     const C = cfg.colors, T = cfg.tune, B = T.body;
+@@ -452,6 +452,25 @@
+       }
+       smoothSeamNormals(round);round.computeBoundingBox();
+       skull.userData.standGeometry=round;
++      // Static side-study only; the approved walking geometry remains frozen.
++      const review=sideReview||{depth:.10,refined:true};
++      const side=geo(round.clone()),v=side.attributes.position;
++      for(let i=0;i<v.count;i++){
++        const x=v.getX(i),y=v.getY(i),z=v.getZ(i);
++        let nz=z*(1+review.depth);
++        if(review.refined && z>0){
++          // Broad forehead/cheek cross-section. Reduce wrapping of the facial
++          // surface toward the temple without moving its X/Y or UV landmarks.
++          const face=Math.exp(-Math.pow((y+.12)/.59,4));
++          nz+=.46*x*x*Math.pow(z/.72,.65)*face;
++          nz+=.12*Math.pow(z/.72,.7)*Math.exp(-Math.pow((y-.35)/.35,2));
++        }
++        if(review.refined && z<0) nz-=.23*Math.pow(-z/.86,.6)*Math.exp(-Math.pow((y-.32)/.42,2));
++        v.setZ(i,nz);
++      }
++      smoothSeamNormals(side);side.computeBoundingBox();
++      skull.userData.sideGeometry=side;skull.userData.sideReview=review;
++
+     }
+     function setFace(eyeMode, mouthMode) {
+       const key = eyeMode + '|' + mouthMode;
+@@ -482,8 +501,23 @@
+             const thick=geo(og.clone()),v=thick.attributes.position;
+             for(let j=0;j<v.count;j++){const z=v.getZ(j),y=v.getY(j);if(z<0){v.setZ(j,z*(1.85+.3*Math.sin(Math.PI*y/.45)));v.setY(j,y-.045*(-z/.18)*Math.pow(1-y/.45,2));}}
+             smoothSeamNormals(thick);outer.userData.standGeometry=thick;
++            const earSide=geo(thick.clone()),ev=earSide.attributes.position;
++            for(let j=0;j<ev.count;j++){
++              const x=ev.getX(j),y=ev.getY(j),z=ev.getZ(j);
++              // Wider rounded cross-section, buried rear root, cupped front.
++              const t=Math.max(0,Math.min(1,y/.45));
++              ev.setZ(j,z*(z<0?1.20:.95)-sx*.65*x);
++              if(z<0)ev.setY(j,y-.04*(-z/.35)*Math.pow(1-t,2));
++            }
++            smoothSeamNormals(earSide);outer.userData.sideGeometry=earSide;
+           }
+-          mesh(og, pinkM, g, [0, 0.03, 0.1], [0.6, 0.66, 0.5]);
++          const inner=mesh(og, pinkM, g, [0, 0.03, 0.1], [0.6, 0.66, 0.5]);
++          if(star&&!big){
++            inner.userData.seatedGeometry=og;
++            const cup=geo(og.clone()),cv=cup.attributes.position;
++            for(let j=0;j<cv.count;j++)cv.setZ(j,cv.getZ(j)-sx*.78*cv.getX(j));
++            smoothSeamNormals(cup);inner.userData.sideGeometry=cup;
++          }
+         });
+       } else if (E === 'bunny') {
+         const og = geo(earGeo(THREE, 0.14, 0.72, 0.1, 0.3));
+@@ -724,7 +758,7 @@
+     P.arms.forEach(A=>A.children.forEach(m=>{if(m.userData.seatedGeometry)m.geometry=m.userData.seatedGeometry;m.position.set(0,0,0);m.scale.setScalar(P.B);m.receiveShadow=true;}));
+     P.tailPivot.position.y=.26*P.B;
+   }
+-  function applyStand(built) {
++  function applyStand(built, frozenWalk = false) {
+     const P=built.parts,B=P.B,THREE=makeCtx();
+     built.char.rotation.set(0,0,0);built.char.scale.set(1,1,1);
+     P.rig.position.set(0,0,0);P.rig.rotation.set(0,0,0);
+@@ -737,7 +771,7 @@
+     const chinY=24.5*unit*B, torsoBottom=4.5*unit*B, torsoTop=chinY+3.5*unit*B;
+     // Keep the accepted body dimensions fixed. Refine only the standing head:
+     // 2% overall reduction, another 1.5% in width, and a gently rounded chin.
+-    P.head.children[0].geometry=P.head.children[0].userData.standGeometry;
++    P.head.children[0].geometry=P.head.children[0].userData[frozenWalk?'standGeometry':'sideGeometry'];
+     P.head.scale.copy(P.head.userData.approvedScale).multiplyScalar(.98);
+     const headBottom=P.head.position.y+P.head.children[0].geometry.boundingBox.min.y*P.head.scale.y;
+     // Bear-reference proportion: compact trunk + two tiny continuous leg/foot beans.
+@@ -767,7 +801,7 @@
+       A.children.forEach(m=>{if(m.userData.standGeometry)m.geometry=m.userData.standGeometry;m.position.set(0,0,0);m.scale.setScalar(B);m.receiveShadow=false;});
+     });
+     P.tailPivot.position.set(0,.27*B,-.23*B);P.tailPivot.rotation.set(0,0,0);
+-    P.ears.forEach(e=>{e.rotation.z=e.userData.rz;e.children.forEach(m=>{if(m.userData.standGeometry)m.geometry=m.userData.standGeometry;});});
++    P.ears.forEach(e=>{e.rotation.z=e.userData.rz;e.children.forEach(m=>{if(m.userData.seatedGeometry)m.geometry=(!frozenWalk&&P.head.children[0].userData.sideReview.refined&&m.userData.sideGeometry)||m.userData.standGeometry||m.userData.seatedGeometry;});});
+     P.setFace('normal','normal');P.zs.forEach(z=>z.visible=false);P.hearts.forEach(h=>h.visible=false);
+     built.shadow.visible=true;built.shadow.scale.set(1,1,1);
+   }
+@@ -775,7 +809,7 @@
+   // Starlight walks with exactly the approved stand meshes and transforms.
+   // A half-cycle is one short step. Phase zero is the two-foot standing start.
+   function applyStarlightWalk(built,phase) {
+-    applyStand(built);
++    applyStand(built,true);
+     const P=built.parts,B=P.B,THREE=makeCtx();
+     const step=1+Math.max(0,phase)/(Math.PI),n=Math.floor(step),u=step-n;
+     const ease=u*u*u*(10+u*(-15+6*u));
+@@ -1113,7 +1147,7 @@
+     if (!shared) renderImage(cfg,'full',16);
+     const {r,scene}=shared, size=options.size || 400;
+     r.setPixelRatio(1); r.setSize(size,size,false); r.shadowMap.enabled=options.camera==='web';r.shadowMap.needsUpdate=true;
+-    const b=buildCharacter(cfg), state=options.state || 'perch';
++    const b=buildCharacter(cfg,options.sideReview), state=options.state || 'perch';
+     const st={state,dir:1,enteredAt:0,nextBlink:Infinity};
+     // Optional transition regression uses the same instance, not a new model.
+     if(options.fromStand){st.state='stand';pose(b,st,0,16);st.state=state;}
+@@ -1139,13 +1173,28 @@
+     if(options.detail==='tail') {half=.48;centerY=.34;b.char.rotation.y=Math.PI;b.shadow.visible=false;}
+     const camera=options.camera==='web'?camFor(THREE,'full'):new THREE.OrthographicCamera(-half,half,half,-half,.1,50);
+     if(options.camera!=='web'){camera.position.set(centerX,centerY,8);camera.lookAt(centerX,centerY,0);}
++    let diagnosticMaterial=null;
++    if(options.surface){diagnosticMaterial=new THREE.MeshStandardMaterial({color:'#c2b8ce',roughness:1,wireframe:options.surface==='wire'});b.char.traverse(o=>{if(o.isMesh)o.material=diagnosticMaterial;});}
+     scene.add(b.char,b.shadow);r.render(scene,camera);
+     const url=r.domElement.toDataURL('image/png');const project=o=>{const v=new THREE.Vector3();o.getWorldPosition(v);v.project(camera);return [(v.x+1)*size/2,(1-v.y)*size/2];};
+     const joints=options.debug?{
+       torso:project(b.parts.hips),head:project(b.parts.neck),
+       shoulders:b.parts.arms.map(project),hips:b.parts.legJoints.map(project),ankles:b.parts.legs.map(project)
+     }:undefined;
+-    const result=options.diagnostics?{url,metrics:poseMetrics(b),joints}:url;scene.remove(b.char,b.shadow);b.dispose();return result;
++    const result=options.diagnostics?{url,metrics:poseMetrics(b),joints}:url;scene.remove(b.char,b.shadow);b.dispose();if(diagnosticMaterial)diagnosticMaterial.dispose();return result;
++  }
++
++  function auditSide(cfg) {
++    makeCtx();
++    const b=buildCharacter(cfg),skull=b.parts.head.children[0];
++    const a=skull.userData.standGeometry,c=skull.userData.sideGeometry;
++    if(!a||!c){b.dispose();return null;}
++    let xy=0,uv=0;const p=a.attributes.position,q=c.attributes.position;
++    for(let i=0;i<p.count;i++)xy=Math.max(xy,Math.abs(p.getX(i)-q.getX(i)),Math.abs(p.getY(i)-q.getY(i)));
++    for(let i=0;i<a.attributes.uv.array.length;i++)uv=Math.max(uv,Math.abs(a.attributes.uv.array[i]-c.attributes.uv.array[i]));
++    a.computeBoundingBox();c.computeBoundingBox();
++    const report={headXYMaxDelta:xy,faceUVMaxDelta:uv,headDepthBefore:a.boundingBox.max.z-a.boundingBox.min.z,headDepthAfter:c.boundingBox.max.z-c.boundingBox.min.z,bodyAndLimbGeometry:'unchanged from dev15',scope:'static stand only'};
++    b.dispose();return report;
+   }
+ 
+   function renderPairImage(primary, partner, size = 1024) {
+@@ -1183,7 +1232,7 @@
+     return kind === 'sweethearts' ? 'nuzzle' : kind === 'family' ? 'sit' : 'hop';
+   }
+ 
+-  const api = { auditMotion, renderSnapshot, walkFoot, renderPairImage, PERSONALITIES, chooseAction, socialAction, OPTIONS, TUNE, COLOR_LABELS, DEFAULT, FOOT, normalize, encode, decode, randomize, createPet, renderImage };
++  const api = { auditSide, auditMotion, renderSnapshot, walkFoot, renderPairImage, PERSONALITIES, chooseAction, socialAction, OPTIONS, TUNE, COLOR_LABELS, DEFAULT, FOOT, normalize, encode, decode, randomize, createPet, renderImage };
+   if (typeof module !== 'undefined' && module.exports) module.exports = api;
+   root.PpolPet = api;
+ })(typeof window !== 'undefined' ? window : globalThis);
+--- before/build-web.js
++++ after/build-web.js
+@@ -18,6 +18,7 @@
+ fs.writeFileSync(path.join(root,'docs/starlight-review.html'),read('web/starlight-review.src.html').replace('/*__SHARED_SCRIPTS__*/',scripts).replace('geometry02',hash(read('web/starlight-review.js'))));
+ fs.writeFileSync(path.join(root,'docs/starlight-motion.html'),read('web/starlight-motion.src.html').replace('/*__SHARED_SCRIPTS__*/',scripts).replace('motion01',hash(read('web/starlight-motion.js'))));
+ fs.writeFileSync(path.join(root,'docs/starlight-stand.html'),read('web/starlight-stand.src.html').replace('/*__SHARED_SCRIPTS__*/',scripts).replace('stand01',hash(read('web/starlight-stand.js'))));
++fs.writeFileSync(path.join(root,'docs/starlight-side.html'),read('web/starlight-side.src.html').replace('/*__SHARED_SCRIPTS__*/',scripts).replace('side16',hash(read('web/starlight-side.js'))));
+ const referenceHashes = Object.fromEntries(['angel','bear','starlight','bunny','apricot','cloud'].map(n=>[n,hash(fs.readFileSync(path.join(root,`references/${n}.png`)))]));
+ fs.writeFileSync(path.join(root,'docs/build-manifest.json'),JSON.stringify({rendererHash,presetHash,referenceHashes,referencePolicy:'The six supplied PNGs are the visual authority. Starlight front-seated geometry approved. Starlight static stand is under review. Gait review rejected and paused. Side/back refinement and other characters await approval.'},null,2)+'\n');
+ console.log('Built workshop + starlight review. Renderer SHA-256:',rendererHash);
+--- before/web/starlight-side.js
++++ after/web/starlight-side.js
+@@ -0,0 +1,25 @@
++(async()=>{try{
++ const P=PpolPet,cfg=PpolPresets.presetConfig(PpolPresets.PRESETS[2]),$=id=>document.getElementById(id);
++ const image=src=>new Promise((ok,no)=>{const i=new Image;i.onload=()=>ok(i);i.onerror=no;i.src=src;});
++ const snap=(angle,sideReview,surface)=>P.renderSnapshot(cfg,{state:'stand',angle:angle*Math.PI/180,size:800,camera:'web',staticPose:true,sideReview,surface});
++ const variants=[{depth:0,refined:false},{depth:.05,refined:false},{depth:.10,refined:false},{depth:.15,refined:false},{depth:.10,refined:true}];
++ function board(id,ims,labels){const c=$(id),g=c.getContext('2d'),cell=c.width/ims.length;g.fillStyle='#fcfafc';g.fillRect(0,0,c.width,c.height);g.textAlign='center';ims.forEach((im,i)=>{g.fillStyle='#77548d';g.font='600 21px system-ui';g.fillText(labels[i],i*cell+cell/2,34);g.drawImage(im,i*cell+(cell-440)/2,30,440,440);g.strokeStyle='#e6deeb';g.setLineDash([4,5]);g.beginPath();g.moveTo(i*cell+10,431);g.lineTo((i+1)*cell-10,431);g.stroke();g.setLineDash([]);});return c.toDataURL();}
++ const candidates=await Promise.all(variants.map(v=>image(snap(90,v))));
++ $('side-before-save').href=snap(90,variants[0]);$('side-after-save').href=snap(90,variants[4]);
++ $('candidates-save').href=board('candidates',candidates,['디벨롭 15 · 기존','깊이 +5%','깊이 +10%','깊이 +15%','선택 +10% · 연결 개선']);
++ $('angles-save').href=board('angles',await Promise.all([0,45,65,90].map(a=>image(snap(a,variants[4])))),['정면 0°','45°','65°','정확한 90°']);
++ $('structure-save').href=board('structure',await Promise.all([image(snap(90,variants[0],'clay')),image(snap(90,variants[4],'clay')),image(snap(90,variants[4],'wire'))]),['기존 · 단색','선택 후보 · 단색','선택 후보 · 와이어프레임']);
++ const old=await image('review-assets/stand-before-16.png'),url=snap(0,variants[4]),now=await image(url);$('front-save').href=url;
++ $('front-compare-save').href=board('front',[old,now],['승인 정면 · 디벨롭 15','측면 수정 후 정면']);
++ function pixels(im){const c=document.createElement('canvas');c.width=im.width;c.height=im.height;const g=c.getContext('2d');g.drawImage(im,0,0);return g.getImageData(0,0,c.width,c.height).data;}
++ function difference(a,b){let count=0,max=0,sum=0;for(let k=0;k<a.length;k+=4){let delta=0;for(let j=0;j<4;j++){const d=Math.abs(a[k+j]-b[k+j]);delta=Math.max(delta,d);sum+=d;max=Math.max(max,d);}if(delta)count++;}return {pixels:count,maxChannel:max,meanChannel:sum/a.length};}
++ const front=difference(pixels(old),pixels(now));
++ const seated=difference(pixels(await image('review-assets/starlight-approved-seated.png')),pixels(await image(P.renderImage(cfg,'full',800,'perch'))));
++ const restore=difference(pixels(await image('review-assets/starlight-approved-seated.png')),pixels(await image(P.renderSnapshot(cfg,{state:'perch',fromStand:true,size:800,camera:'web',staticPose:true}))));
++ const strip=document.createElement("canvas");strip.width=2880;strip.height=480;const sg=strip.getContext("2d");
++ for(let i=0;i<24;i++){const f=await image(P.renderSnapshot(cfg,{state:"walk",phase:i/24*Math.PI*2,angle:65*Math.PI/180,size:240,camera:"web",staticPose:true}));sg.drawImage(f,(i%12)*240,Math.floor(i/12)*240);}
++ const walking=difference(pixels(await image("review-assets/walk-before-16.png")),pixels(await image(strip.toDataURL())));
++ const report={walking,geometry:P.auditSide(cfg),front,seated,restore,variants,camera:'same perspective full camera, 800px, fixed scale',gait:'frozen dev15',renderer:document.querySelector('[data-renderer-version]').dataset.rendererVersion};
++ $('metrics').textContent=JSON.stringify(report,null,2);$('metrics-save').href='data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(report,null,2));
++ $('status').textContent=`정면 차이 ${front.pixels.toLocaleString()}px / 640,000 · 걷기 24프레임 ${walking.pixels}px · 앉기 ${seated.pixels}px · 서기→앉기 복원 ${restore.pixels}px`;
++}catch(e){document.getElementById('error').textContent=e.stack||e.message;}})();
+--- before/web/starlight-side.src.html
++++ after/web/starlight-side.src.html
+@@ -0,0 +1,13 @@
++<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>별빛냥 · 디벨롭 16 측면 조형</title><style>*{box-sizing:border-box}body{margin:0;background:#f7f4f9;color:#4c3d59;font:14px/1.7 system-ui}main{max-width:1400px;margin:auto;padding:26px 22px}h1{font-size:27px;margin:4px 0}h2{font-size:19px;margin:25px 0 10px}p{color:#83728e}.eyebrow{font-size:11px;letter-spacing:2px;color:#a18ab2}.card{background:#fff;border:1px solid #e2d8e8;border-radius:16px;overflow:hidden}canvas{width:100%;display:block;height:auto}.links{display:flex;gap:20px;margin:12px 0;flex-wrap:wrap}a{color:#79548f}.note{background:#eee6f3;padding:12px 16px;border-radius:12px}pre{font-size:11px;white-space:pre-wrap}#error{color:#aa3558}details{margin:18px 0}button,select{background:white;border:1px solid #dfd2e7;border-radius:9px;padding:8px 14px;color:#75558b}</style></head><body><main>
++<div class="eyebrow">STARLIGHT · SIDE SCULPT REVIEW 16</div><h1>90° 정지 측면, 깊이와 곡면부터</h1><p>카메라·조명·배율 고정 · 걷기 수정 중단 · 별빛냥 측면 승인 대기</p>
++<h2>01 · 기존 90°와 깊이 후보</h2><p>+5%·+10%·+15%는 Z축만 변경한 비교군입니다. 마지막은 +10%에 이마·앞볼·뒤통수 곡면과 귀 단면을 추가 수정한 후보입니다.</p><div class="card"><canvas id="candidates" width="2000" height="510"></canvas></div>
++<div class="links"><a id="candidates-save" download="side16-candidates.png">5종 비교 PNG</a><a id="front-save" download="side16-front.png">선택 후보 정면 원본</a><a id="side-before-save" download="side16-before.png">기존 90° 원본</a><a id="side-after-save" download="side16-after.png">수정 90° 원본</a></div>
++<h2>02 · 선택 후보, 같은 모델의 0°·45°·65°·90°</h2><div class="card"><canvas id="angles" width="1600" height="500"></canvas></div><div class="links"><a id="angles-save" download="side16-angles.png">4방향 PNG</a></div>
++<h2>03 · 형상만 검수 — 정확한 90°</h2><div class="card"><canvas id="structure" width="1600" height="500"></canvas></div><div class="links"><a id="structure-save" download="side16-structure.png">단색·와이어프레임 PNG</a></div>
++<h2>04 · 승인 정면 대조</h2><div class="card"><canvas id="front" width="1200" height="500"></canvas></div><div class="links"><a id="front-compare-save" download="side16-front-comparison.png">정면 비교 PNG</a></div><p id="status">회귀 검증 중…</p><div id="error"></div>
++<p class="note">머리의 좌우·상하 정점과 얼굴 UV 좌표는 고정합니다. +10%는 기본 깊이 증가량이며, 마지막 후보는 국소 곡면 보정을 추가하여 실제 최대 깊이 증가량이 더 큽니다. 몸통·팔·다리의 크기는 변경하지 않았습니다. 깊이가 달라지면 원근 투영과 표면 명암은 달라지므로 정면 픽셀 차이도 그대로 공개합니다. 앉기와 보행은 기존 형상을 유지하며 이번 후보는 정지 서기에만 적용됩니다.</p>
++<details><summary>검증 수치</summary><pre id="metrics"></pre><a id="metrics-save" download="side16-metrics.json">JSON 저장</a></details>
++<p>귀 안쪽이 보이는 정도와 측면 얼굴 연결까지 검수한 후 승인해주세요. 다른 캐릭터와 시트는 진행하지 않습니다.</p>
++</main><script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
++/*__SHARED_SCRIPTS__*/
++<script src="../web/starlight-side.js?v=side16"></script></body></html>
+--- before/web/starlight-motion.js
++++ after/web/starlight-motion.js
+@@ -8,7 +8,7 @@
+ g.fillStyle='#fcfafc';g.fillRect(0,0,1600,1080);g.textAlign='center';
+ const labels=['오른발 접지','오른발 지지 · 왼발 통과','왼발 접지','왼발 지지 · 오른발 통과'];
+ for(let row=0;row<2;row++){
+- const standing=await img(P.renderSnapshot(cfg,{state:'stand',angle:(row?90:65)*Math.PI/180,size:800,camera:'web',staticPose:true})),b=bounds(standing),sc=350/b.h;
++ const standing=await img(P.renderSnapshot(cfg,{state:'stand',sideReview:{depth:0,refined:false},angle:(row?90:65)*Math.PI/180,size:800,camera:'web',staticPose:true})),b=bounds(standing),sc=350/b.h;
+  g.fillStyle='#685079';g.font='600 25px system-ui';g.fillText(row?'구조 검수 · 정확한 90°':'걷기 연출 · 65°',800,row*540+32);
+  for(let i=0;i<4;i++){
+   const r=P.renderSnapshot(cfg,{state:'walk',phase:i*Math.PI/2,angle:(row?90:65)*Math.PI/180,size:800,camera:'web',staticPose:true,diagnostics:true});
+@@ -21,9 +21,9 @@
+  }
+ }
+ $('cycle-save').href=cvs.toDataURL();
+-const stand=P.renderSnapshot(cfg,{state:'stand',size:800,camera:'web',staticPose:true,diagnostics:true});
++const stand=P.renderSnapshot(cfg,{state:'stand',sideReview:{depth:0,refined:false},size:800,camera:'web',staticPose:true,diagnostics:true});
+ const approved=await img('review-assets/stand-before-15.png');
+-const snapshot=angle=>P.renderSnapshot(cfg,{state:'stand',angle:angle*Math.PI/180,size:800,camera:'web',staticPose:true});
++const snapshot=angle=>P.renderSnapshot(cfg,{state:'stand',sideReview:{depth:0,refined:false},angle:angle*Math.PI/180,size:800,camera:'web',staticPose:true});
+ function board(id,images,labels){const c=$(id),g=c.getContext('2d'),cell=c.width/images.length;g.fillStyle='#fcfafc';g.fillRect(0,0,c.width,c.height);g.textAlign='center';images.forEach((im,i)=>{g.drawImage(im,i*cell+(cell-400)/2,55,400,400);g.fillStyle='#74548a';g.font='600 23px system-ui';g.fillText(labels[i],i*cell+cell/2,35);});return c.toDataURL();}
+ const oldSide=await img('review-assets/side-before-15.png'),newSide=await img(snapshot(90));
+ $('standing-save').href=board('standing',[oldSide,newSide],['디벨롭 14 · 기존 90°','디벨롭 15 · 수정 90°']);
+--- before/web/starlight-stand.src.html
++++ after/web/starlight-stand.src.html
+@@ -1 +1 @@
+-<!doctype html><html lang="ko"><meta charset="utf-8"><title>별빛냥 · 승인된 디벨롭 14 기록</title><style>body{background:#f8f5fa;color:#604a71;font:16px/1.7 system-ui;margin:30px}img{width:100%;max-width:1200px}a{color:#79538e}</style><h1>승인된 디벨롭 14 · 보존 기록</h1><p>이 화면은 승인 당시의 이미지입니다. 현재 공통 렌더러의 수정 결과와 구분해 보존합니다.</p><p><a href="starlight-motion.html">디벨롭 15 측면·걷기 비교 검수 열기 →</a></p><img src="review-assets/stand-before-15.png" alt="승인된 디벨롭 14 정면"></html>+<!doctype html><html lang="ko"><meta charset="utf-8"><title>별빛냥 · 승인된 디벨롭 14 기록</title><style>body{background:#f8f5fa;color:#604a71;font:16px/1.7 system-ui;margin:30px}img{width:100%;max-width:1200px}a{color:#79538e}</style><h1>승인된 디벨롭 14 · 보존 기록</h1><p>이 화면은 승인 당시의 이미지입니다. 현재 공통 렌더러의 수정 결과와 구분해 보존합니다.</p><p><a href="starlight-side.html">디벨롭 16 정확한 90도 측면 검수 열기 →</a></p><img src="review-assets/stand-before-15.png" alt="승인된 디벨롭 14 정면"></html>

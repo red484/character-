@@ -1,0 +1,4 @@
+2026-10-19: Current screenshot combination: round ears, curved tail, happy eyes, flower, bowtie. New transparent ears and tail generated with built-in imagegen.
+Starlight walking four approved poses reviewed at 640px and actual live playback in maker-2d. Tail removal contours protect arms, head and feet. Original sprites and 3D renderer unchanged.
+53 motions x 3 sampled poses: default pixel identity and custom rendering checks pass. Parts schema, palette, shape and existing behavior tests pass.
+This is a local review candidate, not approval for every character/pose/parameter range. Known existing limits: cloud old-ear replacement and some side/lying joins still require manual cleanup. No public deployment.

@@ -1,0 +1,104 @@
+--- before/shared/pet-render.js
++++ after/shared/pet-render.js
+@@ -190,10 +190,20 @@
+     const g=new THREE.SphereGeometry(1,48,36),p=g.attributes.position;
+     for(let i=0;i<p.count;i++) {
+       const x=p.getX(i),y=p.getY(i),z=p.getZ(i);
+-      const waist=1-.12*Math.max(0,y),belly=1+.075*Math.exp(-Math.pow((y+.18)/.55,2));
+-      // Rounded shoulder volume and a lifted lower centre between the two hips.
+-      const crotch=.24*Math.max(0,-y-.5)*Math.exp(-Math.pow(x/.4,2));
+-      p.setXYZ(i,x*waist*belly,y+crotch,z*waist);
++      // A single soft bean: broad shoulder attachment, no waist or projecting belly.
++      const shoulder=1-.08*Math.max(0,y);
++      const lowerLift=.19*Math.max(0,-y-.45)*Math.exp(-Math.pow(x/.42,2));
++      p.setXYZ(i,x*shoulder,y+lowerLift,z*shoulder);
++    }
++    g.computeVertexNormals();return g;
++  }
++  function starlightStandFootGeo(THREE) {
++    const g=new THREE.SphereGeometry(1,40,32),p=g.attributes.position;
++    for(let i=0;i<p.count;i++) {
++      const x=p.getX(i),y=p.getY(i),z=p.getZ(i);
++      // Short upright bean with a broad soft sole, not a shoe attached to a shin.
++      const sy=Math.sign(y)*Math.pow(Math.abs(y),.68);
++      p.setXYZ(i,x,sy,z*(1-.10*Math.max(0,y)));
+     }
+     g.computeVertexNormals();return g;
+   }
+@@ -351,6 +361,7 @@
+       pv.userData.shin = shin;
+       const foot = mesh(sphere(24, 18), cfg.socks ? bellyM : bodyM, paw, [0, -0.03, 0.04], [0.165 * fk, 0.13 * fk, 0.19 * fk]);
+       hullTargets.push(foot);
++      if(star){foot.userData.seatedGeometry=foot.geometry;foot.userData.standGeometry=geo(starlightStandFootGeo(THREE));}
+       const pad = mesh(star ? sphere(28,20) : sphere(20,14), pinkM, paw, [0, star ? -.154 : -.148, star ? .035 : .045], [star ? .076 : .081, star ? .025 : .014, .077]);
+       for (const [tx,tz] of (star ? [[-.065,.108],[0,.15],[.065,.108]] : [[-.075,.10],[0,.145],[.075,.10]])) mesh(star ? sphere(20,14) : sphere(14,10),pinkM,paw,[tx,star ? -.142 : -.136,tz],[.030,star ? .023 : .014,.033]);
+       pad.userData.pad = true;
+@@ -647,6 +658,10 @@
+     P.body.geometry=P.body.userData.seatedGeometry;
+     P.body.scale.set(.30*P.B,.30*P.B,.27*P.B);
+     P.legs.forEach(L=>{
++      L.userData.shin.visible=true;
++      const foot=L.userData.paw.children[0],fk=.75+.25*P.B;
++      foot.geometry=foot.userData.seatedGeometry;foot.position.set(0,-.03,.04);foot.scale.set(.165*fk,.13*fk,.19*fk);
++      L.userData.paw.children.forEach(m=>m.visible=true);
+       L.userData.shin.position.set(0,.09,-.015);
+       L.userData.shin.scale.set(.105*P.B,.145*P.B,.105*P.B);
+       L.userData.paw.children.forEach(m=>{if(m.userData.seatedY!==undefined)m.position.y=m.userData.seatedY;});
+@@ -658,30 +673,29 @@
+     const P=built.parts,B=P.B,THREE=makeCtx();
+     built.char.rotation.set(0,0,0);built.char.scale.set(1,1,1);
+     P.rig.position.set(0,0,0);P.rig.rotation.set(0,0,0);
+-    // A compact pear-shaped trunk, with upper shoulders buried in the head.
+-    P.hips.position.set(0,.61*B,0);P.body.rotation.set(0,0,0);
++    // Bear-reference proportion: compact trunk + two tiny continuous leg/foot beans.
++    // Approved head geometry/scale stays untouched; only its root follows the body.
++    P.hips.position.set(0,.33*B,0);P.body.rotation.set(0,0,0);
+     P.body.geometry=P.body.userData.standGeometry;
+-    P.body.scale.set(.34*B,.36*B,.29*B);
+-    P.neck.position.set(0,.82*B,0);P.neck.rotation.set(0,0,0);
++    P.body.scale.set(.26*B,.27*B,.235*B);
++    P.neck.position.set(0,.45*B,0);P.neck.rotation.set(0,0,0);
+     P.legs.forEach((L,i)=>{
+-      const side=i?1:-1, paw=L.userData.paw;
+-      P.legJoints[i].position.set(side*.185*B,.43*B,0);
+-      L.rotation.set(0,0,0);paw.rotation.set(0,0,0);paw.scale.set(.92,1,.90);
+-      // Tuck the sole pads into the underside instead of perching on protruding jelly.
+-      paw.children.forEach((m,j)=>{if(j>0){if(m.userData.seatedY===undefined)m.userData.seatedY=m.position.y;m.position.y=m.userData.seatedY+.015;}});
+-      L.userData.shin.position.set(0,.14*B,-.04*B);
+-      L.userData.shin.scale.set(.12*B,.205*B,.115*B);
+-      L.position.set(0,0,.04*B);built.char.updateMatrixWorld(true);
+-      const bottom=new THREE.Box3().setFromObject(paw).min.y;
+-      L.position.y=-bottom; // local ankle offset from the actual hip pivot
++      const side=i?1:-1,paw=L.userData.paw,foot=paw.children[0];
++      P.legJoints[i].position.set(side*.12*B,.21*B,0);
++      L.rotation.set(0,0,0);paw.rotation.set(0,0,0);paw.scale.set(1,1,1);
++      foot.geometry=foot.userData.standGeometry;foot.position.set(0,0,.008*B);foot.scale.set(.106*B,.112*B,.12*B);
++      // Standing soles face the floor. Seated pads are restored unchanged on exit.
++      paw.children.forEach((m,j)=>{if(j>0)m.visible=false;});
++      L.userData.shin.visible=false;
++      L.position.set(0,0,0);built.char.updateMatrixWorld(true);
++      L.position.y=-new THREE.Box3().setFromObject(foot).min.y;
+     });
+     P.arms.forEach((A,i)=>{
+-      A.position.set((i?1:-1)*.33*B,.87*B,.015*B);
+-      A.rotation.set(0,0,(i?1:-1)*.12);
+-      // Move the origin to the shoulder cap, not the middle of the hand.
+-      A.children.forEach(m=>{m.position.set(0,-.1125*B,0);m.scale.set(B,1.25*B,B);});
++      A.position.set((i?1:-1)*.265*B,.50*B,.01*B);
++      A.rotation.set(0,0,(i?1:-1)*.10);
++      A.children.forEach(m=>{m.position.set(0,-.0495*B,0);m.scale.set(.9*B,.55*B,.9*B);});
+     });
+-    P.tailPivot.position.set(0,.44*B,-.27*B);P.tailPivot.rotation.set(0,0,0);
++    P.tailPivot.position.set(0,.27*B,-.23*B);P.tailPivot.rotation.set(0,0,0);
+     P.ears.forEach(e=>e.rotation.z=e.userData.rz);
+     P.setFace('normal','normal');P.zs.forEach(z=>z.visible=false);P.hearts.forEach(h=>h.visible=false);
+     built.shadow.visible=true;built.shadow.scale.set(1,1,1);
+@@ -962,7 +976,7 @@
+   function poseMetrics(b) {
+     const THREE=makeCtx(), P=b.parts;
+     b.char.updateMatrixWorld(true);
+-    const bounds=o=>new THREE.Box3().setFromObject(o).min.y;
++    const bounds=o=>{const box=new THREE.Box3();o.traverseVisible(m=>{if(m.isMesh){m.geometry.computeBoundingBox();box.union(m.geometry.boundingBox.clone().applyMatrix4(m.matrixWorld));}});return box.min.y;};
+     return {
+       characterScale:b.char.scale.toArray(), headScale:P.head.scale.toArray(), bodyScale:P.body.scale.toArray(),
+       neckToHip:P.neck.position.y-P.hips.position.y,

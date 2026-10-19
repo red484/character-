@@ -1,0 +1,511 @@
+{
+  "standChangedPixels": 190560,
+  "zeroPhaseVsStandPixels": 0,
+  "seatedChangedPixels": 0,
+  "samples": 481,
+  "scalesUnchanged": true,
+  "supportFloorRange": [
+    -2.7755575615628914e-17,
+    2.7755575615628914e-17
+  ],
+  "maxSupportWorldSlip": 0,
+  "maxFootLift": 0.044999999999999984,
+  "frames": [
+    {
+      "view": "front",
+      "percent": 0,
+      "travel": 0,
+      "support": 1,
+      "characterScale": [
+        1,
+        1,
+        1
+      ],
+      "headScale": [
+        0.98,
+        0.98,
+        0.98
+      ],
+      "bodyScale": [
+        0.3852982521057129,
+        0.31439267098903656,
+        0.23010867834091187
+      ],
+      "neckToHip": 0.18422383606433856,
+      "feet": [
+        {
+          "floorY": 0,
+          "z": 0,
+          "worldZ": 0,
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "floorY": 0,
+          "z": 0,
+          "worldZ": 0,
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "arms": [
+        {
+          "rotationX": 0,
+          "position": [
+            -0.315,
+            0.627,
+            0.005
+          ]
+        },
+        {
+          "rotationX": 0,
+          "position": [
+            0.315,
+            0.627,
+            0.005
+          ]
+        }
+      ]
+    },
+    {
+      "view": "front",
+      "percent": 25,
+      "travel": 0.035,
+      "support": 1,
+      "characterScale": [
+        1,
+        1,
+        1
+      ],
+      "headScale": [
+        0.98,
+        0.98,
+        0.98
+      ],
+      "bodyScale": [
+        0.3852982521057129,
+        0.31439267098903656,
+        0.23010867834091187
+      ],
+      "neckToHip": 0.18422383606433856,
+      "feet": [
+        {
+          "floorY": 0.044999999999999984,
+          "z": 0.035,
+          "worldZ": 0.07,
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "floorY": 0,
+          "z": -0.035,
+          "worldZ": 0,
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "arms": [
+        {
+          "rotationX": 0.0325,
+          "position": [
+            -0.315,
+            0.627,
+            0.005
+          ]
+        },
+        {
+          "rotationX": -0.0325,
+          "position": [
+            0.315,
+            0.627,
+            0.005
+          ]
+        }
+      ]
+    },
+    {
+      "view": "front",
+      "percent": 50,
+      "travel": 0.07,
+      "support": 0,
+      "characterScale": [
+        1,
+        1,
+        1
+      ],
+      "headScale": [
+        0.98,
+        0.98,
+        0.98
+      ],
+      "bodyScale": [
+        0.3852982521057129,
+        0.31439267098903656,
+        0.23010867834091187
+      ],
+      "neckToHip": 0.18422383606433856,
+      "feet": [
+        {
+          "floorY": 0,
+          "z": 0.07,
+          "worldZ": 0.14,
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "floorY": 0,
+          "z": -0.07,
+          "worldZ": 0,
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "arms": [
+        {
+          "rotationX": 0.065,
+          "position": [
+            -0.315,
+            0.627,
+            0.005
+          ]
+        },
+        {
+          "rotationX": -0.065,
+          "position": [
+            0.315,
+            0.627,
+            0.005
+          ]
+        }
+      ]
+    },
+    {
+      "view": "front",
+      "percent": 75,
+      "travel": 0.14,
+      "support": 0,
+      "characterScale": [
+        1,
+        1,
+        1
+      ],
+      "headScale": [
+        0.98,
+        0.98,
+        0.98
+      ],
+      "bodyScale": [
+        0.3852982521057129,
+        0.31439267098903656,
+        0.23010867834091187
+      ],
+      "neckToHip": 0.18422383606433856,
+      "feet": [
+        {
+          "floorY": 0,
+          "z": 0,
+          "worldZ": 0.14,
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "floorY": 0.044999999999999984,
+          "z": 0,
+          "worldZ": 0.14,
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "arms": [
+        {
+          "rotationX": 0,
+          "position": [
+            -0.315,
+            0.627,
+            0.005
+          ]
+        },
+        {
+          "rotationX": 0,
+          "position": [
+            0.315,
+            0.627,
+            0.005
+          ]
+        }
+      ]
+    },
+    {
+      "view": "side",
+      "percent": 0,
+      "travel": 0,
+      "support": 1,
+      "characterScale": [
+        1,
+        1,
+        1
+      ],
+      "headScale": [
+        0.98,
+        0.98,
+        0.98
+      ],
+      "bodyScale": [
+        0.3852982521057129,
+        0.31439267098903656,
+        0.23010867834091187
+      ],
+      "neckToHip": 0.18422383606433856,
+      "feet": [
+        {
+          "floorY": 0,
+          "z": 0,
+          "worldZ": 0,
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "floorY": 0,
+          "z": 0,
+          "worldZ": 0,
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "arms": [
+        {
+          "rotationX": 0,
+          "position": [
+            -0.315,
+            0.627,
+            0.005
+          ]
+        },
+        {
+          "rotationX": 0,
+          "position": [
+            0.315,
+            0.627,
+            0.005
+          ]
+        }
+      ]
+    },
+    {
+      "view": "side",
+      "percent": 25,
+      "travel": 0.035,
+      "support": 1,
+      "characterScale": [
+        1,
+        1,
+        1
+      ],
+      "headScale": [
+        0.98,
+        0.98,
+        0.98
+      ],
+      "bodyScale": [
+        0.3852982521057129,
+        0.31439267098903656,
+        0.23010867834091187
+      ],
+      "neckToHip": 0.18422383606433856,
+      "feet": [
+        {
+          "floorY": 0.044999999999999984,
+          "z": 0.035,
+          "worldZ": 0.07,
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "floorY": 0,
+          "z": -0.035,
+          "worldZ": 0,
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "arms": [
+        {
+          "rotationX": 0.0325,
+          "position": [
+            -0.315,
+            0.627,
+            0.005
+          ]
+        },
+        {
+          "rotationX": -0.0325,
+          "position": [
+            0.315,
+            0.627,
+            0.005
+          ]
+        }
+      ]
+    },
+    {
+      "view": "side",
+      "percent": 50,
+      "travel": 0.07,
+      "support": 0,
+      "characterScale": [
+        1,
+        1,
+        1
+      ],
+      "headScale": [
+        0.98,
+        0.98,
+        0.98
+      ],
+      "bodyScale": [
+        0.3852982521057129,
+        0.31439267098903656,
+        0.23010867834091187
+      ],
+      "neckToHip": 0.18422383606433856,
+      "feet": [
+        {
+          "floorY": 0,
+          "z": 0.07,
+          "worldZ": 0.14,
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "floorY": 0,
+          "z": -0.07,
+          "worldZ": 0,
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "arms": [
+        {
+          "rotationX": 0.065,
+          "position": [
+            -0.315,
+            0.627,
+            0.005
+          ]
+        },
+        {
+          "rotationX": -0.065,
+          "position": [
+            0.315,
+            0.627,
+            0.005
+          ]
+        }
+      ]
+    },
+    {
+      "view": "side",
+      "percent": 75,
+      "travel": 0.14,
+      "support": 0,
+      "characterScale": [
+        1,
+        1,
+        1
+      ],
+      "headScale": [
+        0.98,
+        0.98,
+        0.98
+      ],
+      "bodyScale": [
+        0.3852982521057129,
+        0.31439267098903656,
+        0.23010867834091187
+      ],
+      "neckToHip": 0.18422383606433856,
+      "feet": [
+        {
+          "floorY": 0,
+          "z": 0,
+          "worldZ": 0.14,
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "floorY": 0.044999999999999984,
+          "z": 0,
+          "worldZ": 0.14,
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "arms": [
+        {
+          "rotationX": 0,
+          "position": [
+            -0.315,
+            0.627,
+            0.005
+          ]
+        },
+        {
+          "rotationX": 0,
+          "position": [
+            0.315,
+            0.627,
+            0.005
+          ]
+        }
+      ]
+    }
+  ]
+}

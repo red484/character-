@@ -1,0 +1,190 @@
+{
+  "atlas": "assets/look-v8-short-arc.png",
+  "atlasSize": [
+    1774,
+    887
+  ],
+  "reference": "assets/reference.png",
+  "referenceRect": [
+    980,
+    803,
+    204,
+    182
+  ],
+  "size": [
+    256,
+    288
+  ],
+  "groundY": 260,
+  "scale": 0.5527638190954773,
+  "frames": [
+    {
+      "sourceRect": [
+        0,
+        0,
+        444,
+        444
+      ],
+      "origin": [
+        219.152,
+        438
+      ],
+      "bbox": [
+        64,
+        40,
+        379,
+        437
+      ],
+      "duration": 0.6,
+      "label": "앞발 모으기",
+      "sourcePose": 0
+    },
+    {
+      "sourceRect": [
+        444,
+        0,
+        443,
+        444
+      ],
+      "origin": [
+        219.994,
+        439
+      ],
+      "bbox": [
+        66,
+        40,
+        385,
+        438
+      ],
+      "duration": 0.18,
+      "label": "별 보고 손 들기",
+      "sourcePose": 1
+    },
+    {
+      "sourceRect": [
+        887,
+        0,
+        443,
+        444
+      ],
+      "origin": [
+        226.994,
+        438
+      ],
+      "bbox": [
+        78,
+        40,
+        395,
+        437
+      ],
+      "duration": 0.18,
+      "label": "반쯤 뻗기",
+      "sourcePose": 2
+    },
+    {
+      "sourceRect": [
+        1330,
+        0,
+        444,
+        444
+      ],
+      "origin": [
+        241.152,
+        439
+      ],
+      "bbox": [
+        88,
+        40,
+        407,
+        438
+      ],
+      "duration": 0.45,
+      "label": "별 쪽으로 뻗기",
+      "sourcePose": 3
+    },
+    {
+      "sourceRect": [
+        1330,
+        0,
+        444,
+        444
+      ],
+      "origin": [
+        241.152,
+        439
+      ],
+      "bbox": [
+        88,
+        40,
+        407,
+        438
+      ],
+      "duration": 0.35,
+      "label": "살짝 닿아볼까",
+      "sourcePose": 3
+    },
+    {
+      "sourceRect": [
+        887,
+        0,
+        443,
+        444
+      ],
+      "origin": [
+        226.994,
+        438
+      ],
+      "bbox": [
+        78,
+        40,
+        395,
+        437
+      ],
+      "duration": 0.18,
+      "label": "손 거두기",
+      "sourcePose": 2
+    },
+    {
+      "sourceRect": [
+        444,
+        0,
+        443,
+        444
+      ],
+      "origin": [
+        219.994,
+        439
+      ],
+      "bbox": [
+        66,
+        40,
+        385,
+        438
+      ],
+      "duration": 0.18,
+      "label": "다시 모으기",
+      "sourcePose": 1
+    },
+    {
+      "sourceRect": [
+        0,
+        0,
+        444,
+        444
+      ],
+      "origin": [
+        219.152,
+        438
+      ],
+      "bbox": [
+        64,
+        40,
+        379,
+        437
+      ],
+      "duration": 0.9,
+      "label": "편하게 돌아오기",
+      "sourcePose": 0
+    }
+  ]
+}

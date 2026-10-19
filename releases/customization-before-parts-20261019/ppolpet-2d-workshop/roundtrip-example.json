@@ -1,0 +1,16 @@
+{
+  "format": "ppolpet-sprite-custom",
+  "version": 2,
+  "character": "starlight",
+  "motion": "walk",
+  "shape": {
+    "earLength": 1.15,
+    "earWidth": 1,
+    "tailLength": 1.15,
+    "tailLift": 3,
+    "bodyHeight": 1.05,
+    "bodyWidth": 1.05
+  },
+  "tone": 0,
+  "size": 100
+}

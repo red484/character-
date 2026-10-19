@@ -1,0 +1,40 @@
+--- before/pet-render.js
++++ after/pet-render.js
+@@ -164,6 +164,18 @@
+       p.setXYZ(i,p.getX(i)*.30*taper,t*.45,p.getZ(i)*.18*taper);
+     }
+     g.computeVertexNormals(); return g;
++  }
++  function starlightArmGeo(THREE, side) {
++    // Curve the shoulder into the torso; only the small lower paw protrudes.
++    // This buries the root instead of leaving a separate ellipsoid beside the body.
++    const g=new THREE.SphereGeometry(1,40,32),p=g.attributes.position;
++    for(let i=0;i<p.count;i++) {
++      const y=p.getY(i),t=(y+1)/2;
++      const radius=.079+.041*t;
++      p.setXYZ(i,p.getX(i)*radius-side*.09*t*t,
++        -.23+.32*t,p.getZ(i)*(.085+.025*t)+.055+.025*(1-t));
++    }
++    g.computeVertexNormals();return g;
+   }
+   function starlightBodyGeo(THREE) {
+     const g=new THREE.SphereGeometry(1,48,36),p=g.attributes.position;
+@@ -332,7 +344,8 @@
+     const arms = [];
+     for (const sx of [-1, 1]) {
+       const pv = new THREE.Group(); pv.position.set(sx * 0.19 * B, 0.40 * B, 0.15 * B); pv.userData.base = pv.position.clone(); rig.add(pv);
+-      hullTargets.push(mesh(sphere(20,14),cfg.socks?bellyM:bodyM,pv,[0,-.09,.055],[.08*B,.17*B,.09*B]));
++      hullTargets.push(mesh(star ? geo(starlightArmGeo(THREE,sx)) : sphere(20,14),cfg.socks?bellyM:bodyM,pv,
++        star ? [0,0,0] : [0,-.09,.055],star ? [B,B,B] : [.08*B,.17*B,.09*B]));
+       arms.push(pv);
+     }
+ 
+@@ -726,7 +739,7 @@
+     if (P.design === 'starlight-v1' && seat > 0) {
+       // Seated reference only; standing/gait timing is deliberately not redesigned here.
+       P.legs.forEach((L,i)=>{L.position.x=lerp(L.position.x,(i?1:-1)*.225*B,seat);});
+-      P.arms.forEach((A,i)=>{A.position.x=lerp(A.position.x,(i?1:-1)*.22*B,seat);A.position.y=lerp(A.position.y,.38*B,seat);A.position.z=lerp(A.position.z,.03*B,seat);A.rotation.z=lerp(A.rotation.z,(i?-1:1)*.10,seat);A.rotation.x=lerp(A.rotation.x,0,seat);});
++      P.arms.forEach((A,i)=>{A.position.x=lerp(A.position.x,(i?1:-1)*.225*B,seat);A.position.y=lerp(A.position.y,.40*B,seat);A.position.z=lerp(A.position.z,.03*B,seat);A.rotation.z=lerp(A.rotation.z,(i?-1:1)*.10,seat);A.rotation.x=lerp(A.rotation.x,0,seat);});
+     }
+     P.neck.rotation.x = lerp(P.neck.rotation.x, nod, snap ? 0.3 : k);
+     P.neck.rotation.z = lerp(P.neck.rotation.z, headRoll, snap ? 0.3 : k);

@@ -1,0 +1,28 @@
+// One renderer source; versioned URLs prevent an old browser cache from mixing builds.
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+const root = __dirname;
+const read = p => fs.readFileSync(path.join(root,p),'utf8');
+const hash = text => crypto.createHash('sha256').update(text).digest('hex');
+const render = read('shared/pet-render.js'), presets = read('shared/presets.js');
+const rendererHash = hash(render), presetHash = hash(presets);
+const scripts = `<script src="../shared/pet-render.js?v=${rendererHash}" integrity="sha256-${crypto.createHash('sha256').update(render).digest('base64')}" data-renderer-version="${rendererHash}"></script>\n<script src="../shared/presets.js?v=${presetHash}" integrity="sha256-${crypto.createHash('sha256').update(presets).digest('base64')}" data-preset-version="${presetHash}"></script>`;
+const body = read('web/maker.src.html').replace('/*__SHARED_SCRIPTS__*/',scripts);
+fs.mkdirSync(path.join(root,'docs'),{recursive:true});
+fs.writeFileSync(path.join(root,'web/maker.html'),body);
+fs.writeFileSync(path.join(root,'docs/index.html'),'<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body>'+body+'</body></html>');
+// Electron's local copy is a generated artifact, never edited independently.
+fs.copyFileSync(path.join(root,'shared/pet-render.js'),path.join(root,'app/pet-render.js'));
+fs.writeFileSync(path.join(root,'docs/sheets.html'),read('web/sheets.src.html'));
+fs.writeFileSync(path.join(root,'docs/starlight-review.html'),read('web/starlight-review.src.html').replace('/*__SHARED_SCRIPTS__*/',scripts).replace('geometry02',hash(read('web/starlight-review.js'))));
+fs.writeFileSync(path.join(root,'docs/starlight-motion.html'),read('web/starlight-motion.src.html').replace('/*__SHARED_SCRIPTS__*/',scripts).replace('motion01',hash(read('web/starlight-motion.js'))));
+fs.writeFileSync(path.join(root,'docs/starlight-stand.html'),read('web/starlight-stand.src.html').replace('/*__SHARED_SCRIPTS__*/',scripts).replace('stand01',hash(read('web/starlight-stand.js'))));
+fs.writeFileSync(path.join(root,'docs/starlight-side.html'),read('web/starlight-side.src.html').replace('/*__SHARED_SCRIPTS__*/',scripts).replace('side16',hash(read('web/starlight-side.js'))));
+const referenceHashes = Object.fromEntries(['angel','bear','starlight','bunny','apricot','cloud'].map(n=>[n,hash(fs.readFileSync(path.join(root,`references/${n}.png`)))]));
+fs.writeFileSync(path.join(root,'docs/build-manifest.json'),JSON.stringify({rendererHash,presetHash,referenceHashes,referencePolicy:'The six supplied PNGs are the visual authority. Starlight front-seated geometry approved. Starlight static stand is under review. Gait review rejected and paused. Side/back refinement and other characters await approval.'},null,2)+'\n');
+console.log('Built workshop + starlight review. Renderer SHA-256:',rendererHash);
+
+fs.writeFileSync(path.join(root,"docs/starlight-face.html"),read("web/starlight-face.src.html").replace("/*__SHARED_SCRIPTS__*/",scripts).replace("face17",hash(read("web/starlight-face.js"))));
+
+fs.writeFileSync(path.join(root,"docs/starlight-design.html"),read("web/starlight-design.src.html").replace("/*__SHARED_SCRIPTS__*/",scripts).replace("design17",hash(read("web/starlight-design.js"))));

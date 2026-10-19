@@ -1,0 +1,18 @@
+{
+  "approvedFilesChecked": 239,
+  "changed": [],
+  "legacyWorkshop": {
+    "url": "/ppolpet/docs/index.html?review=starlight",
+    "browserError": "Cannot read properties of undefined (reading normalize)",
+    "builtRendererHash": "b35a3c35924b23786f5e048f603c74fcd1819cad2d2f97db4c026e6b8f9f1dba",
+    "currentRendererHash": "a64dddb3c670da4a7d3fc611ef882a6062e2250b05ec3e9153300f2fa8b88d4a",
+    "status": "build hash mismatch; legacy preview did not initialize; no legacy files modified"
+  },
+  "manualChecks": [
+    "All five other characters rendered in browser",
+    "Starlight ear 110 percent in idle",
+    "Whole palette / uniform 90 percent scale",
+    "Save / reset / restore review configuration",
+    "Other characters remain review candidates; not visually approved"
+  ]
+}

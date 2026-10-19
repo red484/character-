@@ -1,0 +1,97 @@
+--- approved-stand
++++ walk-13
+@@ -750,11 +750,42 @@
+     built.shadow.visible=true;built.shadow.scale.set(1,1,1);
+   }
+ 
++  // Starlight walks with exactly the approved stand meshes and transforms.
++  // A half-cycle is one short step. Phase zero is the two-foot standing start.
++  function applyStarlightWalk(built,phase) {
++    applyStand(built);
++    const P=built.parts,B=P.B;
++    const step=Math.max(0,phase)/(Math.PI),n=Math.floor(step),u=step-n;
++    const ease=u*u*u*(10+u*(-15+6*u));
++    const stride=.14*B, swing=n%2, support=1-swing;
++    const travel=(n===0?0:(n-.5)*stride)+(n===0?.5:1)*stride*ease;
++    const world=[0,0];world[support]=n*stride;
++    world[swing]=((n===0?0:n-1)+(n===0?1:2)*ease)*stride;
++    const lift=.045*B*Math.pow(Math.sin(Math.PI*u),2);
++    const bounce=.005*B*Math.pow(Math.sin(Math.PI*u),2);
++    const sway=(swing===0?1:-1)*.006*B*Math.pow(Math.sin(Math.PI*u),2);
++    P.rig.position.set(sway,bounce,0);
++    P.legs.forEach((L,i)=>{
++      L.position.x=-sway;
++      L.position.z=world[i]-travel;
++      L.position.y+=(i===swing?lift:0)-bounce;
++      // Positive arm pitch sends that hand backward as the same-side foot advances.
++      P.arms[i].rotation.x=(world[i]-travel)/stride*.13;
++    });
++    built.motionTravel=travel;
++    built.motionSupport=support;
++  }
++
+   /* ---- 포즈: 머리가 무거워서 뒤뚱뒤뚱 ---- */
+   function pose(built, st, t, dt) {
+     const P = built.parts, B = P.B;
+-    if (P.design==='starlight-v1' && st.state==='stand') {
+-      applyStand(built);st.wasStand=true;return;
++    if (P.design==='starlight-v1' && (st.state==='stand'||st.state==='walk')) {
++      if(st.state==='walk'){
++        const tempo={gentle:.86,playful:1.16,shy:.9,affectionate:.98}[built.cfg.personality];
++        st.phase=(st.phase||0)+dt*.0045*tempo;
++        applyStarlightWalk(built,st.phase);
++      }else{applyStand(built);built.motionTravel=0;}
++      st.wasStand=true;return;
+     }
+     if(st.wasStand){restoreStand(P);st.wasStand=false;}
+     const lerp = (a, b, k) => a + (b - a) * k;
+@@ -980,6 +1011,12 @@
+       const dt = Math.max(0, Math.min(100, t - last)); last = t;
+       if (!st.paused) pose(built, st, t, dt);
+       if (st.angle != null) built.char.rotation.y = st.angle;
++      if(opts.followWalk){
++        const travel=st.state==='walk'?(built.motionTravel||0):0,a=built.char.rotation.y;
++        const x=Math.sin(a)*travel,z=Math.cos(a)*travel;
++        built.char.position.set(x,0,z);built.shadow.position.x=x;built.shadow.position.z=z;
++        camera.position.x+=x-(st.cameraX||0);camera.position.z+=z-(st.cameraZ||0);st.cameraX=x;st.cameraZ=z;
++      }
+       renderer.render(scene, camera);
+     }
+     raf = requestAnimationFrame(frame);
+@@ -1027,20 +1064,20 @@
+     b.char.updateMatrixWorld(true);
+     const bounds=o=>{const box=new THREE.Box3();o.traverseVisible(m=>{if(m.isMesh){m.geometry.computeBoundingBox();box.union(m.geometry.boundingBox.clone().applyMatrix4(m.matrixWorld));}});return box.min.y;};
+     return {
++      travel:b.motionTravel||0, support:b.motionSupport,
+       characterScale:b.char.scale.toArray(), headScale:P.head.scale.toArray(), bodyScale:P.body.scale.toArray(),
+       neckToHip:P.neck.position.y-P.hips.position.y,
+-      feet:P.legs.map(L=>({floorY:bounds(L.userData.paw),z:L.position.z,scale:L.userData.paw.scale.toArray()})),
++      feet:P.legs.map(L=>({floorY:bounds(L.userData.paw),z:L.position.z,worldZ:L.position.z+(b.motionTravel||0),scale:L.userData.paw.scale.toArray()})),
+       arms:P.arms.map(A=>({rotationX:A.rotation.x,position:A.position.toArray()}))
+     };
+   }
+   function auditMotion(cfg, samples=240) {
+     const b=buildCharacter(cfg),st={state:'walk',dir:1,nextBlink:Infinity};
+     const tempo={gentle:.86,playful:1.16,shy:.9,affectionate:.98}[b.cfg.personality];
+-    const dt=Math.PI*2/(samples*.0085*tempo);
+-    // Warm the actual continuous pose loop, then inspect every step of one cycle.
+-    for(let i=0;i<samples;i++) pose(b,st,i*dt,dt);
+-    const frames=[];
+-    for(let i=0;i<=samples;i++){pose(b,st,(samples+i)*dt,dt);frames.push(poseMetrics(b));}
++    const speed=b.parts.design==='starlight-v1'?.0045:.0085;
++    const dt=Math.PI*2/(samples*speed*tempo),frames=[];
++    pose(b,st,0,0);frames.push(poseMetrics(b));
++    for(let i=1;i<=samples*2;i++){pose(b,st,i*dt,dt);frames.push(poseMetrics(b));}
+     b.dispose();return frames;
+   }
+   function renderSnapshot(cfg, options = {}) {
+@@ -1057,7 +1094,8 @@
+     else for(let i=0;i<90;i++) pose(b,st,i*16,16);
+     if(state==='walk') {
+       st.phase=options.phase || 0;
+-      for(let i=0;i<40;i++) {st.phase=(options.phase || 0)-16*.0085*({gentle:.86,playful:1.16,shy:.9,affectionate:.98}[b.cfg.personality]);pose(b,st,1200,16);}
++      if(b.parts.design==='starlight-v1')pose(b,st,1200,0);
++      else for(let i=0;i<40;i++) {st.phase=(options.phase || 0)-16*.0085*({gentle:.86,playful:1.16,shy:.9,affectionate:.98}[b.cfg.personality]);pose(b,st,1200,16);}
+     }
+     if(options.expression) b.parts.setFace(options.expression,options.expression==='wide'?'o':'normal');
+     b.char.rotation.y=options.angle || 0;

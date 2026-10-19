@@ -1,0 +1,24 @@
+{
+  "status": "검수 대기",
+  "baselineFilesUnchanged": true,
+  "filesChecked": 31,
+  "canvas": [
+    256,
+    288
+  ],
+  "groundY": 260,
+  "frameCount": 8,
+  "uniqueRenderedFrames": 7,
+  "loopFirstLastSame": true,
+  "noClipping": true,
+  "browserConsoleErrors": 0,
+  "checks": [
+    "브라우저 재생 및 인사 자세 확인",
+    "중간 손짓 프레임 확인",
+    "구문 검사 통과"
+  ],
+  "limitations": [
+    "새 생성 프레임이므로 승인된 대기 얼굴과 픽셀 단위 동일하지 않음",
+    "운영 사이트 미적용; 독립 검수 페이지"
+  ]
+}

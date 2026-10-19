@@ -1,0 +1,29 @@
+{
+  "backup": "/Users/ashwoodfriends/Documents/Codex/2026-10-08/new-chat-2/backups/profile-patch-20261013-171424",
+  "incoming": "/Users/ashwoodfriends/Documents/Codex/2026-10-08/new-chat-2/work/profile-patch-incoming-20261013-171424",
+  "changed": [
+    "build-web.js",
+    "app/pet-render.js",
+    "web/maker.html",
+    "tests/behavior.test.js",
+    "shared/pet-render.js",
+    "docs/starlight-nose.html",
+    "docs/index.html",
+    "docs/starlight-profile.html",
+    "docs/starlight-round.html",
+    "docs/starlight-final.html",
+    "docs/starlight-design.html",
+    "docs/starlight-review.html",
+    "docs/build-manifest.json",
+    "docs/starlight-animal.html",
+    "docs/starlight-face.html",
+    "docs/starlight-motion.html",
+    "docs/starlight-ear.html",
+    "docs/starlight-baby.html",
+    "docs/starlight-kitten.html",
+    "docs/starlight-placement.html"
+  ],
+  "renderer_matches_patch": true,
+  "presets_unchanged": true,
+  "tests": "build, syntax, behavior.test.js PASS"
+}

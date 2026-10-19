@@ -1,0 +1,11 @@
+(async()=>{try{
+const P=PpolPet,cfg=PpolPresets.presetConfig(PpolPresets.PRESETS[2]),$=id=>document.getElementById(id),img=src=>new Promise((ok,no)=>{const i=new Image;i.onload=()=>ok(i);i.onerror=no;i.src=src;});
+const c=$('board'),g=c.getContext('2d');g.fillStyle='#fcfafc';g.fillRect(0,0,c.width,c.height);const images=[];
+for(let row=0;row<2;row++){images[row]=[];for(const [i,angle]of [0,45,75,90].entries()){const im=await img(P.renderSnapshot(cfg,{state:'stand',sideDesign:row?'d':'a',earJoin:'blend',angle:angle*Math.PI/180,size:800,camera:'web',staticPose:true}));images[row].push(im);g.fillStyle='#78558c';g.textAlign='center';g.font='600 20px system-ui';g.fillText((row?'수정':'둥근 볼형 A')+' · '+angle+'°',i*400+200,row*460+30);g.drawImage(im,i*400,row*460+40,400,400);}}
+$('board-save').href=c.toDataURL();const d=$('detail'),h=d.getContext('2d');h.fillStyle='#fcfafc';h.fillRect(0,0,1000,470);for(let i=0;i<2;i++){h.fillStyle='#78558c';h.textAlign='center';h.font='600 22px system-ui';h.fillText(i?'제안 · 앞볼과 둥근 뒤통수':'기존 · 둥근 볼형 A',i*500+250,35);h.drawImage(images[i][3],230,70,330,260,i*500+20,60,460,365);} $('detail-save').href=d.toDataURL();
+function pixels(im){const c=document.createElement('canvas');c.width=c.height=800;const g=c.getContext('2d');g.drawImage(im,0,0);return g.getImageData(0,0,800,800).data;}
+const a=pixels(images[0][0]),b=pixels(images[1][0]);let below=0,total=0;for(let k=0;k<a.length;k+=4){if(a.slice(k,k+4).some((v,j)=>v!==b[k+j])){total++;if(k>=260*800*4)below++;}}
+const seated=pixels(await img(P.renderImage(cfg,'full',800,'perch'))),old=pixels(await img('review-assets/starlight-approved-seated.png'));let seatedDiff=0;for(let i=0;i<old.length;i+=4)if(old.slice(i,i+4).some((v,j)=>v!==seated[i+j]))seatedDiff++;
+$('status').textContent=`정면 얼굴·몸통 영역 차이 ${below}px · 앉기 차이 ${seatedDiff}px. 걷기 함수 및 기본 웹 모델은 변경하지 않았습니다.`;
+$('metrics').textContent=JSON.stringify({frontChangedPixels:total,belowEarPixels:below,seatedChangedPixels:seatedDiff},null,2);
+}catch(e){document.getElementById('error').textContent=e.stack;}})();

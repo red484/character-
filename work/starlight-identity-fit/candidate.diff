@@ -1,0 +1,101 @@
+diff --git a/work/starlight-nose-review/before-renderer.js b/work/starlight-identity-fit/review-renderer.js
+index 8eae3a8..0ea098e 100644
+--- a/work/starlight-nose-review/before-renderer.js
++++ b/work/starlight-identity-fit/review-renderer.js
+@@ -315,7 +315,7 @@
+     if (M === 'w') line(W * 0.8, () => { g.moveTo(mx - m, my - m * 0.25); g.quadraticCurveTo(mx - m * 0.5, my + m * 0.7, mx, my); g.quadraticCurveTo(mx + m * 0.5, my + m * 0.7, mx + m, my - m * 0.25); });
+     else if (M === 'cat') line(W * 0.8, () => { g.moveTo(mx - m * 0.7, my + m * 0.4); g.lineTo(mx, my - m * 0.3); g.lineTo(mx + m * 0.7, my + m * 0.4); });
+     else if (M === 'o') line(W * 0.8, () => g.ellipse(mx, my, m * 0.35, m * 0.42, 0, 0, Math.PI * 2));
+-    else if (M === 'open') { g.fillStyle = C.eye; g.beginPath(); g.moveTo(mx - m * 0.6, my - m * 0.25); g.lineTo(mx + m * 0.6, my - m * 0.25); g.lineTo(mx, my + m * 0.55); g.closePath(); g.fill(); }
++    else if (M === 'open') { g.fillStyle = C.eye; g.beginPath(); g.moveTo(mx - m * 0.6*(cfg.noseCapWidth||1), my - m * 0.25); g.lineTo(mx + m * 0.6*(cfg.noseCapWidth||1), my - m * 0.25); g.lineTo(mx, my + m * 0.55); g.closePath(); g.fill(); }
+     else if (M === 'grin') { g.fillStyle = C.eye; g.beginPath(); g.moveTo(mx - m, my - m * 0.3); g.quadraticCurveTo(mx, my + m * 1.2, mx + m, my - m * 0.3); g.closePath(); g.fill(); }
+     else if (M === 'flat') line(W * 0.8, () => { g.moveTo(mx - m * 0.5, my); g.lineTo(mx + m * 0.5, my); });
+     else if (M === 'mo') line(W * 0.9, () => { // も (글꼴 없이 직접 그림)
+@@ -1201,6 +1201,7 @@
+       for(let i=0;i<24;i++){const mid=(lo+hi)/2,y=project(uvSurface(THREE,g,noseU,.5+mid/Math.PI).point).y;if(y<target)lo=mid;else hi=mid;}
+       faceCfg={...faceCfg,tune:{...faceCfg.tune,mouthY:(lo+hi)/2+.30}};
+     }
++    if(b.noseAnchor)faceCfg={...faceCfg,faceNoseLon:0,tune:{...faceCfg.tune,mouthY:b.noseAnchor.lat+.30}};
+     const cv=drawHead(faceCfg,'normal','normal',side),ctx=cv.getContext('2d'),data=ctx.getImageData(0,0,TW,TH);
+     const nose=project(uvSurface(THREE,g,.25+(faceCfg.faceNoseLon||0)/(2*Math.PI),.5+(-.30+faceCfg.tune.mouthY)/Math.PI).point);
+     b.faceLandmarks={eye:[eye.x,eye.y],nose:[nose.x,nose.y],cheek:[cheek.x,cheek.y]};
+@@ -1527,12 +1528,76 @@
+ 
+ 
+   // Review-only access to unchanged canonical model construction and studio.
+-  function reviewBuild(cfg,state){
+-    const b=buildCharacter(cfg);const st={state,dir:1,enteredAt:0,nextBlink:Infinity};
++  function reviewBuild(cfg,state,candidate=false){
++    const b=buildCharacter(cfg),st={state,dir:1,enteredAt:0,nextBlink:Infinity};
+     for(let i=0;i<90;i++)pose(b,st,i*16,16);
+     b.parts.zs.forEach(o=>o.visible=false);b.parts.hearts.forEach(o=>o.visible=false);
+-    return {char:b.char,dispose:()=>b.dispose(),face:(camera,angle)=>frozenFace(b,camera,angle,state)};
++    const skull=b.parts.head.children[0];let audit={candidate,geometryChanged:false};
++    const THREE=makeCtx(), anchors={};
++    if(candidate){
++      const g=skull.geometry.clone(),p=g.attributes.position,uv=g.attributes.uv;
++      g.computeBoundingBox();const bb=g.boundingBox,lo=bb.min.clone(),hi=bb.max.clone(),h=hi.y-lo.y,d=hi.z-lo.z;
++      const noseY=uvSurface(THREE,g,.25,.5+(-.30+b.cfg.tune.mouthY)/Math.PI).point.y;
++      // A short front centre curve; X/Y, ears and body are untouched.
++      let delta=0;
++      for(let i=0;i<p.count;i++){
++        const x=p.getX(i),y=p.getY(i),z=p.getZ(i);if(z<0)continue;
++        const front=Math.min(1,Math.max(0,z/.35));const weight=Math.exp(-Math.pow(x/.40,2))*front*front*(3-2*front);
++        const target=hi.z-2.8*Math.pow((y-noseY)/h,2);
++        const band=Math.exp(-Math.pow((y-noseY)/(h*.27),2));
++        const zz=z+weight*band*(target-z);delta=Math.max(delta,Math.abs(zz-z));p.setZ(i,zz);
++      }
++      smoothSeamNormals(g);skull.geometry=g;
++      // Original ring-eye artwork is retained verbatim, except the old floating nose mark.
++      const cv=drawHead({...b.cfg,mouth:'none'},'normal','normal');
++      skull.material.map.image=cv;skull.material.map.needsUpdate=true;
++      const specs={nose:[966,764,7,14]};
++      const actual={nose:[hi.z,noseY,7/854*d,14/854*d]};
++      // A shallow rim follows the existing ring's UV curve. Dark edge is real thickness,
++      // not another eye and not a camera-driven shader or replacement texture.
++      const tt=b.cfg.tune,rx=.112*tt.eyeSize*2.1*.82,ry=.112*tt.eyeSize*2.1*.60;
++      for(const side of [-1,1]){
++        const vertices=[],indices=[];
++        for(let j=0;j<=96;j++){
++          const a=j/96*Math.PI*2,lon=side*.44*tt.eyeGap+Math.cos(a)*rx,lat=-.22+tt.eyeY+Math.sin(a)*ry;
++          const q=uvSurface(THREE,g,.25+lon/(2*Math.PI),.5+lat/Math.PI).point;
++          vertices.push(q.x,q.y,q.z+.0008,q.x,q.y,q.z+.012);
++          if(j<96){const k=j*2;indices.push(k,k+1,k+2,k+1,k+3,k+2);}
++        }
++        const edgeGeo=new THREE.BufferGeometry();edgeGeo.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));edgeGeo.setIndex(indices);edgeGeo.computeVertexNormals();
++        const edge=new THREE.Mesh(edgeGeo,new THREE.MeshStandardMaterial({color:'#625474',roughness:.85,side:THREE.DoubleSide}));skull.add(edge);
++      }
++      const noseGeo=new THREE.SphereGeometry(1,32,24),noseColors=[];
++      const frontColor=new THREE.Color(b.cfg.colors.eye),sideColor=new THREE.Color('#625474');
++      for(let i=0;i<noseGeo.attributes.normal.count;i++){const z=noseGeo.attributes.normal.getZ(i),t=Math.min(1,Math.max(0,(z-.3)/.5)),c=sideColor.clone().lerp(frontColor,t);noseColors.push(c.r,c.g,c.b);}
++      noseGeo.setAttribute('color',new THREE.Float32BufferAttribute(noseColors,3));
++      const noseMat=new THREE.MeshStandardMaterial({vertexColors:true,roughness:.8});
++      const nose=new THREE.Mesh(noseGeo,noseMat);nose.scale.set(.019,actual.nose[3]*.7,.014);nose.position.set(0,noseY,hi.z-.002);skull.add(nose);
++      skull.updateWorldMatrix(true,false);
++      for(const [name,t]of Object.entries(actual)){
++        // Closest surface vertex is reported, not an invented screen coordinate.
++        let best=Infinity,vv=new THREE.Vector3();for(let i=0;i<p.count;i++){if(p.getX(i)>0)continue;const dist=Math.pow((p.getZ(i)-t[0])/d,2)+Math.pow((p.getY(i)-t[1])/h,2)+(name==='nose'?Math.pow(p.getX(i),2):0);if(dist<best){best=dist;vv.set(p.getX(i),p.getY(i),p.getZ(i));}}
++        anchors[name]=vv;
++      }
++      audit={candidate:true,geometryChanged:true,maxDeltaZ:delta,xyUnchanged:true,otherPartsChanged:false,fixedTexture:true,referenceLandmarks:specs,textureSize:[TW,TH],eyeTreatment:"original ring texture with shallow fixed dark sidewall; no extra eye"};
++    }
++    function face(camera,angle){
++      if(candidate)return;
++      const cv=drawHead(b.cfg,'normal','normal');skull.material.map.image=cv;skull.material.map.needsUpdate=true;
++      const yaw=Math.atan2(Math.sin(angle),Math.cos(angle));frozenFace(b,camera,yaw,state);
++    }
++    function landmarks(camera,angle){
++      const THREE=makeCtx(),g=skull.geometry;
++      const lon=candidate&&b.noseAnchor?0:-Math.sign(angle)*.28*Math.min(1,Math.max(0,(Math.abs(angle)*180/Math.PI-45)/30));
++      const lat=candidate&&b.noseAnchor?b.noseAnchor.lat:-.30+b.cfg.tune.mouthY-.07*Math.min(1,Math.max(0,(Math.abs(angle)*180/Math.PI-45)/30));
++      const point=uvSurface(THREE,g,.25+lon/(2*Math.PI),.5+lat/Math.PI).point.applyMatrix4(skull.matrixWorld).project(camera);
++      return {nose:[point.x,point.y]};
++    }
++    function bounds(camera){skull.updateWorldMatrix(true,false);const p=skull.geometry.attributes.position,vs=[];for(let i=0;i<p.count;i++)vs.push(new THREE.Vector3().fromBufferAttribute(p,i).applyMatrix4(skull.matrixWorld).project(camera));return {minX:Math.min(...vs.map(v=>v.x)),maxX:Math.max(...vs.map(v=>v.x)),minY:Math.min(...vs.map(v=>v.y)),maxY:Math.max(...vs.map(v=>v.y))};}
++    function points(camera){return Object.fromEntries(Object.entries(anchors).map(([key,v])=>{const p=v.clone().applyMatrix4(skull.matrixWorld).project(camera);return [key,[p.x,p.y]];}));}
++    return {char:b.char,dispose:()=>b.dispose(),face,audit,landmarks,bounds,points};
+   }
++
+   const api = { reviewBuild, reviewScene:makeScene, auditMotion, renderSnapshot, walkFoot, renderPairImage, PERSONALITIES, chooseAction, socialAction, OPTIONS, TUNE, COLOR_LABELS, DEFAULT, FOOT, normalize, encode, decode, randomize, createPet, renderImage };
+   if (typeof module !== 'undefined' && module.exports) module.exports = api;
+   root.PpolPet = api;

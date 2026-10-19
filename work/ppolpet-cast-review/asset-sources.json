@@ -1,0 +1,30 @@
+{
+  "angel": {
+    "poses": "78b7a261-c1cc-4c72-bf1e-2b53e4266574",
+    "walk": "fe0f0509-0802-45e6-ae1f-6e89235b8c1b",
+    "expressions": "750f3677-0241-4754-8639-bc5d1f993ba9",
+    "poses-v2": "c2a939fc-0245-4c5d-871e-2ab26a11492b"
+  },
+  "apricot": {
+    "poses": "7a4517d6-1757-4d6a-a27c-756fcb221043",
+    "walk": "18dcd748-6a74-4014-b8db-04d430650787",
+    "expressions": "3ca69fdb-2edc-43b4-be8b-c05be04c3fc5"
+  },
+  "bear": {
+    "poses": "7f05a598-c3d8-4e8f-af9a-e20a04131add",
+    "walk": "5e9b8e3f-d697-41c9-b659-4a5622c49b09",
+    "expressions": "128d5139-fcc7-4288-a931-b85d0fe05e32"
+  },
+  "bunny": {
+    "poses": "913cc852-1eb5-4a32-b6fb-48a1f87900b4",
+    "poses-v2": "4e97144d-c439-4c78-aab0-049e053512e7",
+    "walk-v1": "16a0cb93-b7c0-4fc5-907f-55c796451444",
+    "expressions-v1": "8ef3c39c-b880-4d20-bad9-081a426746a0"
+  },
+  "cloud": {
+    "poses-v1": "4185b1d7-f9ec-4aa3-b9f4-793a29afa3e7",
+    "poses-v2": "2d217c4a-f298-4d19-b894-15bd333b72ef",
+    "walk-v1": "8335502a-4f0a-4de9-8c21-53c5c4ae252f",
+    "expressions-v1": "e3255b1e-9ee4-42b7-9b6a-f9e900d2def1"
+  }
+}

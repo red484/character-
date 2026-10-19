@@ -1,0 +1,22 @@
+{
+  "source": "assets/reference.png",
+  "crop": [
+    270,
+    850,
+    196,
+    129
+  ],
+  "pixelPolicy": "Original source RGB pixels unchanged. Transparent outline uses connected color segmentation; edge mask subject to review.",
+  "layers": [
+    "body",
+    "head",
+    "ears",
+    "eyes",
+    "nose"
+  ],
+  "nativeResolution": [
+    196,
+    129
+  ],
+  "animation": false
+}

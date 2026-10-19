@@ -1,0 +1,60 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>뽈뽈펫 · 캐릭터 시트</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#f4f1f7;color:#51465e;font-family:system-ui,sans-serif}nav{position:sticky;top:0;z-index:2;padding:16px 24px;background:#fffc;backdrop-filter:blur(14px);display:flex;gap:10px;align-items:center;flex-wrap:wrap}button,select,a{font:inherit;color:inherit;border:1px solid #dcd1e7;border-radius:16px;background:white;padding:10px 16px;text-decoration:none;cursor:pointer}button:disabled{opacity:.4;cursor:wait}main{max-width:1448px;margin:20px auto}canvas{width:100%;height:auto;display:block;background:#fff;border-radius:16px}#status{font-size:13px}details{background:white;border-radius:16px;padding:16px;margin:20px 0}details img{width:100%}.note{padding:0 24px;font-size:14px;line-height:1.7}@media print{nav,.note,details{display:none}main{margin:0}body{background:white}@page{size:landscape;margin:0}}</style>
+<nav><a href="index.html">← 공방</a><select id="character" aria-label="시트 캐릭터"></select><a id="save" download>원본 PNG 저장</a><button id="compare" type="button">3D 초안 비교</button><span id="status" role="status">시트 준비 중…</span></nav>
+<p class="note">제공한 캐릭터 시트 원본입니다. 캐릭터의 형태·색·표정·소품을 수정하지 않았습니다. 3D 재현본은 외형 검수를 통과하지 못한 초안으로 분리했습니다.</p>
+<main><img id="original-sheet" alt="제공한 캐릭터 시트 원본" style="display:block;width:100%;height:auto;border-radius:16px"><canvas hidden id="sheet" width="1448" height="1086" aria-label="캐릭터 시트"></canvas><p id="limitations" class="note"></p></main>
+<script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script><script>/*__PET_RENDER__*/</script><script>
+const P=window.PpolPet;
+/*__PRESETS__*/
+const names=['angel','bear','starlight','bunny','apricot','cloud'];
+const picker=document.querySelector('#character'), canvas=document.querySelector('#sheet'),g=canvas.getContext('2d'), status=document.querySelector('#status'),save=document.querySelector('#save');
+picker.innerHTML=PRESETS.map((p,i)=>`<option value="${i}">${p[0]}</option>`).join('');
+const cache=new Map();
+function label(text,x,y,size=20,color='#776691',align='center'){g.fillStyle=color;g.textAlign=align;g.font=`${size>=28?700:500} ${size}px system-ui,sans-serif`;g.fillText(text,x,y);}
+function box(x,y,w,h,dashed=false){g.beginPath();g.roundRect(x,y,w,h,28);g.fillStyle='#ffffff99';g.fill();g.strokeStyle='#e6def0';g.lineWidth=1.5;g.setLineDash(dashed?[6,5]:[]);g.stroke();g.setLineDash([]);}
+function star(x,y,r,color){g.fillStyle=color;g.beginPath();for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,rad=i%2?r*.45:r;i?g.lineTo(x+Math.cos(a)*rad,y+Math.sin(a)*rad):g.moveTo(x,y-r);}g.closePath();g.fill();}
+async function picture(cfg,x,y,size,opts={}){const img=new Image();img.src=P.renderSnapshot(cfg,{...opts,size:Math.ceil(size*1.5)});await img.decode();g.drawImage(img,x,y,size,size);}
+async function render(index){picker.disabled=true;save.disabled=true;status.textContent='네 방향 · 표정 · 보행 프레임 렌더링 중…';await new Promise(requestAnimationFrame);
+const cfg=presetConfig(PRESETS[index]);
+if(cache.has(index)){const im=new Image();im.src=cache.get(index);await im.decode();g.clearRect(0,0,1448,1086);g.drawImage(im,0,0);}else{
+ g.fillStyle='#fffdfd';g.fillRect(0,0,1448,1086);
+ const tint=index===1?'#b97594':index===4?'#be995f':'#9982c0';
+ label(cfg.name,724,105,74,tint);label('C h a r a c t e r   S h e e t',724,160,23);label('작고 소중한 너와, 더 따뜻한 하루',724,194,16,'#b5a2cf');
+ label('작은 친구들이',170,87,23,'#b9a5d9');label('만드는 더 밝은 내일.',170,119,23,'#b9a5d9');label('SMALL FRIENDS · BRIGHTER DAYS',170,155,11,'#b9a5d9');
+ label('Little Friends',1280,83,23,'#b9a5d9');label('Make a Brighter Tomorrow',1260,116,15,'#b9a5d9');
+ for(const [x,y,r] of [[420,154,10],[1070,92,11],[1360,173,8]])star(x,y,r,'#ffe1a6');
+ box(36,220,1120,348);box(1170,220,242,348,true);
+ const angles=[0,Math.PI,-Math.PI/2,Math.PI/2],labels=['정면','후면','왼쪽 측면','오른쪽 측면'];
+ for(let i=0;i<4;i++){await picture(cfg,42+i*277,235,272,{angle:angles[i]});label(labels[i],178+i*277,544,17);}
+ label('☆  Detail',1190,255,19,undefined,'left');
+ for(let i=0;i<3;i++){const x=i<2?1185+i*108:1239,y=i<2?277:407;box(x,y,99,108);await picture(cfg,x+3,y+3,93,{detail:['ear','paw','tail'][i]});label(['귀','발바닥','꼬리'][i],x+49,y+126,14);}
+ box(36,580,1376,210,true);label('표정 모음',65,609,21,undefined,'left');
+ const expressions=['normal','happy','wide','squint','wink','closed'];
+ for(let i=0;i<6;i++){await picture(cfg,65+i*226,617,162,{headOnly:true,expression:expressions[i]});label(['기본','행복','놀람','찡긋','윙크','졸림'][i],146+i*226,775,16);}
+ box(36,803,1376,225,true);label('포즈 & 동작',65,833,21,undefined,'left');
+ const poses=[['perch',0,0,'앉기'],['lie',1.1,0,'엎드리기'],['idle',0,0,'서기'],['walk',.70,0.25*Math.PI,'걷기 · 왼발'],['walk',.70,1.25*Math.PI,'걷기 · 오른발']];
+ for(let i=0;i<poses.length;i++){const [state,angle,phase,name]=poses[i];await picture(cfg,56+i*224,827,183,{state,angle,phase});label(name,147+i*224,1012,16);}
+ box(1190,853,188,140);label('작은 친구들과',1284,899,18);label('더 따뜻한 하루',1284,930,18);star(1284,963,12,'#ffe1a6');
+ label('L I T T L E   F R I E N D S   M A K E   A   B R I G H T E R   T O M O R R O W',724,1060,12,'#b9a5d9');cache.set(index,canvas.toDataURL('image/png'));}
+ picker.disabled=false;save.disabled=false;save.href=canvas.toDataURL('image/png');save.download=names[index]+'-character-sheet.png';status.textContent=`${cfg.name} · 1448 × 1086 · 공통 레이아웃`;}
+let draft=false;
+function showOriginal(){
+ draft=false;canvas.hidden=true;canvas.style.display='none';
+ const i=+picker.value,src=`../references/${names[i]}.png`;
+ const img=document.querySelector('#original-sheet');img.src=src;img.style.display='block';
+ save.href=src;save.download=names[i]+'-original-sheet.png';save.textContent='원본 PNG 저장';
+ status.textContent=PRESETS[i][0]+' · 제공된 원본';
+ document.querySelector('#compare').textContent='3D 초안 비교';
+ document.querySelector('#limitations').textContent=[0,1,3].includes(i)?'이 원본에는 독립된 오른쪽 측면 대신 걷는 모습이 있습니다. 없는 시점은 새로 만들어 넣지 않았습니다.':'';
+}
+picker.onchange=showOriginal;
+document.querySelector('#compare').onclick=async()=>{
+ if(draft){showOriginal();return;}
+ draft=true;document.querySelector('#original-sheet').style.display='none';canvas.hidden=false;canvas.style.display='block';save.textContent='초안 PNG 저장';
+ document.querySelector('#compare').textContent='원본으로 돌아가기';
+ document.querySelector('#limitations').textContent='검수 미통과: 원본과 머리 깊이·귀 두께·리본·팔다리 형태가 다릅니다. 완성본이 아닙니다.';
+ await render(+picker.value).catch(fail);
+};
+function fail(e){status.textContent='렌더링 오류: '+e.message;picker.disabled=false;console.error(e);}
+showOriginal();
+</script></html>

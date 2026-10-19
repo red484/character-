@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+<title>뽈뽈펫</title>
+<style>
+  :root { --bg: #fffdf9; --sunk: #f1eee8; --ink: #2a2733; --muted: #6c6776; --edge: #2a2733; --accent: #ff5c8a; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #24222c; --sunk: #1b1a21; --ink: #f1edf6; --muted: #a8a2b4; --edge: #0d0c11; --accent: #ff6f98; color-scheme: dark; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 22px; background: var(--bg); color: var(--ink); font: 14px/1.55 system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; display: grid; gap: 14px; }
+  #pet { width: 150px; height: 150px; margin: 0 auto; }
+  #pet canvas { width: 100%; height: 100%; display: block; }
+  h1 { margin: 0; font-size: 22px; text-align: center; }
+  p { margin: 0; color: var(--muted); text-align: center; }
+  .btns { display: grid; gap: 8px; }
+  button { font: inherit; font-weight: 600; color: var(--ink); background: var(--sunk); border: 2px solid var(--edge); border-radius: 10px; padding: 9px; cursor: pointer; box-shadow: 3px 3px 0 var(--edge); }
+  button.primary { background: var(--accent); color: #fff; }
+  button:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--edge); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+</style>
+</head>
+<body>
+  <div id="pet"></div>
+  <h1>아직 나와 있는 아이가 없어요</h1>
+  <p>공방에서 꾸민 다음 [바탕화면에 적용하기]를 누르면 여기로 와요.</p>
+  <div class="btns">
+    <button class="primary" data-a="maker">공방에서 꾸미기</button>
+    <button data-a="paste">복사한 코드로 데려오기</button>
+    <button data-a="file">캐릭터 파일 불러오기</button>
+    <div class="row">
+      <button data-a="default">기본 아이 꺼내기</button>
+      <button data-a="random">랜덤 아이 꺼내기</button>
+    </div>
+  </div>
+  <script src="node_modules/three/build/three.min.js"></script>
+  <script src="pet-render.js"></script>
+  <script src="welcome.js"></script>
+</body>
+</html>

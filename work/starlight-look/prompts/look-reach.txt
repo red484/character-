@@ -1,0 +1,13 @@
+Use case: precise-object-edit.
+Edit target: supplied transparent 4 columns x 2 rows animation atlas of lavender Starlight kitten. Preserve the approved cute character, large round head, golden ring eyes, tiny golden nose, cheeks, ear, small seated body, two feet and low pom tail, palette and soft shading. Same scale, camera facing left, same grid and ground line. No head compression or redesign.
+Primary change: add a READABLE reaching gesture, not only clasped paws. Animate exactly ONE short near forearm from chest toward an imaginary floating star upper-left, then bring it back. The other tiny far forepaw stays against chest. Never add a third arm. Keep shoulder attached and upper arm length consistent. Only pivot and gently unfold bent forearm. At full reach, rounded paw protrudes clearly to viewer LEFT beyond the chest silhouette, slightly upward under chin, reaching left-up without covering ring eye or cheek. Arm is stubby rounded kitten arm, not a long human arm. No hand pawpads (back/side of paw faces camera); foot pawpads remain.
+8 successive cells left to right top row then bottom row:
+1 two short paws softly clasped at chest (unchanged neutral);
+2 head looks up, near paw separates from far paw and begins lifting forward-left;
+3 near paw reaches halfway outward-left, far paw stays chest;
+4 clearest full reach: short near arm diagonally forward-left-up, paw visibly outside chest contour under lower face, a small rounded elbow; no long arm;
+5 hold same full reach, tiny wrist inclination toward star, same short length;
+6 withdraw near paw halfway toward chest;
+7 paw nearly back to clasp, head relaxes;
+8 same clasped neutral as cell1.
+The difference between clasp frame1 and reach frame4 must be obvious at thumbnail size. Maintain head and body proportions and natural joins. Rump and feet stationary. This is a gentle curious reach, not a wave, not standing. NO star in atlas; app draws star separately. No text, no borders, genuine transparent background.

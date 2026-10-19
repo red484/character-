@@ -1,0 +1,14 @@
+{
+  "atlas": "assets/look-v10-far-ear.png",
+  "playbackSteps": 8,
+  "uniquePoses": 4,
+  "frameTransformsAndTimingUnchanged": true,
+  "previousMotionFilesPreserved": 143,
+  "changedPreviousFiles": [],
+  "visualChecks": [
+    "Far ear tip visible in all four used poses",
+    "Two ears, single outer nose, pink pads retained",
+    "Before/after same playback frame and scale"
+  ],
+  "reviewStatus": "awaiting user review"
+}

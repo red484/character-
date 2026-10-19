@@ -1,0 +1,18 @@
+const T=window.THREE,P=PpolPet,$=id=>document.getElementById(id),angles=[0,45,75,90];
+try{
+const r=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});r.setPixelRatio(1);r.setSize(500,500);const scene=P.reviewScene(T,r);scene.background=new T.Color('#f8f6fb');
+const floor=new T.Mesh(new T.PlaneGeometry(100,100),new T.MeshStandardMaterial({color:'#f8f6fb',roughness:1}));floor.rotation.x=-Math.PI/2;floor.position.y=-.009;floor.receiveShadow=true;scene.add(floor);
+const cfg=PpolPresets.presetConfig(PpolPresets.PRESETS[2]),models=[P.reviewBuild(cfg,'stand'),P.reviewBuild(cfg,'stand',true)];models.forEach(m=>scene.add(m.char));
+const cam=new T.OrthographicCamera(-1.48,1.48,1.48,-1.48,.1,50);cam.position.set(0,1.16,8);cam.lookAt(0,1.16,0);cam.updateMatrixWorld(true);
+function render(which,angle){models.forEach((m,i)=>m.char.visible=i===which);const m=models[which];m.char.rotation.y=angle*Math.PI/180;m.char.updateMatrixWorld(true);m.face(cam,angle*Math.PI/180);r.render(scene,cam);}
+const load=async url=>{let im=new Image();im.src=url;await im.decode();return im;};
+const shots=[{},{}];for(let j=0;j<2;j++)for(const a of angles){render(j,a);shots[j][a]=await load(r.domElement.toDataURL());await new Promise(requestAnimationFrame);}
+const label=(c,text,x,y)=>{c.fillStyle='#51435e';c.font='20px system-ui';c.textAlign='center';c.fillText(text,x,y);};
+const board=$('board').getContext('2d');board.fillStyle='#f8f6fb';board.fillRect(0,0,1600,900);for(let j=0;j<2;j++)angles.forEach((a,i)=>{board.drawImage(shots[j][a],i*400,j*450,400,400);label(board,`${j?'후보':'기존'} · ${a}°`,i*400+200,j*450+430);});$('save-board').href=$('board').toDataURL();
+const cl=$('close').getContext('2d');cl.fillStyle='#f8f6fb';cl.fillRect(0,0,1600,460);[[75,0],[75,1],[90,0],[90,1]].forEach(([a,j],i)=>{cl.drawImage(shots[j][a],300,165,135,150,i*400,0,400,400);label(cl,`${j?'후보':'기존'} · ${a}°`,i*400+200,438);});$('save-close').href=$('close').toDataURL();
+const tr=$('transition').getContext('2d');tr.fillStyle='#f8f6fb';tr.fillRect(0,0,1750,320);for(const [i,a]of [45,50,55,60,65,70,75].entries()){render(1,a);tr.drawImage(r.domElement,i*250,0,250,250);label(tr,a+'°',i*250+125,285);} $('save-transition').href=$('transition').toDataURL();
+let yaw=75,spin=false,prev=0;function show(){const c=$('live').getContext('2d');for(let j=0;j<2;j++){render(j,yaw);c.drawImage(r.domElement,j*500,0);} $('yaw').value=yaw;$('deg').textContent=Math.round(yaw)+'°';}
+function tick(now){if(!spin)return;if(prev){yaw=(yaw+Math.min(now-prev,120)*.024)%360;show();}prev=now;requestAnimationFrame(tick);}
+$('spin').onclick=()=>{spin=!spin;prev=0;$('spin').textContent=spin?'연속 회전 정지':'연속 회전 재생';if(spin)requestAnimationFrame(tick);};for(const a of [0,45,60,75,90,135,180]){const b=document.createElement('button');b.textContent=a+'°';b.dataset.angle=a;b.onclick=()=>{yaw=a;show();};$('angles').appendChild(b);} $('yaw').oninput=e=>{yaw=+e.target.value;show();};let drag=null;$('live').onpointerdown=e=>{drag={x:e.clientX,yaw};$('live').setPointerCapture(e.pointerId);};$('live').onpointermove=e=>{if(drag){yaw=(drag.yaw+(e.clientX-drag.x)*.6+360)%360;show();}};$('live').onpointerup=()=>drag=null;
+render(1,0);const start=r.domElement.toDataURL();render(1,360);const end=r.domElement.toDataURL();$('audit').textContent=JSON.stringify({closed360Identical:start===end,candidate:models[1].audit,viewMaterial:'smooth 45-75 degrees, original expression through 45, fixed head/nose geometry',scope:'internal candidate; canonical unchanged'},null,2);$('status').textContent='4각도·전환 렌더 완료 / 검수 대기';show();
+}catch(e){$('error').textContent=e.stack;console.error(e);}

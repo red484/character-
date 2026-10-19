@@ -1,0 +1,15 @@
+2026-10-19 — Customization reference and first working increment
+
+Reference: https://picrew.me/ko/image_maker/2033441/ (나나곰쿠키2)
+Terms acceptance explicitly approved by the user. Inspected the live maker.
+Observed: 34 category slots, selectable item thumbnails, independent colors for the two eye categories, ear alternatives/none, supported vertical part movement, reset and random menus. Not every category was inspected. No reference artwork was copied.
+
+Implemented: Starlight color masks for purple fur, gold facial/details, and pink cheeks/pads/inner ears; custom hex colors; three themes; lock-aware random colors; undo/redo; v3 export/import with v2 migration. Baseline artwork and animation files are untouched. Full-color groups include same-colored decorations/effects, not independent semantic layers. Other five characters retain their original appearance and palette UI is disabled for them.
+
+Validation: 8 Starlight motions × 3 playback samples; default RGB/alpha difference 0; alpha difference 0 after each group recolor. Unit checks cover unrelated representative colors, cache equality, schema migration and roundtrip. Live browser checks: walking and sitting appearance, lock-aware random, undo/redo and export/reset/import restoring all three colors. Existing geometry and behavior tests passed. Web build preserves shared renderer SHA-256 a64dddb3c670da4a7d3fc611ef882a6062e2250b05ec3e9153300f2fa8b88d4a.
+
+Remaining to reach the requested Picrew-like freedom: replacement ear/tail/body and face artwork layers for each motion/view, occlusion-safe attachments, separate left/right facial selections, accessory catalogs, other-character masks and reusable animation export. This increment does not claim these are implemented. Existing length/width sliders are not part replacement.
+
+Backup: releases/customization-before-palette-20261019/
+Local internal preview: /ppolpet/docs/maker-2d.html?character=starlight&motion=walk
+No public deployment.

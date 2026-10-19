@@ -1,0 +1,6 @@
+0° actual baseline pixels identical: true
+45° actual baseline pixels identical: true
+75° actual baseline pixels identical: false
+90° actual baseline pixels identical: false
+270° actual baseline pixels identical: false
+Yaw blend -90 / 90 / 270: 1 / 1 / 1

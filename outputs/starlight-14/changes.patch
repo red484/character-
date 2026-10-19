@@ -1,0 +1,61 @@
+--- dev13
++++ dev14
+@@ -433,7 +433,10 @@
+       const round=geo(skull.geometry.clone()),p=round.attributes.position;
+       for(let i=0;i<p.count;i++){
+         const y=p.getY(i);
+-        p.setXYZ(i,p.getX(i)*.985,y-.014*Math.pow(Math.max(0,-y)/.6,2),p.getZ(i));
++        // Add volume at the crown and underside, leaving the facial band untouched.
++        const crown=.045*Math.pow(Math.max(0,(y-.12)/.70),2);
++        const chin=.012*Math.pow(Math.max(0,(-y-.38)/.22),2);
++        p.setXYZ(i,p.getX(i)*.985,y-.014*Math.pow(Math.max(0,-y)/.6,2)+crown-chin,p.getZ(i));
+       }
+       round.computeVertexNormals();round.computeBoundingBox();
+       skull.userData.standGeometry=round;
+@@ -720,13 +723,13 @@
+     const headBottom=P.head.position.y+P.head.children[0].geometry.boundingBox.min.y*P.head.scale.y;
+     // Bear-reference proportion: compact trunk + two tiny continuous leg/foot beans.
+     // The seated head is preserved; the small standing refinement is reversible.
+-    P.hips.position.set(0,(torsoTop+torsoBottom)/2,0);P.body.rotation.set(0,0,0);
++    P.hips.position.set(0,(torsoTop+torsoBottom)/2+.012*B,0);P.body.rotation.set(0,0,0);
+     P.body.geometry=P.body.userData.standGeometry;
+     // Keep the original material and lights; avoid a hard shadow-map band that
+     // visually divides the tiny torso into a separate belly piece.
+     P.body.receiveShadow=false;
+     P.body.scale.set(14.4*unit*B,(torsoTop-torsoBottom)/2,8.6*unit*B);
+-    P.neck.position.set(0,chinY-headBottom,0);P.neck.rotation.set(0,0,0);
++    P.neck.position.set(0,chinY-headBottom+.012*B,0);P.neck.rotation.set(0,0,0);
+     P.legs.forEach((L,i)=>{
+       const side=i?1:-1,paw=L.userData.paw,foot=paw.children[0];
+       P.legJoints[i].position.set(side*.155*B,.22*B,0);
+@@ -740,7 +743,7 @@
+       L.position.y=-new THREE.Box3().setFromObject(foot).min.y;
+     });
+     P.arms.forEach((A,i)=>{
+-      A.position.set((i?1:-1)*.315*B,.615*B,.005*B);
++      A.position.set((i?1:-1)*.315*B,.627*B,.005*B);
+       A.rotation.set(0,0,0);
+       A.children.forEach(m=>{if(m.userData.standGeometry)m.geometry=m.userData.standGeometry;m.position.set(0,0,0);m.scale.setScalar(B);m.receiveShadow=false;});
+     });
+@@ -754,7 +757,7 @@
+   // A half-cycle is one short step. Phase zero is the two-foot standing start.
+   function applyStarlightWalk(built,phase) {
+     applyStand(built);
+-    const P=built.parts,B=P.B;
++    const P=built.parts,B=P.B,THREE=makeCtx();
+     const step=Math.max(0,phase)/(Math.PI),n=Math.floor(step),u=step-n;
+     const ease=u*u*u*(10+u*(-15+6*u));
+     const stride=.14*B, swing=n%2, support=1-swing;
+@@ -769,6 +772,12 @@
+       L.position.x=-sway;
+       L.position.z=world[i]-travel;
+       L.position.y+=(i===swing?lift:0)-bounce;
++      // Only the airborne foot nods at the toe; correct its true sole height.
++      const paw=L.userData.paw;
++      paw.rotation.x=i===swing?.07*Math.sin(2*Math.PI*u)*Math.sin(Math.PI*u):0;
++      built.char.updateMatrixWorld(true);
++      const minY=new THREE.Box3().setFromObject(paw.children[0]).min.y;
++      L.position.y+=(i===swing?lift:0)-minY;
+       // Positive arm pitch sends that hand backward as the same-side foot advances.
+       P.arms[i].rotation.x=(world[i]-travel)/stride*.13;
+     });

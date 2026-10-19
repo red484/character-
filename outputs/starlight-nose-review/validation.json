@@ -1,0 +1,58 @@
+{
+  "closed360PixelsIdentical": true,
+  "seatedPixelsIdentical": true,
+  "candidate": {
+    "candidate": true,
+    "geometryChanged": true,
+    "xyIdentical": true,
+    "maxDeltaZ": 0.07265520095825195,
+    "noseAnchor": {
+      "u": 0.25,
+      "v": 0.37039999999999773,
+      "lat": -0.4071504079052443
+    },
+    "formerPeakZ": 0.8791419754696707,
+    "newPeakZ": 0.8722939605441798,
+    "otherPartsChanged": false
+  },
+  "seated": {
+    "candidate": true,
+    "geometryChanged": false
+  },
+  "noseAudit": [
+    {
+      "angle": 75,
+      "candidate": false,
+      "projectedNose": [
+        0.013354740252507295,
+        -0.1640902142477948
+      ]
+    },
+    {
+      "angle": 75,
+      "candidate": true,
+      "projectedNose": [
+        0.42086443057699663,
+        -0.22199566613279223
+      ]
+    },
+    {
+      "angle": 90,
+      "candidate": false,
+      "projectedNose": [
+        0.2621415766737464,
+        -0.1640902142477948
+      ]
+    },
+    {
+      "angle": 90,
+      "candidate": true,
+      "projectedNose": [
+        0.4995894090089087,
+        -0.22199566613279223
+      ]
+    }
+  ],
+  "model": "one unchanged pose per side; constant geometry across angles; fixed UV nose on candidate",
+  "scope": "internal review only"
+}

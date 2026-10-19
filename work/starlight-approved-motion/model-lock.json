@@ -1,0 +1,9 @@
+{
+  "approved": "current ring eye and 10 percent smaller yellow nose",
+  "backup": "backups/starlight-approved-20261013-173336",
+  "sha256": {
+    "shared/pet-render.js": "b35a3c35924b23786f5e048f603c74fcd1819cad2d2f97db4c026e6b8f9f1dba",
+    "shared/presets.js": "133fa47f85a6e872cb1b2da37b6867585bef39c6dfead71b91b2a722e4a1bbb2"
+  },
+  "scope": "appearance frozen; existing walking animation replay only"
+}

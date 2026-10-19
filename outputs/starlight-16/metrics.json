@@ -1,0 +1,55 @@
+{
+  "walking": {
+    "pixels": 0,
+    "maxChannel": 0,
+    "meanChannel": 0
+  },
+  "geometry": {
+    "headXYMaxDelta": 0,
+    "faceUVMaxDelta": 0,
+    "headDepthBefore": 1.563044786453247,
+    "headDepthAfter": 1.8983235955238342,
+    "bodyAndLimbGeometry": "unchanged from dev15",
+    "scope": "static stand only"
+  },
+  "front": {
+    "pixels": 164789,
+    "maxChannel": 255,
+    "meanChannel": 2.053808984375
+  },
+  "seated": {
+    "pixels": 0,
+    "maxChannel": 0,
+    "meanChannel": 0
+  },
+  "restore": {
+    "pixels": 0,
+    "maxChannel": 0,
+    "meanChannel": 0
+  },
+  "variants": [
+    {
+      "depth": 0,
+      "refined": false
+    },
+    {
+      "depth": 0.05,
+      "refined": false
+    },
+    {
+      "depth": 0.1,
+      "refined": false
+    },
+    {
+      "depth": 0.15,
+      "refined": false
+    },
+    {
+      "depth": 0.1,
+      "refined": true
+    }
+  ],
+  "camera": "same perspective full camera, 800px, fixed scale",
+  "gait": "frozen dev15",
+  "renderer": "a1263b5c41a21050d3fe9dfb74cd9aba814c860fc8722d886d16a5a542192fbd"
+}

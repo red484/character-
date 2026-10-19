@@ -1,0 +1,19 @@
+{
+  "atlas": "assets/look-v6-two-arms.png",
+  "frames": 8,
+  "uniquePoses": 7,
+  "previousMotionFilesPreserved": 143,
+  "changedPreviousFiles": [],
+  "firstLastIdentical": true,
+  "groundY": 260,
+  "uniformScale": 0.5612244897959183,
+  "horizontalAnchor": "front sole, excludes tail",
+  "browserChecks": [
+    "before/after synchronized",
+    "full rounded cheek in foreground",
+    "raised paw pink pads visible",
+    "redundant clasped far paw removed during reach",
+    "seek and replay at 0.5x"
+  ],
+  "status": "user review pending"
+}

@@ -1,0 +1,4 @@
+Bunny poses v2: Repair exact 4x3 transparent atlas. Preserve faces, long ears, screen-left bow, body and layout. Only row2 column2 half-raised paw: lower screen-left paw and raise screen-right paw halfway at chest with pink pads, matching row2 columns3/4. Do not flip the character or bow.
+Cloud poses v2: Preserve exact 12 poses, faces, lavender hats, droop ears, bodies and paws. Remove floating purple motion marks in last row columns2/3. Keep true transparency.
+Angel poses v2: Preserve exact 12 poses, star eyes, halos, bows, ribbon wings, bodies and paws. Remove floating purple motion marks, especially row2 column4. Preserve accessories and whiskers.
+All use original v1 atlas as imagegen image reference with transparent_background=true.

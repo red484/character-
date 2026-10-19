@@ -1,0 +1,53 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>별빛냥 · 원본 대조와 수정 계획</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f8f7fa;color:#342e43;font:15px/1.65 system-ui,sans-serif}main{max-width:1140px;padding:32px 28px 60px;margin:auto}header{display:flex;justify-content:space-between;gap:24px;align-items:start}.eyebrow{font-size:11px;letter-spacing:2px;color:#847194}h1{font-size:29px;margin:8px 0}h2{font-size:19px;margin:0}p{margin:8px 0;color:#756d80}a{color:#6b5290}button,select,.link{background:white;border:1px solid #ddd5e7;border-radius:12px;padding:9px 13px;font:inherit;color:#624d80;cursor:pointer;text-decoration:none}button[aria-pressed=true]{background:#6f598d;color:white;border-color:#6f598d}.badge{border-radius:30px;padding:6px 12px;background:#eee8f6;color:#6c558a;font-size:12px;white-space:nowrap}.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:23px 0 12px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{border:1px solid #e3ddea;border-radius:20px;background:white;overflow:hidden}.card-head{padding:16px 22px;border-bottom:1px solid #f0ebf5}.card-head small{color:#82738f}.stage{position:relative;height:350px;overflow:hidden;background:#fffdfd}.axis{position:absolute;left:50%;top:0;height:100%;border-left:1px dashed #ede8f0}.ground{position:absolute;left:18px;right:18px;top:316px;border-top:1px dashed #e1d8e9}.ref-crop{position:absolute;width:280px;height:280px;left:50%;margin-left:-140px;top:45px;overflow:hidden}.ref-crop img{position:absolute;width:1448px;max-width:none;left:-48px;top:-245px}.model-image{position:absolute;max-width:none;pointer-events:none}.caption{padding:12px 22px;min-height:76px;border-top:1px solid #f0ebf5;color:#756d80;font-size:13px}.note{background:#efebf4;border-radius:12px;padding:12px 16px;font-size:13px;margin:16px 0 26px}.version{font:12px/1.8 ui-monospace,monospace;overflow-wrap:anywhere;color:#81718e}table{border-collapse:collapse;width:100%;font-size:14px;margin:14px 0 25px}th,td{padding:12px 14px;text-align:left;border-bottom:1px solid #e5deeb;vertical-align:top}th{background:#f0ebf5}td:first-child{white-space:nowrap;font-weight:600}.section{margin-top:30px}details{background:white;border:1px solid #e3ddea;border-radius:16px;padding:16px 20px;margin-top:16px}summary{cursor:pointer;font-weight:600}details img.original{width:100%;margin-top:16px}.live{height:330px;max-width:420px;margin:auto;background:#fffdfd;border-radius:16px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.small{font-size:12px}#error{color:#a33350}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}footer{border-top:1px solid #e3ddea;margin-top:28px;padding-top:18px} @media(max-width:700px){main{padding:20px 12px}.grid{grid-template-columns:1fr}header{display:block}.badge{display:inline-block}h1{font-size:24px}table{font-size:12px}td,th{padding:8px}.stage{height:350px}}
+</style></head><body><main>
+<header><div><div class="eyebrow">STARLIGHT · DESIGN BASELINE 01</div><h1>별빛냥, 원본과 나란히</h1><p>형상 수정 전 검토 · 기준은 제공된 PNG · 다른 5종은 수정하지 않습니다.</p></div><span class="badge">수정 계획 승인 대기</span></header>
+<div class="toolbar"><button id="front" aria-pressed="true">정면 · 앉기</button><label>3D 촬영 <select id="camera"><option value="web">웹과 같은 원근 카메라</option><option value="sheet">기존 시트의 정사영 카메라</option></select></label><a class="link" href="index.html?review=starlight">저장 설정 없이 공방 열기 ↗</a></div>
+<div class="grid"><article class="card"><div class="card-head"><h2>01 / 기준 PNG</h2><small>references/starlight.png · 원본 픽셀</small></div><div class="stage"><div class="axis"></div><div class="ground"></div><div class="ref-crop"><img src="../references/starlight.png" alt="제공된 별빛냥 시트의 정면 앉기 캐릭터"></div></div><div class="caption">원본 정면 영역만 표시합니다. 재생성·리터칭·가로세로 비율 변형 없음.</div></article>
+<article class="card"><div class="card-head"><h2>02 / 현재 웹 모델 · 수정 전</h2><small>shared/pet-render.js + 공통 별빛냥 프리셋</small></div><div class="stage" id="model-stage"><div class="axis"></div><div class="ground"></div><img id="model" class="model-image" alt="형상 수정 전 별빛냥 Three.js 모델"></div><div class="caption" id="normalization">렌더링 중…</div></article></div>
+<div class="note">비교 기준: 정면 0° · 앉기 · 기본 표정 · 머리 최대 너비 약 258px · 발끝 기준선. 표시 크기만 등비율로 맞춥니다. PNG의 실제 카메라·조명은 알 수 없으므로 동일 촬영 조건이라고 단정하지 않습니다. <strong>모델 수정 후 이미지는 승인 후 추가합니다.</strong></div>
+<div id="error" role="alert"></div><div id="version" class="version">공통 소스 확인 중…</div>
+<section class="section"><h2>불일치 항목과 수정 순서</h2><table><thead><tr><th>비교 항목</th><th>관찰 / 확인할 차이</th><th>승인 후 수정 계획</th></tr></thead><tbody>
+<tr><td>머리 윤곽</td><td>같은 머리 너비에서 현재 모델이 더 세로로 길고, 아래턱이 더 좁게 모입니다. 원본은 볼 아래쪽이 더 넓고 낮습니다.</td><td>원본 정면의 외곽선을 기준점으로 삼아 별빛냥 전용 형상 매개변수를 맞춥니다.</td></tr>
+<tr><td>귀</td><td>현재 귀는 원본보다 높고 뾰족하게 드러납니다. 원본은 끝이 더 부드럽고 머리와의 연결이 두툼합니다.</td><td>정면과 후면을 함께 기준으로 조정하고 좌우 90°에서 관통·가려짐을 확인합니다.</td></tr>
+<tr><td>눈·입·볼</td><td>현재 눈·입은 턱 기준으로 더 높게 놓입니다. 링의 곡선과 선 두께, 볼터치의 겹침도 원본과 다릅니다.</td><td>drawHead()의 별빛냥 설정으로 위치·곡률·선 두께를 맞춥니다. 눈 종류는 유지합니다.</td></tr>
+<tr><td>몸통·팔</td><td>현재는 머리 아래 몸통이 더 길게 드러나며, 어깨·팔이 각진 조각처럼 나뉘어 보입니다. 원본은 짧고 매끈하게 이어집니다.</td><td>앉기·서기의 몸통 길이를 고정하고, 팔을 몸 가까이에 두는 자세를 분리합니다.</td></tr>
+<tr><td>다리·발바닥</td><td>현재 발은 좌우로 더 벌어지고 비스듬합니다. 원본은 몸 가까이에 가지런히 놓이며 젤리가 더 도톰하게 보입니다.</td><td>발·젤리의 형상과 앉기 회전을 구분합니다. 보행 중에는 발바닥을 정면으로 들이밀지 않습니다.</td></tr>
+<tr><td>깊이·꼬리</td><td>정면 한 장만으로 깊이는 판정할 수 없습니다. 시트의 후면·측면을 함께 사용합니다.</td><td>같은 모델을 회전해서 검수합니다. 가려진 귀·팔다리와 정확한 측면 깊이는 추정임을 표시합니다.</td></tr>
+<tr><td>재질·색</td><td>현재 머리 아래쪽은 진한 청보라색 그림자 띠가 두드러집니다. 원본은 밝은 연보라색과 넓고 부드러운 명암입니다.</td><td>형상 확정 후 재질·조명을 맞춥니다. 색을 바꿔 윤곽 문제를 가리지 않습니다.</td></tr>
+</tbody></table></section>
+<details id="live-detail"><summary>같은 렌더러의 실제 웹 동작 확인</summary><p class="small">공방과 같은 createPet() 호출입니다. 현재 동작을 관찰하는 용도이며, 보행 수정·검수 완료를 뜻하지 않습니다.</p><div class="actions"><button data-state="perch">앉기</button><button data-state="idle">서기</button><button data-state="walk">걷기</button><button data-angle="0">정면 0°</button><button data-angle="1.5707963267948966">90°</button><button data-angle="3.141592653589793">후면 180°</button><button data-angle="-1.5707963267948966">−90°</button></div><div id="live" class="live"></div></details>
+<details><summary>저장 설정과 기본 프리셋 분리 검증</summary><p id="storage-status"></p><p class="small">이 비교 페이지와 검토 모드 공방은 저장 데이터를 덮어쓰지 않습니다. 아래 파일은 기존 저장값의 백업입니다.</p><a id="saved-download" download="ppolpet-saved-settings-before-review.json" hidden>기존 저장 설정 백업 다운로드</a><pre id="config-diff"></pre></details>
+<details><summary>제공된 별빛냥 전체 시트</summary><img class="original" src="../references/starlight.png" alt="별빛냥 전체 원본 캐릭터 시트"></details>
+<footer><strong>다음 승인 범위: 별빛냥 외형 수정만.</strong><p>정면 외형 → 후면·좌우 90° → 직립 보행 → 승인된 시트 레이아웃 순서로 검수합니다. 다른 캐릭터 적용은 별빛냥 승인 이후입니다.</p><a href="index.html">일반 공방</a> · <a href="sheets.html">현재 PNG 시트</a></footer>
+</main><script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+/*__SHARED_SCRIPTS__*/
+<script>
+(async function(){
+const P=window.PpolPet, cfg=window.PpolPresets.presetConfig(window.PpolPresets.PRESETS[2]);
+const version=document.querySelector('[data-renderer-version]').dataset.rendererVersion;
+document.documentElement.dataset.rendererVersion=version;
+document.querySelector('#version').textContent='Renderer SHA-256 · '+version+' · 형상 코드 변경 없음';
+let live;
+document.querySelector('#live-detail').addEventListener('toggle',e=>{if(e.target.open&&!live){live=P.createPet(document.querySelector('#live'),cfg);live.setState('perch');live.setAngle(0);}});
+document.querySelectorAll('[data-state]').forEach(b=>b.onclick=()=>live?.setState(b.dataset.state));
+document.querySelectorAll('[data-angle]').forEach(b=>b.onclick=()=>live?.setAngle(+b.dataset.angle));
+async function render(){
+ const mode=document.querySelector('#camera').value, img=document.querySelector('#model');
+ img.src=mode==='web'?P.renderImage(cfg,'full',800,'perch'):P.renderSnapshot(cfg,{size:800,state:'perch',angle:0,expression:'normal'});
+ await img.decode();
+ const c=document.createElement('canvas');c.width=c.height=800;const g=c.getContext('2d');g.drawImage(img,0,0);const pixels=g.getImageData(0,0,800,800).data;
+ let left=800,right=0,bottom=0;for(let y=0;y<800;y++)for(let x=0;x<800;x++){if(pixels[(y*800+x)*4+3]>245){left=Math.min(left,x);right=Math.max(right,x);bottom=Math.max(bottom,y);}}
+ const scale=258/(right-left+1);img.style.width=800*scale+'px';img.style.height=800*scale+'px';img.style.left=`calc(50% - ${((left+right)/2)*scale}px)`;img.style.top=(316-bottom*scale)+'px';
+ document.querySelector('#normalization').textContent=(mode==='web'?'웹 원근 카메라':'기존 시트 정사영 카메라')+' · render'+(mode==='web'?'Image':'Snapshot')+'() · 머리 너비 258px로 등비율 정렬';
+}
+document.querySelector('#camera').onchange=()=>render().catch(e=>document.querySelector('#error').textContent=e.message);
+try{
+ const saved=localStorage.getItem('ppolpet-draft');
+ if(saved){const raw=JSON.parse(saved),clean=P.normalize(raw,false);const keys=Object.keys(cfg).filter(k=>JSON.stringify(cfg[k])!==JSON.stringify(clean[k]));document.querySelector('#storage-status').textContent=`저장된 친구: ${clean.name} / 비교 화면: ${cfg.name} 기본 프리셋. ${keys.length?'서로 다른 설정입니다.':'설정이 동일합니다.'}`;document.querySelector('#config-diff').textContent='기본 별빛냥과 다른 항목: '+(keys.join(', ')||'없음');const a=document.querySelector('#saved-download');a.hidden=false;a.href=URL.createObjectURL(new Blob([saved],{type:'application/json'}));}
+ else document.querySelector('#storage-status').textContent='저장된 설정 없음. 기본 별빛냥 프리셋으로 비교 중입니다.';
+}catch(e){document.querySelector('#storage-status').textContent='저장 설정을 읽을 수 없습니다. 비교는 기본 프리셋으로 진행합니다.';}
+try{await render();}catch(e){document.querySelector('#error').textContent='렌더링 실패: '+e.message;}
+})();
+</script></body></html>

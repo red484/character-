@@ -1,0 +1,667 @@
+<title>뽈뽈펫 공방</title>
+<meta name="description" content="픽크루처럼 골라서 꾸미고 바탕화면에 풀어놓는 데스크톱 펫 메이커">
+<nav style="padding:12px 24px;text-align:center"><a href="../docs/maker-2d.html" style="color:#795b94">2D 모션 공방 · 귀·꼬리·체형 검수 ↗</a></nav>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* 레이아웃: 왼쪽 큰 미리보기(완성 버튼 포함), 오른쪽 카테고리 아이콘 줄 → 색 견본 → 파츠 그리드. 폰에서는 위아래로. */
+:root {
+  --bg: #eef4f5;
+  --dots: #dde9eb;
+  --panel: #ffffff;
+  --sunk: #f3f1f4;
+  --ink: #2b2733;
+  --muted: #77727f;
+  --line: #e2dde6;
+  --accent: #ff5c8a;
+  --accent-soft: #ffe3eb;
+  --accent-ink: #ffffff;
+  --stage: #cfe6e9;
+  --stage-hi: #ffffff;
+  --f-display: "Jua", "IBM Plex Sans KR", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans KR", system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1b1d22; --dots: #23262c; --panel: #24232b; --sunk: #2d2c35; --ink: #f1edf6; --muted: #a8a2b4;
+    --line: #3a3843; --accent: #ff6f98; --accent-soft: #4a2633; --accent-ink: #1b1a21; --stage: #2a3e42; --stage-hi: #3a5257; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1b1d22; --dots: #23262c; --panel: #24232b; --sunk: #2d2c35; --ink: #f1edf6; --muted: #a8a2b4;
+  --line: #3a3843; --accent: #ff6f98; --accent-soft: #4a2633; --accent-ink: #1b1a21; --stage: #2a3e42; --stage-hi: #3a5257; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  background-image: radial-gradient(var(--dots) 1.4px, transparent 1.4px);
+  background-size: 20px 20px;
+  color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5;
+  padding-inline: 16px; padding-block: 18px 40px;
+}
+button, input, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.wrap { max-width: 1100px; margin: 0 auto; display: grid; gap: 16px; }
+header { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(26px, 4vw, 36px); margin: 0; line-height: 1; }
+h1 span { color: var(--accent); }
+header p { margin: 0; color: var(--muted); font-size: 14px; }
+
+.main { display: grid; grid-template-columns: minmax(0, 440px) minmax(0, 1fr); gap: 16px; align-items: start; }
+@media (max-width: 820px) { .main { grid-template-columns: minmax(0, 1fr); } }
+
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; min-width: 0; }
+
+/* 미리보기 */
+.preview { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); padding: 14px; display: grid; gap: 12px; }
+@media (max-width: 820px) { .preview { position: static; } }
+.stage { position: relative; aspect-ratio: 1; max-width: 100%; border-radius: 14px; overflow: hidden;
+  background: radial-gradient(circle at 50% 38%, var(--stage-hi) 0%, var(--stage) 72%); }
+#pet { position: absolute; inset: 4% 4% 2%; cursor: pointer; }
+#pet canvas { width: 100%; height: 100%; display: block; }
+.tools { position: absolute; top: 10px; right: 10px; display: flex; gap: 6px; }
+.tool { width: 40px; height: 40px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); display: grid; place-items: center; }
+.tool svg { width: 20px; height: 20px; }
+.tool:disabled { opacity: .4; cursor: default; }
+.nametag { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); font-family: var(--f-display); font-size: 16px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 2px 14px; white-space: nowrap; pointer-events: none; }
+.moves { display: flex; flex-wrap: wrap; gap: 6px; }
+.pill { border: 1px solid var(--line); background: var(--sunk); border-radius: 999px; padding: 4px 12px; font-size: 13px; }
+.pill[aria-pressed="true"] { background: var(--ink); color: var(--panel); border-color: var(--ink); }
+.done { width: 100%; border: 0; border-radius: 14px; padding: 14px; background: var(--accent); color: var(--accent-ink);
+  font-family: var(--f-display); font-size: 21px; box-shadow: 0 3px 0 rgba(0,0,0,.12); }
+.done:active { transform: translateY(2px); box-shadow: none; }
+
+/* 꾸미기 */
+.editor { padding: 14px; display: grid; gap: 14px; min-width: 0; }
+.cats { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+.cat { flex: none; width: 66px; display: grid; justify-items: center; gap: 2px; border: 0; background: none; padding: 0; font-size: 12px; color: var(--muted); }
+.cat .ic { width: 58px; height: 58px; border-radius: 16px; background: var(--sunk); border: 2px solid transparent; overflow: hidden; display: grid; place-items: center; }
+.cat .ic img { width: 100%; height: 100%; object-fit: cover; }
+.cat[aria-selected="true"] { color: var(--ink); font-weight: 600; }
+.cat[aria-selected="true"] .ic { border-color: var(--accent); background: var(--accent-soft); }
+
+.swrow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.swrow .lbl { font-size: 12px; color: var(--muted); width: 100%; }
+.sw { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--panel); box-shadow: 0 0 0 1px var(--line); padding: 0; }
+.sw[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--accent); }
+.sw.custom { position: relative; overflow: hidden; background: conic-gradient(#ff7a7a, #ffd36e, #8be08b, #7ac7ff, #b38bff, #ff7ab8, #ff7a7a); }
+.sw.custom input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+
+.items { display: grid; grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: 10px; }
+.item { position: relative; border: 2px solid transparent; border-radius: 16px; background: var(--sunk); padding: 0 0 6px; display: grid; justify-items: center; gap: 0; font-size: 12px; color: var(--muted); }
+.item img { width: 100%; aspect-ratio: 1; max-width: 100%; object-fit: cover; display: block; border-radius: 14px 14px 0 0; }
+.item[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--ink); font-weight: 600; }
+.item[aria-pressed="true"]::after { content: ""; position: absolute; top: 6px; right: 6px; width: 18px; height: 18px; border-radius: 50%;
+  background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='white' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat; }
+.hint { margin: 0; font-size: 12px; color: var(--muted); }
+
+.sliders { display: grid; gap: 12px; }
+.slider { display: grid; grid-template-columns: 6.5em minmax(0, 1fr); align-items: center; gap: 12px; font-size: 13px; }
+.slider input { width: 100%; accent-color: var(--accent); }
+.sub { display: grid; gap: 8px; }
+.sub h3 { margin: 0; font-size: 12px; color: var(--muted); font-weight: 500; }
+
+.name-row { display: flex; gap: 8px; align-items: center; }
+.name-row label { font-size: 13px; color: var(--muted); white-space: nowrap; }
+.name-row input { flex: 1; min-width: 0; background: var(--sunk); border: 1px solid var(--line); border-radius: 10px; padding: 7px 10px; }
+
+/* 완성 창 */
+dialog { border: 0; border-radius: 20px; padding: 0; background: var(--panel); color: var(--ink); width: min(500px, calc(100vw - 32px)); box-shadow: 0 20px 60px rgba(0,0,0,.25); }
+dialog::backdrop { background: rgba(20, 18, 28, .45); }
+.dlg { padding: 20px; display: grid; gap: 14px; }
+.dlg h2 { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: 24px; }
+.dlg .thumb { width: 140px; height: 140px; margin: 0 auto; border-radius: 16px; background: radial-gradient(circle at 50% 38%, var(--stage-hi) 0%, var(--stage) 75%); }
+.dlg .thumb img { width: 100%; height: 100%; }
+.step { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; align-items: start; }
+.step .n { width: 26px; height: 26px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-family: var(--f-display); }
+.step p { margin: 2px 0 8px; }
+.step small { color: var(--muted); display: block; margin-top: 6px; }
+.btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn { border: 1px solid var(--line); background: var(--sunk); border-radius: 12px; padding: 8px 12px; font-size: 14px; font-weight: 600; text-decoration: none; color: var(--ink); display: inline-flex; align-items: center; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.code { font-family: var(--f-mono); font-size: 12px; background: var(--sunk); border-radius: 10px; padding: 8px; word-break: break-all; max-height: 70px; overflow: auto; user-select: all; }
+.toast { position: fixed; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 22px); transform: translateX(-50%); background: var(--ink); color: var(--panel); padding: 8px 16px; border-radius: 999px; font-size: 14px; z-index: 10; }
+footer { color: var(--muted); font-size: 12px; }
+@media (prefers-reduced-motion: reduce) { .done:active { transform: none; } }
+
+/* Soft studio: one clear preview, presets first, all categories visible. */
+:root { --bg:#faf8f5; --panel:#ffffff; --sunk:#f6f3f7; --ink:#443d50; --muted:#797382; --line:#ede8ef; --accent:#987bc0; --accent-soft:#f0e8f9; --accent-ink:#fff; --stage:#bce6e8; --stage-hi:#def4f1; color-scheme:light; }
+body { background:var(--bg); padding:32px 24px; }
+.wrap { max-width:1180px; gap:22px; }
+header { align-items:center; justify-content:space-between; }
+header p { font-size:14px; margin-top:10px; }
+h1 { font-size:32px; letter-spacing:-1px; }
+.eyebrow { font-size:11px; letter-spacing:3px; color:var(--accent); margin-bottom:10px; font-weight:600; }
+.save-state { background:#edf5ee; color:#56785e; padding:8px 12px; border-radius:999px; font-size:12px; }
+.main { grid-template-columns:minmax(0, 490px) minmax(0, 1fr); gap:24px; }
+.card { border-radius:26px; box-shadow:0 8px 32px #49305805; }
+.preview { padding:18px; gap:14px; }
+.stage { aspect-ratio:1.12; border-radius:20px; background:radial-gradient(ellipse at 40% 20%,var(--stage-hi),var(--stage)); }
+.stage-label { position:absolute; top:18px; left:18px; font-size:11px; letter-spacing:2px; color:#5d8b8e; }
+#pet { inset:3% 0 0; }
+.nametag { bottom:18px; border:0; padding:5px 18px; background:#ffffffc9; font-size:17px; }
+.preview-meta { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.preview-meta .hint { font-size:11px; }
+.tool { width:36px; height:36px; background:#ffffffc9; border:0; }
+.moves { gap:6px; }
+.pill { min-height:36px; padding:6px 12px; background:var(--panel); }
+.pill[aria-pressed="true"] { background:var(--accent-soft); color:#735395; border-color:#bba2d3; }
+.done { box-shadow:none; font-size:19px; background:#8d71b2; padding:14px; }
+.editor { padding:22px; gap:20px; }
+.editor-head { display:flex; align-items:center; justify-content:space-between; }
+h2 { margin:0; font-size:20px; font-family:var(--f-display); font-weight:400; }
+.cats { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:7px; overflow:visible; }
+.cat { width:auto; min-height:40px; padding:8px 4px; border-radius:12px; background:var(--sunk); color:#756c80; font-size:13px; }
+.cat[aria-selected="true"] { background:var(--accent-soft); color:#725392; box-shadow:inset 0 0 0 1px #bba2d3; }
+.panel-title { margin:0; font-size:17px; font-weight:600; }
+.swrow { gap:10px; }
+.swrow .lbl { color:#635b6c; font-size:13px; margin-bottom:3px; }
+.sw { width:34px; height:34px; }
+.items { grid-template-columns:repeat(4,minmax(0,1fr)); gap:9px; }
+.item { padding-bottom:9px; font-size:12px; min-height:44px; }
+.item img { aspect-ratio:1.05; }
+.item:hover { background:var(--accent-soft); }
+.starters { display:grid; gap:14px; }
+.starter-head { display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+.starter-head h2 { font-size:18px; }
+.presets { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:12px; }
+.preset { border:1px solid var(--line); border-radius:20px; background:#fff; padding:0 10px 12px; font-size:13px; color:var(--ink); }
+.preset img { width:100%; height:100px; object-fit:contain; display:block; }
+.preset:hover, .preset:focus-visible { background:var(--accent-soft); border-color:#bba2d3; }
+.preset small { display:block; font-size:11px; color:var(--muted); margin-top:3px; }
+.slider { grid-template-columns:6.5em minmax(0,1fr) 3em; }
+.slider output { color:var(--muted); font-size:11px; text-align:right; font-variant-numeric:tabular-nums; }
+.preview-actions { display:flex; gap:6px; flex-wrap:wrap; }
+.preview-actions button { font-size:12px; }
+footer { text-align:center; padding:4px 0; }
+@media(max-width:820px) {
+ body { padding:18px 14px; } .wrap { gap:16px; } .main { grid-template-columns:1fr; gap:16px; }
+ .presets { display:flex; overflow-x:auto; gap:8px; padding-bottom:5px; } .preset { flex:0 0 112px; } .preset img { height:92px; }
+ .preview { position:static; padding:12px; } .stage { aspect-ratio:auto; height:300px; } #pet { inset:0; width:300px; max-width:100%; margin:auto; }
+ .editor { padding:16px; } header p { font-size:12px; } .save-state { font-size:10px; padding:5px 8px; }
+ .starter-head .hint { font-size:10px; } .items { grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+@media(prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important; } }
+
+
+.friend-switch { display:flex; gap:8px; }
+.friend-switch button { flex:1; min-height:40px; }
+#companion { display:none; position:absolute; inset:3% 0 0; }
+#companion canvas { width:100%; height:100%; display:block; }
+.pair-stage #pet { width:62%; inset:3% auto 0 -6%; margin:0; transition:transform 1.4s ease; }
+.pair-stage #companion { display:block; width:62%; inset:3% -6% 0 auto; transition:transform 1.4s ease; }
+.pair-stage.is-social #pet { transform:translateX(9%); }
+.pair-stage.is-social #companion { transform:translateX(-9%); }
+.pair-stage .nametag { font-family:var(--f-body); font-size:12px; max-width:90%; overflow:hidden; text-overflow:ellipsis; }
+.personality-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.personality-option { border:1px solid var(--line); background:var(--sunk); border-radius:15px; text-align:left; padding:14px; }
+.personality-option b { display:block; margin-bottom:5px; font-size:14px; }
+.personality-option small { color:var(--muted); font-size:12px; }
+.personality-option[aria-pressed="true"] { background:var(--accent-soft); border-color:var(--accent); }
+.social-note { padding:12px 14px; border-radius:14px; background:#f7f1ec; font-size:12px; margin:0; color:#80705f; }
+@media(prefers-reduced-motion:reduce) { .pair-stage #pet, .pair-stage #companion { transition:none; } }
+</style>
+
+<script>document.documentElement.dataset.theme="light";</script>
+<div class="wrap">
+  <header>
+    <div><div class="eyebrow">PPOL PPOL · LITTLE FRIENDS</div><h1>나만의 <span>뽈뽈펫</span></h1>
+    <p>작고 말랑한 친구를 만들어요. 취향을 한 스푼씩 더해서.</p></div>
+    <span class="save-state" id="save-state" role="status">이 브라우저에 자동 저장</span>
+  </header>
+  <section class="starters" aria-label="추천 친구">
+    <div class="starter-head"><h2>어떤 친구로 시작할까요?</h2><p class="hint">고른 다음 자유롭게 바꿔요 · 되돌리기도 가능해요</p></div>
+    <div class="presets" id="presets"></div>
+  </section>
+
+  <div class="main">
+    <section class="card preview" aria-label="미리보기">
+      <div class="stage">
+        <span class="stage-label">MY LITTLE FRIEND</span>
+        <div id="pet" role="button" tabindex="0" aria-label="친구를 톡 눌러 콩콩 뛰게 하기" title="누르면 콩콩"></div>
+        <div id="companion" role="img" aria-label="상대 친구 미리보기"></div>
+        <div class="tools">
+          <button class="tool" id="undo" title="되돌리기" aria-label="되돌리기" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7H4V2"/><path d="M4 7a8.5 8.5 0 1 1-1.4 7"/></svg>
+          </button>
+          <button class="tool" id="redo" title="다시 하기" aria-label="다시 하기" disabled>↪</button>
+          <button class="tool" id="random" title="랜덤" aria-label="랜덤">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="8.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg>
+          </button>
+          <button class="tool" id="reset" title="처음으로" aria-label="처음으로">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg>
+          </button>
+        </div>
+        <div class="nametag" id="nametag"></div>
+      </div>
+      <div class="preview-meta"><span class="hint">친구를 톡 누르면 콩콩!</span><button class="pill" id="pause" aria-pressed="false">잠깐 멈춤</button></div>
+      <a href="starlight-review.html" class="pill">별빛냥 원본 비교 ↗</a>
+      <a href="../docs/starlight-stand.html" class="pill">별빛냥 정지 서기 검토 ↗</a>
+      <a href="sheets.html" class="pill">캐릭터 시트 보기 ↗</a>
+      <div class="moves" role="group" aria-label="움직임 보기">
+        <button class="pill" data-mode="auto" aria-pressed="false">알아서 놀기</button>
+        <button class="pill" data-mode="idle" aria-pressed="false">서 있기</button>
+        <button class="pill" data-mode="walk" aria-pressed="false">종종걸음</button>
+        <button class="pill" data-mode="look" aria-pressed="false">두리번</button>
+        <button class="pill" data-mode="hop" aria-pressed="false">콩콩</button>
+        <button class="pill" data-mode="wave" aria-pressed="false">인사</button>
+        <button class="pill" data-mode="perch" aria-pressed="true">젤리 앉기</button>
+        <button class="pill" data-mode="lie" aria-pressed="false">엎드리기</button>
+        <button class="pill" data-mode="sit" aria-pressed="false">졸기</button>
+      </div>
+      <button class="pill" id="interact" hidden>둘이 같이 놀기 ♡</button>
+      <p class="hint" id="behavior-note" role="status">성격에 맞춰 자유롭게 놀아요.</p>
+      <div class="preview-actions" role="group" aria-label="보는 방향"><button class="pill" data-angle="0" aria-pressed="true">앞모습</button><button class="pill" data-angle="0.65" aria-pressed="false">옆모습</button><button class="pill" data-angle="3.14" aria-pressed="false">뒷모습</button></div>
+      <button class="done" id="done">이 친구로 완성하기 ♡</button>
+    </section>
+
+    <section class="card editor" aria-label="꾸미기">
+      <div class="friend-switch"><button class="pill" id="edit-primary" aria-pressed="true">내 친구 꾸미기</button><button class="pill" id="edit-partner" aria-pressed="false">＋ 상대 만들기</button></div>
+      <div class="name-row"><label for="pet-name">친구 이름</label><input id="pet-name" maxlength="20" autocomplete="off" placeholder="이름을 지어 주세요"></div>
+      <div class="editor-head"><h2>취향 한 스푼</h2><span class="hint">눌러서 바로 입혀봐요</span></div>
+      <div class="cats" role="tablist" aria-label="꾸미기 종류" id="cats"></div>
+      <div id="panel" role="tabpanel" class="editor" style="padding:0"></div>
+    </section>
+  </div>
+
+  <footer><button class="pill" id="import-main">저장한 코드 불러오기</button><br><br>뽈뽈펫 앱은 맥과 윈도우에서 돌아가요. 폰에서는 꾸미고 이미지나 코드로 저장해 둘 수 있어요.</footer>
+</div>
+
+<dialog id="dlg">
+  <div class="dlg">
+    <h2>우리 친구, 완성!</h2>
+    <div class="thumb"><img id="done-img" alt="완성한 캐릭터"></div>
+    <div class="name-row"><label for="name">이름</label><input id="name" maxlength="20" autocomplete="off"></div>
+    <div class="btns">
+      <button class="btn" id="png">이미지 저장</button>
+      <button class="btn" id="copy-code">캐릭터 코드 복사</button>
+      <button class="btn" id="copy-link" hidden>공유 링크 복사</button>
+      <button class="btn" id="load-code">코드 불러오기</button>
+    </div>
+    <div class="step">
+      <span class="n">1</span>
+      <div>
+        <p>컴퓨터에 <b>뽈뽈펫 앱</b>을 설치해요. 한 번만 하면 돼요.</p>
+        <div class="btns" id="dl-links"></div>
+      </div>
+    </div>
+    <div class="step">
+      <span class="n">2</span>
+      <div>
+        <p>편한 방법으로 이 아이를 바탕화면에 보내요.</p>
+        <div class="btns">
+          <a class="btn primary" id="send-app" href="#">바탕화면에 적용</a>
+          <button class="btn" id="save-file">파일 저장 (.ppol)</button>
+        </div>
+        <small>바로 적용이 안 열리면 파일을 더블클릭하거나, 코드를 복사한 다음 바탕화면 캐릭터를 우클릭해서 <b>복사한 코드로 데려오기</b>를 눌러요.</small>
+      </div>
+    </div>
+    <p class="hint">상대 친구가 있으면 둘의 모습·성격·관계가 한 코드와 파일에 함께 저장돼요.</p><div class="code" id="code-box"></div>
+    <div style="display:flex;justify-content:flex-end"><button class="btn" id="dlg-close">계속 꾸미기</button></div>
+  </div>
+</dialog>
+
+<dialog id="dlg-load">
+  <form class="dlg" id="load-form">
+    <h2>코드 불러오기</h2>
+    <p style="margin:0">친구가 보내준 캐릭터 코드나 링크를 붙여넣어요.</p>
+    <textarea id="load-input" rows="4" style="font:12px var(--f-mono);background:var(--sunk);border:1px solid var(--line);border-radius:10px;padding:8px;width:100%"></textarea>
+    <p id="load-err" style="margin:0;color:var(--accent)" hidden>코드를 읽지 못했어요. 처음부터 끝까지 다 복사됐는지 확인해 주세요.</p>
+    <div class="btns" style="justify-content:flex-end">
+      <button type="button" class="btn" id="load-cancel">취소</button>
+      <button type="submit" class="btn primary">불러오기</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+/*__SHARED_SCRIPTS__*/
+<script>
+(function () {
+  'use strict';
+  /* 앱 배포 주소. GitHub Releases에 올린 뒤 채워 넣으세요. 비워두면 '준비 중'으로 보여요. */
+  const DOWNLOADS = { mac: '', win: '' };
+
+  const P = window.PpolPet;
+  document.documentElement.dataset.rendererVersion = document.querySelector('[data-renderer-version]').dataset.rendererVersion;
+  const $ = (s) => document.querySelector(s);
+  const inArtifact = typeof window.claude !== 'undefined';
+  const esc = (t) => String(t).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+
+  const reviewMode = new URLSearchParams(location.search).get('review') === 'starlight';
+  let cfg = P.normalize(P.DEFAULT);
+  try {
+    const q = new URLSearchParams(location.search).get('c');
+    if (q) cfg = P.decode(q);
+    else { const saved = localStorage.getItem('ppolpet-draft'); if (saved) cfg = P.normalize(JSON.parse(saved)); }
+  } catch (e) { /* 기본 캐릭터로 시작 */ }
+
+  if (reviewMode) { cfg = window.PpolPresets.presetConfig(window.PpolPresets.PRESETS[2]); $('#save-state').textContent = '별빛냥 기준 검토 · 저장 설정 미사용 · 자동 저장 꺼짐'; }
+  let primary = P.normalize(cfg, false), partner = cfg.relationship ? P.normalize(cfg.relationship.partner, false) : null;
+  let relationshipKind = cfg.relationship ? cfg.relationship.kind : 'friends', editing = 'primary';
+  cfg = primary;
+  const bundle = () => P.normalize({...primary, relationship:partner ? {kind:relationshipKind,partner} : null});
+  const studioSnapshot = () => ({primary,partner,relationshipKind,editing});
+  function restoreStudio(saved) {
+    primary = P.normalize(saved.primary, false); partner = saved.partner ? P.normalize(saved.partner, false) : null;
+    relationshipKind = saved.relationshipKind; editing = saved.editing === 'partner' && partner ? 'partner' : 'primary';
+    apply(editing === 'partner' ? partner : primary, true, false);
+  }
+  function loadStudio(value) {
+    snapshot(); const b = P.normalize(value); primary = P.normalize(b,false);
+    partner = b.relationship ? P.normalize(b.relationship.partner,false) : null;
+    relationshipKind = b.relationship ? b.relationship.kind : 'friends'; editing = 'primary'; apply(primary,true,false);
+  }
+
+  /* ---------- 색 견본 ---------- */
+  const PAL = {
+    body: ['#fffaf7', '#f5a0bb', '#b4a0e5', '#ffcf91', '#ffffff', '#f3f0ec', '#f6e7d7', '#f2d7c3', '#f5c48f', '#eda06e', '#c98a5a', '#f6e08f', '#bfe3b4', '#a9d3f0', '#a9a3e6', '#d9c2f0', '#f7a7b8', '#c0566a', '#7f8fbf', '#5b5868', '#2f2b33'],
+    pink: ['#ffd6e0', '#f7a7b8', '#f2899f', '#ff6f91', '#ffb38a', '#ffd36e', '#c9b6f2', '#9fd3f5', '#b9e4c9', '#ffffff'],
+    eye: ['#1c171c', '#3b2a20', '#283a6b', '#4a2a5a', '#2f5d3a', '#7a2f3a', '#8a5a2a', '#5c5c66'],
+    pattern: ['#d7a64a', '#b9744a', '#8a5a3a', '#5b4a44', '#2f2b33', '#ffffff', '#c9c0b8', '#f7a7b8', '#8f9ad6'],
+    accent: ['#ff6b8b', '#ff9a5c', '#ffd36e', '#8fd694', '#5bc0eb', '#7f87c9', '#b48ce8', '#f7a7b8', '#ffffff', '#2f2b33', '#e7b84a'],
+  };
+
+  /* ---------- 카테고리 ---------- */
+  const CATS = [
+    {id:'personality', label:'성격·관계', view:'full'},
+    { id: 'body', label: '몸 색', view: 'full', colors: [['body', '몸 색', 'body']], toggles: [['belly', '배 하양'], ['socks', '양말'], ['outline', '외곽선']] },
+    { id: 'ears', label: '귀', view: 'ears', key: 'ears', colors: [['inner', '귀 안쪽 · 발바닥', 'pink']] },
+    { id: 'eyes', label: '눈', view: 'face', key: 'eyes', colors: [['eye', '눈 · 입 색', 'eye']] },
+    { id: 'mouth', label: '입', view: 'face', key: 'mouth', colors: [['eye', '눈 · 입 색', 'eye']] },
+    { id: 'cheek', label: '볼 · 코', view: 'face', toggles: [['blush', '볼터치'], ['nose', '코'], ['whisk', '수염']], colors: [['blush', '볼터치 색', 'pink']] },
+    { id: 'pattern', label: '무늬', view: 'face', key: 'pattern', colors: [['pattern', '무늬 색', 'pattern'], ['belly', '하양 부분 색', 'body']] },
+    { id: 'tail', label: '꼬리', view: 'tail', key: 'tail', colors: [['body', '몸 색', 'body']] },
+    { id: 'acc', label: '소품', view: 'bust', key: 'acc', multi: true, colors: [['accent', '소품 색', 'accent'], ['accent2', '소품 색 2', 'accent']] },
+    { id: 'shape', label: '체형', view: 'full', sliders: [['머리', ['head', 'wide']], ['얼굴', ['eyeSize', 'eyeGap', 'eyeY', 'mouthY', 'blushSize']], ['귀', ['ear', 'earTilt']], ['몸', ['body']]] },
+  ];
+  let cat = 'personality';
+
+  /* ---------- 미리보기 ---------- */
+  const pet = P.createPet($('#pet'), primary);
+  let companionPet = null, socialTimers = [], socialBusy = false;
+  function cancelSocial() { socialTimers.forEach(clearTimeout); socialTimers = []; socialBusy = false; $('.stage').classList.remove('is-social'); }
+  let mode = 'perch', hopTimer = 0;
+  pet.setState('perch');
+  $('#pet').addEventListener('click', () => { if (paused) return; pet.setState('hop'); clearTimeout(hopTimer); hopTimer = setTimeout(() => pet.setState(mode === 'auto' ? P.chooseAction(primary) : mode), 1840); });
+  $('#pet').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $('#pet').click(); } });
+  document.querySelectorAll('[data-mode]').forEach((b) => b.addEventListener('click', () => {
+    clearTimeout(hopTimer); cancelSocial(); mode = b.dataset.mode; pet.setState(mode === 'auto' ? P.chooseAction(primary) : mode); if (companionPet) companionPet.setState(mode === 'auto' ? P.chooseAction(partner) : mode); pet.setDir(1); pet.setAngle(null); if(companionPet)companionPet.setAngle(null); paused = false; updatePause();
+    document.querySelectorAll('[data-angle]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.angle === '0')));
+    document.querySelectorAll('[data-mode]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  }));
+
+  /* ---------- 되돌리기 ---------- */
+  const history = [], future = [];
+  function snapshot() {
+    future.length = 0; $('#redo').disabled = true;
+    history.push(JSON.stringify(studioSnapshot()));
+    if (history.length > 60) history.shift();
+    $('#undo').disabled = false;
+  }
+  $('#undo').addEventListener('click', () => {
+    const prev = history.pop();
+    if (prev) { future.push(JSON.stringify(studioSnapshot())); restoreStudio(JSON.parse(prev)); $('#redo').disabled = false; }
+    $('#undo').disabled = history.length === 0;
+  });
+
+  $('#redo').addEventListener('click', () => {
+    const next = future.pop();
+    if (next) { history.push(JSON.stringify(studioSnapshot())); restoreStudio(JSON.parse(next)); $('#undo').disabled = false; }
+    $('#redo').disabled = future.length === 0;
+  });
+  let paused = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function updatePause() { pet.setPaused(paused); if (companionPet) companionPet.setPaused(paused); if (paused) cancelSocial(); $('#pause').setAttribute('aria-pressed', String(paused)); $('#pause').textContent = paused ? '다시 움직이기' : '잠깐 멈춤'; }
+  updatePause();
+  $('#pause').addEventListener('click', () => { paused = !paused; updatePause(); });
+  document.querySelectorAll('[data-angle]').forEach(b => b.addEventListener('click', () => {
+    pet.setAngle(Number(b.dataset.angle)); if (companionPet) companionPet.setAngle(Number(b.dataset.angle));
+    document.querySelectorAll('[data-angle]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  }));
+  /* ---------- 그리기 ---------- */
+  const shot = (c, view, size = 140) => P.renderImage(c, view, size);
+  const with_ = (patch) => Object.assign({}, cfg, patch);
+
+  function renderCats() {
+    $('#cats').innerHTML = CATS.map((c) =>
+      `<button class="cat" role="tab" data-cat="${c.id}" id="cat-${c.id}" aria-controls="panel" tabindex="${c.id === cat ? 0 : -1}" aria-selected="${c.id === cat}">${esc(c.label)}</button>`
+    ).join('');
+  }
+
+  function renderPanel() {
+    const c = CATS.find((x) => x.id === cat);
+    const out = [`<h3 class="panel-title">${esc(c.label)} 고르기</h3>`];
+    if (c.id === 'personality') {
+      out.push(`<div class="personality-grid">${Object.entries(P.PERSONALITIES).map(([id,p]) => `<button class="personality-option" data-personality="${id}" aria-pressed="${cfg.personality===id}"><b>${esc(p.label)}</b><small>${esc(p.description)}</small></button>`).join('')}</div>`);
+      out.push('<h3 class="panel-title">우리 사이는</h3><p class="hint">관계를 고르면 상대 친구도 생겨요. 위 버튼으로 각각 꾸밀 수 있어요.</p>');
+      out.push(`<div class="moves">${[['friends','친구'],['family','가족'],['sweethearts','짝꿍']].map(([id,label])=>`<button class="pill" data-relation="${id}" aria-pressed="${!!partner && relationshipKind===id}">${label}</button>`).join('')}</div>`);
+      if (partner) out.push('<button class="pill" data-remove-partner="1">혼자 보기로 바꾸기</button>');
+      out.push('<p class="social-note">친구는 함께 콩콩 · 가족은 나란히 쉬기 · 짝꿍은 볼 부비기<br>수줍이가 있으면 작은 인사부터 시작해요.</p>');
+    }
+    for (const [key, label, pal] of c.colors || []) {
+      const cur = cfg.colors[key];
+      out.push(`<div class="swrow"><span class="lbl">${esc(label)}</span>${PAL[pal].map((hex) =>
+        `<button class="sw" data-color="${key}" data-hex="${hex}" style="background:${hex}" aria-label="${esc(label)} ${hex}" aria-pressed="${cur === hex}"></button>`).join('')}
+        <label class="sw custom" title="직접 고르기" aria-pressed="${!PAL[pal].includes(cur)}"><input type="color" data-pick="${key}" value="${cur}" aria-label="${esc(label)} 직접 고르기"></label></div>`);
+    }
+    if (c.key) {
+      const opts = P.OPTIONS[c.key];
+      const items = opts.map(([k, label]) => {
+        const on = c.multi ? cfg.acc.includes(k) : cfg[c.key] === k;
+        const patch = c.multi ? { acc: [k] } : { [c.key]: k };
+        return `<button class="item" data-key="${c.key}" data-val="${k}" ${c.multi ? 'data-multi="1"' : ''} aria-pressed="${on}"><img alt="" src="${shot(with_(patch), c.view)}">${esc(label)}</button>`;
+      });
+      if (c.multi) items.unshift(`<button class="item" data-clear-acc="1" aria-pressed="${cfg.acc.length === 0}"><img alt="" src="${shot(with_({ acc: [] }), 'bust')}">없음</button>`);
+      out.push(`<div class="items">${items.join('')}</div>`);
+      if (c.multi) out.push('<p class="hint">소품은 여러 개 같이 고를 수 있어요.</p>');
+    }
+    if (c.toggles) {
+      out.push(`<div class="items">${c.toggles.map(([k, label]) =>
+        `<button class="item" data-toggle="${k}" aria-pressed="${!!cfg[k]}"><img alt="" src="${shot(with_({ [k]: true }), c.view)}">${esc(label)}</button>`).join('')}</div>`);
+      out.push('<p class="hint">누를 때마다 켜고 꺼요.</p>');
+    }
+    if (c.sliders) {
+      for (const [title, keys] of c.sliders) {
+        out.push(`<div class="sub"><h3>${esc(title)}</h3><div class="sliders">${keys.map((k) => {
+          const [, lo, hi, label, step] = P.TUNE[k];
+          return `<label class="slider" for="t-${k}"><span>${esc(label)}</span><input type="range" id="t-${k}" data-tune="${k}" min="${lo}" max="${hi}" step="${step}" value="${cfg.tune[k]}"><output for="t-${k}">${cfg.tune[k].toFixed(2)}</output></label>`;
+        }).join('')}</div></div>`);
+      }
+      out.push('<div><button class="pill" data-reset-tune="1">체형 처음으로</button></div>');
+    }
+    $('#panel').innerHTML = out.join('');
+    $('#panel').setAttribute('aria-labelledby', 'cat-' + cat);
+  }
+
+  let drawTimer = 0;
+  function apply(next, redraw = true, record = true) {
+    if (record) snapshot();
+    cfg = P.normalize(next, false);
+    if (editing === 'partner' && partner) partner = cfg; else primary = cfg;
+    syncStudio();
+    $('#nametag').textContent = partner ? primary.name + ' ♡ ' + partner.name : primary.name; $('#pet-name').value = cfg.name;
+    if (redraw) { clearTimeout(drawTimer); drawTimer = setTimeout(() => { const active = document.activeElement; const id = active && active.id; renderPanel(); if (id && document.getElementById(id)) document.getElementById(id).focus({preventScroll:true}); }, 0); }
+    try { if (!reviewMode) localStorage.setItem('ppolpet-draft', JSON.stringify(bundle())); } catch (e) { $('#save-state').textContent = '자동 저장 불가 · 완성 후 파일로 저장해요'; }
+  }
+
+  $('#cats').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-cat]'); if (!b) return;
+    cat = b.dataset.cat;
+    document.querySelectorAll('.cat').forEach((x) => x.setAttribute('aria-selected', String(x === b)));
+    renderPanel();
+    document.querySelectorAll('.cat').forEach(x => x.tabIndex = x === b ? 0 : -1);
+  });
+  $('#cats').addEventListener('keydown', e => {
+    if (!['ArrowRight','ArrowLeft','Home','End'].includes(e.key)) return;
+    e.preventDefault();
+    const buttons = [...document.querySelectorAll('.cat')], i = buttons.indexOf(document.activeElement);
+    const n = e.key === 'Home' ? 0 : e.key === 'End' ? buttons.length - 1 : (i + (e.key === 'ArrowRight' ? 1 : -1) + buttons.length) % buttons.length;
+    buttons[n].click(); buttons[n].focus();
+  });
+
+  $('#panel').addEventListener('click', (e) => {
+    const personality = e.target.closest('[data-personality]');
+    if (personality) { apply(with_({personality:personality.dataset.personality})); return; }
+    const relation = e.target.closest('[data-relation]');
+    if (relation) { snapshot(); relationshipKind = relation.dataset.relation; if (!partner) partner = makePartner(); apply(cfg,true,false); return; }
+    if (e.target.closest('[data-remove-partner]')) { snapshot(); partner = null; editing = 'primary'; apply(primary,true,false); return; }
+    const it = e.target.closest('[data-val]');
+    if (it) {
+      const { key, val } = it.dataset;
+      if (it.dataset.multi) { const set = new Set(cfg.acc); set.has(val) ? set.delete(val) : set.add(val); apply(with_({ acc: [...set] })); }
+      else apply(with_({ [key]: val }));
+      return;
+    }
+    if (e.target.closest('[data-clear-acc]')) { apply(with_({ acc: [] })); return; }
+    const tg = e.target.closest('[data-toggle]');
+    if (tg) { apply(with_({ [tg.dataset.toggle]: !cfg[tg.dataset.toggle] })); return; }
+    const sw = e.target.closest('[data-hex]');
+    if (sw) { apply(with_({ colors: Object.assign({}, cfg.colors, { [sw.dataset.color]: sw.dataset.hex }) })); return; }
+    if (e.target.closest('[data-reset-tune]')) apply(with_({ tune: {} }));
+  });
+
+  // 직접 고른 색 / 슬라이더: 움직이는 동안은 미리보기만, 놓으면 기록
+  let liveRaf = 0, liveStart = null;
+  $('#panel').addEventListener('input', (e) => {
+    const d = e.target.dataset || {};
+    if (!d.pick && !d.tune) return;
+    if (!liveStart) liveStart = JSON.stringify(studioSnapshot());
+    if (d.pick) cfg = P.normalize(with_({ colors: Object.assign({}, cfg.colors, { [d.pick]: e.target.value }) }));
+    else { cfg = P.normalize(with_({ tune: Object.assign({}, cfg.tune, { [d.tune]: parseFloat(e.target.value) }) })); e.target.nextElementSibling.value = Number(e.target.value).toFixed(2); }
+    cancelAnimationFrame(liveRaf);
+    liveRaf = requestAnimationFrame(() => (editing === 'partner' && companionPet ? companionPet : pet).setConfig(cfg));
+  });
+  $('#panel').addEventListener('change', (e) => {
+    const d = e.target.dataset || {};
+    if (!d.pick && !d.tune) return;
+    if (liveStart) { future.length = 0; $('#redo').disabled = true; history.push(liveStart); $('#undo').disabled = false; liveStart = null; }
+    apply(cfg, !!d.pick, false);
+    
+  });
+
+  $('#random').addEventListener('click', () => apply(Object.assign(P.randomize(), { name: cfg.name })));
+  $('#reset').addEventListener('click', () => apply(Object.assign(P.normalize({}), { name: cfg.name })));
+
+  function makePartner() { return P.normalize({...P.DEFAULT,name:'복숭이',ears:'bear',tail:'bunny',whisk:false,personality:'affectionate',eyes:'sleepy',mouth:'cat',colors:{...P.DEFAULT.colors,body:'#f5a0bb'}},false); }
+  function syncStudio() {
+    cancelSocial(); pet.setConfig(primary);
+    $('.stage').classList.toggle('pair-stage', !!partner);
+    if (partner) {
+      if (companionPet) companionPet.setConfig(partner); else companionPet = P.createPet($('#companion'),partner);
+      companionPet.setPaused(paused); companionPet.setDir(-1); companionPet.setState(mode === 'auto' ? 'idle' : mode);
+    } else if (companionPet) { companionPet.destroy(); companionPet = null; }
+    $('#interact').hidden = !partner;
+    $('#edit-primary').setAttribute('aria-pressed',String(editing==='primary'));
+    $('#edit-partner').setAttribute('aria-pressed',String(editing==='partner'));
+    $('#edit-partner').textContent = partner ? '상대 친구 꾸미기' : '＋ 상대 만들기';
+    $('#behavior-note').textContent = partner ? '둘의 성격과 관계에 맞춰 함께 놀아요.' : P.PERSONALITIES[primary.personality].description;
+  }
+  $('#edit-primary').addEventListener('click', () => { editing='primary'; apply(primary,true,false); });
+  $('#edit-partner').addEventListener('click', () => {
+    if (!partner) { snapshot(); partner=makePartner(); }
+    editing='partner'; cat='personality'; renderCats(); apply(partner,true,false);
+  });
+  function interact() {
+    if (!companionPet || paused || socialBusy) return;
+    cancelSocial(); socialBusy=true; pet.setAngle(null); companionPet.setAngle(null);
+    pet.setDir(1); companionPet.setDir(-1); pet.setState('walk'); companionPet.setState('walk'); $('.stage').classList.add('is-social');
+    $('#behavior-note').textContent='종종종… 서로에게 다가가요.';
+    socialTimers.push(setTimeout(()=>{ pet.setState('wave'); companionPet.setState('wave'); $('#behavior-note').textContent='반가워! 작은 인사를 나눠요.'; },1400));
+    socialTimers.push(setTimeout(()=>{ const action=P.socialAction(relationshipKind,primary.personality,partner.personality); pet.setState(action); companionPet.setState(action); $('#behavior-note').textContent=action==='nuzzle'?'좋아해, 볼을 부비부비 ♡':action==='sit'?'네 옆에서 잠깐 쉬어갈래.':action==='hop'?'하나, 둘! 같이 콩콩!':'쑥스럽지만… 만나서 좋아!'; },3200));
+    socialTimers.push(setTimeout(()=>{ cancelSocial(); pet.setState('idle'); if(companionPet)companionPet.setState('idle'); $('#behavior-note').textContent='함께 노는 중 · 각자 꾸미기도 가능해요.'; },7600));
+  }
+  $('#interact').addEventListener('click', () => { paused=false; updatePause(); interact(); });
+  setInterval(()=>{ if (paused || mode!=='auto' || socialBusy) return; if(partner)interact(); else pet.setState(P.chooseAction(primary)); },8500);
+
+  const { PRESETS, presetConfig } = window.PpolPresets;
+  $('#presets').innerHTML = PRESETS.map((p,i) => `<button class="preset" data-preset="${i}"><img alt="" src="${shot(presetConfig(p),'full',180)}">${esc(p[0])}<small>${esc(p[1])}</small></button>`).join('');
+  $('#presets').addEventListener('click', e => { const b = e.target.closest('[data-preset]'); if (b) apply(presetConfig(PRESETS[Number(b.dataset.preset)])); });
+
+  /* ---------- 완성 / 내보내기 ---------- */
+  let toastTimer = 0;
+  function toast(msg) {
+    let t = $('.toast');
+    if (!t) { t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
+    t.textContent = msg; t.hidden = false;
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 2200);
+  }
+  async function copy(text, okMsg) {
+    try { await navigator.clipboard.writeText(text); toast(okMsg); }
+    catch (e) {
+      const box = $('#code-box'); box.textContent = text;
+      const r = document.createRange(); r.selectNodeContents(box);
+      const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      toast('자동 복사가 막혀 있어요. 선택된 코드를 직접 복사해 주세요');
+    }
+  }
+  async function saveFile(name, data, type) {
+    try {
+      if (window.claude && window.claude.use) {
+        const dl = await window.claude.use('downloads');
+        if (dl) { await dl.save({ filename: name, data }); return; }
+      }
+    } catch (e) { if (e && e.code === 'cancelled') return; }
+    const blob = data instanceof Blob ? data : new Blob([data], { type });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = name;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  }
+  const safeName = () => (primary.name || 'ppolpet').replace(/[\\/:*?"<>|\s]+/g, '_');
+
+  function openDone() {
+    const code = P.encode(bundle());
+    $('#code-box').textContent = code;
+    $('#send-app').href = 'ppolpet://add?c=' + code;
+    $('#done-img').src = P.renderPairImage(primary,partner,280);
+    $('#name').value = primary.name;
+    const links = [];
+    if (DOWNLOADS.mac) links.push(`<a class="btn" href="${esc(DOWNLOADS.mac)}" target="_blank" rel="noopener">맥용 받기</a>`);
+    if (DOWNLOADS.win) links.push(`<a class="btn" href="${esc(DOWNLOADS.win)}" target="_blank" rel="noopener">윈도우용 받기</a>`);
+    $('#dl-links').innerHTML = links.length ? links.join('') : '<span style="color:var(--muted);font-size:13px">앱 배포 링크 준비 중이에요.</span>';
+    if (!$('#dlg').open) $('#dlg').showModal();
+  }
+  $('#done').addEventListener('click', openDone);
+  $('#dlg-close').addEventListener('click', () => $('#dlg').close());
+  let naming = false;
+  $('#pet-name').addEventListener('input', e => {
+    if(!naming) {snapshot(); naming=true;}
+    cfg=P.normalize({...cfg,name:e.target.value},false); if(editing==='partner')partner=cfg;else primary=cfg;
+    $('#nametag').textContent=partner?primary.name+' ♡ '+partner.name:primary.name;
+    try { if (!reviewMode) localStorage.setItem('ppolpet-draft',JSON.stringify(bundle())); } catch(e) {}
+  });
+  $('#pet-name').addEventListener('blur',()=>{naming=false;});
+  $('#import-main').addEventListener('click', () => $('#load-code').click());
+  $('#name').addEventListener('input', (e) => {
+    primary = P.normalize({...primary, name:e.target.value || '뽈뽈이'},false); if (editing === 'primary') cfg = primary;
+    $('#nametag').textContent = partner ? primary.name + ' ♡ ' + partner.name : primary.name; $('#pet-name').value = cfg.name;
+    const code = P.encode(bundle());
+    $('#code-box').textContent = code; $('#send-app').href = 'ppolpet://add?c=' + code;
+    try { if (!reviewMode) localStorage.setItem('ppolpet-draft', JSON.stringify(bundle())); } catch (err) {}
+  });
+  $('#copy-code').addEventListener('click', () => copy(P.encode(bundle()), '코드를 복사했어요'));
+  $('#save-file').addEventListener('click', () => saveFile(safeName() + '.ppol', JSON.stringify({ ppolpet: 1, character: bundle() }, null, 2), 'application/json'));
+  $('#png').addEventListener('click', async () => {
+    const blob = await (await fetch(P.renderPairImage(primary,partner,1024))).blob();
+    saveFile(safeName() + '.png', blob, 'image/png');
+  });
+  if (!inArtifact && /^https?:$/.test(location.protocol)) {
+    $('#copy-link').hidden = false;
+    $('#copy-link').addEventListener('click', () => copy(location.origin + location.pathname + '?c=' + P.encode(bundle()), '공유 링크를 복사했어요'));
+  }
+  $('#load-code').addEventListener('click', () => { $('#load-err').hidden = true; $('#load-input').value = ''; $('#dlg-load').showModal(); });
+  $('#load-cancel').addEventListener('click', () => $('#dlg-load').close());
+  $('#load-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    try { loadStudio(P.decode($('#load-input').value)); $('#dlg-load').close(); $('#dlg').close(); toast('불러왔어요'); }
+    catch (err) { $('#load-err').hidden = false; }
+  });
+
+  renderCats();
+  apply(cfg, true, false);
+})();
+</script>

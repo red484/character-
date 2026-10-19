@@ -1,0 +1,33 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>뽈뽈펫 · 원본 보존 캐릭터 시트</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#f4f1f7;color:#67547e;font-family:system-ui,sans-serif}nav{padding:16px 24px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:white}a,button,select{font:inherit;color:inherit;padding:10px 14px;border-radius:14px;border:1px solid #dfd4eb;background:white;text-decoration:none;cursor:pointer}.note{padding:0 24px;font-size:14px;line-height:1.7}#stage{width:100%;max-width:1448px;margin:20px auto;position:relative;overflow:hidden}#board{position:absolute;width:1448px;height:1086px;transform-origin:top left;background:#fffdfd}.crop{position:absolute;overflow:hidden;pointer-events:none}.crop img{position:absolute;max-width:none;display:block}.panel{position:absolute;border:1.5px solid #e7dff0;border-radius:28px;background:#fff9;overflow:hidden}.title{position:absolute;font-weight:650;font-size:21px}.label{position:absolute;text-align:center;font-size:17px}.missing{display:grid;place-content:center;text-align:center;font-size:18px;line-height:1.8;border:1px dashed #d6c9e4;border-radius:20px;color:#a194ae;background:#faf8fc}.missing small{font-size:14px}details{max-width:1448px;margin:20px auto;padding:18px;background:white;border-radius:18px}details img{width:100%}#status{font-size:13px}footer{text-align:center;font-size:12px;color:#ac98c7;letter-spacing:3px;position:absolute;top:1051px;width:100%}@media print{nav,.note,details{display:none}@page{size:1448px 1086px;margin:0}#stage{width:1448px!important;height:1086px!important;margin:0}#board{transform:none!important}}</style>
+<nav><a href="index.html">← 공방</a><select id="character" aria-label="시트 캐릭터"><option value="0">모찌 천사</option><option value="1">졸린 곰</option><option value="2">별빛냥</option><option value="3">졸린 토끼</option><option value="4">살구냥</option><option value="5">구름 멍</option></select><a id="save" download>원본 PNG 저장</a><button id="print">통일 시트 인쇄 / PDF</button><span id="status" role="status"></span></nav>
+<p class="note">원본 PNG의 그림을 다시 그리지 않고, 같은 위치와 크기의 틀에 배치했습니다. 원본에 없는 시점은 누락으로 표시합니다. 걷기는 원본에 그려진 직립 보행 포즈이며, 새로운 애니메이션 프레임은 생성하지 않았습니다.</p>
+<div id="stage"><div id="board" aria-label="원본 이미지를 보존해 배치한 캐릭터 시트"></div></div>
+<details><summary>전체 원본과 비교</summary><img id="reference" alt="사용자가 제공한 전체 원본 시트"></details>
+<script>
+const names=['angel','bear','starlight','bunny','apricot','cloud'],titles=['모찌 천사','졸린 곰','별빛냥','졸린 토끼','살구냥','구름 멍'];
+const select=document.querySelector('#character'),board=document.querySelector('#board'),stage=document.querySelector('#stage');
+function el(cls,x,y,w,h,text){const d=document.createElement('div');d.className=cls;Object.assign(d.style,{left:x+'px',top:y+'px',width:w+'px',height:h+'px'});if(text)d.textContent=text;board.append(d);return d;}
+function crop(src,x,y,w,h,sx,sy,sw,sh){const d=el('crop',x,y,w,h),img=new Image();const scale=Math.min(w/sw,h/sh);img.src=src;img.alt='';img.style.width=1448*scale+'px';img.style.height=1086*scale+'px';img.style.left=(w-sw*scale)/2-sx*scale+'px';img.style.top=(h-sh*scale)/2-sy*scale+'px';d.append(img);}
+function render(){const i=+select.value,src='../references/'+names[i]+'.png';board.replaceChildren();
+ crop(src,0,0,1448,210,0,0,1448,210);
+ el('panel',36,220,1120,348);el('panel',1170,220,242,348);
+ for(let n=0;n<4;n++){
+ const x=48+n*277;
+ if(n===3&&[0,1,3].includes(i)){const m=el('missing',x+12,259,239,240);m.innerHTML='오른쪽 측면 미제공<br><small>원본의 걷는 그림을<br>측면으로 바꾸지 않았습니다.</small>';}
+ else crop(src,x,232,267,295,[48,340,620,902][n],231,278,297);
+ el('label',x,535,267,25,['정면','후면','왼쪽 측면','오른쪽 측면'][n]);
+ }
+ el('title',1191,240,200,30,'☆ Detail');crop(src,1180,274,222,270,1178,271,230,279);
+ el('panel',36,580,1376,210);el('title',65,594,400,30,'표정 모음');
+ crop(src,53,628,1342,145,53,615,1342,145);
+ el('panel',36,803,1376,225);el('title',65,817,400,30,'포즈 & 동작');
+ crop(src,47,850,1112,159,47,820,1112,185);
+ crop(src,1180,824,210,190,1210,811,210,223);
+ const footer=document.createElement('footer');footer.textContent='LITTLE FRIENDS MAKE A BRIGHTER TOMORROW';board.append(footer);
+ document.querySelector('#reference').src=src;const save=document.querySelector('#save');save.href=src;save.download=names[i]+'-original.png';
+ document.querySelector('#status').textContent=titles[i]+' · 원본 보존 · '+([0,1,3].includes(i)?'오른쪽 측면 미제공':'원본 4방향 수록');resize();
+}
+function resize(){const s=stage.clientWidth/1448;board.style.transform=`scale(${s})`;stage.style.height=1086*s+'px';}
+new ResizeObserver(resize).observe(stage);select.onchange=render;document.querySelector('#print').onclick=()=>window.print();render();
+</script></html>

@@ -1,0 +1,535 @@
+{
+  "checkedAt": "2026-10-19T02:06:14.054Z",
+  "report": [
+    {
+      "character": "starlight",
+      "motion": "idle",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 135622,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "starlight",
+      "motion": "walk",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 102905,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "starlight",
+      "motion": "sit",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 133001,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "starlight",
+      "motion": "lie",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 101829,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "starlight",
+      "motion": "greet",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 140946,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "starlight",
+      "motion": "special",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 125102,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "starlight",
+      "motion": "sulk",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 132522,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "starlight",
+      "motion": "expressions",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 139464,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "idle",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 106875,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "walk",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 102442,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "sit",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 103301,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "lie",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 95872,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "greet",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 106247,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "special",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 101455,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "expressions",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 109997,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "standSit",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 106551,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "angel",
+      "motion": "standLie",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 103867,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "idle",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 125275,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "walk",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 110182,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "sit",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 128775,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "lie",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 99369,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "greet",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 124920,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "special",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 111339,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "expressions",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 127017,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "standSit",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 125120,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "apricot",
+      "motion": "standLie",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 125120,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "idle",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 132062,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "walk",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 118265,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "sit",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 134388,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "lie",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 97616,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "greet",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 125256,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "special",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 106598,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "expressions",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 123930,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "standSit",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 131624,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bear",
+      "motion": "standLie",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 128276,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "idle",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 95791,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "walk",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 87180,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "sit",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 94916,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "lie",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 85138,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "greet",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 89550,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "special",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 81901,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "expressions",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 99090,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "standSit",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 95554,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "bunny",
+      "motion": "standLie",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 93299,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "idle",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 114845,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "walk",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 108147,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "sit",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 118405,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "lie",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 102279,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "greet",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 113033,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "special",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 104346,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "expressions",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 114776,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "standSit",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 114567,
+      "alphaChangedPixels": 0,
+      "pass": true
+    },
+    {
+      "character": "cloud",
+      "motion": "standLie",
+      "loaded": true,
+      "animated": true,
+      "baselineDifference": 0,
+      "colorChangedPixels": 114995,
+      "alphaChangedPixels": 0,
+      "pass": true
+    }
+  ]
+}

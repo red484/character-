@@ -1,0 +1,4209 @@
+{
+  "faceBodyDiff": 0,
+  "restoredDiff": 0,
+  "candidateDiff": 240,
+  "seatedDiff": 0,
+  "walkDiff": 0,
+  "farEyeFirstHidden": 68,
+  "farBlushFirstHidden": 55,
+  "nearEyeHiddenAngles": [],
+  "sweep": [
+    {
+      "angle": 0,
+      "leftEye": {
+        "normalToCamera": 0.9154526390954767,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.9156074233363517,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.7533642316853504,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.7538698530342749,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 1,
+      "leftEye": {
+        "normalToCamera": 0.9221652454767434,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.9085869568475944,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.7630857423622199,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.7439146257152573,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 2,
+      "leftEye": {
+        "normalToCamera": 0.9285549126169995,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.9012508419862446,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.7725513592717852,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.733712747988211,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 3,
+      "leftEye": {
+        "normalToCamera": 0.934618147147548,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.8936029460135382,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.7817564583374417,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.7232690392786312,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 4,
+      "leftEye": {
+        "normalToCamera": 0.9403515894430355,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.8856472543094994,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.7906964903929056,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.7125883781257455,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 5,
+      "leftEye": {
+        "normalToCamera": 0.9457520173794167,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.8773878663234798,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.7993669852472816,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.701675698303044,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 6,
+      "leftEye": {
+        "normalToCamera": 0.9508163500103024,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.8688289914884433,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8077635557709546,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.6905359849899343,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 7,
+      "leftEye": {
+        "normalToCamera": 0.9555416511539992,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.8599749451062518,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8158819019963047,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.6791742709986367,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 8,
+      "leftEye": {
+        "normalToCamera": 0.959925132883562,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.8508301442110752,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8237178152270018,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.6675956330601643,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 9,
+      "leftEye": {
+        "normalToCamera": 0.9639641589122462,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.841399103417882,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8312671821493947,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.6558051881729428,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 10,
+      "leftEye": {
+        "normalToCamera": 0.9676562478668186,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.8316864307627976,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.838525988939294,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.6438080900173575,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 11,
+      "leftEye": {
+        "normalToCamera": 0.9709990764412821,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.8216968235419274,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8454903253572292,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.6316095254392451,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 12,
+      "leftEye": {
+        "normalToCamera": 0.9739904824237137,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.8114350641550456,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8521563888250656,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.6192147110050615,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 13,
+      "leftEye": {
+        "normalToCamera": 0.9766284675890574,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.8009060159603308,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.858520488476689,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.6066288896312131,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 14,
+      "leftEye": {
+        "normalToCamera": 0.978911200450897,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.7901146191461166,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8645790491752959,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.5938573272897619,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 15,
+      "leftEye": {
+        "normalToCamera": 0.9808370188654442,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.7790658866253816,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8703286154896811,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.5809053097924728,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 16,
+      "leftEye": {
+        "normalToCamera": 0.9824044324812133,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.7677648999584807,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8757658556217924,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.5677781396549147,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 17,
+      "leftEye": {
+        "normalToCamera": 0.9836121250280944,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.7562168053093485,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8808875652777084,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.5544811330420932,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 18,
+      "leftEye": {
+        "normalToCamera": 0.9844589564398427,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.7444268094401804,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8856906714741138,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.5410196167968533,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 19,
+      "leftEye": {
+        "normalToCamera": 0.9849439648042936,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.732400175749316,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8901722362722906,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.5273989255520717,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 20,
+      "leftEye": {
+        "normalToCamera": 0.9850663681359411,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.7201422203568116,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8943294604315954,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.5136243989274358,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 21,
+      "leftEye": {
+        "normalToCamera": 0.98482556596588,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.7076583082419052,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.898159686974387,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.49970137881140136,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 22,
+      "leftEye": {
+        "normalToCamera": 0.9842211407444804,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.6949538494363301,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9016604046543814,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.4856352067287171,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 23,
+      "leftEye": {
+        "normalToCamera": 0.9832528590525467,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.682034295277163,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9048292513204521,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.471431221293719,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 24,
+      "leftEye": {
+        "normalToCamera": 0.9819206726171444,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.6689051347226277,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.907664017167956,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.4570947557494109,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 25,
+      "leftEye": {
+        "normalToCamera": 0.9802247191286916,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.6555718907340197,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.910162647869761,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.4426311355921763,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 26,
+      "leftEye": {
+        "normalToCamera": 0.9781653228563592,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.6420401167266503,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9123232475792844,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.4280456762818058,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 27,
+      "leftEye": {
+        "normalToCamera": 0.9757429950592916,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.6283153930924663,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9141440817979833,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.41334368103636454,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 28,
+      "leftEye": {
+        "normalToCamera": 0.9729584341916198,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.6144033237967299,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9156235800999418,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.39853043871128674,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 29,
+      "leftEye": {
+        "normalToCamera": 0.9698125258997266,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.6003095330509189,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9167603387063837,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.38361122176194473,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 30,
+      "leftEye": {
+        "normalToCamera": 0.9663063428107113,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.5860396620637466,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9175531229031961,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.36859128428881005,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 31,
+      "leftEye": {
+        "normalToCamera": 0.9624411441115003,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.5715993658719758,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9180008692948035,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.35347586016421395,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 32,
+      "leftEye": {
+        "normalToCamera": 0.9582183749185473,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.5569943102524696,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9181026878880274,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.3382701612396024,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 33,
+      "leftEye": {
+        "normalToCamera": 0.9536396654385755,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.5422301687166962,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9178578639998815,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.32297937563207607,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 34,
+      "leftEye": {
+        "normalToCamera": 0.9487068299213126,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.5273126195886895,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9172658599836037,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.3076086660889233,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 35,
+      "leftEye": {
+        "normalToCamera": 0.9434218654056779,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.5122473431672643,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9163263167675936,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.29216316842876305,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 36,
+      "leftEye": {
+        "normalToCamera": 0.937786950261375,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.4970400189730779,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.915039055202309,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.276647990057839,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 37,
+      "leftEye": {
+        "normalToCamera": 0.931804442528338,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.4816963230809419,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9134040772106119,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.26106820855994906,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 38,
+      "leftEye": {
+        "normalToCamera": 0.9254768780569665,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.46622192553760267,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9114215667374664,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.24542887035841482,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 39,
+      "leftEye": {
+        "normalToCamera": 0.9188069684525532,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.4506224878650313,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9090918904953692,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.2297349894484617,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 40,
+      "leftEye": {
+        "normalToCamera": 0.9117975988277828,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.4349036606491038,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9064155985023536,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.21399154619832328,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 41,
+      "leftEye": {
+        "normalToCamera": 0.9044518253676164,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.4190710812133841,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9033934244099151,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.19820348621734285,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 42,
+      "leftEye": {
+        "normalToCamera": 0.8967728727113226,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.4031303713775788,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.9000262856186839,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.18237571928931845,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 43,
+      "leftEye": {
+        "normalToCamera": 0.8887641311568257,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.3870871353000935,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8963152831802281,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.1665131183693071,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 44,
+      "leftEye": {
+        "normalToCamera": 0.8804291536929413,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.37094695740397937,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8922617014838532,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.15062051864207573,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 45,
+      "leftEye": {
+        "normalToCamera": 0.8717716528654488,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.3547154003854423,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.887867007727836,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.13470271664038203,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 46,
+      "leftEye": {
+        "normalToCamera": 0.8627954974833071,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.3383980033039722,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8831328511750499,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.11876446942124808,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 47,
+      "leftEye": {
+        "normalToCamera": 0.8535047091716447,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.32200027975302964,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8780610621934897,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.10281049379838322,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 48,
+      "leftEye": {
+        "normalToCamera": 0.8439034587784796,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.3055277161101481,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8726536510827486,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.08684546562891715,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 49,
+      "leftEye": {
+        "normalToCamera": 0.8339960626423903,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.2889857698652008,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8669128066880436,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.07087401915260047,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 50,
+      "leftEye": {
+        "normalToCamera": 0.82378697872863,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.27237986802550807,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8608408948039225,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.054900746381635696,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 51,
+      "leftEye": {
+        "normalToCamera": 0.8132808026413979,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.25571540559637934,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8544404563703228,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.03893019653931776,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 52,
+      "leftEye": {
+        "normalToCamera": 0.8024822635201929,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.23899774413561972,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.847714205464172,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.022966875545667093,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 53,
+      "leftEye": {
+        "normalToCamera": 0.7913962198283436,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.22223221038046953,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8406650270902437,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": 0.007015245548265325,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 54,
+      "leftEye": {
+        "normalToCamera": 0.7800276550419561,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.20542409494538277,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8332959747754675,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.008920275503490699,
+        "visible": true,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 55,
+      "leftEye": {
+        "normalToCamera": 0.7683816732476454,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.18857865108901395,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.825610267971395,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.024835314242463977,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 56,
+      "leftEye": {
+        "normalToCamera": 0.7564634946575048,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.17170109354873692,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8176112892699824,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.04072554222791527,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 57,
+      "leftEye": {
+        "normalToCamera": 0.744278451049826,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.15479659744097313,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.8093025814382984,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.05658667625141175,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 58,
+      "leftEye": {
+        "normalToCamera": 0.7318319811441205,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.13787029722559854,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.800687844278203,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.07241447860617678,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 59,
+      "leftEye": {
+        "normalToCamera": 0.7191296259190076,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.12092728573265286,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.791770931317441,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.0882047573215307,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 60,
+      "leftEye": {
+        "normalToCamera": 0.7061770238815016,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.10397261324956922,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.7825558463389758,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.1039533663640368,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 61,
+      "leftEye": {
+        "normalToCamera": 0.6929799062961935,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.08701128666712267,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.773046739755754,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.11965620580693435,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 62,
+      "leftEye": {
+        "normalToCamera": 0.6795440923827524,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.07004826868228899,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.7632479048384023,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.13530922196940584,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 63,
+      "leftEye": {
+        "normalToCamera": 0.6658754844900748,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.053088477056198735,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.7531637738036794,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.15090840752719278,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 64,
+      "leftEye": {
+        "normalToCamera": 0.6519800632552855,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.03613678392537127,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.7427989137717551,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.1664498015960369,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 65,
+      "leftEye": {
+        "normalToCamera": 0.6378638827556632,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.019198015164419963,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.7321580226006514,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.1819294897893853,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 66,
+      "leftEye": {
+        "normalToCamera": 0.6235330656613943,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": 0.0022769497984199,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.7212459246063724,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.197343604251766,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 67,
+      "leftEye": {
+        "normalToCamera": 0.6089937983968736,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.014621680536855253,
+        "visible": true,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.7100675661774377,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.2126883236692006,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 68,
+      "leftEye": {
+        "normalToCamera": 0.5942523263180757,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.03149319208860513,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.698628011292686,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.22795987325797726,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 69,
+      "leftEye": {
+        "normalToCamera": 0.5793149489133009,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.04833294943634985,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.6869324369513197,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.2431545247330788,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 70,
+      "leftEye": {
+        "normalToCamera": 0.5641880150343541,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.06513636589870292,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.6749861285242574,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.25826859625752163,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 71,
+      "leftEye": {
+        "normalToCamera": 0.5488779181649799,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.08189890389928497,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.6627944750359098,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.2732984523738117,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 72,
+      "leftEye": {
+        "normalToCamera": 0.533391091733108,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.09861607529348387,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.6503629643855182,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.2882405039187006,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 73,
+      "leftEye": {
+        "normalToCamera": 0.5177340044731801,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.1152834416577388,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.6376971785171831,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.30309120792238187,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 74,
+      "leftEye": {
+        "normalToCamera": 0.5019131558445588,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.13189661454298848,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.6248027885476828,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.3178470674932265,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 75,
+      "leftEye": {
+        "normalToCamera": 0.4859350715117144,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.1484512556939071,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.6116855498611036,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.3325046316891245,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 76,
+      "leftEye": {
+        "normalToCamera": 0.4698062988915857,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.16494307723551282,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.5983512971792201,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.3470604953764618,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 77,
+      "leftEye": {
+        "normalToCamera": 0.45353340277320514,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.1813678418287071,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.5848059396164286,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.36151129907772894,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 78,
+      "leftEye": {
+        "normalToCamera": 0.4371229610143653,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.19772136279626182,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.5710554557279115,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.3758537288087116,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 79,
+      "leftEye": {
+        "normalToCamera": 0.420581560319785,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.21399950422075176,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.5571058885595135,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.3900845159061962,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 80,
+      "leftEye": {
+        "normalToCamera": 0.40391579210491857,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.23019818101587664,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.5429633407076381,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.40420043684707246,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 81,
+      "leftEye": {
+        "normalToCamera": 0.38713224844923055,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.24631335897260148,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.5286339693972405,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.418198313059694,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 82,
+      "leftEye": {
+        "normalToCamera": 0.37023751814244377,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.2623410547814881,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.5141239815857713,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.4320750107283147,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 83,
+      "leftEye": {
+        "normalToCamera": 0.35323818282694064,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.27827733603257554,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.4994396291006525,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.44582744059140167,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 84,
+      "leftEye": {
+        "normalToCamera": 0.33614081323920236,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.29411832119410664,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.48458720381761955,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.45945255773457216,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 85,
+      "leftEye": {
+        "normalToCamera": 0.3189519655528359,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.30986017957138934,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.4695730328869488,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.47294736137890014,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 86,
+      "leftEye": {
+        "normalToCamera": 0.3016781778254545,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.32549913124701574,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.45440347401431125,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.48630889466527905,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 87,
+      "leftEye": {
+        "normalToCamera": 0.2843259665513637,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.34103144700364935,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.4390849108026675,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.4995342444355233,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 88,
+      "leftEye": {
+        "normalToCamera": 0.26690182332171564,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.35645344823053865,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.4236237481613026,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.5126205410108463,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 89,
+      "leftEye": {
+        "normalToCamera": 0.24941221159350593,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.3717615068148852,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.4080264077877602,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.5255649579683354,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    },
+    {
+      "angle": 90,
+      "leftEye": {
+        "normalToCamera": 0.23186356356850846,
+        "visible": true,
+        "uv": [
+          0.17997182503956605,
+          0.42997182503956605
+        ]
+      },
+      "rightEye": {
+        "normalToCamera": -0.38695204501916064,
+        "visible": false,
+        "uv": [
+          0.32002817496043395,
+          0.42997182503956605
+        ]
+      },
+      "leftBlush": {
+        "normalToCamera": 0.39229932372810516,
+        "visible": true,
+        "uv": [
+          0.14177463869751117,
+          0.3885915398356733
+        ]
+      },
+      "rightBlush": {
+        "normalToCamera": -0.5383647119160159,
+        "visible": false,
+        "uv": [
+          0.35822536130248883,
+          0.3885915398356733
+        ]
+      }
+    }
+  ],
+  "section": [
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8650000095367432,
+      0
+    ],
+    [
+      0.8633583784103394,
+      0.039541225880384445
+    ],
+    [
+      0.8633583784103394,
+      -0.039736419916152954
+    ],
+    [
+      0.8584434986114502,
+      0.07894893735647202
+    ],
+    [
+      0.8584434986114502,
+      -0.07951144874095917
+    ],
+    [
+      0.8502860069274902,
+      0.11809010058641434
+    ],
+    [
+      0.8502860069274902,
+      -0.11915584653615952
+    ],
+    [
+      0.8389360308647156,
+      0.15683269500732422
+    ],
+    [
+      0.8389360308647156,
+      -0.15854467451572418
+    ],
+    [
+      0.8244628310203552,
+      0.19504618644714355
+    ],
+    [
+      0.8244628310203552,
+      -0.19757001101970673
+    ],
+    [
+      0.8069536685943604,
+      0.23260203003883362
+    ],
+    [
+      0.8069536685943604,
+      -0.2361372411251068
+    ],
+    [
+      0.7865127325057983,
+      0.2693743109703064
+    ],
+    [
+      0.7865127325057983,
+      -0.27416470646858215
+    ],
+    [
+      0.7632593512535095,
+      0.30524030327796936
+    ],
+    [
+      0.7632593512535095,
+      -0.31158414483070374
+    ],
+    [
+      0.7373266816139221,
+      0.340081125497818
+    ],
+    [
+      0.7373266816139221,
+      -0.3483412265777588
+    ],
+    [
+      0.708859920501709,
+      0.3737826347351074
+    ],
+    [
+      0.708859920501709,
+      -0.3843959867954254
+    ],
+    [
+      0.6780142784118652,
+      0.4062362015247345
+    ],
+    [
+      0.6780142784118652,
+      -0.41972219944000244
+    ],
+    [
+      0.6449534296989441,
+      0.43733999133110046
+    ],
+    [
+      0.6449534296989441,
+      -0.4543062448501587
+    ],
+    [
+      0.6098474860191345,
+      0.4670001268386841
+    ],
+    [
+      0.6098474860191345,
+      -0.48814404010772705
+    ],
+    [
+      0.5728710293769836,
+      0.49513256549835205
+    ],
+    [
+      0.5728710293769836,
+      -0.5212369561195374
+    ],
+    [
+      0.5342020392417908,
+      0.521664559841156
+    ],
+    [
+      0.5342020392417908,
+      -0.5535855889320374
+    ],
+    [
+      0.4940195083618164,
+      0.5465368032455444
+    ],
+    [
+      0.4940195083618164,
+      -0.5851821899414062
+    ],
+    [
+      0.45250260829925537,
+      0.5697049498558044
+    ],
+    [
+      0.45250260829925537,
+      -0.6160017251968384
+    ],
+    [
+      0.40982913970947266,
+      0.591140627861023
+    ],
+    [
+      0.40982913970947266,
+      -0.6459919214248657
+    ],
+    [
+      0.36617451906204224,
+      0.6108310222625732
+    ],
+    [
+      0.366174578666687,
+      -0.6750626564025879
+    ],
+    [
+      0.3217107951641083,
+      0.6287763118743896
+    ],
+    [
+      0.321711003780365,
+      -0.7030758857727051
+    ],
+    [
+      0.27660608291625977,
+      0.6449841260910034
+    ],
+    [
+      0.27660685777664185,
+      -0.7298356890678406
+    ],
+    [
+      0.23102392256259918,
+      0.6594606041908264
+    ],
+    [
+      0.23102667927742004,
+      -0.7550793886184692
+    ],
+    [
+      0.18512287735939026,
+      0.6721982359886169
+    ],
+    [
+      0.18513211607933044,
+      -0.7784703969955444
+    ],
+    [
+      0.1390564888715744,
+      0.6831619143486023
+    ],
+    [
+      0.13908544182777405,
+      -0.7995949983596802
+    ],
+    [
+      0.09290562570095062,
+      0.6922757625579834
+    ],
+    [
+      0.09298966825008392,
+      -0.8179652094841003
+    ],
+    [
+      0.046519797295331955,
+      0.6994142532348633
+    ],
+    [
+      0.04674474895000458,
+      -0.8330326676368713
+    ],
+    [
+      4.8985874103406714e-17,
+      0.704400897026062
+    ],
+    [
+      0.0005529253976419568,
+      -0.8442157506942749
+    ],
+    [
+      -0.04592141881585121,
+      0.7073853611946106
+    ],
+    [
+      -0.04469011351466179,
+      -0.8513855338096619
+    ],
+    [
+      -0.09049507230520248,
+      0.7084837555885315
+    ],
+    [
+      -0.08803100138902664,
+      -0.8545610308647156
+    ],
+    [
+      -0.13357456028461456,
+      0.7074286341667175
+    ],
+    [
+      -0.1291205734014511,
+      -0.8534541726112366
+    ],
+    [
+      -0.1750314086675644,
+      0.7039692401885986
+    ],
+    [
+      -0.16771656274795532,
+      -0.8478975296020508
+    ],
+    [
+      -0.214755579829216,
+      0.697902262210846
+    ],
+    [
+      -0.20376966893672943,
+      -0.8378657102584839
+    ],
+    [
+      -0.25265541672706604,
+      0.6890937089920044
+    ],
+    [
+      -0.23746246099472046,
+      -0.8234789371490479
+    ],
+    [
+      -0.288657546043396,
+      0.6774882078170776
+    ],
+    [
+      -0.2691709101200104,
+      -0.8049864172935486
+    ],
+    [
+      -0.32270652055740356,
+      0.663104772567749
+    ],
+    [
+      -0.29935798048973083,
+      -0.7827332615852356
+    ],
+    [
+      -0.3547638952732086,
+      0.64602130651474
+    ],
+    [
+      -0.3284432291984558,
+      -0.7571167945861816
+    ],
+    [
+      -0.3848075270652771,
+      0.6263536214828491
+    ],
+    [
+      -0.35670173168182373,
+      -0.7285435199737549
+    ],
+    [
+      -0.41300326585769653,
+      0.6042333245277405
+    ],
+    [
+      -0.3843948543071747,
+      -0.6973919868469238
+    ],
+    [
+      -0.4394989013671875,
+      0.5797891616821289
+    ],
+    [
+      -0.41158297657966614,
+      -0.6639875769615173
+    ],
+    [
+      -0.4642394483089447,
+      0.5531354546546936
+    ],
+    [
+      -0.4379972517490387,
+      -0.6285914182662964
+    ],
+    [
+      -0.48718783259391785,
+      0.5243675708770752
+    ],
+    [
+      -0.4633265733718872,
+      -0.5914011001586914
+    ],
+    [
+      -0.5083234310150146,
+      0.4935634732246399
+    ],
+    [
+      -0.48727262020111084,
+      -0.5525605082511902
+    ],
+    [
+      -0.5276402235031128,
+      0.4607900381088257
+    ],
+    [
+      -0.5095849633216858,
+      -0.5121748447418213
+    ],
+    [
+      -0.5451443195343018,
+      0.42611151933670044
+    ],
+    [
+      -0.530076265335083,
+      -0.47032806277275085
+    ],
+    [
+      -0.5608519315719604,
+      0.3895986080169678
+    ],
+    [
+      -0.5486231446266174,
+      -0.4270990788936615
+    ],
+    [
+      -0.5747867226600647,
+      0.35133615136146545
+    ],
+    [
+      -0.5651577711105347,
+      -0.3825756311416626
+    ],
+    [
+      -0.5869775414466858,
+      0.31142932176589966
+    ],
+    [
+      -0.5796557068824768,
+      -0.33686530590057373
+    ],
+    [
+      -0.597456157207489,
+      0.27000755071640015
+    ],
+    [
+      -0.5921231508255005,
+      -0.29010337591171265
+    ],
+    [
+      -0.6062548756599426,
+      0.22722606360912323
+    ],
+    [
+      -0.6025851368904114,
+      -0.24245783686637878
+    ],
+    [
+      -0.6134048700332642,
+      0.1832655966281891
+    ],
+    [
+      -0.6110765933990479,
+      -0.1941329836845398
+    ],
+    [
+      -0.6189339756965637,
+      0.13833056390285492
+    ],
+    [
+      -0.6176340579986572,
+      -0.1453736424446106
+    ],
+    [
+      -0.6228655576705933,
+      0.09264563769102097
+    ],
+    [
+      -0.622291088104248,
+      -0.09647352993488312
+    ],
+    [
+      -0.6252173185348511,
+      0.04645152390003204
+    ],
+    [
+      -0.6250742077827454,
+      -0.04780366271734238
+    ],
+    [
+      -0.6260000467300415,
+      0
+    ],
+    [
+      -0.6260000467300415,
+      8.530085827174447e-18
+    ],
+    [
+      -0.6260000467300415,
+      1.6995252865514507e-17
+    ],
+    [
+      -0.6260000467300415,
+      2.5331074498650262e-17
+    ],
+    [
+      -0.6260000467300415,
+      3.347411341822441e-17
+    ],
+    [
+      -0.6260000467300415,
+      4.13623922896608e-17
+    ],
+    [
+      -0.6260000467300415,
+      4.893588261590646e-17
+    ],
+    [
+      -0.6260000467300415,
+      5.613693652571134e-17
+    ],
+    [
+      -0.6260000467300415,
+      6.291075826657749e-17
+    ],
+    [
+      -0.6260000467300415,
+      6.920578139911834e-17
+    ],
+    [
+      -0.6260000467300415,
+      7.497411547458953e-17
+    ],
+    [
+      -0.6260000467300415,
+      8.017185374607674e-17
+    ],
+    [
+      -0.6260000467300415,
+      8.475943051052033e-17
+    ],
+    [
+      -0.6260000467300415,
+      8.870193212862567e-17
+    ],
+    [
+      -0.6260000467300415,
+      9.196936834010404e-17
+    ],
+    [
+      -0.6260000467300415,
+      9.453685093468493e-17
+    ],
+    [
+      -0.6260000467300415,
+      9.6384865067357e-17
+    ],
+    [
+      -0.6260000467300415,
+      9.749932219792724e-17
+    ],
+    [
+      -0.6260000467300415,
+      9.787176523181292e-17
+    ],
+    [
+      -0.6260000467300415,
+      9.749932219792724e-17
+    ],
+    [
+      -0.6260000467300415,
+      9.6384865067357e-17
+    ],
+    [
+      -0.6260000467300415,
+      9.453685093468493e-17
+    ],
+    [
+      -0.6260000467300415,
+      9.196936834010404e-17
+    ],
+    [
+      -0.6260000467300415,
+      8.870193212862567e-17
+    ],
+    [
+      -0.6260000467300415,
+      8.475943051052033e-17
+    ],
+    [
+      -0.6260000467300415,
+      8.017185374607674e-17
+    ],
+    [
+      -0.6260000467300415,
+      7.497411547458953e-17
+    ],
+    [
+      -0.6260000467300415,
+      6.920578139911834e-17
+    ],
+    [
+      -0.6260000467300415,
+      6.291075826657749e-17
+    ],
+    [
+      -0.6260000467300415,
+      5.613693652571134e-17
+    ],
+    [
+      -0.6260000467300415,
+      4.893588261590646e-17
+    ],
+    [
+      -0.6260000467300415,
+      4.13623922896608e-17
+    ],
+    [
+      -0.6260000467300415,
+      3.347411341822441e-17
+    ],
+    [
+      -0.6260000467300415,
+      2.5331074498650262e-17
+    ],
+    [
+      -0.6260000467300415,
+      1.6995252865514507e-17
+    ],
+    [
+      -0.6260000467300415,
+      8.530085827174447e-18
+    ],
+    [
+      -0.6260000467300415,
+      1.198583337392742e-32
+    ],
+    [
+      -0.6260000467300415,
+      -8.530085827174447e-18
+    ],
+    [
+      -0.6260000467300415,
+      -1.6995252865514507e-17
+    ],
+    [
+      -0.6260000467300415,
+      -2.5331074498650262e-17
+    ],
+    [
+      -0.6260000467300415,
+      -3.347411341822441e-17
+    ],
+    [
+      -0.6260000467300415,
+      -4.13623922896608e-17
+    ],
+    [
+      -0.6260000467300415,
+      -4.893588261590646e-17
+    ],
+    [
+      -0.6260000467300415,
+      -5.613693652571134e-17
+    ],
+    [
+      -0.6260000467300415,
+      -6.291075826657749e-17
+    ],
+    [
+      -0.6260000467300415,
+      -6.920578139911834e-17
+    ],
+    [
+      -0.6260000467300415,
+      -7.497411547458953e-17
+    ],
+    [
+      -0.6260000467300415,
+      -8.017185374607674e-17
+    ],
+    [
+      -0.6260000467300415,
+      -8.475943051052033e-17
+    ],
+    [
+      -0.6260000467300415,
+      -8.870193212862567e-17
+    ],
+    [
+      -0.6260000467300415,
+      -9.196936834010404e-17
+    ],
+    [
+      -0.6260000467300415,
+      -9.453685093468493e-17
+    ],
+    [
+      -0.6260000467300415,
+      -9.6384865067357e-17
+    ],
+    [
+      -0.6260000467300415,
+      -9.749932219792724e-17
+    ],
+    [
+      -0.6260000467300415,
+      -9.787176523181292e-17
+    ],
+    [
+      -0.6260000467300415,
+      -9.749932219792724e-17
+    ],
+    [
+      -0.6260000467300415,
+      -9.6384865067357e-17
+    ],
+    [
+      -0.6260000467300415,
+      -9.453685093468493e-17
+    ],
+    [
+      -0.6260000467300415,
+      -9.196936834010404e-17
+    ],
+    [
+      -0.6260000467300415,
+      -8.870193212862567e-17
+    ],
+    [
+      -0.6260000467300415,
+      -8.475943051052033e-17
+    ],
+    [
+      -0.6260000467300415,
+      -8.017185374607674e-17
+    ],
+    [
+      -0.6260000467300415,
+      -7.497411547458953e-17
+    ],
+    [
+      -0.6260000467300415,
+      -6.920578139911834e-17
+    ],
+    [
+      -0.6260000467300415,
+      -6.291075826657749e-17
+    ],
+    [
+      -0.6260000467300415,
+      -5.613693652571134e-17
+    ],
+    [
+      -0.6260000467300415,
+      -4.893588261590646e-17
+    ],
+    [
+      -0.6260000467300415,
+      -4.13623922896608e-17
+    ],
+    [
+      -0.6260000467300415,
+      -3.347411341822441e-17
+    ],
+    [
+      -0.6260000467300415,
+      -2.5331074498650262e-17
+    ],
+    [
+      -0.6260000467300415,
+      -1.6995252865514507e-17
+    ],
+    [
+      -0.6260000467300415,
+      -8.530085827174447e-18
+    ],
+    [
+      -0.6260000467300415,
+      -2.397166674785484e-32
+    ]
+  ],
+  "vertices": 4015,
+  "triangles": 7632
+}

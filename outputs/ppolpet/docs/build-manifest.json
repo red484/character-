@@ -1,0 +1,13 @@
+{
+  "rendererHash": "7f1585dd3aac589773adc6d7761418b3b750b3683e97cb19725fbbfc69b26cc5",
+  "presetHash": "133fa47f85a6e872cb1b2da37b6867585bef39c6dfead71b91b2a722e4a1bbb2",
+  "referenceHashes": {
+    "angel": "6c8a039784a249f2f1dc3fced3d352dadcc9603b78daf5efc828b7892a730408",
+    "bear": "f6cf10081d7cb4ba087f24c564f50b3c33005b1725bb6eddea1fe90ac119c8ad",
+    "starlight": "b6297834f3c64c1e6057765ea628b0d303a9154a9f13c9019008172ea83fb045",
+    "bunny": "8cbe9d7c216a0d5c44e64b363268d1eed7e8cd9f32abf379b512b6fd6bccb747",
+    "apricot": "4ca366119b3b0a4ba26b67320035d0a6eb2b7337b968df6e4fb07aed843e2848",
+    "cloud": "f66352d57aba1e9def982579b806747767fa15880dc7562e31f3449a89c7311c"
+  },
+  "referencePolicy": "Starlight frozen 2026-10-13: approved profile k, side75 face placement, preserved seated/lie/wave poses and existing gait. Other characters await approval."
+}

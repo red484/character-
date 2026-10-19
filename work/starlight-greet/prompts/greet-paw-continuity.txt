@@ -1,0 +1,8 @@
+Use case: precise-object-edit. Edit the supplied 4 columns x 2 rows transparent sprite atlas. This is an animation consistency repair, NOT a redesign. Keep every head, face, ear, torso, feet, tail, pose scale, lighting, canvas grid and position unchanged.
+KEEP ALL ARMS SHORT like frame 3 (top row third cell). Its small rounded raised paw is the canonical arm length. There must NEVER be a long horizontal forearm.
+Only these corrections:
+1. Frame 2 (top row second): the little raised paw already starts rotating toward the camera. Paint the SAME pink pawpads as frame3, but slightly side-on/foreshortened and partially visible on its surface. One soft pink central pad plus three tiny toes, paler narrower than frame3. It must not be a plain purple hand before suddenly gaining pads.
+2. Frame7 (bottom row third): same partial pink pawpads visible while lowering the short paw, matching frame2.
+3. Frame4 (top row fourth): VERY small wrist-angle change relative frame3, about 10 degrees outward. Keep same compact bean-shaped paw dimensions and SAME shoulder-to-tip distance. Paw center stays at almost same point, at most 5 pixels sideways. No extension, stretching, bigger arm, longer wrist, or horizontal sausage. Three toe pads and central pad rotate with the palm.
+4. Frame6 (bottom row second): same tiny wrist-angle change, short bent arm identical length to frames3/5. Small angular wave, NOT reaching out.
+Frames1,3,5,8 unchanged. No other changes. True transparent background preserved. No labels, motion strokes or decorative extras. All eight cells full coherent character, no detached parts.

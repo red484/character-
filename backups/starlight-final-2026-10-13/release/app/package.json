@@ -1,0 +1,33 @@
+{
+  "name": "ppolpet",
+  "productName": "뽈뽈펫",
+  "version": "1.0.0",
+  "description": "꾸민 캐릭터가 바탕화면을 뽈뽈 돌아다니는 데스크톱 펫",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win"
+  },
+  "dependencies": {
+    "three": "0.149.0"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "io.github.ppolpet",
+    "productName": "PpolPet",
+    "files": ["*.js", "*.html", "build/**", "node_modules/three/build/three.min.js", "node_modules/three/package.json"],
+    "protocols": [{ "name": "PpolPet", "schemes": ["ppolpet"] }],
+    "fileAssociations": [{ "ext": "ppol", "name": "PpolPet Character", "role": "Viewer" }],
+    "mac": {
+      "target": [{ "target": "dmg", "arch": ["universal"] }],
+      "category": "public.app-category.entertainment",
+      "extendInfo": { "LSUIElement": true }
+    },
+    "win": { "target": [{ "target": "nsis", "arch": ["x64"] }] },
+    "nsis": { "oneClick": true, "perMachine": false }
+  }
+}

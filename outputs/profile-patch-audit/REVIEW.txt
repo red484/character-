@@ -1,0 +1,14 @@
+Patch applied verbatim to shared/pet-render.js. No aesthetic corrections made.
+Full backup: backups/profile-patch-20261013-171424/ppolpet
+Incoming archive extracted: work/profile-patch-incoming-20261013-171424
+Build and behavior.test.js PASS; app renderer generated from shared renderer.
+Presets unchanged. Geometry and pose functions unchanged in diff.
+Browser WebGL: real rendering successful, no CDN blocker.
+Actual baseline comparison: 0 degrees pixel identical; 45 degrees NOT identical (old sideExpression already active there).
+All five other preset 90-degree snapshots identical. perch/sit/lie/wave 0-degree snapshots identical.
+Observed actual walk frames change; standing and walking render successfully.
+Profile ring and black eye separate at 90. Nose is UV pigment; patch does not snap its position to geometric frontmost vertex, so exact nose-tip alignment is not guaranteed.
+Continuous rotation audit: profileBlendForYaw(-90deg)=1, +90deg=1, +270deg=0. Missing angle normalization produces asymmetric full-turn behavior. Existing realtime renderer refreshes face in 5-degree buckets; transition cannot be called fully continuous.
+Patch viewer originalFront/before90 bypass profile correction and are NOT full old-renderer comparisons. Separate audit uses backed-up renderer.
+Workshop loads; persistence/encoding covered by existing tests, not a full manual end-to-end save/restore UI test.
+No additional renderer changes made after finding issues. Await user review.

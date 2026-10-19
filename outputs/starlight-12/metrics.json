@@ -1,0 +1,86 @@
+{
+  "headScaleUnchanged": true,
+  "bodyUnchanged": true,
+  "alignment": {
+    "height": 400,
+    "baseline": 490,
+    "uniformScale": true,
+    "sharedCrop": true
+  },
+  "silhouettes": [
+    {
+      "x": 141,
+      "y": 128,
+      "width": 518,
+      "height": 576,
+      "chin": 520,
+      "headPercent": 68.2
+    },
+    {
+      "x": 142,
+      "y": 125,
+      "width": 516,
+      "height": 579,
+      "chin": 519,
+      "headPercent": 68.2
+    }
+  ],
+  "seatedChangedPixels": 0,
+  "standToSeatedChangedPixels": 0,
+  "standMetrics": {
+    "characterScale": [
+      1,
+      1,
+      1
+    ],
+    "headScale": [
+      0.98,
+      0.98,
+      0.98
+    ],
+    "bodyScale": [
+      0.3852982521057129,
+      0.31439267098903656,
+      0.23010867834091187
+    ],
+    "neckToHip": 0.18324379026889792,
+    "feet": [
+      {
+        "floorY": 0,
+        "z": 0,
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "floorY": 0,
+        "z": 0,
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    "arms": [
+      {
+        "rotationX": 0,
+        "position": [
+          -0.315,
+          0.615,
+          0.005
+        ]
+      },
+      {
+        "rotationX": 0,
+        "position": [
+          0.315,
+          0.615,
+          0.005
+        ]
+      }
+    ]
+  }
+}

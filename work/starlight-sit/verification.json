@@ -1,0 +1,32 @@
+{
+  "status": "사용자 검수 대기",
+  "frames": 8,
+  "frameSize": [
+    256,
+    288
+  ],
+  "groundY": 260,
+  "headTranslationPixels": [
+    0,
+    1.5,
+    5,
+    10,
+    0,
+    0,
+    0,
+    0
+  ],
+  "approvedIdleUnchanged": {
+    "tilt-renderer.js": true,
+    "motion.json": true,
+    "verification.json": true,
+    "player.js": true
+  },
+  "atlasSha256": "660871ce594e74cb65fac407459a3caa55c0d9fb9b622f04255d89b1825f8bbc",
+  "browser": "Loaded and played; pause/restart, intermediate frame and final pose inspected; no console errors",
+  "limitations": [
+    "생성 프레임이므로 원본 시트와 픽셀 단위 동일하지 않음",
+    "뒤쪽 꼬리가 정면에서도 보임",
+    "앉기만 구현: 반복 시 시작 자세로 리셋, 일어서기 없음"
+  ]
+}

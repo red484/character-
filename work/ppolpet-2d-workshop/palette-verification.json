@@ -1,0 +1,535 @@
+{
+  "status": "complete",
+  "pass": true,
+  "scope": "3 playback samples for each of 8 Starlight motions; default pixel identity and alpha preservation. Visibility/quality reviewed separately.",
+  "rows": [
+    {
+      "motion": "idle",
+      "samples": [
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 140753,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 4007,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 7458,
+              "alpha": 0
+            }
+          }
+        },
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 140522,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 3995,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 7455,
+              "alpha": 0
+            }
+          }
+        },
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 140345,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 4008,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 7436,
+              "alpha": 0
+            }
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "motion": "walk",
+      "samples": [
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 92837,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 3550,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 3993,
+              "alpha": 0
+            }
+          }
+        },
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 95378,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 3539,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 3962,
+              "alpha": 0
+            }
+          }
+        },
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 89849,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 3538,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 3988,
+              "alpha": 0
+            }
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "motion": "sit",
+      "samples": [
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 132441,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 4434,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 7178,
+              "alpha": 0
+            }
+          }
+        },
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 132441,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 4434,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 7178,
+              "alpha": 0
+            }
+          }
+        },
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 133325,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 4496,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 7394,
+              "alpha": 0
+            }
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "motion": "lie",
+      "samples": [
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 107733,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 1119,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 2880,
+              "alpha": 0
+            }
+          }
+        },
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 106855,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 1140,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 2948,
+              "alpha": 0
+            }
+          }
+        },
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 104439,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 1139,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 2966,
+              "alpha": 0
+            }
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "motion": "greet",
+      "samples": [
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 131029,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 4519,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 7534,
+              "alpha": 0
+            }
+          }
+        },
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 131029,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 4519,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 7534,
+              "alpha": 0
+            }
+          }
+        },
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 133434,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 4444,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 8778,
+              "alpha": 0
+            }
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "motion": "special",
+      "samples": [
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 113774,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 1590,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 6822,
+              "alpha": 0
+            }
+          }
+        },
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 113774,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 2739,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 6825,
+              "alpha": 0
+            }
+          }
+        },
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 113155,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 2568,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 7038,
+              "alpha": 0
+            }
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "motion": "sulk",
+      "samples": [
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 134602,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 3731,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 7294,
+              "alpha": 0
+            }
+          }
+        },
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 134602,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 3731,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 7294,
+              "alpha": 0
+            }
+          }
+        },
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 137362,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 3720,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 7399,
+              "alpha": 0
+            }
+          }
+        }
+      ],
+      "pass": true
+    },
+    {
+      "motion": "expressions",
+      "samples": [
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 132903,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 4791,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 7696,
+              "alpha": 0
+            }
+          }
+        },
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 132940,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 4811,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 7679,
+              "alpha": 0
+            }
+          }
+        },
+        {
+          "default": {
+            "rgb": 0,
+            "alpha": 0
+          },
+          "channels": {
+            "fur": {
+              "rgb": 132904,
+              "alpha": 0
+            },
+            "gold": {
+              "rgb": 4816,
+              "alpha": 0
+            },
+            "pink": {
+              "rgb": 7723,
+              "alpha": 0
+            }
+          }
+        }
+      ],
+      "pass": true
+    }
+  ]
+}

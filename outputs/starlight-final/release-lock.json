@@ -1,0 +1,14 @@
+{
+  "release": "starlight-final-2026-10-13",
+  "files": {
+    "shared/pet-render.js": "7f1585dd3aac589773adc6d7761418b3b750b3683e97cb19725fbbfc69b26cc5",
+    "shared/presets.js": "133fa47f85a6e872cb1b2da37b6867585bef39c6dfead71b91b2a722e4a1bbb2",
+    "web/starlight-final.js": "1cd703652d7136d64152e1daf27140bca1168da66386ffa30c610e767ec0c99c",
+    "web/starlight-final.src.html": "ee82e1fa7c1488d412be523f3b835f60bb4f3b8186b34fd6cfd4a119f422a28e"
+  },
+  "model": "k",
+  "facePlacement": "side75",
+  "eyeHeight": 0.02,
+  "renderer": "shared/pet-render.js",
+  "scope": "Starlight only; other five characters not generated"
+}

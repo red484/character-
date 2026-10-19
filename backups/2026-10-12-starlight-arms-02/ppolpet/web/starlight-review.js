@@ -1,0 +1,46 @@
+(async function(){
+'use strict';
+const $=s=>document.querySelector(s),P=window.PpolPet,cfg=window.PpolPresets.presetConfig(window.PpolPresets.PRESETS[2]),N=400;
+const canvas=()=>Object.assign(document.createElement('canvas'),{width:N,height:N});
+const load=src=>new Promise((resolve,reject)=>{const i=new Image();i.onload=()=>resolve(i);i.onerror=reject;i.src=src;});
+const version=$('script[data-renderer-version]').dataset.rendererVersion;
+document.documentElement.dataset.rendererVersion=version;
+$('#version').textContent='공통 Renderer SHA-256 · '+version+' / 공통 프리셋 · starlight-v1';
+let live;$('#live-detail').addEventListener('toggle',e=>{if(e.target.open&&!live){live=P.createPet($('#live'),cfg);live.setState('perch');live.setAngle(0);}});
+try{const saved=localStorage.getItem('ppolpet-draft');$('#storage-status').textContent=saved?'저장된 친구: '+P.normalize(JSON.parse(saved)).name+' / 비교: 별빛냥 고정 프리셋. 저장값 미사용.':'저장 설정 없음. 별빛냥 고정 프리셋 사용.';}catch(e){$('#storage-status').textContent='저장값 읽기 불가. 기본 별빛냥으로 진행.';}
+function maskOf(c,reference){const {width:w,height:h}=c,d=c.getContext('2d').getImageData(0,0,w,h).data,m=new Uint8Array(w*h);for(let i=0;i<m.length;i++){const [r,g,b,a]=d.slice(i*4,i*4+4);m[i]=reference?(a>200&&b>r+4&&b>g+12&&r<245):a>245;}return m;}
+function bounds(m,w,h){let l=w,r=0,t=h,b=0;for(let y=0;y<h;y++)for(let x=0;x<w;x++)if(m[y*w+x]){l=Math.min(l,x);r=Math.max(r,x);t=Math.min(t,y);b=Math.max(b,y);}return {l,r,t,b};}
+function solid(m,w,h){const outside=new Uint8Array(w*h),q=[];function add(i){if(i>=0&&i<m.length&&!m[i]&&!outside[i]){outside[i]=1;q.push(i);}}for(let x=0;x<w;x++){add(x);add((h-1)*w+x);}for(let y=0;y<h;y++){add(y*w);add(y*w+w-1);}for(let k=0;k<q.length;k++){const i=q[k],x=i%w;if(x>0)add(i-1);if(x<w-1)add(i+1);add(i-w);add(i+w);}return Uint8Array.from(m,(v,i)=>v||!outside[i]?1:0);}
+function normalize(image,reference){const raw=document.createElement('canvas');raw.width=reference?280:image.width;raw.height=reference?280:image.height;const g=raw.getContext('2d');if(reference)g.drawImage(image,48,245,280,280,0,0,280,280);else g.drawImage(image,0,0);const b=bounds(maskOf(raw,reference),raw.width,raw.height),scale=258/(b.r-b.l+1),out=canvas();out.getContext('2d').drawImage(raw,200-(b.l+b.r)/2*scale,350-b.b*scale,raw.width*scale,raw.height*scale);return out;}
+function feature(c,predicate,region){const d=c.getContext('2d').getImageData(0,0,N,N).data;let sx=0,sy=0,n=0,l=N,r=0,t=N,b=0;for(let y=region[1];y<region[3];y++)for(let x=region[0];x<region[2];x++){const i=(y*N+x)*4;if(predicate(d[i],d[i+1],d[i+2],d[i+3])){sx+=x;sy+=y;n++;l=Math.min(l,x);r=Math.max(r,x);t=Math.min(t,y);b=Math.max(b,y);}}return n?{x:sx/n,y:sy/n,l,r,t,b}:null;}
+function analyze(c,isReference){const m=solid(maskOf(c,isReference),N,N),rows=[];for(let y=0;y<N;y++){let l=N,r=-1;for(let x=0;x<N;x++)if(m[y*N+x]){l=Math.min(l,x);r=Math.max(r,x);}rows.push({l,r,w:r<0?0:r-l+1});}
+const bb=bounds(m,N,N);let top=bb.t;for(let y=bb.t;y<200;y++){if(m[y*N+200]){top=y;break;}}
+let bottom=top,wide=false;for(let y=top;y<330;y++){if(rows[y].w>258*.43){wide=true;bottom=y;}else if(wide)break;}
+const ear=side=>{const lo=side<0?70:225,hi=side<0?175:330;let tip=null,base=null;for(let y=bb.t;y<=top+2;y++){const xs=[];for(let x=lo;x<hi;x++)if(m[y*N+x])xs.push(x);if(xs.length>=3){if(!tip)tip={x:(xs[0]+xs.at(-1))/2,y};base={x:(xs[0]+xs.at(-1))/2,y};}}return tip&&base?{...tip,angle:Math.atan2(tip.x-base.x,Math.max(1,base.y-tip.y))*180/Math.PI,base}:null;};
+const gold=(r,g,b,a)=>a>200&&r>150&&g>140&&g>b*1.055&&r>g*.96;
+const pink=(r,g,b,a)=>a>200&&r>b+8&&r>g+22&&b>g+8;
+return {mask:m,rows,head:{top,bottom,width:258,height:bottom-top+1,ratio:258/(bottom-top+1)},ears:[ear(-1),ear(1)],eyes:[feature(c,gold,[110,top+55,190,bottom]),feature(c,gold,[210,top+55,290,bottom])],cheeks:[feature(c,pink,[80,top+70,150,bottom]),feature(c,pink,[250,top+70,320,bottom])],bodyWidth:Math.max(0,...rows.slice(bottom+4,320).map(r=>r.w)),feetWidth:Math.max(...rows.slice(320,351).map(r=>r.w))};}
+function grid(c){const g=c.getContext('2d');g.save();g.strokeStyle='#ddd5e7';g.setLineDash([3,5]);g.beginPath();g.moveTo(200,30);g.lineTo(200,380);g.moveTo(28,350);g.lineTo(372,350);g.stroke();g.restore();}
+function display(target,source){const g=target.getContext('2d');g.fillStyle='#fffdfd';g.fillRect(0,0,N,N);g.drawImage(source,0,0);grid(target);}
+function outline(g,m,color){g.fillStyle=color;for(let y=1;y<N-1;y++)for(let x=1;x<N-1;x++){const i=y*N+x;if(m[i]&&(!m[i-1]||!m[i+1]||!m[i-N]||!m[i+N]))g.fillRect(x,y,1,1);}}
+function markers(g,a,color){g.fillStyle=color;g.strokeStyle=color;g.font='9px system-ui';for(const [name,points]of [['E',a.eyes],['C',a.cheeks],['T',a.ears]])points.forEach((p,i)=>{if(!p)return;g.beginPath();g.arc(p.x,p.y,3,0,7);g.stroke();g.fillText(name+(i?'R':'L'),p.x+5,p.y-5);if(name==='T'){g.beginPath();g.moveTo(p.x,p.y);g.lineTo(p.base.x,p.base.y);g.stroke();}});}
+function iou(a,b){let intersection=0,union=0;for(let i=0;i<a.length;i++){if(a[i]&&b[i])intersection++;if(a[i]||b[i])union++;}return intersection/union;}
+function maeRows(a,b,start,end){let sum=0,n=0;for(let y=start;y<=end;y++){if(a.rows[y]?.w&&b.rows[y]?.w){sum+=Math.abs(a.rows[y].l-b.rows[y].l)+Math.abs(a.rows[y].r-b.rows[y].r);n+=2;}}return sum/n;}
+const point=p=>p?`${p.x.toFixed(1)}, ${p.y.toFixed(1)}`:'미검출',dist=(a,b)=>a&&b?Math.hypot(a.x-b.x,a.y-b.y):NaN;
+try{
+const [refImg,beforeImg]=await Promise.all([load('../references/starlight.png'),load('review-assets/starlight-before.png')]);
+const currentURL=P.renderImage(cfg,'full',800,'perch'),afterImg=await load(currentURL);
+const images=[normalize(refImg,true),normalize(beforeImg,false),normalize(afterImg,false)],data=images.map((c,i)=>analyze(c,i===0));
+['reference','before','after'].forEach((id,i)=>display($('#'+id),images[i]));
+const ref=data[0];
+const comparisons=data.map(a=>({iou:iou(ref.mask,a.mask),headEdgeError:maeRows(ref,a,ref.head.top,ref.head.bottom),eyeError:(dist(ref.eyes[0],a.eyes[0])+dist(ref.eyes[1],a.eyes[1]))/2,cheekError:(dist(ref.cheeks[0],a.cheeks[0])+dist(ref.cheeks[1],a.cheeks[1]))/2}));
+const rows=[['머리 너비 / 높이',a=>`258 / ${a.head.height}px`],['머리 가로÷세로',a=>a.head.ratio.toFixed(3)],['왼쪽 귀 꼭대기 (x,y)',a=>point(a.ears[0])],['오른쪽 귀 꼭대기 (x,y)',a=>point(a.ears[1])],['귀 노출부 기울기 좌 / 우',a=>a.ears.map(e=>e?e.angle.toFixed(1)+'°':'미검출').join(' / ')],['왼쪽 눈 중심 (x,y)',a=>point(a.eyes[0])],['오른쪽 눈 중심 (x,y)',a=>point(a.eyes[1])],['왼쪽 볼 중심 (x,y)',a=>point(a.cheeks[0])],['오른쪽 볼 중심 (x,y)',a=>point(a.cheeks[1])],['노출된 몸통 최대 폭',a=>a.bodyWidth+'px'],['양발 전체 최대 폭',a=>a.feetWidth+'px']];
+$('#metrics').innerHTML=rows.map(([name,fn])=>`<tr><td>${name}</td>${data.map(a=>`<td>${fn(a)}</td>`).join('')}</tr>`).join('')+[['전체 외곽선 IoU ↑','iou',v=>(v*100).toFixed(1)+'%'],['머리 좌우 외곽선 평균 오차 ↓','headEdgeError',v=>v.toFixed(1)+'px'],['눈 중심 평균 거리 오차 ↓','eyeError',v=>v.toFixed(1)+'px'],['볼 중심 평균 거리 오차 ↓','cheekError',v=>v.toFixed(1)+'px']].map(([name,key,format])=>`<tr><td>${name}</td>${comparisons.map(a=>`<td>${format(a[key])}</td>`).join('')}</tr>`).join('');
+function overlays(){const alpha=+$('#opacity').value/100;$('#opacity-value').textContent=Math.round(alpha*100)+'%';['overlay-before','overlay-after'].forEach((id,k)=>{const c=$('#'+id),g=c.getContext('2d');g.globalAlpha=1;g.fillStyle='#fffdfd';g.fillRect(0,0,N,N);g.drawImage(images[0],0,0);g.globalAlpha=alpha;g.drawImage(images[k+1],0,0);g.globalAlpha=1;if($('#contours').checked){outline(g,data[0].mask,'#ce568e');outline(g,data[k+1].mask,'#008f94');}if($('#landmarks').checked){markers(g,data[0],'#bc3a7c');markers(g,data[k+1],'#00898f');}grid(c);});const pair=document.createElement('canvas');pair.width=800;pair.height=400;pair.getContext('2d').drawImage($('#overlay-before'),0,0);pair.getContext('2d').drawImage($('#overlay-after'),400,0);$('#overlay-save').href=pair.toDataURL();$('#overlay-save').download=`starlight-overlay-${Math.round(alpha*100)}.png`;}
+$('#opacity').oninput=overlays;$('#contours').onchange=overlays;$('#landmarks').onchange=overlays;$('#half').onclick=()=>{$('#opacity').value=50;overlays();};overlays();
+function mode(overlay){$('#comparison').classList.toggle('hidden',overlay);$('#overlay-section').classList.toggle('hidden',!overlay);$('#comparison-tab').setAttribute('aria-pressed',String(!overlay));$('#overlay-tab').setAttribute('aria-pressed',String(overlay));}$('#comparison-tab').onclick=()=>mode(false);$('#overlay-tab').onclick=()=>mode(true);
+const exportData={rendererHash:version,config:cfg,method:'400x400; width258 center200 floor350; front perspective; color/alpha segmentation with enclosed-hole fill; approximate image-space ear angle',measurements:data.map(({mask,rows,...a})=>a),comparisons};
+$('#metrics-save').href=URL.createObjectURL(new Blob([JSON.stringify(exportData,null,2)],{type:'application/json'}));$('#after-save').href=currentURL;
+const triptych=document.createElement('canvas');triptych.width=1200;triptych.height=440;const tg=triptych.getContext('2d');tg.fillStyle='#fffdfd';tg.fillRect(0,0,1200,440);tg.fillStyle='#5b436f';tg.font='18px system-ui';['원본 PNG','수정 전','수정 후'].forEach((s,i)=>{tg.fillText(s,i*400+20,28);tg.drawImage($('#'+['reference','before','after'][i]),i*400,40);});$('#comparison-save').href=triptych.toDataURL();
+}catch(e){$('#error').textContent='비교 렌더링 오류: '+e.message;console.error(e);}
+})();

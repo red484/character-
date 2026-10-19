@@ -1,0 +1,37 @@
+{
+  "configurations": 162,
+  "poseSamples": 58806,
+  "checks": [
+    "JSON roundtrip",
+    "two arms / two legs",
+    "rigid face ratio",
+    "at least one grounded foot",
+    "no foot penetration",
+    "constant arm length",
+    "neck overlap",
+    "left/right half-cycle symmetry",
+    "sitting holds",
+    "input limits"
+  ],
+  "date": "2026-10-19",
+  "browserErrors": [],
+  "browserChecked": [
+    "default idle",
+    "alternating front walk",
+    "bunny + curved tail + tall body sitting",
+    "round ears + no tail + short body idle",
+    "save/reset/load",
+    "HTML download"
+  ],
+  "offlineFileOpen": "not verified: file protocol denied by browser policy",
+  "approvedBaselineFiles": 239,
+  "approvedBaselineChanged": 0,
+  "assetTool": "built-in imagegen",
+  "productionWorkshopModified": false,
+  "desktopAppIntegrated": false,
+  "automatedChecksPass": true,
+  "visualApproval": "rejected-by-user",
+  "productionEligible": false,
+  "rejectionDate": "2026-10-19",
+  "reason": "Generated modular art lost the approved soft face and compact body impression. Do not use as appearance baseline."
+}

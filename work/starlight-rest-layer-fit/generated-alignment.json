@@ -1,0 +1,154 @@
+{
+  "transform": {
+    "x": 248.5,
+    "y": 841.9,
+    "scale": 0.151
+  },
+  "landmarks": [
+    {
+      "name": "머리 위",
+      "group": "head",
+      "reference": [
+        344,
+        878
+      ],
+      "candidate": [
+        352.69,
+        877.536
+      ],
+      "candidatePixel": [
+        690,
+        236
+      ]
+    },
+    {
+      "name": "턱 아래",
+      "group": "head",
+      "reference": [
+        335,
+        974
+      ],
+      "candidate": [
+        346.65,
+        974.478
+      ],
+      "candidatePixel": [
+        650,
+        878
+      ]
+    },
+    {
+      "name": "왼쪽 귀 끝",
+      "group": "ears",
+      "reference": [
+        289,
+        876
+      ],
+      "candidate": [
+        290.327,
+        875.7239999999999
+      ],
+      "candidatePixel": [
+        277,
+        224
+      ]
+    },
+    {
+      "name": "오른쪽 귀 끝",
+      "group": "ears",
+      "reference": [
+        381,
+        860
+      ],
+      "candidate": [
+        401.61400000000003,
+        866.362
+      ],
+      "candidatePixel": [
+        1014,
+        162
+      ]
+    },
+    {
+      "name": "왼쪽 눈 중심",
+      "group": "eyes",
+      "reference": [
+        305,
+        954
+      ],
+      "candidate": [
+        309.353,
+        961.1899999999999
+      ],
+      "candidatePixel": [
+        403,
+        790
+      ]
+    },
+    {
+      "name": "오른쪽 눈 중심",
+      "group": "eyes",
+      "reference": [
+        365,
+        945
+      ],
+      "candidate": [
+        374.283,
+        956.509
+      ],
+      "candidatePixel": [
+        833,
+        759
+      ]
+    },
+    {
+      "name": "코 중심",
+      "group": "nose",
+      "reference": [
+        335,
+        953
+      ],
+      "candidate": [
+        341.365,
+        961.1899999999999
+      ],
+      "candidatePixel": [
+        615,
+        790
+      ]
+    },
+    {
+      "name": "몸 뒤쪽",
+      "group": "body",
+      "reference": [
+        443,
+        933
+      ],
+      "candidate": [
+        449.33,
+        940.05
+      ],
+      "candidatePixel": [
+        1330,
+        650
+      ]
+    },
+    {
+      "name": "뒷발 중심",
+      "group": "body",
+      "reference": [
+        450,
+        959
+      ],
+      "candidate": [
+        449.93399999999997,
+        956.962
+      ],
+      "candidatePixel": [
+        1334,
+        762
+      ]
+    }
+  ],
+  "note": "수동으로 표시한 기준점의 근사 오차입니다. 자동 검출이나 원본 일치 판정이 아닙니다. 정지 자세 검수 후보이며 움직임 제작은 보류했습니다."
+}

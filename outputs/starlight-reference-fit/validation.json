@@ -1,0 +1,146 @@
+{
+  "metrics": {
+    "normalization": "uniform head-width scale, top aligned; aspect ratio NOT warped",
+    "referenceManualHeadBounds": [
+      115,
+      300,
+      969,
+      995
+    ],
+    "headHeightMismatchPx": 9.21,
+    "landmarkMethod": "manual reference centres versus closest physical mesh surface sample; not automatic image detection",
+    "errors": [
+      {
+        "part": "eye",
+        "targetPx": [
+          372.94,
+          224.6
+        ],
+        "surfaceSamplePx": [
+          374.47,
+          221.3
+        ],
+        "distancePx": 3.64
+      },
+      {
+        "part": "ring",
+        "targetPx": [
+          337.01,
+          257.1
+        ],
+        "surfaceSamplePx": [
+          337.7,
+          257.9
+        ],
+        "distancePx": 1.05
+      },
+      {
+        "part": "blush",
+        "targetPx": [
+          339.41,
+          268.73
+        ],
+        "surfaceSamplePx": [
+          334.97,
+          270.74
+        ],
+        "distancePx": 4.86
+      },
+      {
+        "part": "nose",
+        "targetPx": [
+          394.5,
+          245.13
+        ],
+        "surfaceSamplePx": [
+          395.52,
+          243.3
+        ],
+        "distancePx": 2.1
+      }
+    ]
+  },
+  "audit": {
+    "closed360PixelsIdentical": true,
+    "seatedPixelsIdentical": false,
+    "frontFaceIntentionallyDifferent": true,
+    "candidate": {
+      "candidate": true,
+      "geometryChanged": true,
+      "maxDeltaZ": 0.057104108992388936,
+      "xyUnchanged": true,
+      "otherPartsChanged": false,
+      "fixedTexture": true,
+      "referenceLandmarks": {
+        "eye": [
+          903,
+          704,
+          17,
+          56
+        ],
+        "ring": [
+          798,
+          799,
+          82,
+          84
+        ],
+        "blush": [
+          805,
+          833,
+          73,
+          37
+        ],
+        "nose": [
+          966,
+          764,
+          7,
+          14
+        ]
+      },
+      "textureSize": [
+        2048,
+        1024
+      ]
+    },
+    "seated": {
+      "candidate": true,
+      "geometryChanged": true,
+      "maxDeltaZ": 0.030909636415044184,
+      "xyUnchanged": true,
+      "otherPartsChanged": false,
+      "fixedTexture": true,
+      "referenceLandmarks": {
+        "eye": [
+          903,
+          704,
+          17,
+          56
+        ],
+        "ring": [
+          798,
+          799,
+          82,
+          84
+        ],
+        "blush": [
+          805,
+          833,
+          73,
+          37
+        ],
+        "nose": [
+          966,
+          764,
+          7,
+          14
+        ]
+      },
+      "textureSize": [
+        2048,
+        1024
+      ]
+    },
+    "model": "one unchanged pose per side; constant geometry across angles; fixed UV eyes and cheeks, shallow 3D nose cap on candidate",
+    "scope": "internal review only"
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "size": [
+    256,
+    192
+  ],
+  "sourceSize": [
+    196,
+    129
+  ],
+  "sourceOffset": [
+    30,
+    37
+  ],
+  "groundY": 161,
+  "headScale": [
+    1,
+    1
+  ],
+  "motion": "supported crouch → forelimb fold → source lying pose",
+  "states": {
+    "settle": [
+      {
+        "file": "frames/settle-01.svg",
+        "duration": 0.28,
+        "headY": -24,
+        "headAngle": 3,
+        "bodyAngle": -7,
+        "nearArmAngle": 2,
+        "farArmAngle": 15,
+        "label": "앞발로 지지",
+        "headScale": [
+          1,
+          1
+        ],
+        "faceOffsetsUnchanged": true,
+        "forepawGroundY": 161
+      },
+      {
+        "file": "frames/settle-02.svg",
+        "duration": 0.16,
+        "headY": -23,
+        "headAngle": 2.9,
+        "bodyAngle": -7,
+        "nearArmAngle": 6,
+        "farArmAngle": 17,
+        "label": "앞발을 짚기",
+        "headScale": [
+          1,
+          1
+        ],
+        "faceOffsetsUnchanged": true,
+        "forepawGroundY": 161
+      },
+      {
+        "file": "frames/settle-03.svg",
+        "duration": 0.16,
+        "headY": -20,
+        "headAngle": 2.5,
+        "bodyAngle": -6,
+        "nearArmAngle": 17,
+        "farArmAngle": 25,
+        "label": "팔꿈치 굽히기",
+        "headScale": [
+          1,
+          1
+        ],
+        "faceOffsetsUnchanged": true,
+        "forepawGroundY": 161
+      },
+      {
+        "file": "frames/settle-04.svg",
+        "duration": 0.16,
+        "headY": -16,
+        "headAngle": 2,
+        "bodyAngle": -5,
+        "nearArmAngle": 31,
+        "farArmAngle": 37,
+        "label": "가슴 낮추기",
+        "headScale": [
+          1,
+          1
+        ],
+        "faceOffsetsUnchanged": true,
+        "forepawGroundY": 161
+      },
+      {
+        "file": "frames/settle-05.svg",
+        "duration": 0.18,
+        "headY": -12,
+        "headAngle": 1.8,
+        "bodyAngle": -4,
+        "nearArmAngle": 43,
+        "farArmAngle": 48,
+        "label": "앞발 접기",
+        "headScale": [
+          1,
+          1
+        ],
+        "faceOffsetsUnchanged": true,
+        "forepawGroundY": 161
+      },
+      {
+        "file": "frames/settle-06.svg",
+        "duration": 0.2,
+        "headY": -6,
+        "headAngle": 0.9,
+        "bodyAngle": -2,
+        "nearArmAngle": 62,
+        "farArmAngle": 67,
+        "label": "턱 가까이",
+        "headScale": [
+          1,
+          1
+        ],
+        "faceOffsetsUnchanged": true,
+        "forepawGroundY": 161
+      },
+      {
+        "file": "frames/settle-07.svg",
+        "duration": 0.24,
+        "headY": -2,
+        "headAngle": 0.25,
+        "bodyAngle": -0.6,
+        "nearArmAngle": 76,
+        "farArmAngle": 80,
+        "label": "머리 기대기",
+        "headScale": [
+          1,
+          1
+        ],
+        "faceOffsetsUnchanged": true,
+        "forepawGroundY": 161
+      },
+      {
+        "file": "frames/settle-08.svg",
+        "duration": 0.9,
+        "headY": 0,
+        "headAngle": 0,
+        "bodyAngle": 0,
+        "nearArmAngle": 84,
+        "farArmAngle": 84,
+        "label": "원본 엎드림",
+        "headScale": [
+          1,
+          1
+        ],
+        "faceOffsetsUnchanged": true,
+        "forepawGroundY": 161
+      }
+    ],
+    "rest": [
+      {
+        "file": "frames/rest-01.svg",
+        "duration": 0.4,
+        "headY": 0,
+        "headAngle": 0,
+        "bodyAngle": 0,
+        "nearArmAngle": 84,
+        "farArmAngle": 84,
+        "label": "원본 엎드림",
+        "headScale": [
+          1,
+          1
+        ],
+        "faceOffsetsUnchanged": true,
+        "forepawGroundY": 161
+      },
+      {
+        "file": "frames/rest-02.svg",
+        "duration": 0.4,
+        "headY": 0,
+        "headAngle": 0,
+        "bodyAngle": 0,
+        "nearArmAngle": 84,
+        "farArmAngle": 84,
+        "label": "원본 엎드림",
+        "headScale": [
+          1,
+          1
+        ],
+        "faceOffsetsUnchanged": true,
+        "forepawGroundY": 161
+      },
+      {
+        "file": "frames/rest-03.svg",
+        "duration": 0.4,
+        "headY": 0,
+        "headAngle": 0,
+        "bodyAngle": 0,
+        "nearArmAngle": 84,
+        "farArmAngle": 84,
+        "label": "원본 엎드림",
+        "headScale": [
+          1,
+          1
+        ],
+        "faceOffsetsUnchanged": true,
+        "forepawGroundY": 161
+      },
+      {
+        "file": "frames/rest-04.svg",
+        "duration": 0.4,
+        "headY": 0,
+        "headAngle": 0,
+        "bodyAngle": 0,
+        "nearArmAngle": 84,
+        "farArmAngle": 84,
+        "label": "원본 엎드림",
+        "headScale": [
+          1,
+          1
+        ],
+        "faceOffsetsUnchanged": true,
+        "forepawGroundY": 161
+      },
+      {
+        "file": "frames/rest-05.svg",
+        "duration": 0.4,
+        "headY": 0,
+        "headAngle": 0,
+        "bodyAngle": 0,
+        "nearArmAngle": 84,
+        "farArmAngle": 84,
+        "label": "원본 엎드림",
+        "headScale": [
+          1,
+          1
+        ],
+        "faceOffsetsUnchanged": true,
+        "forepawGroundY": 161
+      },
+      {
+        "file": "frames/rest-06.svg",
+        "duration": 0.4,
+        "headY": 0,
+        "headAngle": 0,
+        "bodyAngle": 0,
+        "nearArmAngle": 84,
+        "farArmAngle": 84,
+        "label": "원본 엎드림",
+        "headScale": [
+          1,
+          1
+        ],
+        "faceOffsetsUnchanged": true,
+        "forepawGroundY": 161
+      },
+      {
+        "file": "frames/rest-07.svg",
+        "duration": 0.4,
+        "headY": 0,
+        "headAngle": 0,
+        "bodyAngle": 0,
+        "nearArmAngle": 84,
+        "farArmAngle": 84,
+        "label": "원본 엎드림",
+        "headScale": [
+          1,
+          1
+        ],
+        "faceOffsetsUnchanged": true,
+        "forepawGroundY": 161
+      },
+      {
+        "file": "frames/rest-08.svg",
+        "duration": 0.4,
+        "headY": 0,
+        "headAngle": 0,
+        "bodyAngle": 0,
+        "nearArmAngle": 84,
+        "farArmAngle": 84,
+        "label": "원본 엎드림",
+        "headScale": [
+          1,
+          1
+        ],
+        "faceOffsetsUnchanged": true,
+        "forepawGroundY": 161
+      }
+    ]
+  }
+}

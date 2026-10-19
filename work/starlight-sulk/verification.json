@@ -1,0 +1,68 @@
+{
+  "atlas": "assets/sulk-v1.png",
+  "playbackSteps": 8,
+  "uniquePoses": 7,
+  "durationSeconds": 3.31,
+  "firstLastSameSource": true,
+  "commonScale": 0.5684754521963824,
+  "normalizedBounds": [
+    [
+      30.22222222222223,
+      40.0,
+      226.34625322997414,
+      259.43152454780363
+    ],
+    [
+      30.506459948320412,
+      40.0,
+      226.63049095607235,
+      259.43152454780363
+    ],
+    [
+      31.074935400516807,
+      40.0,
+      227.19896640826875,
+      259.43152454780363
+    ],
+    [
+      31.92764857881137,
+      37.15762273901811,
+      221.22997416020672,
+      259.43152454780363
+    ],
+    [
+      33.34883720930233,
+      40.568475452196395,
+      220.94573643410854,
+      259.43152454780363
+    ],
+    [
+      32.21188630490957,
+      38.86304909560724,
+      219.80878552971575,
+      259.43152454780363
+    ],
+    [
+      30.506459948320412,
+      40.0,
+      226.63049095607235,
+      259.43152454780363
+    ],
+    [
+      30.22222222222223,
+      40.0,
+      226.34625322997414,
+      259.43152454780363
+    ]
+  ],
+  "noClipping": true,
+  "previousFilesChecked": 228,
+  "previousFilesChanged": [],
+  "status": "user approved",
+  "limitations": [
+    "Generated pose images may have small silhouette variations",
+    "Discrete 7 poses; no intermediate interpolation",
+    "Puff is a separate optional effect, excluded from sprite export"
+  ],
+  "approvalEvidence": "2026-10-14: 굿. 이제 저장."
+}

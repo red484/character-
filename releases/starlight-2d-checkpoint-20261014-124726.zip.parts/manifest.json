@@ -1,0 +1,27 @@
+{
+  "output": "starlight-2d-checkpoint-20261014-124726.zip",
+  "size": 130543237,
+  "sha256": "aad21a435e06c19163ea5e593a494342bca41b0f56c88be12d1c7c47e8d3c19e",
+  "parts": [
+    {
+      "file": "part-001",
+      "size": 41943040,
+      "sha256": "1b9a86c9f09683b710280c6bd699048bdc9c3bbfa293e4947a5a7c6e452eeb39"
+    },
+    {
+      "file": "part-002",
+      "size": 41943040,
+      "sha256": "f6c54ab2a51eb77514451c0f62ef52c89c527b86bf4072d7a492e07503a31bcd"
+    },
+    {
+      "file": "part-003",
+      "size": 41943040,
+      "sha256": "8c5e24f8a17768ace7612ed55158e327de85559446f0d4b8227c598ac555dde9"
+    },
+    {
+      "file": "part-004",
+      "size": 4714117,
+      "sha256": "77bb04682241f733b4a8c33a697a9c4687148f259f1fa85ed10bb7c53cc660d0"
+    }
+  ]
+}

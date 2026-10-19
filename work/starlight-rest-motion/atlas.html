@@ -1,0 +1,3 @@
+<!doctype html><meta charset="utf-8"><style>body{margin:0;background:white}canvas{width:1024px;height:384px}</style><canvas width="1024" height="384" id="atlas"></canvas><script>
+Promise.all(Array.from({length:8},(_,i)=>new Promise((r,j)=>{const im=new Image();im.onload=()=>r(im);im.onerror=j;im.src=`frames/settle-${String(i+1).padStart(2,'0')}.svg`}))).then(ims=>{const c=document.querySelector('canvas'),x=c.getContext('2d');ims.forEach((im,i)=>x.drawImage(im,i%4*256,Math.floor(i/4)*192));c.dataset.ready='true'})
+</script>

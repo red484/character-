@@ -1,0 +1,14 @@
+{
+  "render": "8 whole raster frames; no independently transformed head in current player",
+  "sourceReferenceSHA256": "b6297834f3c64c1e6057765ea628b0d303a9154a9f13c9019008172ea83fb045",
+  "repairedAsset": "assets/seam-repair-v1.png",
+  "method": "built-in imagegen surgical atlas repair",
+  "notPixelIdentical": true,
+  "remainingReview": "facial and shading fidelity against original sheet; complete standing-to-rest not implemented",
+  "checks": [
+    "JavaScript syntax",
+    "browser first/middle/final frame",
+    "8-frame playback controls"
+  ],
+  "backup": "before-seam-fix/"
+}

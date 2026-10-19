@@ -1,0 +1,19 @@
+{
+  "preservedFiles": 143,
+  "changedPreviousFiles": [],
+  "atlas": "assets/look-v2.png",
+  "frames": 8,
+  "uniquePoses": 7,
+  "uniformScale": 0.5851063829787234,
+  "groundY": 260,
+  "loopFirstLastIdentical": true,
+  "browserConsoleErrors": 0,
+  "browserChecks": [
+    "reference and corrected pose visible",
+    "two short joined forepaws",
+    "pads only on feet",
+    "star pop and bob synchronized",
+    "play/restart/frame seeking/0.5x playback"
+  ],
+  "status": "user review pending"
+}
